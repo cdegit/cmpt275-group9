@@ -1,0 +1,595 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EACC678E18037CFE00FEAC76 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACC678D18037CFE00FEAC76 /* UIKit.framework */; };
+		EACC679018037CFE00FEAC76 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACC678F18037CFE00FEAC76 /* Foundation.framework */; };
+		EACC679218037CFE00FEAC76 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACC679118037CFE00FEAC76 /* CoreGraphics.framework */; };
+		EACC679418037CFE00FEAC76 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACC679318037CFE00FEAC76 /* CoreData.framework */; };
+		EACC679A18037CFE00FEAC76 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EACC679818037CFE00FEAC76 /* InfoPlist.strings */; };
+		EACC679C18037CFE00FEAC76 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EACC679B18037CFE00FEAC76 /* main.m */; };
+		EACC67A018037CFE00FEAC76 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EACC679F18037CFE00FEAC76 /* AppDelegate.m */; };
+		EACC67A218037CFE00FEAC76 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = EACC67A118037CFE00FEAC76 /* Default.png */; };
+		EACC67A418037CFE00FEAC76 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EACC67A318037CFE00FEAC76 /* Default@2x.png */; };
+		EACC67A618037CFE00FEAC76 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EACC67A518037CFE00FEAC76 /* Default-568h@2x.png */; };
+		EACC67A918037CFE00FEAC76 /* Social_Solver.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EACC67A718037CFE00FEAC76 /* Social_Solver.xcdatamodeld */; };
+		EACC67B118037CFE00FEAC76 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACC67B018037CFE00FEAC76 /* SenTestingKit.framework */; };
+		EACC67B218037CFE00FEAC76 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACC678D18037CFE00FEAC76 /* UIKit.framework */; };
+		EACC67B318037CFE00FEAC76 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACC678F18037CFE00FEAC76 /* Foundation.framework */; };
+		EACC67B418037CFE00FEAC76 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACC679318037CFE00FEAC76 /* CoreData.framework */; };
+		EACC67BC18037CFE00FEAC76 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EACC67BA18037CFE00FEAC76 /* InfoPlist.strings */; };
+		EACC67BF18037CFE00FEAC76 /* Social_SolverTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EACC67BE18037CFE00FEAC76 /* Social_SolverTests.m */; };
+		EACC67CB18037DA300FEAC76 /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EACC67C918037DA300FEAC76 /* MainMenuViewController.m */; };
+		EACC67CC18037DA300FEAC76 /* MainMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EACC67CA18037DA300FEAC76 /* MainMenuViewController.xib */; };
+		EACC67CF1803816800FEAC76 /* RootNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EACC67CE1803816800FEAC76 /* RootNavigationViewController.m */; };
+		EACC67D9180733CB00FEAC76 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = EACC67D8180733CB00FEAC76 /* User.m */; };
+		EACC67DC1807340700FEAC76 /* GuardianUser.m in Sources */ = {isa = PBXBuildFile; fileRef = EACC67DB1807340700FEAC76 /* GuardianUser.m */; };
+		EACC67DF1807343200FEAC76 /* ChildUser.m in Sources */ = {isa = PBXBuildFile; fileRef = EACC67DE1807343200FEAC76 /* ChildUser.m */; };
+		EACC67E8180B4B6600FEAC76 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EACC67E6180B4B6600FEAC76 /* LoginViewController.m */; };
+		EACC67E9180B4B6600FEAC76 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EACC67E7180B4B6600FEAC76 /* LoginViewController.xib */; };
+		EACC67ED180B4B8D00FEAC76 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EACC67EB180B4B8D00FEAC76 /* GameViewController.m */; };
+		EACC67EE180B4B8D00FEAC76 /* GameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EACC67EC180B4B8D00FEAC76 /* GameViewController.xib */; };
+		EACC67F2180B4BC700FEAC76 /* AccountManagementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EACC67F0180B4BC700FEAC76 /* AccountManagementViewController.m */; };
+		EACC67F3180B4BC700FEAC76 /* AccountManagementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EACC67F1180B4BC700FEAC76 /* AccountManagementViewController.xib */; };
+		EACC67F7180B4C4800FEAC76 /* RewardsGalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EACC67F5180B4C4800FEAC76 /* RewardsGalleryViewController.m */; };
+		EACC67F8180B4C4800FEAC76 /* RewardsGalleryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EACC67F6180B4C4800FEAC76 /* RewardsGalleryViewController.xib */; };
+		EACC67FC180B4C7400FEAC76 /* GuardianMainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EACC67FA180B4C7400FEAC76 /* GuardianMainMenuViewController.m */; };
+		EACC67FD180B4C7400FEAC76 /* GuardianMainMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EACC67FB180B4C7400FEAC76 /* GuardianMainMenuViewController.xib */; };
+		EACC6800180B4ECD00FEAC76 /* UserDatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EACC67FF180B4ECD00FEAC76 /* UserDatabaseManager.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EACC67B518037CFE00FEAC76 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EACC678218037CFE00FEAC76 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EACC678918037CFE00FEAC76;
+			remoteInfo = "Social Solver";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		EACC678A18037CFE00FEAC76 /* Social Solver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Social Solver.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EACC678D18037CFE00FEAC76 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		EACC678F18037CFE00FEAC76 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		EACC679118037CFE00FEAC76 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		EACC679318037CFE00FEAC76 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		EACC679718037CFE00FEAC76 /* Social Solver-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Social Solver-Info.plist"; sourceTree = "<group>"; };
+		EACC679918037CFE00FEAC76 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		EACC679B18037CFE00FEAC76 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		EACC679D18037CFE00FEAC76 /* Social Solver-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Social Solver-Prefix.pch"; sourceTree = "<group>"; };
+		EACC679E18037CFE00FEAC76 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		EACC679F18037CFE00FEAC76 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		EACC67A118037CFE00FEAC76 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		EACC67A318037CFE00FEAC76 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		EACC67A518037CFE00FEAC76 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		EACC67A818037CFE00FEAC76 /* Social_Solver.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Social_Solver.xcdatamodel; sourceTree = "<group>"; };
+		EACC67AF18037CFE00FEAC76 /* Social SolverTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Social SolverTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EACC67B018037CFE00FEAC76 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		EACC67B918037CFE00FEAC76 /* Social SolverTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Social SolverTests-Info.plist"; sourceTree = "<group>"; };
+		EACC67BB18037CFE00FEAC76 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		EACC67BD18037CFE00FEAC76 /* Social_SolverTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Social_SolverTests.h; sourceTree = "<group>"; };
+		EACC67BE18037CFE00FEAC76 /* Social_SolverTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Social_SolverTests.m; sourceTree = "<group>"; };
+		EACC67C818037DA300FEAC76 /* MainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuViewController.h; sourceTree = "<group>"; };
+		EACC67C918037DA300FEAC76 /* MainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuViewController.m; sourceTree = "<group>"; };
+		EACC67CA18037DA300FEAC76 /* MainMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainMenuViewController.xib; path = ViewControllers/MainMenuViewController.xib; sourceTree = "<group>"; };
+		EACC67CD1803816800FEAC76 /* RootNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootNavigationViewController.h; sourceTree = "<group>"; };
+		EACC67CE1803816800FEAC76 /* RootNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootNavigationViewController.m; sourceTree = "<group>"; };
+		EACC67D7180733CB00FEAC76 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		EACC67D8180733CB00FEAC76 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		EACC67DA1807340700FEAC76 /* GuardianUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuardianUser.h; sourceTree = "<group>"; };
+		EACC67DB1807340700FEAC76 /* GuardianUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuardianUser.m; sourceTree = "<group>"; };
+		EACC67DD1807343200FEAC76 /* ChildUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildUser.h; sourceTree = "<group>"; };
+		EACC67DE1807343200FEAC76 /* ChildUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildUser.m; sourceTree = "<group>"; };
+		EACC67E5180B4B6600FEAC76 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		EACC67E6180B4B6600FEAC76 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		EACC67E7180B4B6600FEAC76 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginViewController.xib; path = ViewControllers/LoginViewController.xib; sourceTree = "<group>"; };
+		EACC67EA180B4B8D00FEAC76 /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
+		EACC67EB180B4B8D00FEAC76 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
+		EACC67EC180B4B8D00FEAC76 /* GameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GameViewController.xib; path = ViewControllers/GameViewController.xib; sourceTree = "<group>"; };
+		EACC67EF180B4BC600FEAC76 /* AccountManagementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountManagementViewController.h; sourceTree = "<group>"; };
+		EACC67F0180B4BC700FEAC76 /* AccountManagementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountManagementViewController.m; sourceTree = "<group>"; };
+		EACC67F1180B4BC700FEAC76 /* AccountManagementViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AccountManagementViewController.xib; path = ViewControllers/AccountManagementViewController.xib; sourceTree = "<group>"; };
+		EACC67F4180B4C4800FEAC76 /* RewardsGalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RewardsGalleryViewController.h; sourceTree = "<group>"; };
+		EACC67F5180B4C4800FEAC76 /* RewardsGalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RewardsGalleryViewController.m; sourceTree = "<group>"; };
+		EACC67F6180B4C4800FEAC76 /* RewardsGalleryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RewardsGalleryViewController.xib; path = ViewControllers/RewardsGalleryViewController.xib; sourceTree = "<group>"; };
+		EACC67F9180B4C7400FEAC76 /* GuardianMainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuardianMainMenuViewController.h; sourceTree = "<group>"; };
+		EACC67FA180B4C7400FEAC76 /* GuardianMainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuardianMainMenuViewController.m; sourceTree = "<group>"; };
+		EACC67FB180B4C7400FEAC76 /* GuardianMainMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GuardianMainMenuViewController.xib; path = ViewControllers/GuardianMainMenuViewController.xib; sourceTree = "<group>"; };
+		EACC67FE180B4ECD00FEAC76 /* UserDatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDatabaseManager.h; sourceTree = "<group>"; };
+		EACC67FF180B4ECD00FEAC76 /* UserDatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDatabaseManager.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EACC678718037CFE00FEAC76 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EACC678E18037CFE00FEAC76 /* UIKit.framework in Frameworks */,
+				EACC679018037CFE00FEAC76 /* Foundation.framework in Frameworks */,
+				EACC679218037CFE00FEAC76 /* CoreGraphics.framework in Frameworks */,
+				EACC679418037CFE00FEAC76 /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EACC67AB18037CFE00FEAC76 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EACC67B118037CFE00FEAC76 /* SenTestingKit.framework in Frameworks */,
+				EACC67B218037CFE00FEAC76 /* UIKit.framework in Frameworks */,
+				EACC67B318037CFE00FEAC76 /* Foundation.framework in Frameworks */,
+				EACC67B418037CFE00FEAC76 /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EACC678118037CFE00FEAC76 = {
+			isa = PBXGroup;
+			children = (
+				EACC679518037CFE00FEAC76 /* Social Solver */,
+				EACC67B718037CFE00FEAC76 /* Social SolverTests */,
+				EACC678C18037CFE00FEAC76 /* Frameworks */,
+				EACC678B18037CFE00FEAC76 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EACC678B18037CFE00FEAC76 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EACC678A18037CFE00FEAC76 /* Social Solver.app */,
+				EACC67AF18037CFE00FEAC76 /* Social SolverTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EACC678C18037CFE00FEAC76 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EACC678D18037CFE00FEAC76 /* UIKit.framework */,
+				EACC678F18037CFE00FEAC76 /* Foundation.framework */,
+				EACC679118037CFE00FEAC76 /* CoreGraphics.framework */,
+				EACC679318037CFE00FEAC76 /* CoreData.framework */,
+				EACC67B018037CFE00FEAC76 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EACC679518037CFE00FEAC76 /* Social Solver */ = {
+			isa = PBXGroup;
+			children = (
+				EACC67D6180733AD00FEAC76 /* DataClasses */,
+				EACC67D5180733A000FEAC76 /* ViewControllers */,
+				EACC67D41807339500FEAC76 /* Xibs */,
+				EACC679E18037CFE00FEAC76 /* AppDelegate.h */,
+				EACC679F18037CFE00FEAC76 /* AppDelegate.m */,
+				EACC67A718037CFE00FEAC76 /* Social_Solver.xcdatamodeld */,
+				EACC679618037CFE00FEAC76 /* Supporting Files */,
+			);
+			path = "Social Solver";
+			sourceTree = "<group>";
+		};
+		EACC679618037CFE00FEAC76 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EACC679718037CFE00FEAC76 /* Social Solver-Info.plist */,
+				EACC679818037CFE00FEAC76 /* InfoPlist.strings */,
+				EACC679B18037CFE00FEAC76 /* main.m */,
+				EACC679D18037CFE00FEAC76 /* Social Solver-Prefix.pch */,
+				EACC67A118037CFE00FEAC76 /* Default.png */,
+				EACC67A318037CFE00FEAC76 /* Default@2x.png */,
+				EACC67A518037CFE00FEAC76 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EACC67B718037CFE00FEAC76 /* Social SolverTests */ = {
+			isa = PBXGroup;
+			children = (
+				EACC67BD18037CFE00FEAC76 /* Social_SolverTests.h */,
+				EACC67BE18037CFE00FEAC76 /* Social_SolverTests.m */,
+				EACC67B818037CFE00FEAC76 /* Supporting Files */,
+			);
+			path = "Social SolverTests";
+			sourceTree = "<group>";
+		};
+		EACC67B818037CFE00FEAC76 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EACC67B918037CFE00FEAC76 /* Social SolverTests-Info.plist */,
+				EACC67BA18037CFE00FEAC76 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EACC67D41807339500FEAC76 /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+				EACC67FB180B4C7400FEAC76 /* GuardianMainMenuViewController.xib */,
+				EACC67F6180B4C4800FEAC76 /* RewardsGalleryViewController.xib */,
+				EACC67F1180B4BC700FEAC76 /* AccountManagementViewController.xib */,
+				EACC67EC180B4B8D00FEAC76 /* GameViewController.xib */,
+				EACC67E7180B4B6600FEAC76 /* LoginViewController.xib */,
+				EACC67CA18037DA300FEAC76 /* MainMenuViewController.xib */,
+			);
+			name = Xibs;
+			sourceTree = "<group>";
+		};
+		EACC67D5180733A000FEAC76 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				EACC67EA180B4B8D00FEAC76 /* GameViewController.h */,
+				EACC67EB180B4B8D00FEAC76 /* GameViewController.m */,
+				EACC67C818037DA300FEAC76 /* MainMenuViewController.h */,
+				EACC67C918037DA300FEAC76 /* MainMenuViewController.m */,
+				EACC67CD1803816800FEAC76 /* RootNavigationViewController.h */,
+				EACC67CE1803816800FEAC76 /* RootNavigationViewController.m */,
+				EACC67E5180B4B6600FEAC76 /* LoginViewController.h */,
+				EACC67E6180B4B6600FEAC76 /* LoginViewController.m */,
+				EACC67EF180B4BC600FEAC76 /* AccountManagementViewController.h */,
+				EACC67F0180B4BC700FEAC76 /* AccountManagementViewController.m */,
+				EACC67F4180B4C4800FEAC76 /* RewardsGalleryViewController.h */,
+				EACC67F5180B4C4800FEAC76 /* RewardsGalleryViewController.m */,
+				EACC67F9180B4C7400FEAC76 /* GuardianMainMenuViewController.h */,
+				EACC67FA180B4C7400FEAC76 /* GuardianMainMenuViewController.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		EACC67D6180733AD00FEAC76 /* DataClasses */ = {
+			isa = PBXGroup;
+			children = (
+				EACC67D7180733CB00FEAC76 /* User.h */,
+				EACC67D8180733CB00FEAC76 /* User.m */,
+				EACC67DA1807340700FEAC76 /* GuardianUser.h */,
+				EACC67DB1807340700FEAC76 /* GuardianUser.m */,
+				EACC67DD1807343200FEAC76 /* ChildUser.h */,
+				EACC67DE1807343200FEAC76 /* ChildUser.m */,
+				EACC67FE180B4ECD00FEAC76 /* UserDatabaseManager.h */,
+				EACC67FF180B4ECD00FEAC76 /* UserDatabaseManager.m */,
+			);
+			path = DataClasses;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EACC678918037CFE00FEAC76 /* Social Solver */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EACC67C218037CFE00FEAC76 /* Build configuration list for PBXNativeTarget "Social Solver" */;
+			buildPhases = (
+				EACC678618037CFE00FEAC76 /* Sources */,
+				EACC678718037CFE00FEAC76 /* Frameworks */,
+				EACC678818037CFE00FEAC76 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Social Solver";
+			productName = "Social Solver";
+			productReference = EACC678A18037CFE00FEAC76 /* Social Solver.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EACC67AE18037CFE00FEAC76 /* Social SolverTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EACC67C518037CFE00FEAC76 /* Build configuration list for PBXNativeTarget "Social SolverTests" */;
+			buildPhases = (
+				EACC67AA18037CFE00FEAC76 /* Sources */,
+				EACC67AB18037CFE00FEAC76 /* Frameworks */,
+				EACC67AC18037CFE00FEAC76 /* Resources */,
+				EACC67AD18037CFE00FEAC76 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EACC67B618037CFE00FEAC76 /* PBXTargetDependency */,
+			);
+			name = "Social SolverTests";
+			productName = "Social SolverTests";
+			productReference = EACC67AF18037CFE00FEAC76 /* Social SolverTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EACC678218037CFE00FEAC76 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Group 9";
+			};
+			buildConfigurationList = EACC678518037CFE00FEAC76 /* Build configuration list for PBXProject "Social Solver" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = EACC678118037CFE00FEAC76;
+			productRefGroup = EACC678B18037CFE00FEAC76 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EACC678918037CFE00FEAC76 /* Social Solver */,
+				EACC67AE18037CFE00FEAC76 /* Social SolverTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EACC678818037CFE00FEAC76 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EACC679A18037CFE00FEAC76 /* InfoPlist.strings in Resources */,
+				EACC67A218037CFE00FEAC76 /* Default.png in Resources */,
+				EACC67A418037CFE00FEAC76 /* Default@2x.png in Resources */,
+				EACC67A618037CFE00FEAC76 /* Default-568h@2x.png in Resources */,
+				EACC67CC18037DA300FEAC76 /* MainMenuViewController.xib in Resources */,
+				EACC67E9180B4B6600FEAC76 /* LoginViewController.xib in Resources */,
+				EACC67EE180B4B8D00FEAC76 /* GameViewController.xib in Resources */,
+				EACC67F3180B4BC700FEAC76 /* AccountManagementViewController.xib in Resources */,
+				EACC67F8180B4C4800FEAC76 /* RewardsGalleryViewController.xib in Resources */,
+				EACC67FD180B4C7400FEAC76 /* GuardianMainMenuViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EACC67AC18037CFE00FEAC76 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EACC67BC18037CFE00FEAC76 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		EACC67AD18037CFE00FEAC76 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EACC678618037CFE00FEAC76 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EACC679C18037CFE00FEAC76 /* main.m in Sources */,
+				EACC67A018037CFE00FEAC76 /* AppDelegate.m in Sources */,
+				EACC67A918037CFE00FEAC76 /* Social_Solver.xcdatamodeld in Sources */,
+				EACC67CB18037DA300FEAC76 /* MainMenuViewController.m in Sources */,
+				EACC67CF1803816800FEAC76 /* RootNavigationViewController.m in Sources */,
+				EACC67D9180733CB00FEAC76 /* User.m in Sources */,
+				EACC67DC1807340700FEAC76 /* GuardianUser.m in Sources */,
+				EACC67DF1807343200FEAC76 /* ChildUser.m in Sources */,
+				EACC67E8180B4B6600FEAC76 /* LoginViewController.m in Sources */,
+				EACC67ED180B4B8D00FEAC76 /* GameViewController.m in Sources */,
+				EACC67F2180B4BC700FEAC76 /* AccountManagementViewController.m in Sources */,
+				EACC67F7180B4C4800FEAC76 /* RewardsGalleryViewController.m in Sources */,
+				EACC67FC180B4C7400FEAC76 /* GuardianMainMenuViewController.m in Sources */,
+				EACC6800180B4ECD00FEAC76 /* UserDatabaseManager.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EACC67AA18037CFE00FEAC76 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EACC67BF18037CFE00FEAC76 /* Social_SolverTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EACC67B618037CFE00FEAC76 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EACC678918037CFE00FEAC76 /* Social Solver */;
+			targetProxy = EACC67B518037CFE00FEAC76 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EACC679818037CFE00FEAC76 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EACC679918037CFE00FEAC76 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		EACC67BA18037CFE00FEAC76 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EACC67BB18037CFE00FEAC76 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EACC67C018037CFE00FEAC76 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		EACC67C118037CFE00FEAC76 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EACC67C318037CFE00FEAC76 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Social Solver/Social Solver-Prefix.pch";
+				INFOPLIST_FILE = "Social Solver/Social Solver-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		EACC67C418037CFE00FEAC76 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Social Solver/Social Solver-Prefix.pch";
+				INFOPLIST_FILE = "Social Solver/Social Solver-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		EACC67C618037CFE00FEAC76 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Social Solver.app/Social Solver";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Social Solver/Social Solver-Prefix.pch";
+				INFOPLIST_FILE = "Social SolverTests/Social SolverTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		EACC67C718037CFE00FEAC76 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Social Solver.app/Social Solver";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Social Solver/Social Solver-Prefix.pch";
+				INFOPLIST_FILE = "Social SolverTests/Social SolverTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EACC678518037CFE00FEAC76 /* Build configuration list for PBXProject "Social Solver" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EACC67C018037CFE00FEAC76 /* Debug */,
+				EACC67C118037CFE00FEAC76 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EACC67C218037CFE00FEAC76 /* Build configuration list for PBXNativeTarget "Social Solver" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EACC67C318037CFE00FEAC76 /* Debug */,
+				EACC67C418037CFE00FEAC76 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EACC67C518037CFE00FEAC76 /* Build configuration list for PBXNativeTarget "Social SolverTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EACC67C618037CFE00FEAC76 /* Debug */,
+				EACC67C718037CFE00FEAC76 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		EACC67A718037CFE00FEAC76 /* Social_Solver.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				EACC67A818037CFE00FEAC76 /* Social_Solver.xcdatamodel */,
+			);
+			currentVersion = EACC67A818037CFE00FEAC76 /* Social_Solver.xcdatamodel */;
+			path = Social_Solver.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = EACC678218037CFE00FEAC76 /* Project object */;
+}
