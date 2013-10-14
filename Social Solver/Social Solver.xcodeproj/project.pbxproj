@@ -41,6 +41,8 @@
 		EACC67FC180B4C7400FEAC76 /* GuardianMainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EACC67FA180B4C7400FEAC76 /* GuardianMainMenuViewController.m */; };
 		EACC67FD180B4C7400FEAC76 /* GuardianMainMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EACC67FB180B4C7400FEAC76 /* GuardianMainMenuViewController.xib */; };
 		EACC6800180B4ECD00FEAC76 /* UserDatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EACC67FF180B4ECD00FEAC76 /* UserDatabaseManager.m */; };
+		EACC6804180B944E00FEAC76 /* NavigationTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EACC6803180B944E00FEAC76 /* NavigationTableCell.m */; };
+		EACC6806180B954C00FEAC76 /* NavigationTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EACC6805180B954C00FEAC76 /* NavigationTableCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +105,9 @@
 		EACC67FB180B4C7400FEAC76 /* GuardianMainMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GuardianMainMenuViewController.xib; path = ViewControllers/GuardianMainMenuViewController.xib; sourceTree = "<group>"; };
 		EACC67FE180B4ECD00FEAC76 /* UserDatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDatabaseManager.h; sourceTree = "<group>"; };
 		EACC67FF180B4ECD00FEAC76 /* UserDatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDatabaseManager.m; sourceTree = "<group>"; };
+		EACC6802180B944E00FEAC76 /* NavigationTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NavigationTableCell.h; path = Views/NavigationTableCell.h; sourceTree = "<group>"; };
+		EACC6803180B944E00FEAC76 /* NavigationTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NavigationTableCell.m; path = Views/NavigationTableCell.m; sourceTree = "<group>"; };
+		EACC6805180B954C00FEAC76 /* NavigationTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NavigationTableCell.xib; path = Views/NavigationTableCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +172,7 @@
 			children = (
 				EACC67D6180733AD00FEAC76 /* DataClasses */,
 				EACC67D5180733A000FEAC76 /* ViewControllers */,
+				EACC6801180B941C00FEAC76 /* Views */,
 				EACC67D41807339500FEAC76 /* Xibs */,
 				EACC679E18037CFE00FEAC76 /* AppDelegate.h */,
 				EACC679F18037CFE00FEAC76 /* AppDelegate.m */,
@@ -218,6 +224,7 @@
 				EACC67EC180B4B8D00FEAC76 /* GameViewController.xib */,
 				EACC67E7180B4B6600FEAC76 /* LoginViewController.xib */,
 				EACC67CA18037DA300FEAC76 /* MainMenuViewController.xib */,
+				EACC6805180B954C00FEAC76 /* NavigationTableCell.xib */,
 			);
 			name = Xibs;
 			sourceTree = "<group>";
@@ -256,6 +263,15 @@
 				EACC67FF180B4ECD00FEAC76 /* UserDatabaseManager.m */,
 			);
 			path = DataClasses;
+			sourceTree = "<group>";
+		};
+		EACC6801180B941C00FEAC76 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EACC6802180B944E00FEAC76 /* NavigationTableCell.h */,
+				EACC6803180B944E00FEAC76 /* NavigationTableCell.m */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -339,6 +355,7 @@
 				EACC67F3180B4BC700FEAC76 /* AccountManagementViewController.xib in Resources */,
 				EACC67F8180B4C4800FEAC76 /* RewardsGalleryViewController.xib in Resources */,
 				EACC67FD180B4C7400FEAC76 /* GuardianMainMenuViewController.xib in Resources */,
+				EACC6806180B954C00FEAC76 /* NavigationTableCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,6 +404,7 @@
 				EACC67F7180B4C4800FEAC76 /* RewardsGalleryViewController.m in Sources */,
 				EACC67FC180B4C7400FEAC76 /* GuardianMainMenuViewController.m in Sources */,
 				EACC6800180B4ECD00FEAC76 /* UserDatabaseManager.m in Sources */,
+				EACC6804180B944E00FEAC76 /* NavigationTableCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

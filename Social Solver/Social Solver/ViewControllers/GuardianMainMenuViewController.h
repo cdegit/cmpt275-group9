@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GuardianMainMenuViewController : UIViewController
+@interface GuardianMainMenuViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UITableView *navigationTable;
 
 @end
