@@ -14,5 +14,13 @@
 
 @implementation RootNavigationViewController
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    // Configure the navigation bar
+    self.navigationBar.barStyle = UIBarStyleBlack;
+    self.navigationBarHidden = false;
+}
 
 @end
