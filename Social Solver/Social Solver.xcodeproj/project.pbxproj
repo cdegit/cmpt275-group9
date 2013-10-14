@@ -43,6 +43,8 @@
 		EACC6800180B4ECD00FEAC76 /* UserDatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EACC67FF180B4ECD00FEAC76 /* UserDatabaseManager.m */; };
 		EACC6804180B944E00FEAC76 /* NavigationTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EACC6803180B944E00FEAC76 /* NavigationTableCell.m */; };
 		EACC6806180B954C00FEAC76 /* NavigationTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EACC6805180B954C00FEAC76 /* NavigationTableCell.xib */; };
+		EACC680A180B9CE900FEAC76 /* StatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EACC6808180B9CE900FEAC76 /* StatisticsViewController.m */; };
+		EACC680B180B9CE900FEAC76 /* StatisticsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EACC6809180B9CE900FEAC76 /* StatisticsViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +110,9 @@
 		EACC6802180B944E00FEAC76 /* NavigationTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NavigationTableCell.h; path = Views/NavigationTableCell.h; sourceTree = "<group>"; };
 		EACC6803180B944E00FEAC76 /* NavigationTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NavigationTableCell.m; path = Views/NavigationTableCell.m; sourceTree = "<group>"; };
 		EACC6805180B954C00FEAC76 /* NavigationTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NavigationTableCell.xib; path = Views/NavigationTableCell.xib; sourceTree = "<group>"; };
+		EACC6807180B9CE900FEAC76 /* StatisticsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatisticsViewController.h; sourceTree = "<group>"; };
+		EACC6808180B9CE900FEAC76 /* StatisticsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatisticsViewController.m; sourceTree = "<group>"; };
+		EACC6809180B9CE900FEAC76 /* StatisticsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StatisticsViewController.xib; path = ViewControllers/StatisticsViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +223,7 @@
 		EACC67D41807339500FEAC76 /* Xibs */ = {
 			isa = PBXGroup;
 			children = (
+				EACC6809180B9CE900FEAC76 /* StatisticsViewController.xib */,
 				EACC67FB180B4C7400FEAC76 /* GuardianMainMenuViewController.xib */,
 				EACC67F6180B4C4800FEAC76 /* RewardsGalleryViewController.xib */,
 				EACC67F1180B4BC700FEAC76 /* AccountManagementViewController.xib */,
@@ -246,6 +252,8 @@
 				EACC67F5180B4C4800FEAC76 /* RewardsGalleryViewController.m */,
 				EACC67F9180B4C7400FEAC76 /* GuardianMainMenuViewController.h */,
 				EACC67FA180B4C7400FEAC76 /* GuardianMainMenuViewController.m */,
+				EACC6807180B9CE900FEAC76 /* StatisticsViewController.h */,
+				EACC6808180B9CE900FEAC76 /* StatisticsViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -356,6 +364,7 @@
 				EACC67F8180B4C4800FEAC76 /* RewardsGalleryViewController.xib in Resources */,
 				EACC67FD180B4C7400FEAC76 /* GuardianMainMenuViewController.xib in Resources */,
 				EACC6806180B954C00FEAC76 /* NavigationTableCell.xib in Resources */,
+				EACC680B180B9CE900FEAC76 /* StatisticsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,6 +414,7 @@
 				EACC67FC180B4C7400FEAC76 /* GuardianMainMenuViewController.m in Sources */,
 				EACC6800180B4ECD00FEAC76 /* UserDatabaseManager.m in Sources */,
 				EACC6804180B944E00FEAC76 /* NavigationTableCell.m in Sources */,
+				EACC680A180B9CE900FEAC76 /* StatisticsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

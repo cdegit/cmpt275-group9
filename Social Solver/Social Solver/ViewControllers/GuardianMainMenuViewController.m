@@ -8,11 +8,13 @@
 
 #import "GuardianMainMenuViewController.h"
 #import "NavigationTableCell.h"
+#import "StatisticsViewController.h"
 
 @interface GuardianMainMenuViewController ()
 
 @property (nonatomic, readonly) NSArray* navigationCellInfo;
 @property (nonatomic) CGFloat cellHeight;
+@property (nonatomic) UIViewController* detailViewController;
 
 @end
 
@@ -32,7 +34,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+
+    // Select the first cell by default
+    [self.navigationTable selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionNone];
+    
+    self.navigationItem.title = @"Social Solver";
+    
+    UIBarButtonItem* back = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:nil action:nil];
+    [self.navigationItem setBackBarButtonItem:back];
 }
 
 - (void)didReceiveMemoryWarning
@@ -92,7 +101,49 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    switch (indexPath.row)
+    {
+        case 0:
+        {
+            // Load view children
+            break;
+        }
+        case 1:
+        {
+            // Load statistics
+            self.detailViewController = [[StatisticsViewController alloc] initWithNibName:@"StatisticsViewController" bundle:[NSBundle mainBundle]];
+            break;
+        }
+        case 2:
+        {
+            // Load share profiles
+            break;
+        }
+        case 3:
+        {
+            // Load pending shares
+            break;
+        }
+        case 4:
+        {
+            // Load games
+            break;
+        }
+        case 5:
+        {
+            // Load settings
+            break;
+        }
+        default:
+            NSAssert(false, @"Unkown cell selected");
+            break;
+    }
+
+    if (self.detailViewController != nil)
+    {
+        self.detailViewController.view.frame = self.detailViewContainer.bounds;
+        [self.detailViewContainer addSubview:self.detailViewController.view];
+    }
 }
 
 @end

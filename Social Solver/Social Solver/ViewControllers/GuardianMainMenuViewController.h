@@ -11,5 +11,6 @@
 @interface GuardianMainMenuViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *navigationTable;
+@property (weak, nonatomic) IBOutlet UIView* detailViewContainer;
 
 @end
