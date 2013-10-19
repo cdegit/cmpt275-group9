@@ -14,10 +14,10 @@
 {
     NavigationTableCell* cell = [[[NSBundle mainBundle] loadNibNamed:@"NavigationTableCell" owner:self options:nil] objectAtIndex:0];
     cell.titleLabel.text = title;
-//    if (imageName != nil)
-//    {
-//        cell.imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageName]];
-//    }
+    if (imageName != nil && ![imageName isEqualToString:@""])
+    {
+        [cell.imageView setImage:[UIImage imageNamed:imageName]];
+    }
     
     return cell;
 }
@@ -40,5 +40,7 @@
 
     // Configure the view for the selected state
 }
+
+
 
 @end
