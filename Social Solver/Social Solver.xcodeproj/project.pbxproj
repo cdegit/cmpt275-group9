@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EA16940C18162A7700C40069 /* Problem.m in Sources */ = {isa = PBXBuildFile; fileRef = EA16940B18162A7700C40069 /* Problem.m */; };
+		EA16940F18162B2B00C40069 /* ProblemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EA16940E18162B2B00C40069 /* ProblemManager.m */; };
+		EA16941718163A9A00C40069 /* test_image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EA16941618163A9A00C40069 /* test_image.jpg */; };
+		EA16941B18163C5C00C40069 /* LevelCompleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA16941918163C5C00C40069 /* LevelCompleteViewController.m */; };
+		EA16941C18163C5C00C40069 /* LevelCompleteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA16941A18163C5C00C40069 /* LevelCompleteViewController.xib */; };
 		EACC678E18037CFE00FEAC76 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACC678D18037CFE00FEAC76 /* UIKit.framework */; };
 		EACC679018037CFE00FEAC76 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACC678F18037CFE00FEAC76 /* Foundation.framework */; };
 		EACC679218037CFE00FEAC76 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACC679118037CFE00FEAC76 /* CoreGraphics.framework */; };
@@ -58,6 +63,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EA16940A18162A7700C40069 /* Problem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Problem.h; sourceTree = "<group>"; };
+		EA16940B18162A7700C40069 /* Problem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Problem.m; sourceTree = "<group>"; };
+		EA16940D18162B2B00C40069 /* ProblemManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProblemManager.h; sourceTree = "<group>"; };
+		EA16940E18162B2B00C40069 /* ProblemManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProblemManager.m; sourceTree = "<group>"; };
+		EA16941618163A9A00C40069 /* test_image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test_image.jpg; sourceTree = "<group>"; };
+		EA16941818163C5C00C40069 /* LevelCompleteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelCompleteViewController.h; sourceTree = "<group>"; };
+		EA16941918163C5C00C40069 /* LevelCompleteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelCompleteViewController.m; sourceTree = "<group>"; };
+		EA16941A18163C5C00C40069 /* LevelCompleteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LevelCompleteViewController.xib; path = ViewControllers/LevelCompleteViewController.xib; sourceTree = "<group>"; };
 		EACC678A18037CFE00FEAC76 /* Social Solver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Social Solver.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EACC678D18037CFE00FEAC76 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EACC678F18037CFE00FEAC76 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -175,6 +188,7 @@
 		EACC679518037CFE00FEAC76 /* Social Solver */ = {
 			isa = PBXGroup;
 			children = (
+				EA16941618163A9A00C40069 /* test_image.jpg */,
 				EACC67D6180733AD00FEAC76 /* DataClasses */,
 				EACC67D5180733A000FEAC76 /* ViewControllers */,
 				EACC6801180B941C00FEAC76 /* Views */,
@@ -223,6 +237,7 @@
 		EACC67D41807339500FEAC76 /* Xibs */ = {
 			isa = PBXGroup;
 			children = (
+				EA16941A18163C5C00C40069 /* LevelCompleteViewController.xib */,
 				EACC6809180B9CE900FEAC76 /* StatisticsViewController.xib */,
 				EACC67FB180B4C7400FEAC76 /* GuardianMainMenuViewController.xib */,
 				EACC67F6180B4C4800FEAC76 /* RewardsGalleryViewController.xib */,
@@ -254,6 +269,8 @@
 				EACC67FA180B4C7400FEAC76 /* GuardianMainMenuViewController.m */,
 				EACC6807180B9CE900FEAC76 /* StatisticsViewController.h */,
 				EACC6808180B9CE900FEAC76 /* StatisticsViewController.m */,
+				EA16941818163C5C00C40069 /* LevelCompleteViewController.h */,
+				EA16941918163C5C00C40069 /* LevelCompleteViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -269,6 +286,10 @@
 				EACC67DE1807343200FEAC76 /* ChildUser.m */,
 				EACC67FE180B4ECD00FEAC76 /* UserDatabaseManager.h */,
 				EACC67FF180B4ECD00FEAC76 /* UserDatabaseManager.m */,
+				EA16940A18162A7700C40069 /* Problem.h */,
+				EA16940B18162A7700C40069 /* Problem.m */,
+				EA16940D18162B2B00C40069 /* ProblemManager.h */,
+				EA16940E18162B2B00C40069 /* ProblemManager.m */,
 			);
 			path = DataClasses;
 			sourceTree = "<group>";
@@ -365,6 +386,8 @@
 				EACC67FD180B4C7400FEAC76 /* GuardianMainMenuViewController.xib in Resources */,
 				EACC6806180B954C00FEAC76 /* NavigationTableCell.xib in Resources */,
 				EACC680B180B9CE900FEAC76 /* StatisticsViewController.xib in Resources */,
+				EA16941718163A9A00C40069 /* test_image.jpg in Resources */,
+				EA16941C18163C5C00C40069 /* LevelCompleteViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,6 +438,9 @@
 				EACC6800180B4ECD00FEAC76 /* UserDatabaseManager.m in Sources */,
 				EACC6804180B944E00FEAC76 /* NavigationTableCell.m in Sources */,
 				EACC680A180B9CE900FEAC76 /* StatisticsViewController.m in Sources */,
+				EA16940C18162A7700C40069 /* Problem.m in Sources */,
+				EA16940F18162B2B00C40069 /* ProblemManager.m in Sources */,
+				EA16941B18163C5C00C40069 /* LevelCompleteViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
