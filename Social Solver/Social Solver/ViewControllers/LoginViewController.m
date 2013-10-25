@@ -26,7 +26,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        
     }
     return self;
 }
@@ -34,14 +34,23 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     [_userTypeControl addTarget:self
                          action:@selector(userTypeChanged:)
                forControlEvents:UIControlEventValueChanged];
     
-    [_userSelectionView registerNib:[UINib nibWithNibName:@"LoginUserSelectionCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"user"];
+    [_userSelectionView registerNib:[UINib nibWithNibName:@"LoginUserSelectionCell"
+                                                   bundle:[NSBundle mainBundle]]
+         forCellWithReuseIdentifier:@"UserCell"];
+    
+    UICollectionViewFlowLayout* userSelectionLayout = (UICollectionViewFlowLayout *)[_userSelectionView collectionViewLayout];
+    
+    [userSelectionLayout setItemSize:CGSizeMake(150.0, 200.0)];
+    [userSelectionLayout setMinimumInteritemSpacing:50.0];
+    [userSelectionLayout setMinimumLineSpacing:50.0];
+    [userSelectionLayout setSectionInset:UIEdgeInsetsMake(20.0, 20.0, 20.0, 20.0)];
     
     userType = @"Child";
+    
 }
 
 - (void)loadUsers
@@ -77,7 +86,7 @@
     if (newType!=nil&&![newType isEqualToString:userType]) {
         userType = newType;
         [self loadUsers];
-        [_userSelectionView reloadData];
+        //[_userSelectionView reloadData];
     }
 }
 
@@ -96,8 +105,11 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    LoginUserSelectionCell* cell = [_userSelectionView dequeueReusableCellWithReuseIdentifier:@"user"
-                                                                               forIndexPath:indexPath];
+    
+    LoginUserSelectionCell* cell = [_userSelectionView
+                                    dequeueReusableCellWithReuseIdentifier:@"UserCell"
+                                                              forIndexPath:indexPath];
+    
     NSManagedObject *us = [userArray objectAtIndex:[indexPath row]];
     [[cell nameLabel] setText:[us valueForKey:@"name"]];
     
