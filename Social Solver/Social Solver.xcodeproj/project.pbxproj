@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0493ADD9181A065800F397E5 /* underPageBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 0493ADD8181A065800F397E5 /* underPageBackground.png */; };
+		0493ADDE181A0EB900F397E5 /* Button 300x50.png in Resources */ = {isa = PBXBuildFile; fileRef = 0493ADDA181A0EB900F397E5 /* Button 300x50.png */; };
+		0493ADDF181A0EB900F397E5 /* Face Finder Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0493ADDB181A0EB900F397E5 /* Face Finder Icon.png */; };
+		0493ADE0181A0EB900F397E5 /* Problem Solver Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0493ADDC181A0EB900F397E5 /* Problem Solver Icon.png */; };
+		0493ADE1181A0EB900F397E5 /* Scene Solver Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0493ADDD181A0EB900F397E5 /* Scene Solver Icon.png */; };
 		EACC678E18037CFE00FEAC76 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACC678D18037CFE00FEAC76 /* UIKit.framework */; };
 		EACC679018037CFE00FEAC76 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACC678F18037CFE00FEAC76 /* Foundation.framework */; };
 		EACC679218037CFE00FEAC76 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACC679118037CFE00FEAC76 /* CoreGraphics.framework */; };
@@ -54,6 +59,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0493ADD8181A065800F397E5 /* underPageBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = underPageBackground.png; path = ../../../Downloads/underPageBackground.png; sourceTree = "<group>"; };
+		0493ADDA181A0EB900F397E5 /* Button 300x50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Button 300x50.png"; sourceTree = "<group>"; };
+		0493ADDB181A0EB900F397E5 /* Face Finder Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Face Finder Icon.png"; sourceTree = "<group>"; };
+		0493ADDC181A0EB900F397E5 /* Problem Solver Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Problem Solver Icon.png"; sourceTree = "<group>"; };
+		0493ADDD181A0EB900F397E5 /* Scene Solver Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Scene Solver Icon.png"; sourceTree = "<group>"; };
 		EACC678A18037CFE00FEAC76 /* Social Solver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Social Solver.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EACC678D18037CFE00FEAC76 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EACC678F18037CFE00FEAC76 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -179,9 +189,14 @@
 		EACC679618037CFE00FEAC76 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0493ADD8181A065800F397E5 /* underPageBackground.png */,
 				EACC679718037CFE00FEAC76 /* Social Solver-Info.plist */,
 				EACC679818037CFE00FEAC76 /* InfoPlist.strings */,
 				EACC679B18037CFE00FEAC76 /* main.m */,
+				0493ADDA181A0EB900F397E5 /* Button 300x50.png */,
+				0493ADDB181A0EB900F397E5 /* Face Finder Icon.png */,
+				0493ADDC181A0EB900F397E5 /* Problem Solver Icon.png */,
+				0493ADDD181A0EB900F397E5 /* Scene Solver Icon.png */,
 				EACC679D18037CFE00FEAC76 /* Social Solver-Prefix.pch */,
 				EACC67A118037CFE00FEAC76 /* Default.png */,
 				EACC67A318037CFE00FEAC76 /* Default@2x.png */,
@@ -330,13 +345,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				EACC679A18037CFE00FEAC76 /* InfoPlist.strings in Resources */,
+				0493ADD9181A065800F397E5 /* underPageBackground.png in Resources */,
 				EACC67A218037CFE00FEAC76 /* Default.png in Resources */,
 				EACC67A418037CFE00FEAC76 /* Default@2x.png in Resources */,
+				0493ADDE181A0EB900F397E5 /* Button 300x50.png in Resources */,
 				EACC67A618037CFE00FEAC76 /* Default-568h@2x.png in Resources */,
 				EACC67CC18037DA300FEAC76 /* MainMenuViewController.xib in Resources */,
 				EACC67E9180B4B6600FEAC76 /* LoginViewController.xib in Resources */,
 				EACC67EE180B4B8D00FEAC76 /* GameViewController.xib in Resources */,
 				EACC67F3180B4BC700FEAC76 /* AccountManagementViewController.xib in Resources */,
+				0493ADDF181A0EB900F397E5 /* Face Finder Icon.png in Resources */,
+				0493ADE1181A0EB900F397E5 /* Scene Solver Icon.png in Resources */,
+				0493ADE0181A0EB900F397E5 /* Problem Solver Icon.png in Resources */,
 				EACC67F8180B4C4800FEAC76 /* RewardsGalleryViewController.xib in Resources */,
 				EACC67FD180B4C7400FEAC76 /* GuardianMainMenuViewController.xib in Resources */,
 			);
@@ -489,10 +509,11 @@
 		EACC67C318037CFE00FEAC76 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Social Solver/Social Solver-Prefix.pch";
 				INFOPLIST_FILE = "Social Solver/Social Solver-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
@@ -502,10 +523,11 @@
 		EACC67C418037CFE00FEAC76 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Social Solver/Social Solver-Prefix.pch";
 				INFOPLIST_FILE = "Social Solver/Social Solver-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
