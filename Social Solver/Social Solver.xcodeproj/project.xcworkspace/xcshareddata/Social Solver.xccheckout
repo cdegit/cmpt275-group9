@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>0AF97E0B-4A38-46FA-8FA6-08421679D465</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Social Solver</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>D8210D75-A006-402B-9EFB-9CC014A1C441</key>
+		<string>https://github.com/cdegit/cmpt275-group9.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Social Solver/Social Solver.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>D8210D75-A006-402B-9EFB-9CC014A1C441</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/cdegit/cmpt275-group9.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>D8210D75-A006-402B-9EFB-9CC014A1C441</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>D8210D75-A006-402B-9EFB-9CC014A1C441</string>
+			<key>IDESourceControlWCCName</key>
+			<string>cmpt275-group9</string>
+		</dict>
+	</array>
+</dict>
+</plist>
