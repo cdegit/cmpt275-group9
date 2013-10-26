@@ -35,7 +35,8 @@
     // Do any additional setup after loading the view from its nib.
     
     self.navigationItem.title = @"Social Solver";
-    
+    _rewardsGalleryButton.hidden = YES;
+    _guardianMainMenuButton.hidden = YES;
     UIBarButtonItem* back = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:nil action:nil];
     [self.navigationItem setBackBarButtonItem:back];
 }
