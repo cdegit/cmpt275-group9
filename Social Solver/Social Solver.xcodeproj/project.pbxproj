@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2A730FA01819A4EA000356DE /* LoginUserSelectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A730F9F1819A4EA000356DE /* LoginUserSelectionCell.m */; };
 		2A730FA21819A541000356DE /* LoginUserSelectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A730FA11819A541000356DE /* LoginUserSelectionCell.xib */; };
+		2A7DB106181B3A24008EF99F /* LoginPromptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7DB104181B3A24008EF99F /* LoginPromptViewController.m */; };
+		2A7DB107181B3A24008EF99F /* LoginPromptViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A7DB105181B3A24008EF99F /* LoginPromptViewController.xib */; };
 		EA68ECBB181224A8006D4C09 /* children-50x50.png in Resources */ = {isa = PBXBuildFile; fileRef = EA68ECB2181224A8006D4C09 /* children-50x50.png */; };
 		EA68ECBC181224A8006D4C09 /* Face Finder Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = EA68ECB3181224A8006D4C09 /* Face Finder Icon.png */; };
 		EA68ECBD181224A8006D4C09 /* games-50x50.png in Resources */ = {isa = PBXBuildFile; fileRef = EA68ECB4181224A8006D4C09 /* games-50x50.png */; };
@@ -72,6 +74,9 @@
 		2A730F9E1819A4EA000356DE /* LoginUserSelectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginUserSelectionCell.h; path = Views/LoginUserSelectionCell.h; sourceTree = "<group>"; };
 		2A730F9F1819A4EA000356DE /* LoginUserSelectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginUserSelectionCell.m; path = Views/LoginUserSelectionCell.m; sourceTree = "<group>"; };
 		2A730FA11819A541000356DE /* LoginUserSelectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginUserSelectionCell.xib; path = Views/LoginUserSelectionCell.xib; sourceTree = "<group>"; };
+		2A7DB103181B3A24008EF99F /* LoginPromptViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginPromptViewController.h; sourceTree = "<group>"; };
+		2A7DB104181B3A24008EF99F /* LoginPromptViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginPromptViewController.m; sourceTree = "<group>"; };
+		2A7DB105181B3A24008EF99F /* LoginPromptViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginPromptViewController.xib; path = ViewControllers/LoginPromptViewController.xib; sourceTree = "<group>"; };
 		EA68ECB2181224A8006D4C09 /* children-50x50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "children-50x50.png"; sourceTree = "<group>"; };
 		EA68ECB3181224A8006D4C09 /* Face Finder Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Face Finder Icon.png"; sourceTree = "<group>"; };
 		EA68ECB4181224A8006D4C09 /* games-50x50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "games-50x50.png"; sourceTree = "<group>"; };
@@ -263,6 +268,7 @@
 		EACC67D41807339500FEAC76 /* Xibs */ = {
 			isa = PBXGroup;
 			children = (
+				2A7DB105181B3A24008EF99F /* LoginPromptViewController.xib */,
 				EACC6809180B9CE900FEAC76 /* StatisticsViewController.xib */,
 				EACC67FB180B4C7400FEAC76 /* GuardianMainMenuViewController.xib */,
 				EACC67F6180B4C4800FEAC76 /* RewardsGalleryViewController.xib */,
@@ -279,6 +285,8 @@
 		EACC67D5180733A000FEAC76 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				2A7DB103181B3A24008EF99F /* LoginPromptViewController.h */,
+				2A7DB104181B3A24008EF99F /* LoginPromptViewController.m */,
 				EACC67EA180B4B8D00FEAC76 /* GameViewController.h */,
 				EACC67EB180B4B8D00FEAC76 /* GameViewController.m */,
 				EACC67C818037DA300FEAC76 /* MainMenuViewController.h */,
@@ -408,6 +416,7 @@
 				EACC67F8180B4C4800FEAC76 /* RewardsGalleryViewController.xib in Resources */,
 				EACC67FD180B4C7400FEAC76 /* GuardianMainMenuViewController.xib in Resources */,
 				EACC6806180B954C00FEAC76 /* NavigationTableCell.xib in Resources */,
+				2A7DB107181B3A24008EF99F /* LoginPromptViewController.xib in Resources */,
 				EACC680B180B9CE900FEAC76 /* StatisticsViewController.xib in Resources */,
 				EA68ECBB181224A8006D4C09 /* children-50x50.png in Resources */,
 				EA68ECBC181224A8006D4C09 /* Face Finder Icon.png in Resources */,
@@ -460,6 +469,7 @@
 				EACC67D9180733CB00FEAC76 /* User.m in Sources */,
 				EACC67DC1807340700FEAC76 /* GuardianUser.m in Sources */,
 				EACC67DF1807343200FEAC76 /* ChildUser.m in Sources */,
+				2A7DB106181B3A24008EF99F /* LoginPromptViewController.m in Sources */,
 				EACC67E8180B4B6600FEAC76 /* LoginViewController.m in Sources */,
 				EACC67ED180B4B8D00FEAC76 /* GameViewController.m in Sources */,
 				EACC67F2180B4BC700FEAC76 /* AccountManagementViewController.m in Sources */,
@@ -574,7 +584,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Social Solver/Social Solver-Prefix.pch";
 				INFOPLIST_FILE = "Social Solver/Social Solver-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
@@ -587,7 +597,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Social Solver/Social Solver-Prefix.pch";
 				INFOPLIST_FILE = "Social Solver/Social Solver-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;

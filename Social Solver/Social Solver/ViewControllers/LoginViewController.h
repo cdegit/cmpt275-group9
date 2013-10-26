@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface LoginViewController : UIViewController <UICollectionViewDataSource>
+@interface LoginViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl* userTypeControl;
 @property (weak, nonatomic) IBOutlet UICollectionView* userSelectionView;

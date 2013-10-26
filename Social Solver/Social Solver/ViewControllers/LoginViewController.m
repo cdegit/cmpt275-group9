@@ -9,6 +9,7 @@
 #import "LoginViewController.h"
 #import "AppDelegate.h"
 #import "LoginUserSelectionCell.h"
+#import "LoginPromptViewController.h"
 
 @interface LoginViewController ()
 {
@@ -46,7 +47,7 @@
     
     [userSelectionLayout setItemSize:CGSizeMake(150.0, 200.0)];
     [userSelectionLayout setMinimumInteritemSpacing:50.0];
-    [userSelectionLayout setMinimumLineSpacing:50.0];
+    [userSelectionLayout setMinimumLineSpacing:20.0];
     [userSelectionLayout setSectionInset:UIEdgeInsetsMake(20.0, 20.0, 20.0, 20.0)];
     
     userType = @"Child";
@@ -70,6 +71,15 @@
     NSError* err;
     userArray = [mc executeFetchRequest:request
                                   error:&err];
+    
+    if ([userArray count]==0) {
+        NSManagedObject* mo = [[NSManagedObject alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:mc];
+        [mo setValue:@"Bob" forKey:@"name"];
+        [mo setValue:@"pass" forKey:@"password"];
+        [mo setValue:[NSNumber numberWithInt:2] forKey:@"uid"];
+        userArray = @[mo];
+        
+    }
     
 }
 
@@ -96,7 +106,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - UICollectionDataSource Methods
+#pragma mark - UICollectionViewDataSource Methods
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
@@ -123,7 +133,20 @@
     return cell;
 }
 
+#pragma mark - UICollectionViewDelegate Methods
 
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    LoginPromptViewController* lpvc = [[LoginPromptViewController alloc] initWithNibName:@"LoginPromptViewController" bundle:[NSBundle mainBundle]];
+    
+    [lpvc setUser:[userArray objectAtIndex:[indexPath row]]];
+    
+    [lpvc setModalPresentationStyle:UIModalPresentationFormSheet];
+    [lpvc setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
+    [self presentViewController:lpvc animated:YES completion:NULL];
+    
+    return NO;
+}
 
 
 @end
