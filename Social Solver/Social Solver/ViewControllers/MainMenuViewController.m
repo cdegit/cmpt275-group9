@@ -35,7 +35,8 @@
     // Do any additional setup after loading the view from its nib.
     
     self.navigationItem.title = @"Social Solver";
-    
+    _rewardsGalleryButton.hidden = YES;
+    _guardianMainMenuButton.hidden = YES;
     UIBarButtonItem* back = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:nil action:nil];
     [self.navigationItem setBackBarButtonItem:back];
 }
@@ -47,20 +48,23 @@
 }
 
 - (IBAction)gameModeTapped:(UIButton* )sender {
+    enum GameMode gameMode = GameModeFaceFinder;
+    
     if (sender == self.gameMode1Button) {
-        // Game mode 1
+        gameMode = GameModeFaceFinder;
     }
     else if (sender == self.gameMode2Button) {
-        // Game mode 2
+        gameMode = GameModeStorySolver;
     }
     else if (sender == self.gameMode3Button) {
-        // Game mode 3
+        gameMode = GameModeProblemSolver;
     }
     else {
         NSLog((@"Unknown button linked to %s"), __PRETTY_FUNCTION__);
     }
     
-    GameViewController* vc = [[GameViewController alloc] initWithNibName:@"GameViewController" bundle:[NSBundle mainBundle]];
+    GameViewController* vc = [[GameViewController alloc] initWithGameMode:gameMode];
+    
     // Testing out different navigation animations
     // Interestingly enough, this is flipping from the bottom because we're in landscape...
     [UIView animateWithDuration:0.75

@@ -169,25 +169,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		EA68EC9F18122477006D4C09 /* Assets */ = {
-			isa = PBXGroup;
-			children = (
-				EA68ECB2181224A8006D4C09 /* children-50x50.png */,
-				EA68ECB3181224A8006D4C09 /* Face Finder Icon.png */,
-				EA68ECB4181224A8006D4C09 /* games-50x50.png */,
-				EA68ECB5181224A8006D4C09 /* pending-50x50.png */,
-				EA68ECB6181224A8006D4C09 /* Problem Solver Icon.png */,
-				EA68ECB7181224A8006D4C09 /* Scene Solver Icon.png */,
-				EA68ECB8181224A8006D4C09 /* settings-50x50.png */,
-				EA68ECB9181224A8006D4C09 /* share-50x50.png */,
-				EA68ECBA181224A8006D4C09 /* stats-50x50.png */,
-			);
-			path = Assets;
-			sourceTree = "<group>";
-		};
 		EACC678118037CFE00FEAC76 = {
 			isa = PBXGroup;
 			children = (
+				0493ADE2181A226100F397E5 /* Button 300x50.png */,
+				0493ADE3181A226100F397E5 /* Face Finder Icon.png */,
+				0493ADE4181A226100F397E5 /* Problem Solver Icon.png */,
+				0493ADE5181A226100F397E5 /* Scene Solver Icon.png */,
 				EACC679518037CFE00FEAC76 /* Social Solver */,
 				EACC67B718037CFE00FEAC76 /* Social SolverTests */,
 				EACC678C18037CFE00FEAC76 /* Frameworks */,
@@ -219,7 +207,7 @@
 		EACC679518037CFE00FEAC76 /* Social Solver */ = {
 			isa = PBXGroup;
 			children = (
-				EA68EC9F18122477006D4C09 /* Assets */,
+				EA16941618163A9A00C40069 /* test_image.jpg */,
 				EACC67D6180733AD00FEAC76 /* DataClasses */,
 				EACC67D5180733A000FEAC76 /* ViewControllers */,
 				EACC6801180B941C00FEAC76 /* Views */,
@@ -303,6 +291,8 @@
 				EACC67FA180B4C7400FEAC76 /* GuardianMainMenuViewController.m */,
 				EACC6807180B9CE900FEAC76 /* StatisticsViewController.h */,
 				EACC6808180B9CE900FEAC76 /* StatisticsViewController.m */,
+				EA16941818163C5C00C40069 /* LevelCompleteViewController.h */,
+				EA16941918163C5C00C40069 /* LevelCompleteViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -318,6 +308,10 @@
 				EACC67DE1807343200FEAC76 /* ChildUser.m */,
 				EACC67FE180B4ECD00FEAC76 /* UserDatabaseManager.h */,
 				EACC67FF180B4ECD00FEAC76 /* UserDatabaseManager.m */,
+				EA16940A18162A7700C40069 /* Problem.h */,
+				EA16940B18162A7700C40069 /* Problem.m */,
+				EA16940D18162B2B00C40069 /* ProblemManager.h */,
+				EA16940E18162B2B00C40069 /* ProblemManager.m */,
 			);
 			path = DataClasses;
 			sourceTree = "<group>";
@@ -405,28 +399,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				EACC679A18037CFE00FEAC76 /* InfoPlist.strings in Resources */,
+				0493ADE6181A226100F397E5 /* Button 300x50.png in Resources */,
 				EACC67A218037CFE00FEAC76 /* Default.png in Resources */,
 				EACC67A418037CFE00FEAC76 /* Default@2x.png in Resources */,
 				EACC67A618037CFE00FEAC76 /* Default-568h@2x.png in Resources */,
 				EACC67CC18037DA300FEAC76 /* MainMenuViewController.xib in Resources */,
 				2A730FA21819A541000356DE /* LoginUserSelectionCell.xib in Resources */,
 				EACC67E9180B4B6600FEAC76 /* LoginViewController.xib in Resources */,
+				0493ADE7181A226100F397E5 /* Face Finder Icon.png in Resources */,
+				0493ADE9181A226100F397E5 /* Scene Solver Icon.png in Resources */,
 				EACC67EE180B4B8D00FEAC76 /* GameViewController.xib in Resources */,
 				EACC67F3180B4BC700FEAC76 /* AccountManagementViewController.xib in Resources */,
 				EACC67F8180B4C4800FEAC76 /* RewardsGalleryViewController.xib in Resources */,
+				0493ADE8181A226100F397E5 /* Problem Solver Icon.png in Resources */,
 				EACC67FD180B4C7400FEAC76 /* GuardianMainMenuViewController.xib in Resources */,
 				EACC6806180B954C00FEAC76 /* NavigationTableCell.xib in Resources */,
 				2A7DB107181B3A24008EF99F /* LoginPromptViewController.xib in Resources */,
 				EACC680B180B9CE900FEAC76 /* StatisticsViewController.xib in Resources */,
-				EA68ECBB181224A8006D4C09 /* children-50x50.png in Resources */,
-				EA68ECBC181224A8006D4C09 /* Face Finder Icon.png in Resources */,
-				EA68ECBD181224A8006D4C09 /* games-50x50.png in Resources */,
-				EA68ECBE181224A8006D4C09 /* pending-50x50.png in Resources */,
-				EA68ECBF181224A8006D4C09 /* Problem Solver Icon.png in Resources */,
-				EA68ECC0181224A8006D4C09 /* Scene Solver Icon.png in Resources */,
-				EA68ECC1181224A8006D4C09 /* settings-50x50.png in Resources */,
-				EA68ECC2181224A8006D4C09 /* share-50x50.png in Resources */,
-				EA68ECC3181224A8006D4C09 /* stats-50x50.png in Resources */,
+				EA16941718163A9A00C40069 /* test_image.jpg in Resources */,
+				EA16941C18163C5C00C40069 /* LevelCompleteViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -479,6 +470,9 @@
 				EACC6804180B944E00FEAC76 /* NavigationTableCell.m in Sources */,
 				2A730FA01819A4EA000356DE /* LoginUserSelectionCell.m in Sources */,
 				EACC680A180B9CE900FEAC76 /* StatisticsViewController.m in Sources */,
+				EA16940C18162A7700C40069 /* Problem.m in Sources */,
+				EA16940F18162B2B00C40069 /* ProblemManager.m in Sources */,
+				EA16941B18163C5C00C40069 /* LevelCompleteViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
