@@ -20,6 +20,15 @@
 		EA68ECC1181224A8006D4C09 /* settings-50x50.png in Resources */ = {isa = PBXBuildFile; fileRef = EA68ECB8181224A8006D4C09 /* settings-50x50.png */; };
 		EA68ECC2181224A8006D4C09 /* share-50x50.png in Resources */ = {isa = PBXBuildFile; fileRef = EA68ECB9181224A8006D4C09 /* share-50x50.png */; };
 		EA68ECC3181224A8006D4C09 /* stats-50x50.png in Resources */ = {isa = PBXBuildFile; fileRef = EA68ECBA181224A8006D4C09 /* stats-50x50.png */; };
+		0493ADE6181A226100F397E5 /* Button 300x50.png in Resources */ = {isa = PBXBuildFile; fileRef = 0493ADE2181A226100F397E5 /* Button 300x50.png */; };
+		0493ADE7181A226100F397E5 /* Face Finder Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0493ADE3181A226100F397E5 /* Face Finder Icon.png */; };
+		0493ADE8181A226100F397E5 /* Problem Solver Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0493ADE4181A226100F397E5 /* Problem Solver Icon.png */; };
+		0493ADE9181A226100F397E5 /* Scene Solver Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0493ADE5181A226100F397E5 /* Scene Solver Icon.png */; };
+		EA16940C18162A7700C40069 /* Problem.m in Sources */ = {isa = PBXBuildFile; fileRef = EA16940B18162A7700C40069 /* Problem.m */; };
+		EA16940F18162B2B00C40069 /* ProblemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EA16940E18162B2B00C40069 /* ProblemManager.m */; };
+		EA16941718163A9A00C40069 /* test_image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EA16941618163A9A00C40069 /* test_image.jpg */; };
+		EA16941B18163C5C00C40069 /* LevelCompleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA16941918163C5C00C40069 /* LevelCompleteViewController.m */; };
+		EA16941C18163C5C00C40069 /* LevelCompleteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA16941A18163C5C00C40069 /* LevelCompleteViewController.xib */; };
 		EACC678E18037CFE00FEAC76 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACC678D18037CFE00FEAC76 /* UIKit.framework */; };
 		EACC679018037CFE00FEAC76 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACC678F18037CFE00FEAC76 /* Foundation.framework */; };
 		EACC679218037CFE00FEAC76 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACC679118037CFE00FEAC76 /* CoreGraphics.framework */; };
@@ -86,6 +95,18 @@
 		EA68ECB8181224A8006D4C09 /* settings-50x50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings-50x50.png"; sourceTree = "<group>"; };
 		EA68ECB9181224A8006D4C09 /* share-50x50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share-50x50.png"; sourceTree = "<group>"; };
 		EA68ECBA181224A8006D4C09 /* stats-50x50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stats-50x50.png"; sourceTree = "<group>"; };
+		0493ADE2181A226100F397E5 /* Button 300x50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Button 300x50.png"; path = "Social Solver/Button 300x50.png"; sourceTree = "<group>"; };
+		0493ADE3181A226100F397E5 /* Face Finder Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Face Finder Icon.png"; path = "Social Solver/Face Finder Icon.png"; sourceTree = "<group>"; };
+		0493ADE4181A226100F397E5 /* Problem Solver Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Problem Solver Icon.png"; path = "Social Solver/Problem Solver Icon.png"; sourceTree = "<group>"; };
+		0493ADE5181A226100F397E5 /* Scene Solver Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Scene Solver Icon.png"; path = "Social Solver/Scene Solver Icon.png"; sourceTree = "<group>"; };
+		EA16940A18162A7700C40069 /* Problem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Problem.h; sourceTree = "<group>"; };
+		EA16940B18162A7700C40069 /* Problem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Problem.m; sourceTree = "<group>"; };
+		EA16940D18162B2B00C40069 /* ProblemManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProblemManager.h; sourceTree = "<group>"; };
+		EA16940E18162B2B00C40069 /* ProblemManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProblemManager.m; sourceTree = "<group>"; };
+		EA16941618163A9A00C40069 /* test_image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test_image.jpg; sourceTree = "<group>"; };
+		EA16941818163C5C00C40069 /* LevelCompleteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelCompleteViewController.h; sourceTree = "<group>"; };
+		EA16941918163C5C00C40069 /* LevelCompleteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelCompleteViewController.m; sourceTree = "<group>"; };
+		EA16941A18163C5C00C40069 /* LevelCompleteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LevelCompleteViewController.xib; path = ViewControllers/LevelCompleteViewController.xib; sourceTree = "<group>"; };
 		EACC678A18037CFE00FEAC76 /* Social Solver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Social Solver.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EACC678D18037CFE00FEAC76 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EACC678F18037CFE00FEAC76 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -257,6 +278,7 @@
 			isa = PBXGroup;
 			children = (
 				2A7DB105181B3A24008EF99F /* LoginPromptViewController.xib */,
+				EA16941A18163C5C00C40069 /* LevelCompleteViewController.xib */,
 				EACC6809180B9CE900FEAC76 /* StatisticsViewController.xib */,
 				EACC67FB180B4C7400FEAC76 /* GuardianMainMenuViewController.xib */,
 				EACC67F6180B4C4800FEAC76 /* RewardsGalleryViewController.xib */,
