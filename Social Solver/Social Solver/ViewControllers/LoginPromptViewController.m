@@ -32,7 +32,7 @@
     
     NSString* bundelPath = [[NSBundle mainBundle] bundlePath];
     
-    UIImage* img = [UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@profileImages/%i.png", bundelPath, [[_user valueForKey:@"uid"] intValue]]];
+    UIImage* img = [UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@profileImages/%@.png", bundelPath, [_user valueForKey:@"name"]]];
     if (img==nil) {
         img = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"test_image" ofType:@"jpg"]];
     }

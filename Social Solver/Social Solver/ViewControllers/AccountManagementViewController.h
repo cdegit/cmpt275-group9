@@ -14,6 +14,23 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AccountManagementViewController : UIViewController
+@interface AccountManagementViewController : UIViewController <UINavigationControllerDelegate,UIImagePickerControllerDelegate>
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil userType:(NSString *) type;
+-(void)setUser:(NSManagedObject* )user;
+
+@property (weak, nonatomic) IBOutlet UITextField* nameField;
+@property (weak, nonatomic) IBOutlet UITextField* passwordField;
+@property (weak, nonatomic) IBOutlet UITextField* passwordConfirmationField;
+@property (weak, nonatomic) IBOutlet UITextField* emailField;
+@property (weak, nonatomic) IBOutlet UILabel* emailLabel;
+@property (weak, nonatomic) IBOutlet UIView* emailDivider;
+@property (weak, nonatomic) IBOutlet UIImageView* profileImageView;
+@property (weak, nonatomic) IBOutlet UIButton* cameraButton;
+
+-(IBAction)fetchImageFromiPhoto:(id)sender;
+-(IBAction)fetchImageFromCamera:(id)sender;
+-(IBAction)save:(id)sender;
+
 
 @end

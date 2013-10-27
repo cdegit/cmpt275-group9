@@ -7,23 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2A730FA01819A4EA000356DE /* LoginUserSelectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A730F9F1819A4EA000356DE /* LoginUserSelectionCell.m */; };
-		2A730FA21819A541000356DE /* LoginUserSelectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A730FA11819A541000356DE /* LoginUserSelectionCell.xib */; };
-		2A7DB106181B3A24008EF99F /* LoginPromptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7DB104181B3A24008EF99F /* LoginPromptViewController.m */; };
-		2A7DB107181B3A24008EF99F /* LoginPromptViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A7DB105181B3A24008EF99F /* LoginPromptViewController.xib */; };
-		EA68ECBB181224A8006D4C09 /* children-50x50.png in Resources */ = {isa = PBXBuildFile; fileRef = EA68ECB2181224A8006D4C09 /* children-50x50.png */; };
-		EA68ECBC181224A8006D4C09 /* Face Finder Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = EA68ECB3181224A8006D4C09 /* Face Finder Icon.png */; };
-		EA68ECBD181224A8006D4C09 /* games-50x50.png in Resources */ = {isa = PBXBuildFile; fileRef = EA68ECB4181224A8006D4C09 /* games-50x50.png */; };
-		EA68ECBE181224A8006D4C09 /* pending-50x50.png in Resources */ = {isa = PBXBuildFile; fileRef = EA68ECB5181224A8006D4C09 /* pending-50x50.png */; };
-		EA68ECBF181224A8006D4C09 /* Problem Solver Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = EA68ECB6181224A8006D4C09 /* Problem Solver Icon.png */; };
-		EA68ECC0181224A8006D4C09 /* Scene Solver Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = EA68ECB7181224A8006D4C09 /* Scene Solver Icon.png */; };
-		EA68ECC1181224A8006D4C09 /* settings-50x50.png in Resources */ = {isa = PBXBuildFile; fileRef = EA68ECB8181224A8006D4C09 /* settings-50x50.png */; };
-		EA68ECC2181224A8006D4C09 /* share-50x50.png in Resources */ = {isa = PBXBuildFile; fileRef = EA68ECB9181224A8006D4C09 /* share-50x50.png */; };
-		EA68ECC3181224A8006D4C09 /* stats-50x50.png in Resources */ = {isa = PBXBuildFile; fileRef = EA68ECBA181224A8006D4C09 /* stats-50x50.png */; };
 		0493ADE6181A226100F397E5 /* Button 300x50.png in Resources */ = {isa = PBXBuildFile; fileRef = 0493ADE2181A226100F397E5 /* Button 300x50.png */; };
 		0493ADE7181A226100F397E5 /* Face Finder Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0493ADE3181A226100F397E5 /* Face Finder Icon.png */; };
 		0493ADE8181A226100F397E5 /* Problem Solver Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0493ADE4181A226100F397E5 /* Problem Solver Icon.png */; };
 		0493ADE9181A226100F397E5 /* Scene Solver Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0493ADE5181A226100F397E5 /* Scene Solver Icon.png */; };
+		2A730FA01819A4EA000356DE /* LoginUserSelectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A730F9F1819A4EA000356DE /* LoginUserSelectionCell.m */; };
+		2A730FA21819A541000356DE /* LoginUserSelectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A730FA11819A541000356DE /* LoginUserSelectionCell.xib */; };
+		2A7DB106181B3A24008EF99F /* LoginPromptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7DB104181B3A24008EF99F /* LoginPromptViewController.m */; };
+		2A7DB107181B3A24008EF99F /* LoginPromptViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A7DB105181B3A24008EF99F /* LoginPromptViewController.xib */; };
 		EA16940C18162A7700C40069 /* Problem.m in Sources */ = {isa = PBXBuildFile; fileRef = EA16940B18162A7700C40069 /* Problem.m */; };
 		EA16940F18162B2B00C40069 /* ProblemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EA16940E18162B2B00C40069 /* ProblemManager.m */; };
 		EA16941718163A9A00C40069 /* test_image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EA16941618163A9A00C40069 /* test_image.jpg */; };
@@ -80,25 +71,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0493ADE2181A226100F397E5 /* Button 300x50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Button 300x50.png"; path = "Social Solver/Button 300x50.png"; sourceTree = "<group>"; };
+		0493ADE3181A226100F397E5 /* Face Finder Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Face Finder Icon.png"; path = "Social Solver/Face Finder Icon.png"; sourceTree = "<group>"; };
+		0493ADE4181A226100F397E5 /* Problem Solver Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Problem Solver Icon.png"; path = "Social Solver/Problem Solver Icon.png"; sourceTree = "<group>"; };
+		0493ADE5181A226100F397E5 /* Scene Solver Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Scene Solver Icon.png"; path = "Social Solver/Scene Solver Icon.png"; sourceTree = "<group>"; };
 		2A730F9E1819A4EA000356DE /* LoginUserSelectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginUserSelectionCell.h; path = Views/LoginUserSelectionCell.h; sourceTree = "<group>"; };
 		2A730F9F1819A4EA000356DE /* LoginUserSelectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginUserSelectionCell.m; path = Views/LoginUserSelectionCell.m; sourceTree = "<group>"; };
 		2A730FA11819A541000356DE /* LoginUserSelectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginUserSelectionCell.xib; path = Views/LoginUserSelectionCell.xib; sourceTree = "<group>"; };
 		2A7DB103181B3A24008EF99F /* LoginPromptViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginPromptViewController.h; sourceTree = "<group>"; };
 		2A7DB104181B3A24008EF99F /* LoginPromptViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginPromptViewController.m; sourceTree = "<group>"; };
 		2A7DB105181B3A24008EF99F /* LoginPromptViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginPromptViewController.xib; path = ViewControllers/LoginPromptViewController.xib; sourceTree = "<group>"; };
-		EA68ECB2181224A8006D4C09 /* children-50x50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "children-50x50.png"; sourceTree = "<group>"; };
-		EA68ECB3181224A8006D4C09 /* Face Finder Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Face Finder Icon.png"; sourceTree = "<group>"; };
-		EA68ECB4181224A8006D4C09 /* games-50x50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "games-50x50.png"; sourceTree = "<group>"; };
-		EA68ECB5181224A8006D4C09 /* pending-50x50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pending-50x50.png"; sourceTree = "<group>"; };
-		EA68ECB6181224A8006D4C09 /* Problem Solver Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Problem Solver Icon.png"; sourceTree = "<group>"; };
-		EA68ECB7181224A8006D4C09 /* Scene Solver Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Scene Solver Icon.png"; sourceTree = "<group>"; };
-		EA68ECB8181224A8006D4C09 /* settings-50x50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings-50x50.png"; sourceTree = "<group>"; };
-		EA68ECB9181224A8006D4C09 /* share-50x50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share-50x50.png"; sourceTree = "<group>"; };
-		EA68ECBA181224A8006D4C09 /* stats-50x50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stats-50x50.png"; sourceTree = "<group>"; };
-		0493ADE2181A226100F397E5 /* Button 300x50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Button 300x50.png"; path = "Social Solver/Button 300x50.png"; sourceTree = "<group>"; };
-		0493ADE3181A226100F397E5 /* Face Finder Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Face Finder Icon.png"; path = "Social Solver/Face Finder Icon.png"; sourceTree = "<group>"; };
-		0493ADE4181A226100F397E5 /* Problem Solver Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Problem Solver Icon.png"; path = "Social Solver/Problem Solver Icon.png"; sourceTree = "<group>"; };
-		0493ADE5181A226100F397E5 /* Scene Solver Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Scene Solver Icon.png"; path = "Social Solver/Scene Solver Icon.png"; sourceTree = "<group>"; };
 		EA16940A18162A7700C40069 /* Problem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Problem.h; sourceTree = "<group>"; };
 		EA16940B18162A7700C40069 /* Problem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Problem.m; sourceTree = "<group>"; };
 		EA16940D18162B2B00C40069 /* ProblemManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProblemManager.h; sourceTree = "<group>"; };
