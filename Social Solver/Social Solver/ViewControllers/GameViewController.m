@@ -125,6 +125,7 @@
     // Unhide all answer buttons
     for ( ; i < [self.answerButtons count]; i++) {
         ((UIButton*)[self.answerButtons objectAtIndex:i]).hidden = false;
+        ((UIButton*)[self.answerButtons objectAtIndex:i]).alpha = 1.0;
     }
     
     UIButton* button = nil;
@@ -155,7 +156,7 @@
         self.videoDescription.text = self.currentProblem.videoDescription;
         
         // Setup and play the video
-        NSURL* url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"billy_drop_icecream" ofType:@"mp4"]];
+        NSURL* url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:self.currentProblem.mediaFileName ofType:@"mp4"]];
         [self setupVideoWithURL:url];
         [self.videoPlayer play];
     }

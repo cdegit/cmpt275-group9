@@ -46,7 +46,7 @@
 {
     if (gameMode1Problems == nil) {
         Problem* p1 = [[Problem alloc] init];
-        p1.mediaFileName = @"test_image.jpg";
+        p1.mediaFileName = @"billy_drop_icecream";
         p1.answer = @"This is the correct answer";
         p1.videoDescription = @"This is a test description!\nJimmy dropped his ice cream.\nHow is Jimmy feeling?";
         p1.ID = 1;
