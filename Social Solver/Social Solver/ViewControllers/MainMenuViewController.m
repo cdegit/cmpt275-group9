@@ -51,13 +51,13 @@
 - (IBAction)gameModeTapped:(UIButton* )sender {
     enum GameMode gameMode = GameModeFaceFinder;
     
-    if (sender == self.gameMode1Button) {
+    if (sender == self.gameMode1Button || sender == self.gameMode1Button2) {
         gameMode = GameModeFaceFinder;
     }
-    else if (sender == self.gameMode2Button) {
+    else if (sender == self.gameMode2Button || sender == self.gameMode2Button2) {
         gameMode = GameModeStorySolver;
     }
-    else if (sender == self.gameMode3Button) {
+    else if (sender == self.gameMode3Button || sender == self.gameMode3Button2) {
         gameMode = GameModeProblemSolver;
     }
     else {

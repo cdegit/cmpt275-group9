@@ -5,11 +5,13 @@
 //  Created by David Woods on 13-10-13.
 //  Copyright (c) 2013 Group 9. All rights reserved.
 //
+//  Worked on by: David Woods
 
 #import "GameViewController.h"
 #import "Problem.h"
 #import "ProblemManager.h"
 #import "LevelCompleteViewController.h"
+#import <MediaPlayer/MediaPlayer.h>
 
 @interface GameViewController () <LevelCompleteViewControllerDelegate>
 
@@ -18,15 +20,22 @@
 @property (nonatomic, strong) Problem* currentProblem;
 @property (nonatomic, strong) ProblemManager* problemManager;
 @property (nonatomic, strong) NSMutableArray* answers;
+@property (nonatomic, strong) MPMoviePlayerController* videoPlayer;
 
+- (void)presentLevelCompleteView;
 - (void)setupNextProblem;
+- (void)layoutForCurrentProblem;
+- (void)resetCurrentProblem;
+- (void)shuffleAnswers;
+- (void)setupVideoWithURL:(NSURL*)url;
+- (void)removeVideoPlayer;
 
 @end
 
 
 @implementation GameViewController 
 
-@synthesize answerButtons, gameMode, currentProblem, problemManager, answers;
+@synthesize answerButtons, gameMode, currentProblem, problemManager, answers, videoPlayer;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -66,7 +75,7 @@
 
 - (void)viewDidUnload {
     answerButtons = nil; // Prevent a retain cycle
-    [self setMediaContainer:nil];
+    videoPlayer = nil;
     [self setAnswer1button:nil];
     [self setAnswer1button:nil];
     [self setAnswer2button:nil];
@@ -78,11 +87,47 @@
     [super viewDidUnload];
 }
 
-- (void)setupNextProblem
+- (void)setupVideoWithURL:(NSURL*)url
 {
-    self.currentProblem = [self.problemManager nextProblemForGameMode:self.gameMode withAnswers:self.answers];
+    if (self.videoPlayer == nil) {
+        self.videoSuperview.hidden = false;
+        self.videoPlayer = [[MPMoviePlayerController alloc] init];
+        self.videoPlayer.controlStyle = MPMovieControlStyleDefault;
+        self.videoPlayer.scalingMode = MPMovieScalingModeAspectFit;
+        self.videoPlayer.shouldAutoplay = false;
+    }
+    
+    self.videoPlayer.contentURL = url;
+    
+    if (self.videoPlayer.view.superview == nil) {
+        self.videoPlayer.view.frame = self.videoContainer.bounds;
+        [self.videoContainer addSubview:self.videoPlayer.view];
+        // Need to allow the view to autoresize or else the controls are disabled in landscape... weird issue!
+        self.videoPlayer.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    }
+    
+    [self.videoPlayer prepareToPlay];
+}
 
+- (void)removeVideoPlayer
+{
+    if (self.videoPlayer != nil)
+    {
+        [self.videoPlayer.view removeFromSuperview];
+        self.videoPlayer = nil;
+    }
+}
+
+- (void)layoutForCurrentProblem
+{
     NSUInteger i = 0;
+    
+    // Unhide all answer buttons
+    for ( ; i < [self.answerButtons count]; i++) {
+        ((UIButton*)[self.answerButtons objectAtIndex:i]).hidden = false;
+        ((UIButton*)[self.answerButtons objectAtIndex:i]).alpha = 1.0;
+    }
+    
     UIButton* button = nil;
     // Display answers on the buttons
     for (i = 0; i < [self.answers count]; i++) {
@@ -96,19 +141,67 @@
     }
     
     // Display the problem media
-    if (self.currentProblem.type == MediaTypePhoto)
+    if (self.currentProblem.mediaType == MediaTypePhoto)
     {
         self.imageView.hidden = false;
+        self.videoSuperview.hidden = true;
         self.imageView.image = [UIImage imageNamed:self.currentProblem.mediaFileName];
     }
-    else if (self.currentProblem.type == MediaTypeVideo)
+    else if (self.currentProblem.mediaType == MediaTypeVideo)
     {
+        self.imageView.hidden = true;
+        self.videoSuperview.hidden = false;
         
+        // Display the video description
+        self.videoDescription.text = self.currentProblem.videoDescription;
+        
+        // Setup and play the video
+        NSURL* url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:self.currentProblem.mediaFileName ofType:@"mp4"]];
+        [self setupVideoWithURL:url];
+        [self.videoPlayer play];
     }
     else
     {
         NSLog(@"Unrecognized problem MediaType in %s", __PRETTY_FUNCTION__);
     }
+}
+
+- (void)setupNextProblem
+{
+    self.currentProblem = [self.problemManager nextProblemForGameMode:self.gameMode withAnswers:self.answers];
+    [self layoutForCurrentProblem];
+}
+
+- (void)resetCurrentProblem
+{
+    [self shuffleAnswers];
+    [self layoutForCurrentProblem];
+}
+
+- (void)shuffleAnswers
+{
+    NSMutableArray* shuffledAnswers = [[NSMutableArray alloc] init];
+    while ([self.answers count] > 0)
+    {
+        NSUInteger index = arc4random()%[self.answers count];
+        [shuffledAnswers addObject:[self.answers objectAtIndex:index]];
+        [self.answers removeObjectAtIndex:index];
+    }
+    
+    self.answers = shuffledAnswers;
+}
+
+- (void)presentLevelCompleteView
+{
+    // If the video was still playing, then pause it
+    if (self.videoPlayer.playbackState == MPMoviePlaybackStatePlaying) {
+        [self.videoPlayer pause];
+    }
+    
+    LevelCompleteViewController* vc = [[LevelCompleteViewController alloc] initWithNibName:@"LevelCompleteViewController" bundle:[NSBundle mainBundle]];
+    vc.modalPresentationStyle = UIModalPresentationFormSheet;
+    vc.delegate = self;
+    [self presentViewController:vc animated:YES completion:^{} ];
 }
 
 // Accessors ---------------------------------------------------------------------------------------------
@@ -132,7 +225,9 @@
 
 // Event handlers -------------------------------------------------------------------------------------------
 
-- (IBAction)skipButtonPressed:(UIButton*)sender {
+- (IBAction)skipButtonPressed:(UIButton*)sender
+{
+    [self presentLevelCompleteView];
 }
 
 - (IBAction)answerButtonPressed:(UIButton*)sender {
@@ -140,12 +235,8 @@
     
     if ([answerChosen isEqualToString:self.currentProblem.answer])
     {
-        // Correct answer
-        NSLog(@"Correct answer chosen");
-        LevelCompleteViewController* vc = [[LevelCompleteViewController alloc] initWithNibName:@"LevelCompleteViewController" bundle:[NSBundle mainBundle]];
-        vc.modalPresentationStyle = UIModalPresentationFormSheet;
-        vc.delegate = self;
-        [self presentViewController:vc animated:YES completion:^{} ];
+        // Correct answer - Display the level complete view
+        [self presentLevelCompleteView];
     }
     else
     {
@@ -179,6 +270,7 @@
     }
     else if (option == FinishOptionReplayLevel) {
         [self dismissViewControllerAnimated:YES completion:^{}];
+        [self resetCurrentProblem];
     }
     else {
         NSLog(@"Unrecognized FinishOption in %s", __PRETTY_FUNCTION__);
@@ -187,6 +279,7 @@
 
 - (IBAction)backButtonPressed:(id)sender
 {
+    // Animate the popping of the view controller to be a flip instead of a slide
     [UIView animateWithDuration:0.75
                      animations:^{
                          [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];

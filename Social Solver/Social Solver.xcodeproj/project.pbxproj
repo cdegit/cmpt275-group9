@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0493ADE6181A226100F397E5 /* Button 300x50.png in Resources */ = {isa = PBXBuildFile; fileRef = 0493ADE2181A226100F397E5 /* Button 300x50.png */; };
-		0493ADE7181A226100F397E5 /* Face Finder Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0493ADE3181A226100F397E5 /* Face Finder Icon.png */; };
-		0493ADE8181A226100F397E5 /* Problem Solver Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0493ADE4181A226100F397E5 /* Problem Solver Icon.png */; };
-		0493ADE9181A226100F397E5 /* Scene Solver Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0493ADE5181A226100F397E5 /* Scene Solver Icon.png */; };
 		2A730FA01819A4EA000356DE /* LoginUserSelectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A730F9F1819A4EA000356DE /* LoginUserSelectionCell.m */; };
 		2A730FA21819A541000356DE /* LoginUserSelectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A730FA11819A541000356DE /* LoginUserSelectionCell.xib */; };
 		2A7DB106181B3A24008EF99F /* LoginPromptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7DB104181B3A24008EF99F /* LoginPromptViewController.m */; };
@@ -20,6 +16,28 @@
 		EA16941718163A9A00C40069 /* test_image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EA16941618163A9A00C40069 /* test_image.jpg */; };
 		EA16941B18163C5C00C40069 /* LevelCompleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA16941918163C5C00C40069 /* LevelCompleteViewController.m */; };
 		EA16941C18163C5C00C40069 /* LevelCompleteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA16941A18163C5C00C40069 /* LevelCompleteViewController.xib */; };
+		EAC698E1181DB81A00342086 /* anger.png in Resources */ = {isa = PBXBuildFile; fileRef = EAC698CE181DB81A00342086 /* anger.png */; };
+		EAC698E2181DB81A00342086 /* App Icon 72x72.png in Resources */ = {isa = PBXBuildFile; fileRef = EAC698CF181DB81A00342086 /* App Icon 72x72.png */; };
+		EAC698E3181DB81A00342086 /* App Icon 144x144.png in Resources */ = {isa = PBXBuildFile; fileRef = EAC698D0181DB81A00342086 /* App Icon 144x144.png */; };
+		EAC698E4181DB81A00342086 /* billy_drop_icecream.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EAC698D1181DB81A00342086 /* billy_drop_icecream.mp4 */; };
+		EAC698E5181DB81A00342086 /* Button 300x50.png in Resources */ = {isa = PBXBuildFile; fileRef = EAC698D2181DB81A00342086 /* Button 300x50.png */; };
+		EAC698E6181DB81A00342086 /* disgust.png in Resources */ = {isa = PBXBuildFile; fileRef = EAC698D3181DB81A00342086 /* disgust.png */; };
+		EAC698E7181DB81A00342086 /* Face Finder Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = EAC698D4181DB81A00342086 /* Face Finder Icon.png */; };
+		EAC698E8181DB81A00342086 /* fear.png in Resources */ = {isa = PBXBuildFile; fileRef = EAC698D5181DB81A00342086 /* fear.png */; };
+		EAC698E9181DB81A00342086 /* happy.png in Resources */ = {isa = PBXBuildFile; fileRef = EAC698D6181DB81A00342086 /* happy.png */; };
+		EAC698EA181DB81A00342086 /* Problem Solver Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = EAC698D7181DB81A00342086 /* Problem Solver Icon.png */; };
+		EAC698EB181DB81A00342086 /* sad.png in Resources */ = {isa = PBXBuildFile; fileRef = EAC698D8181DB81A00342086 /* sad.png */; };
+		EAC698EC181DB81A00342086 /* Scene Solver Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = EAC698D9181DB81A00342086 /* Scene Solver Icon.png */; };
+		EAC698ED181DB81A00342086 /* surprised.png in Resources */ = {isa = PBXBuildFile; fileRef = EAC698DA181DB81A00342086 /* surprised.png */; };
+		EAC698EE181DB81A00342086 /* children-50x50.png in Resources */ = {isa = PBXBuildFile; fileRef = EAC698DB181DB81A00342086 /* children-50x50.png */; };
+		EAC698EF181DB81A00342086 /* games-50x50.png in Resources */ = {isa = PBXBuildFile; fileRef = EAC698DC181DB81A00342086 /* games-50x50.png */; };
+		EAC698F0181DB81A00342086 /* pending-50x50.png in Resources */ = {isa = PBXBuildFile; fileRef = EAC698DD181DB81A00342086 /* pending-50x50.png */; };
+		EAC698F1181DB81A00342086 /* settings-50x50.png in Resources */ = {isa = PBXBuildFile; fileRef = EAC698DE181DB81A00342086 /* settings-50x50.png */; };
+		EAC698F2181DB81A00342086 /* share-50x50.png in Resources */ = {isa = PBXBuildFile; fileRef = EAC698DF181DB81A00342086 /* share-50x50.png */; };
+		EAC698F3181DB81A00342086 /* stats-50x50.png in Resources */ = {isa = PBXBuildFile; fileRef = EAC698E0181DB81A00342086 /* stats-50x50.png */; };
+		EAC698F7181DB84900342086 /* Problems.plist in Resources */ = {isa = PBXBuildFile; fileRef = EAC698F6181DB84900342086 /* Problems.plist */; };
+		EAC698FA181DB86300342086 /* Social_Solver.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EAC698F8181DB86300342086 /* Social_Solver.xcdatamodeld */; };
+		EAC698FC181DB87F00342086 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAC698FB181DB87F00342086 /* MediaPlayer.framework */; };
 		EACC678E18037CFE00FEAC76 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACC678D18037CFE00FEAC76 /* UIKit.framework */; };
 		EACC679018037CFE00FEAC76 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACC678F18037CFE00FEAC76 /* Foundation.framework */; };
 		EACC679218037CFE00FEAC76 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACC679118037CFE00FEAC76 /* CoreGraphics.framework */; };
@@ -71,10 +89,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0493ADE2181A226100F397E5 /* Button 300x50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Button 300x50.png"; path = "Social Solver/Button 300x50.png"; sourceTree = "<group>"; };
-		0493ADE3181A226100F397E5 /* Face Finder Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Face Finder Icon.png"; path = "Social Solver/Face Finder Icon.png"; sourceTree = "<group>"; };
-		0493ADE4181A226100F397E5 /* Problem Solver Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Problem Solver Icon.png"; path = "Social Solver/Problem Solver Icon.png"; sourceTree = "<group>"; };
-		0493ADE5181A226100F397E5 /* Scene Solver Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Scene Solver Icon.png"; path = "Social Solver/Scene Solver Icon.png"; sourceTree = "<group>"; };
 		2A730F9E1819A4EA000356DE /* LoginUserSelectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginUserSelectionCell.h; path = Views/LoginUserSelectionCell.h; sourceTree = "<group>"; };
 		2A730F9F1819A4EA000356DE /* LoginUserSelectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginUserSelectionCell.m; path = Views/LoginUserSelectionCell.m; sourceTree = "<group>"; };
 		2A730FA11819A541000356DE /* LoginUserSelectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginUserSelectionCell.xib; path = Views/LoginUserSelectionCell.xib; sourceTree = "<group>"; };
@@ -89,6 +103,28 @@
 		EA16941818163C5C00C40069 /* LevelCompleteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelCompleteViewController.h; sourceTree = "<group>"; };
 		EA16941918163C5C00C40069 /* LevelCompleteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelCompleteViewController.m; sourceTree = "<group>"; };
 		EA16941A18163C5C00C40069 /* LevelCompleteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LevelCompleteViewController.xib; path = ViewControllers/LevelCompleteViewController.xib; sourceTree = "<group>"; };
+		EAC698CE181DB81A00342086 /* anger.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = anger.png; sourceTree = "<group>"; };
+		EAC698CF181DB81A00342086 /* App Icon 72x72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "App Icon 72x72.png"; sourceTree = "<group>"; };
+		EAC698D0181DB81A00342086 /* App Icon 144x144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "App Icon 144x144.png"; sourceTree = "<group>"; };
+		EAC698D1181DB81A00342086 /* billy_drop_icecream.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = billy_drop_icecream.mp4; sourceTree = "<group>"; };
+		EAC698D2181DB81A00342086 /* Button 300x50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Button 300x50.png"; sourceTree = "<group>"; };
+		EAC698D3181DB81A00342086 /* disgust.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = disgust.png; sourceTree = "<group>"; };
+		EAC698D4181DB81A00342086 /* Face Finder Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Face Finder Icon.png"; sourceTree = "<group>"; };
+		EAC698D5181DB81A00342086 /* fear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fear.png; sourceTree = "<group>"; };
+		EAC698D6181DB81A00342086 /* happy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = happy.png; sourceTree = "<group>"; };
+		EAC698D7181DB81A00342086 /* Problem Solver Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Problem Solver Icon.png"; sourceTree = "<group>"; };
+		EAC698D8181DB81A00342086 /* sad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sad.png; sourceTree = "<group>"; };
+		EAC698D9181DB81A00342086 /* Scene Solver Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Scene Solver Icon.png"; sourceTree = "<group>"; };
+		EAC698DA181DB81A00342086 /* surprised.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = surprised.png; sourceTree = "<group>"; };
+		EAC698DB181DB81A00342086 /* children-50x50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "children-50x50.png"; sourceTree = "<group>"; };
+		EAC698DC181DB81A00342086 /* games-50x50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "games-50x50.png"; sourceTree = "<group>"; };
+		EAC698DD181DB81A00342086 /* pending-50x50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pending-50x50.png"; sourceTree = "<group>"; };
+		EAC698DE181DB81A00342086 /* settings-50x50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings-50x50.png"; sourceTree = "<group>"; };
+		EAC698DF181DB81A00342086 /* share-50x50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share-50x50.png"; sourceTree = "<group>"; };
+		EAC698E0181DB81A00342086 /* stats-50x50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stats-50x50.png"; sourceTree = "<group>"; };
+		EAC698F6181DB84900342086 /* Problems.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Problems.plist; sourceTree = "<group>"; };
+		EAC698F9181DB86300342086 /* Social_Solver.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Social_Solver.xcdatamodel; sourceTree = "<group>"; };
+		EAC698FB181DB87F00342086 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		EACC678A18037CFE00FEAC76 /* Social Solver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Social Solver.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EACC678D18037CFE00FEAC76 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EACC678F18037CFE00FEAC76 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -151,6 +187,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAC698FC181DB87F00342086 /* MediaPlayer.framework in Frameworks */,
 				EACC678E18037CFE00FEAC76 /* UIKit.framework in Frameworks */,
 				EACC679018037CFE00FEAC76 /* Foundation.framework in Frameworks */,
 				EACC679218037CFE00FEAC76 /* CoreGraphics.framework in Frameworks */,
@@ -172,13 +209,51 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EAC698CD181DB7F000342086 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				EAC698F5181DB83400342086 /* StorySolver videos */,
+				EAC698F4181DB81E00342086 /* FaceFinder images */,
+				EAC698CF181DB81A00342086 /* App Icon 72x72.png */,
+				EAC698D0181DB81A00342086 /* App Icon 144x144.png */,
+				EAC698D2181DB81A00342086 /* Button 300x50.png */,
+				EAC698D4181DB81A00342086 /* Face Finder Icon.png */,
+				EAC698D7181DB81A00342086 /* Problem Solver Icon.png */,
+				EAC698D9181DB81A00342086 /* Scene Solver Icon.png */,
+				EAC698DB181DB81A00342086 /* children-50x50.png */,
+				EAC698DC181DB81A00342086 /* games-50x50.png */,
+				EAC698DD181DB81A00342086 /* pending-50x50.png */,
+				EAC698DE181DB81A00342086 /* settings-50x50.png */,
+				EAC698DF181DB81A00342086 /* share-50x50.png */,
+				EAC698E0181DB81A00342086 /* stats-50x50.png */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		EAC698F4181DB81E00342086 /* FaceFinder images */ = {
+			isa = PBXGroup;
+			children = (
+				EAC698D3181DB81A00342086 /* disgust.png */,
+				EAC698D5181DB81A00342086 /* fear.png */,
+				EAC698D6181DB81A00342086 /* happy.png */,
+				EAC698D8181DB81A00342086 /* sad.png */,
+				EAC698DA181DB81A00342086 /* surprised.png */,
+				EAC698CE181DB81A00342086 /* anger.png */,
+			);
+			name = "FaceFinder images";
+			sourceTree = "<group>";
+		};
+		EAC698F5181DB83400342086 /* StorySolver videos */ = {
+			isa = PBXGroup;
+			children = (
+				EAC698D1181DB81A00342086 /* billy_drop_icecream.mp4 */,
+			);
+			name = "StorySolver videos";
+			sourceTree = "<group>";
+		};
 		EACC678118037CFE00FEAC76 = {
 			isa = PBXGroup;
 			children = (
-				0493ADE2181A226100F397E5 /* Button 300x50.png */,
-				0493ADE3181A226100F397E5 /* Face Finder Icon.png */,
-				0493ADE4181A226100F397E5 /* Problem Solver Icon.png */,
-				0493ADE5181A226100F397E5 /* Scene Solver Icon.png */,
 				EACC679518037CFE00FEAC76 /* Social Solver */,
 				EACC67B718037CFE00FEAC76 /* Social SolverTests */,
 				EACC678C18037CFE00FEAC76 /* Frameworks */,
@@ -198,6 +273,7 @@
 		EACC678C18037CFE00FEAC76 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EAC698FB181DB87F00342086 /* MediaPlayer.framework */,
 				EACC678D18037CFE00FEAC76 /* UIKit.framework */,
 				EACC678F18037CFE00FEAC76 /* Foundation.framework */,
 				EACC679118037CFE00FEAC76 /* CoreGraphics.framework */,
@@ -210,6 +286,7 @@
 		EACC679518037CFE00FEAC76 /* Social Solver */ = {
 			isa = PBXGroup;
 			children = (
+				EAC698CD181DB7F000342086 /* Assets */,
 				EA16941618163A9A00C40069 /* test_image.jpg */,
 				EACC67D6180733AD00FEAC76 /* DataClasses */,
 				EACC67D5180733A000FEAC76 /* ViewControllers */,
@@ -226,6 +303,8 @@
 		EACC679618037CFE00FEAC76 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EAC698F8181DB86300342086 /* Social_Solver.xcdatamodeld */,
+				EAC698F6181DB84900342086 /* Problems.plist */,
 				EACC679718037CFE00FEAC76 /* Social Solver-Info.plist */,
 				EACC679818037CFE00FEAC76 /* InfoPlist.strings */,
 				EACC679B18037CFE00FEAC76 /* main.m */,
@@ -403,25 +482,41 @@
 			buildActionMask = 2147483647;
 			files = (
 				EACC679A18037CFE00FEAC76 /* InfoPlist.strings in Resources */,
-				0493ADE6181A226100F397E5 /* Button 300x50.png in Resources */,
 				EACC67A218037CFE00FEAC76 /* Default.png in Resources */,
 				EACC67A418037CFE00FEAC76 /* Default@2x.png in Resources */,
+				EAC698EE181DB81A00342086 /* children-50x50.png in Resources */,
 				EACC67A618037CFE00FEAC76 /* Default-568h@2x.png in Resources */,
 				EACC67CC18037DA300FEAC76 /* MainMenuViewController.xib in Resources */,
 				2A730FA21819A541000356DE /* LoginUserSelectionCell.xib in Resources */,
+				EAC698EC181DB81A00342086 /* Scene Solver Icon.png in Resources */,
 				EACC67E9180B4B6600FEAC76 /* LoginViewController.xib in Resources */,
-				0493ADE7181A226100F397E5 /* Face Finder Icon.png in Resources */,
-				0493ADE9181A226100F397E5 /* Scene Solver Icon.png in Resources */,
+				EAC698EA181DB81A00342086 /* Problem Solver Icon.png in Resources */,
+				EAC698F3181DB81A00342086 /* stats-50x50.png in Resources */,
+				EAC698E6181DB81A00342086 /* disgust.png in Resources */,
+				EAC698EB181DB81A00342086 /* sad.png in Resources */,
+				EAC698E9181DB81A00342086 /* happy.png in Resources */,
+				EAC698E1181DB81A00342086 /* anger.png in Resources */,
 				EACC67EE180B4B8D00FEAC76 /* GameViewController.xib in Resources */,
 				EACC67F3180B4BC700FEAC76 /* AccountManagementViewController.xib in Resources */,
+				EAC698EF181DB81A00342086 /* games-50x50.png in Resources */,
+				EAC698E4181DB81A00342086 /* billy_drop_icecream.mp4 in Resources */,
 				EACC67F8180B4C4800FEAC76 /* RewardsGalleryViewController.xib in Resources */,
-				0493ADE8181A226100F397E5 /* Problem Solver Icon.png in Resources */,
+				EAC698ED181DB81A00342086 /* surprised.png in Resources */,
 				EACC67FD180B4C7400FEAC76 /* GuardianMainMenuViewController.xib in Resources */,
 				EACC6806180B954C00FEAC76 /* NavigationTableCell.xib in Resources */,
+				EAC698F2181DB81A00342086 /* share-50x50.png in Resources */,
+				EAC698E7181DB81A00342086 /* Face Finder Icon.png in Resources */,
 				2A7DB107181B3A24008EF99F /* LoginPromptViewController.xib in Resources */,
+				EAC698F1181DB81A00342086 /* settings-50x50.png in Resources */,
+				EAC698F0181DB81A00342086 /* pending-50x50.png in Resources */,
+				EAC698E8181DB81A00342086 /* fear.png in Resources */,
 				EACC680B180B9CE900FEAC76 /* StatisticsViewController.xib in Resources */,
+				EAC698E5181DB81A00342086 /* Button 300x50.png in Resources */,
+				EAC698E3181DB81A00342086 /* App Icon 144x144.png in Resources */,
+				EAC698F7181DB84900342086 /* Problems.plist in Resources */,
 				EA16941718163A9A00C40069 /* test_image.jpg in Resources */,
 				EA16941C18163C5C00C40069 /* LevelCompleteViewController.xib in Resources */,
+				EAC698E2181DB81A00342086 /* App Icon 72x72.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -465,6 +560,7 @@
 				EACC67DC1807340700FEAC76 /* GuardianUser.m in Sources */,
 				EACC67DF1807343200FEAC76 /* ChildUser.m in Sources */,
 				2A7DB106181B3A24008EF99F /* LoginPromptViewController.m in Sources */,
+				EAC698FA181DB86300342086 /* Social_Solver.xcdatamodeld in Sources */,
 				EACC67E8180B4B6600FEAC76 /* LoginViewController.m in Sources */,
 				EACC67ED180B4B8D00FEAC76 /* GameViewController.m in Sources */,
 				EACC67F2180B4BC700FEAC76 /* AccountManagementViewController.m in Sources */,
@@ -669,6 +765,16 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
+		EAC698F8181DB86300342086 /* Social_Solver.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				EAC698F9181DB86300342086 /* Social_Solver.xcdatamodel */,
+			);
+			currentVersion = EAC698F9181DB86300342086 /* Social_Solver.xcdatamodel */;
+			path = Social_Solver.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
 		EACC67A718037CFE00FEAC76 /* Social_Solver.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (

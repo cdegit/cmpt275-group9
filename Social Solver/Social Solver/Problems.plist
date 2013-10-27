@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Mode1</key>
+	<array>
+		<dict>
+			<key>fileName</key>
+			<string>sad.png</string>
+			<key>ID</key>
+			<integer>100</integer>
+			<key>mediaType</key>
+			<string>MediaTypePhoto</string>
+			<key>answer</key>
+			<string>Sad</string>
+		</dict>
+		<dict>
+			<key>fileName</key>
+			<string>happy.png</string>
+			<key>ID</key>
+			<integer>101</integer>
+			<key>mediaType</key>
+			<string>MediaTypePhoto</string>
+			<key>answer</key>
+			<string>Happy</string>
+		</dict>
+		<dict>
+			<key>fileName</key>
+			<string>anger.png</string>
+			<key>ID</key>
+			<integer>102</integer>
+			<key>mediaType</key>
+			<string>MediaTypePhoto</string>
+			<key>answer</key>
+			<string>Anger</string>
+		</dict>
+		<dict>
+			<key>fileName</key>
+			<string>surprised.png</string>
+			<key>ID</key>
+			<integer>103</integer>
+			<key>mediaType</key>
+			<string>MediaTypePhoto</string>
+			<key>answer</key>
+			<string>Surprised</string>
+		</dict>
+		<dict>
+			<key>fileName</key>
+			<string>fear.png</string>
+			<key>ID</key>
+			<integer>104</integer>
+			<key>mediaType</key>
+			<string>MediaTypePhoto</string>
+			<key>answer</key>
+			<string>Fear</string>
+		</dict>
+		<dict>
+			<key>fileName</key>
+			<string>disgust.png</string>
+			<key>ID</key>
+			<integer>105</integer>
+			<key>mediaType</key>
+			<string>MediaTypePhoto</string>
+			<key>answer</key>
+			<string>Disgust</string>
+		</dict>
+	</array>
+	<key>Mode2</key>
+	<array>
+		<dict>
+			<key>fileName</key>
+			<string>billy_drop_icecream</string>
+			<key>ID</key>
+			<integer>200</integer>
+			<key>mediaType</key>
+			<string>MediaTypeVideo</string>
+			<key>answer</key>
+			<string>Sad</string>
+			<key>videoDescription</key>
+			<string>Billy was enjoying his ice-cream when suddenly he dropped it!
+
+
+
+How is Billy feeling?</string>
+		</dict>
+	</array>
+	<key>Mode3</key>
+	<array/>
+</dict>
+</plist>
