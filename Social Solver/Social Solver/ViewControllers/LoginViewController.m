@@ -11,6 +11,7 @@
 #import "LoginUserSelectionCell.h"
 #import "LoginPromptViewController.h"
 #import "UserDatabaseManager.h"
+#import "GuardianMainMenuViewController.h"
 
 @interface LoginViewController ()
 {
@@ -121,6 +122,11 @@
     [[UserDatabaseManager sharedInstance] setCurrentUser:user];
     if ([[[user entity] name] isEqualToString:@"Child"]) {
         [self.navigationController popViewControllerAnimated:YES];
+    }
+    else
+    {
+        GuardianMainMenuViewController* gmmvc = [[GuardianMainMenuViewController alloc] initWithNibName:@"GuardianMainMenuViewController" bundle:[NSBundle mainBundle]];
+        [self.navigationController pushViewController:gmmvc animated:YES];
     }
 }
 

@@ -42,6 +42,10 @@
         [_cameraButton setHidden:YES];
     }
     
+    
+    
+    [self setTitle:[NSString stringWithFormat:@"%@ %@ Account", _editingUser==nil ? @"Create" : @"Edit", _userType]];
+    
 }
 
 - (void)didReceiveMemoryWarning
