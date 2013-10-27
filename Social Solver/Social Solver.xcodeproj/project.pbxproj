@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A475087181DDD73000EBEAB /* UIImagePickerController+ShouldAutorotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A475086181DDD73000EBEAB /* UIImagePickerController+ShouldAutorotate.m */; };
 		2A730FA01819A4EA000356DE /* LoginUserSelectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A730F9F1819A4EA000356DE /* LoginUserSelectionCell.m */; };
 		2A730FA21819A541000356DE /* LoginUserSelectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A730FA11819A541000356DE /* LoginUserSelectionCell.xib */; };
 		2A7DB106181B3A24008EF99F /* LoginPromptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7DB104181B3A24008EF99F /* LoginPromptViewController.m */; };
@@ -95,6 +96,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2A475085181DDD73000EBEAB /* UIImagePickerController+ShouldAutorotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImagePickerController+ShouldAutorotate.h"; path = "Categories/UIImagePickerController+ShouldAutorotate.h"; sourceTree = "<group>"; };
+		2A475086181DDD73000EBEAB /* UIImagePickerController+ShouldAutorotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImagePickerController+ShouldAutorotate.m"; path = "Categories/UIImagePickerController+ShouldAutorotate.m"; sourceTree = "<group>"; };
 		2A730F9E1819A4EA000356DE /* LoginUserSelectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginUserSelectionCell.h; path = Views/LoginUserSelectionCell.h; sourceTree = "<group>"; };
 		2A730F9F1819A4EA000356DE /* LoginUserSelectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginUserSelectionCell.m; path = Views/LoginUserSelectionCell.m; sourceTree = "<group>"; };
 		2A730FA11819A541000356DE /* LoginUserSelectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginUserSelectionCell.xib; path = Views/LoginUserSelectionCell.xib; sourceTree = "<group>"; };
@@ -221,6 +224,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A475084181DDD08000EBEAB /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				2A475085181DDD73000EBEAB /* UIImagePickerController+ShouldAutorotate.h */,
+				2A475086181DDD73000EBEAB /* UIImagePickerController+ShouldAutorotate.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
 		EAC698CD181DB7F000342086 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
@@ -304,6 +316,7 @@
 		EACC679518037CFE00FEAC76 /* Social Solver */ = {
 			isa = PBXGroup;
 			children = (
+				2A475084181DDD08000EBEAB /* Categories */,
 				EAC698CD181DB7F000342086 /* Assets */,
 				EA16941618163A9A00C40069 /* test_image.jpg */,
 				EACC67D6180733AD00FEAC76 /* DataClasses */,
@@ -589,6 +602,7 @@
 				EACC67ED180B4B8D00FEAC76 /* GameViewController.m in Sources */,
 				EACC67F2180B4BC700FEAC76 /* AccountManagementViewController.m in Sources */,
 				EACC67F7180B4C4800FEAC76 /* RewardsGalleryViewController.m in Sources */,
+				2A475087181DDD73000EBEAB /* UIImagePickerController+ShouldAutorotate.m in Sources */,
 				EACC67FC180B4C7400FEAC76 /* GuardianMainMenuViewController.m in Sources */,
 				EACC6800180B4ECD00FEAC76 /* UserDatabaseManager.m in Sources */,
 				EACC6804180B944E00FEAC76 /* NavigationTableCell.m in Sources */,
