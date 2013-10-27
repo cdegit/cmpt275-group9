@@ -24,7 +24,7 @@
 			<key>answer</key>
 			<string>Happy</string>
 		</dict>
-        <dict>
+		<dict>
 			<key>fileName</key>
 			<string>anger.png</string>
 			<key>ID</key>
@@ -34,7 +34,7 @@
 			<key>answer</key>
 			<string>Anger</string>
 		</dict>
-        <dict>
+		<dict>
 			<key>fileName</key>
 			<string>surprised.png</string>
 			<key>ID</key>
@@ -44,7 +44,7 @@
 			<key>answer</key>
 			<string>Surprised</string>
 		</dict>
-        <dict>
+		<dict>
 			<key>fileName</key>
 			<string>fear.png</string>
 			<key>ID</key>
@@ -54,7 +54,7 @@
 			<key>answer</key>
 			<string>Fear</string>
 		</dict>
-        <dict>
+		<dict>
 			<key>fileName</key>
 			<string>disgust.png</string>
 			<key>ID</key>
@@ -77,7 +77,11 @@
 			<key>answer</key>
 			<string>Sad</string>
 			<key>videoDescription</key>
-			<string>Jimmy was enjoying his ice-cream when suddenly he dropped it!\n\nHow is Jimmy feeling?</string>
+			<string>Billy was enjoying his ice-cream when suddenly he dropped it!
+
+
+
+How is Billy feeling?</string>
 		</dict>
 	</array>
 	<key>Mode3</key>
