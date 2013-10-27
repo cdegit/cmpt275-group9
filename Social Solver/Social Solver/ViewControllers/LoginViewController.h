@@ -11,7 +11,12 @@
 
 @interface LoginViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 
+-(void) dismissPrompt;
+-(void) authenticatedUser:(NSManagedObject *)user;
+
 @property (weak, nonatomic) IBOutlet UISegmentedControl* userTypeControl;
 @property (weak, nonatomic) IBOutlet UICollectionView* userSelectionView;
+
+- (IBAction)userTypeChanged:(id)sender;
 
 @end

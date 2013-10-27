@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "LoginUserSelectionCell.h"
 #import "LoginPromptViewController.h"
+#import "UserDatabaseManager.h"
 
 @interface LoginViewController ()
 {
@@ -35,9 +36,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [_userTypeControl addTarget:self
-                         action:@selector(userTypeChanged:)
-               forControlEvents:UIControlEventValueChanged];
+    
+    [self setTitle:@"Login"];
     
     [_userSelectionView registerNib:[UINib nibWithNibName:@"LoginUserSelectionCell"
                                                    bundle:[NSBundle mainBundle]]
@@ -51,6 +51,7 @@
     [userSelectionLayout setSectionInset:UIEdgeInsetsMake(20.0, 20.0, 20.0, 20.0)];
     
     userType = @"Child";
+    [self loadUsers];
     
 }
 
@@ -72,19 +73,21 @@
     userArray = [mc executeFetchRequest:request
                                   error:&err];
     
-    if ([userArray count]==0) {
+    if ([userArray count]==0&&[userType isEqualToString:@"Child"]) {
         NSManagedObject* mo = [[NSManagedObject alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:mc];
-        [mo setValue:@"Bob" forKey:@"name"];
-        [mo setValue:@"pass" forKey:@"password"];
+        [mo setValue:@"Anne" forKey:@"name"];
+        [mo setValue:@"pass" forKey:@"passhash"];
         [mo setValue:[NSNumber numberWithInt:2] forKey:@"uid"];
         userArray = @[mo];
+        NSLog(@"Created User");
         
     }
     
 }
 
-- (void)userTypeChanged:(id)sender
+- (IBAction)userTypeChanged:(id)sender
 {
+    NSLog(@"User Type changed");
     NSString* newType = nil;
     switch ([_userTypeControl selectedSegmentIndex]) {
         case 0: newType = @"Child";    break;
@@ -96,7 +99,7 @@
     if (newType!=nil&&![newType isEqualToString:userType]) {
         userType = newType;
         [self loadUsers];
-        //[_userSelectionView reloadData];
+        [_userSelectionView reloadData];
     }
 }
 
@@ -104,6 +107,21 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+-(void) dismissPrompt
+{
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+-(void) authenticatedUser:(NSManagedObject *)user
+{
+    [self dismissViewControllerAnimated:YES completion:NULL];
+    [[UserDatabaseManager sharedInstance] setCurrentUser:user];
+    if ([[[user entity] name] isEqualToString:@"Child"]) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 #pragma mark - UICollectionViewDataSource Methods
@@ -126,6 +144,9 @@
     NSString* bundelPath = [[NSBundle mainBundle] bundlePath];
     
     UIImage* img = [UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@profileImages/%i.png", bundelPath, [[us valueForKey:@"uid"] intValue]]];
+    if (img==nil) {
+        img = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"test_image" ofType:@"jpg"]];
+    }
     
     [[cell imageView] setImage:img];
     
@@ -137,13 +158,21 @@
 
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"Selected?");
     LoginPromptViewController* lpvc = [[LoginPromptViewController alloc] initWithNibName:@"LoginPromptViewController" bundle:[NSBundle mainBundle]];
     
-    [lpvc setUser:[userArray objectAtIndex:[indexPath row]]];
+    NSManagedObject* user = [userArray objectAtIndex:[indexPath row]];
+    
+    [lpvc setDelegate:self];
+    [lpvc setUser:user];
     
     [lpvc setModalPresentationStyle:UIModalPresentationFormSheet];
     [lpvc setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
+    
+    
     [self presentViewController:lpvc animated:YES completion:NULL];
+    
+    lpvc.view.superview.frame = CGRectInset(lpvc.view.superview.frame, 100, 100);
     
     return NO;
 }

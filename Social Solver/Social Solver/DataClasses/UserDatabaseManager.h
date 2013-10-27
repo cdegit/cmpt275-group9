@@ -14,4 +14,6 @@
 
 + (UserDatabaseManager*) sharedInstance;
 
+@property (weak, nonatomic) NSManagedObject* currentUser;
+
 @end
