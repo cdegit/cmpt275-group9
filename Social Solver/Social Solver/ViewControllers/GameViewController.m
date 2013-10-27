@@ -141,13 +141,13 @@
     }
     
     // Display the problem media
-    if (self.currentProblem.type == MediaTypePhoto)
+    if (self.currentProblem.mediaType == MediaTypePhoto)
     {
         self.imageView.hidden = false;
         self.videoSuperview.hidden = true;
         self.imageView.image = [UIImage imageNamed:self.currentProblem.mediaFileName];
     }
-    else if (self.currentProblem.type == MediaTypeVideo)
+    else if (self.currentProblem.mediaType == MediaTypeVideo)
     {
         self.imageView.hidden = true;
         self.videoSuperview.hidden = false;
