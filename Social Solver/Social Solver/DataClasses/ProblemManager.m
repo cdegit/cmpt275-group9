@@ -5,6 +5,8 @@
 //  Created by David Woods on 13-10-21.
 //  Copyright (c) 2013 Group 9. All rights reserved.
 //
+//  Worked on by: David Woods
+
 
 #import "ProblemManager.h"
 
@@ -46,8 +48,9 @@
         Problem* p1 = [[Problem alloc] init];
         p1.mediaFileName = @"test_image.jpg";
         p1.answer = @"This is the correct answer";
+        p1.videoDescription = @"This is a test description!\nJimmy dropped his ice cream.\nHow is Jimmy feeling?";
         p1.ID = 1;
-        p1.type = MediaTypePhoto;
+        p1.type = MediaTypeVideo;
         
         gameMode1Problems = @[p1];
     }
