@@ -18,5 +18,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *rewardsGalleryButton;
 @property (weak, nonatomic) IBOutlet UIButton *createAccountButton;
 @property (weak, nonatomic) IBOutlet UIButton *guardianMainMenuButton;
+@property (weak, nonatomic) IBOutlet UIButton *gameMode1Button2;
+@property (weak, nonatomic) IBOutlet UIButton *gameMode2Button2;
+@property (weak, nonatomic) IBOutlet UIButton *gameMode3Button2;
 
 @end

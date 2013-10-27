@@ -14,7 +14,6 @@
                 <outlet property="answer4button" destination="76" id="191"/>
                 <outlet property="answer5button" destination="68" id="192"/>
                 <outlet property="imageView" destination="199" id="208"/>
-                <outlet property="mediaContainer" destination="9" id="182"/>
                 <outlet property="skipAnswerButton" destination="99" id="193"/>
                 <outlet property="view" destination="2" id="3"/>
             </connections>
@@ -24,23 +23,13 @@
             <rect key="frame" x="0.0" y="20" width="1024" height="748"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" verticalCompressionResistancePriority="444" translatesAutoresizingMaskIntoConstraints="NO" id="9">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="382" verticalCompressionResistancePriority="1" translatesAutoresizingMaskIntoConstraints="NO" id="199">
                     <rect key="frame" x="186" y="20" width="653" height="400"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" translatesAutoresizingMaskIntoConstraints="NO" id="199">
-                            <rect key="frame" x="0.0" y="0.0" width="653" height="400"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                    </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
-                        <constraint firstItem="199" firstAttribute="leading" secondItem="9" secondAttribute="leading" id="RuD-GG-Lfp"/>
-                        <constraint firstAttribute="bottom" secondItem="199" secondAttribute="bottom" id="hWv-r4-W9l"/>
-                        <constraint firstAttribute="trailing" secondItem="199" secondAttribute="trailing" id="jia-ag-nOC"/>
-                        <constraint firstItem="199" firstAttribute="top" secondItem="9" secondAttribute="top" id="lAH-49-THu"/>
+                        <constraint firstAttribute="width" constant="653" id="1mD-sG-f4P"/>
                     </constraints>
-                </view>
+                </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="41" userLabel="Button 0">
                     <rect key="frame" x="75" y="463" width="262" height="72"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -158,24 +147,23 @@
             </subviews>
             <color key="backgroundColor" red="0.1478643003" green="0.1478643003" blue="0.1478643003" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="9" firstAttribute="top" secondItem="2" secondAttribute="top" constant="20" id="204-Z0-TzT"/>
                 <constraint firstItem="58" firstAttribute="leading" secondItem="49" secondAttribute="trailing" constant="41" id="5yY-ch-59F"/>
                 <constraint firstItem="76" firstAttribute="leading" secondItem="87" secondAttribute="trailing" constant="41" id="7xW-Sb-GQV"/>
-                <constraint firstItem="58" firstAttribute="top" secondItem="9" secondAttribute="bottom" constant="43" id="Cvp-E7-AhT"/>
+                <constraint firstItem="199" firstAttribute="top" secondItem="2" secondAttribute="top" constant="20" id="DEp-kX-Gqp"/>
                 <constraint firstItem="58" firstAttribute="leading" secondItem="68" secondAttribute="leading" id="DYx-UF-JBL"/>
                 <constraint firstItem="58" firstAttribute="top" secondItem="49" secondAttribute="top" id="FAd-PQ-K80"/>
                 <constraint firstItem="87" firstAttribute="top" secondItem="68" secondAttribute="top" id="HBY-zr-ZbF"/>
                 <constraint firstItem="58" firstAttribute="baseline" secondItem="49" secondAttribute="baseline" id="IBJ-FY-uyu"/>
                 <constraint firstAttribute="trailing" secondItem="58" secondAttribute="trailing" constant="81" id="SNC-K8-NVf"/>
-                <constraint firstItem="9" firstAttribute="centerX" secondItem="2" secondAttribute="centerX" id="Vab-zI-bd7"/>
                 <constraint firstItem="49" firstAttribute="leading" secondItem="41" secondAttribute="trailing" constant="41" id="Vm0-qm-uN1"/>
-                <constraint firstItem="9" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="186" id="dHf-oh-RYq"/>
+                <constraint firstItem="58" firstAttribute="top" secondItem="199" secondAttribute="bottom" constant="43" id="Xnh-KU-Hq5"/>
                 <constraint firstItem="87" firstAttribute="baseline" secondItem="68" secondAttribute="baseline" id="djD-db-rpz"/>
                 <constraint firstItem="68" firstAttribute="top" secondItem="58" secondAttribute="bottom" constant="23" id="l8Q-4w-Ax6"/>
                 <constraint firstItem="68" firstAttribute="leading" secondItem="76" secondAttribute="trailing" constant="41" id="mFS-Ym-kPy"/>
                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="99" secondAttribute="trailing" constant="20" id="niD-f4-dP7"/>
                 <constraint firstItem="58" firstAttribute="top" secondItem="41" secondAttribute="top" id="ohB-qd-t1e"/>
                 <constraint firstItem="87" firstAttribute="baseline" secondItem="76" secondAttribute="baseline" id="qMT-q1-YWf"/>
+                <constraint firstItem="199" firstAttribute="centerX" secondItem="2" secondAttribute="centerX" id="qWo-Is-98k"/>
                 <constraint firstItem="87" firstAttribute="top" secondItem="76" secondAttribute="top" id="qxt-Vb-Anh"/>
                 <constraint firstAttribute="trailing" secondItem="99" secondAttribute="trailing" constant="20" id="r7a-e5-M4n"/>
                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="99" secondAttribute="bottom" constant="19" id="vk4-ad-8mA"/>
