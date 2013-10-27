@@ -37,7 +37,7 @@
                         <constraint firstAttribute="height" constant="88" id="12"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="20"/>
-                    <state key="normal" title="Next Level" backgroundImage="Button 300x50.png">
+                    <state key="normal" title="Next Level" backgroundImage="Button 300x50 brighter.png">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -53,7 +53,7 @@
                         <constraint firstAttribute="width" constant="400" id="17"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="20"/>
-                    <state key="normal" title="Replay Level" backgroundImage="Button 300x50.png">
+                    <state key="normal" title="Replay Level" backgroundImage="Button 300x50 brighter.png">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -68,7 +68,7 @@
                         <constraint firstAttribute="height" constant="88" id="24"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="20"/>
-                    <state key="normal" title="Main Menu" backgroundImage="Button 300x50.png">
+                    <state key="normal" title="Main Menu" backgroundImage="Button 300x50 brighter.png">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -94,6 +94,6 @@
         </view>
     </objects>
     <resources>
-        <image name="Button 300x50.png" width="310" height="56"/>
+        <image name="Button 300x50 brighter.png" width="310" height="56"/>
     </resources>
 </document>

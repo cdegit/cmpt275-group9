@@ -51,9 +51,9 @@
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MC41AA</bytes>
 						</object>
-						<object class="NSCustomResource" key="IBUINormalBackgroundImage" id="268447829">
+						<object class="NSCustomResource" key="IBUINormalBackgroundImage" id="587443833">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">Button 300x50.png</string>
+							<string key="NSResourceName">Button 300x50 brighter.png</string>
 						</object>
 						<nil key="IBUIFontDescription"/>
 						<nil key="IBUIFont"/>
@@ -71,7 +71,7 @@
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<string key="IBUINormalTitle">Face Finder</string>
 						<reference key="IBUINormalTitleShadowColor" ref="326530209"/>
-						<reference key="IBUINormalBackgroundImage" ref="268447829"/>
+						<reference key="IBUINormalBackgroundImage" ref="587443833"/>
 						<nil key="IBUIFontDescription"/>
 						<nil key="IBUIFont"/>
 					</object>
@@ -88,7 +88,7 @@
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<string key="IBUINormalTitle">Story Solver</string>
 						<reference key="IBUINormalTitleShadowColor" ref="326530209"/>
-						<reference key="IBUINormalBackgroundImage" ref="268447829"/>
+						<reference key="IBUINormalBackgroundImage" ref="587443833"/>
 						<nil key="IBUIFontDescription"/>
 						<nil key="IBUIFont"/>
 					</object>
@@ -105,7 +105,7 @@
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<string key="IBUINormalTitle">Problem Solver</string>
 						<reference key="IBUINormalTitleShadowColor" ref="326530209"/>
-						<reference key="IBUINormalBackgroundImage" ref="268447829"/>
+						<reference key="IBUINormalBackgroundImage" ref="587443833"/>
 						<nil key="IBUIFontDescription"/>
 						<nil key="IBUIFont"/>
 					</object>
@@ -122,7 +122,7 @@
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<string key="IBUINormalTitle">Rewards Gallery</string>
 						<reference key="IBUINormalTitleShadowColor" ref="326530209"/>
-						<reference key="IBUINormalBackgroundImage" ref="268447829"/>
+						<reference key="IBUINormalBackgroundImage" ref="587443833"/>
 						<nil key="IBUIFontDescription"/>
 						<nil key="IBUIFont"/>
 					</object>
@@ -139,7 +139,7 @@
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<string key="IBUINormalTitle">Create account</string>
 						<reference key="IBUINormalTitleShadowColor" ref="326530209"/>
-						<reference key="IBUINormalBackgroundImage" ref="268447829"/>
+						<reference key="IBUINormalBackgroundImage" ref="587443833"/>
 						<nil key="IBUIFontDescription"/>
 						<nil key="IBUIFont"/>
 					</object>
@@ -156,7 +156,7 @@
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<string key="IBUINormalTitle">Guardian main menu</string>
 						<reference key="IBUINormalTitleShadowColor" ref="326530209"/>
-						<reference key="IBUINormalBackgroundImage" ref="268447829"/>
+						<reference key="IBUINormalBackgroundImage" ref="587443833"/>
 						<nil key="IBUIFontDescription"/>
 						<nil key="IBUIFont"/>
 					</object>
@@ -174,7 +174,7 @@
 						<reference key="IBUINormalTitleShadowColor" ref="326530209"/>
 						<object class="NSCustomResource" key="IBUINormalBackgroundImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">Face Finder Icon.png</string>
+							<string key="NSResourceName">Face Finder Icon brighter.png</string>
 						</object>
 						<nil key="IBUIFontDescription"/>
 						<nil key="IBUIFont"/>
@@ -193,7 +193,7 @@
 						<reference key="IBUINormalTitleShadowColor" ref="326530209"/>
 						<object class="NSCustomResource" key="IBUINormalBackgroundImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">Scene Solver Icon.png</string>
+							<string key="NSResourceName">Scene Solver Icon brighter.png</string>
 						</object>
 						<nil key="IBUIFontDescription"/>
 						<nil key="IBUIFont"/>
@@ -212,7 +212,7 @@
 						<reference key="IBUINormalTitleShadowColor" ref="326530209"/>
 						<object class="NSCustomResource" key="IBUINormalBackgroundImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">Problem Solver Icon.png</string>
+							<string key="NSResourceName">Problem Solver Icon brighter.png</string>
 						</object>
 						<nil key="IBUIFontDescription"/>
 						<nil key="IBUIFont"/>
@@ -4929,10 +4929,10 @@ AAgAAgAAAAIAAAAAAAgAAgAIAAEAAQABAAE</bytes>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="Button 300x50.png">{310, 56}</string>
-			<string key="Face Finder Icon.png">{302, 143}</string>
-			<string key="Problem Solver Icon.png">{302, 143}</string>
-			<string key="Scene Solver Icon.png">{302, 143}</string>
+			<string key="Button 300x50 brighter.png">{310, 56}</string>
+			<string key="Face Finder Icon brighter.png">{302, 143}</string>
+			<string key="Problem Solver Icon brighter.png">{302, 143}</string>
+			<string key="Scene Solver Icon brighter.png">{302, 143}</string>
 		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">3746</string>
 	</data>
