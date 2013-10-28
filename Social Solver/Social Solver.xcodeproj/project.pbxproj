@@ -43,7 +43,10 @@
 		EAC69904181DC20D00342086 /* Problem Solver Icon brighter.png in Resources */ = {isa = PBXBuildFile; fileRef = EAC69900181DC20D00342086 /* Problem Solver Icon brighter.png */; };
 		EAC69905181DC20D00342086 /* Rewards Gallery Icon brighter.png in Resources */ = {isa = PBXBuildFile; fileRef = EAC69901181DC20D00342086 /* Rewards Gallery Icon brighter.png */; };
 		EAC69906181DC20D00342086 /* Scene Solver Icon brighter.png in Resources */ = {isa = PBXBuildFile; fileRef = EAC69902181DC20D00342086 /* Scene Solver Icon brighter.png */; };
-		EAC6990A181DC5B500342086 /* subtle_white_feathers_@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = EAC69909181DC5B500342086 /* subtle_white_feathers_@2X.png */; };
+		EAC6990E181DCAC100342086 /* stressed_linen_@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = EAC6990D181DCAC100342086 /* stressed_linen_@2X.png */; };
+		EAC69912181DCBC600342086 /* circle_gradient.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EAC69911181DCBC600342086 /* circle_gradient.jpg */; };
+		EAC69916181DCE3C00342086 /* vert gradient 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EAC69914181DCE3C00342086 /* vert gradient 2.jpg */; };
+		EAC69918181DD1E700342086 /* test_image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EAC69917181DD1E700342086 /* test_image.jpg */; };
 		EACC678E18037CFE00FEAC76 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACC678D18037CFE00FEAC76 /* UIKit.framework */; };
 		EACC679018037CFE00FEAC76 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACC678F18037CFE00FEAC76 /* Foundation.framework */; };
 		EACC679218037CFE00FEAC76 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACC679118037CFE00FEAC76 /* CoreGraphics.framework */; };
@@ -136,7 +139,10 @@
 		EAC69900181DC20D00342086 /* Problem Solver Icon brighter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Problem Solver Icon brighter.png"; sourceTree = "<group>"; };
 		EAC69901181DC20D00342086 /* Rewards Gallery Icon brighter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rewards Gallery Icon brighter.png"; sourceTree = "<group>"; };
 		EAC69902181DC20D00342086 /* Scene Solver Icon brighter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Scene Solver Icon brighter.png"; sourceTree = "<group>"; };
-		EAC69909181DC5B500342086 /* subtle_white_feathers_@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "subtle_white_feathers_@2X.png"; sourceTree = "<group>"; };
+		EAC6990D181DCAC100342086 /* stressed_linen_@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stressed_linen_@2X.png"; sourceTree = "<group>"; };
+		EAC69911181DCBC600342086 /* circle_gradient.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = circle_gradient.jpg; sourceTree = "<group>"; };
+		EAC69914181DCE3C00342086 /* vert gradient 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "vert gradient 2.jpg"; sourceTree = "<group>"; };
+		EAC69917181DD1E700342086 /* test_image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test_image.jpg; sourceTree = "<group>"; };
 		EACC678A18037CFE00FEAC76 /* Social Solver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Social Solver.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EACC678D18037CFE00FEAC76 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EACC678F18037CFE00FEAC76 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -224,7 +230,10 @@
 		EAC698CD181DB7F000342086 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				EAC69909181DC5B500342086 /* subtle_white_feathers_@2X.png */,
+				EAC69917181DD1E700342086 /* test_image.jpg */,
+				EAC69914181DCE3C00342086 /* vert gradient 2.jpg */,
+				EAC69911181DCBC600342086 /* circle_gradient.jpg */,
+				EAC6990D181DCAC100342086 /* stressed_linen_@2X.png */,
 				EAC698FF181DC20D00342086 /* Face Finder Icon brighter.png */,
 				EAC69900181DC20D00342086 /* Problem Solver Icon brighter.png */,
 				EAC69901181DC20D00342086 /* Rewards Gallery Icon brighter.png */,
@@ -501,11 +510,11 @@
 			files = (
 				EACC679A18037CFE00FEAC76 /* InfoPlist.strings in Resources */,
 				EACC67A218037CFE00FEAC76 /* Default.png in Resources */,
+				EAC69916181DCE3C00342086 /* vert gradient 2.jpg in Resources */,
 				EAC69904181DC20D00342086 /* Problem Solver Icon brighter.png in Resources */,
 				EACC67A418037CFE00FEAC76 /* Default@2x.png in Resources */,
 				EAC698EE181DB81A00342086 /* children-50x50.png in Resources */,
 				EACC67A618037CFE00FEAC76 /* Default-568h@2x.png in Resources */,
-				EAC6990A181DC5B500342086 /* subtle_white_feathers_@2X.png in Resources */,
 				EACC67CC18037DA300FEAC76 /* MainMenuViewController.xib in Resources */,
 				2A730FA21819A541000356DE /* LoginUserSelectionCell.xib in Resources */,
 				EAC698EC181DB81A00342086 /* Scene Solver Icon.png in Resources */,
@@ -517,6 +526,7 @@
 				EAC698EB181DB81A00342086 /* sad.png in Resources */,
 				EAC698E9181DB81A00342086 /* happy.png in Resources */,
 				EAC698E1181DB81A00342086 /* anger.png in Resources */,
+				EAC69918181DD1E700342086 /* test_image.jpg in Resources */,
 				EACC67EE180B4B8D00FEAC76 /* GameViewController.xib in Resources */,
 				EACC67F3180B4BC700FEAC76 /* AccountManagementViewController.xib in Resources */,
 				EAC698EF181DB81A00342086 /* games-50x50.png in Resources */,
@@ -534,12 +544,14 @@
 				EAC698E8181DB81A00342086 /* fear.png in Resources */,
 				EACC680B180B9CE900FEAC76 /* StatisticsViewController.xib in Resources */,
 				EAC69903181DC20D00342086 /* Face Finder Icon brighter.png in Resources */,
+				EAC6990E181DCAC100342086 /* stressed_linen_@2X.png in Resources */,
 				EAC698E5181DB81A00342086 /* Button 300x50.png in Resources */,
 				EAC69906181DC20D00342086 /* Scene Solver Icon brighter.png in Resources */,
 				EAC698E3181DB81A00342086 /* App Icon 144x144.png in Resources */,
 				EAC698F7181DB84900342086 /* Problems.plist in Resources */,
 				EA16941718163A9A00C40069 /* test_image.jpg in Resources */,
 				EA16941C18163C5C00C40069 /* LevelCompleteViewController.xib in Resources */,
+				EAC69912181DCBC600342086 /* circle_gradient.jpg in Resources */,
 				EAC698E2181DB81A00342086 /* App Icon 72x72.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
