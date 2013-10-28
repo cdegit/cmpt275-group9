@@ -14,7 +14,6 @@
 		2A7DB107181B3A24008EF99F /* LoginPromptViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A7DB105181B3A24008EF99F /* LoginPromptViewController.xib */; };
 		EA16940C18162A7700C40069 /* Problem.m in Sources */ = {isa = PBXBuildFile; fileRef = EA16940B18162A7700C40069 /* Problem.m */; };
 		EA16940F18162B2B00C40069 /* ProblemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EA16940E18162B2B00C40069 /* ProblemManager.m */; };
-		EA16941718163A9A00C40069 /* test_image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EA16941618163A9A00C40069 /* test_image.jpg */; };
 		EA16941B18163C5C00C40069 /* LevelCompleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA16941918163C5C00C40069 /* LevelCompleteViewController.m */; };
 		EA16941C18163C5C00C40069 /* LevelCompleteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA16941A18163C5C00C40069 /* LevelCompleteViewController.xib */; };
 		EAC698E1181DB81A00342086 /* anger.png in Resources */ = {isa = PBXBuildFile; fileRef = EAC698CE181DB81A00342086 /* anger.png */; };
@@ -48,6 +47,9 @@
 		EAC69912181DCBC600342086 /* circle_gradient.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EAC69911181DCBC600342086 /* circle_gradient.jpg */; };
 		EAC69916181DCE3C00342086 /* vert gradient 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EAC69914181DCE3C00342086 /* vert gradient 2.jpg */; };
 		EAC69918181DD1E700342086 /* test_image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EAC69917181DD1E700342086 /* test_image.jpg */; };
+		EAC6991B181DF56100342086 /* Billy_scared_by_Spider.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EAC69919181DF56100342086 /* Billy_scared_by_Spider.mp4 */; };
+		EAC6991C181DF56100342086 /* Suzy_suprised_by_Billy.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EAC6991A181DF56100342086 /* Suzy_suprised_by_Billy.mp4 */; };
+		EAC6991E181DF59500342086 /* Billy_make_Suzy_Angry.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EAC6991D181DF59500342086 /* Billy_make_Suzy_Angry.mp4 */; };
 		EACC678E18037CFE00FEAC76 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACC678D18037CFE00FEAC76 /* UIKit.framework */; };
 		EACC679018037CFE00FEAC76 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACC678F18037CFE00FEAC76 /* Foundation.framework */; };
 		EACC679218037CFE00FEAC76 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACC679118037CFE00FEAC76 /* CoreGraphics.framework */; };
@@ -111,7 +113,6 @@
 		EA16940B18162A7700C40069 /* Problem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Problem.m; sourceTree = "<group>"; };
 		EA16940D18162B2B00C40069 /* ProblemManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProblemManager.h; sourceTree = "<group>"; };
 		EA16940E18162B2B00C40069 /* ProblemManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProblemManager.m; sourceTree = "<group>"; };
-		EA16941618163A9A00C40069 /* test_image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test_image.jpg; sourceTree = "<group>"; };
 		EA16941818163C5C00C40069 /* LevelCompleteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelCompleteViewController.h; sourceTree = "<group>"; };
 		EA16941918163C5C00C40069 /* LevelCompleteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelCompleteViewController.m; sourceTree = "<group>"; };
 		EA16941A18163C5C00C40069 /* LevelCompleteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LevelCompleteViewController.xib; path = ViewControllers/LevelCompleteViewController.xib; sourceTree = "<group>"; };
@@ -146,6 +147,9 @@
 		EAC69911181DCBC600342086 /* circle_gradient.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = circle_gradient.jpg; sourceTree = "<group>"; };
 		EAC69914181DCE3C00342086 /* vert gradient 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "vert gradient 2.jpg"; sourceTree = "<group>"; };
 		EAC69917181DD1E700342086 /* test_image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test_image.jpg; sourceTree = "<group>"; };
+		EAC69919181DF56100342086 /* Billy_scared_by_Spider.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Billy_scared_by_Spider.mp4; sourceTree = "<group>"; };
+		EAC6991A181DF56100342086 /* Suzy_suprised_by_Billy.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Suzy_suprised_by_Billy.mp4; sourceTree = "<group>"; };
+		EAC6991D181DF59500342086 /* Billy_make_Suzy_Angry.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Billy_make_Suzy_Angry.mp4; sourceTree = "<group>"; };
 		EACC678A18037CFE00FEAC76 /* Social Solver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Social Solver.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EACC678D18037CFE00FEAC76 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EACC678F18037CFE00FEAC76 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -285,6 +289,9 @@
 		EAC698F5181DB83400342086 /* StorySolver videos */ = {
 			isa = PBXGroup;
 			children = (
+				EAC6991D181DF59500342086 /* Billy_make_Suzy_Angry.mp4 */,
+				EAC69919181DF56100342086 /* Billy_scared_by_Spider.mp4 */,
+				EAC6991A181DF56100342086 /* Suzy_suprised_by_Billy.mp4 */,
 				EAC698D1181DB81A00342086 /* billy_drop_icecream.mp4 */,
 			);
 			name = "StorySolver videos";
@@ -327,7 +334,6 @@
 			children = (
 				2A475084181DDD08000EBEAB /* Categories */,
 				EAC698CD181DB7F000342086 /* Assets */,
-				EA16941618163A9A00C40069 /* test_image.jpg */,
 				EACC67D6180733AD00FEAC76 /* DataClasses */,
 				EACC67D5180733A000FEAC76 /* ViewControllers */,
 				EACC6801180B941C00FEAC76 /* Views */,
@@ -540,6 +546,7 @@
 				EAC698E9181DB81A00342086 /* happy.png in Resources */,
 				EAC698E1181DB81A00342086 /* anger.png in Resources */,
 				EAC69918181DD1E700342086 /* test_image.jpg in Resources */,
+				EAC6991E181DF59500342086 /* Billy_make_Suzy_Angry.mp4 in Resources */,
 				EACC67EE180B4B8D00FEAC76 /* GameViewController.xib in Resources */,
 				EACC67F3180B4BC700FEAC76 /* AccountManagementViewController.xib in Resources */,
 				EAC698EF181DB81A00342086 /* games-50x50.png in Resources */,
@@ -553,6 +560,7 @@
 				2A7DB107181B3A24008EF99F /* LoginPromptViewController.xib in Resources */,
 				EAC69905181DC20D00342086 /* Rewards Gallery Icon brighter.png in Resources */,
 				EAC698F1181DB81A00342086 /* settings-50x50.png in Resources */,
+				EAC6991B181DF56100342086 /* Billy_scared_by_Spider.mp4 in Resources */,
 				EAC698F0181DB81A00342086 /* pending-50x50.png in Resources */,
 				EAC698E8181DB81A00342086 /* fear.png in Resources */,
 				EACC680B180B9CE900FEAC76 /* StatisticsViewController.xib in Resources */,
@@ -561,8 +569,8 @@
 				EAC698E5181DB81A00342086 /* Button 300x50.png in Resources */,
 				EAC69906181DC20D00342086 /* Scene Solver Icon brighter.png in Resources */,
 				EAC698E3181DB81A00342086 /* App Icon 144x144.png in Resources */,
+				EAC6991C181DF56100342086 /* Suzy_suprised_by_Billy.mp4 in Resources */,
 				EAC698F7181DB84900342086 /* Problems.plist in Resources */,
-				EA16941718163A9A00C40069 /* test_image.jpg in Resources */,
 				EA16941C18163C5C00C40069 /* LevelCompleteViewController.xib in Resources */,
 				EAC69912181DCBC600342086 /* circle_gradient.jpg in Resources */,
 				EAC698E2181DB81A00342086 /* App Icon 72x72.png in Resources */,

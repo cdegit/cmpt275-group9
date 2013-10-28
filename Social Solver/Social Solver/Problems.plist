@@ -77,12 +77,57 @@
 			<key>answer</key>
 			<string>Sad</string>
 			<key>videoDescription</key>
-			<string>Billy was enjoying his ice-cream when suddenly he dropped it!
+			<string>Billy is enjoying his ice-cream when suddenly he drops it!
 
 
 
 How is Billy feeling?</string>
-		</dict>
+        </dict>
+        <dict>
+            <key>fileName</key>
+            <string>Billy_scared_by_Spider</string>
+            <key>ID</key>
+            <integer>201</integer>
+            <key>mediaType</key>
+            <string>MediaTypeVideo</string>
+            <key>answer</key>
+            <string>Fear</string>
+            <key>videoDescription</key>
+            <string>Billy is drawing on a piece of paper when a spider crawls onto his desk.
+
+
+How is Billy feeling?</string>
+        </dict>
+		<dict>
+            <key>fileName</key>
+            <string>Billy_make_Suzy_Angry</string>
+            <key>ID</key>
+            <integer>202</integer>
+            <key>mediaType</key>
+            <string>MediaTypeVideo</string>
+            <key>answer</key>
+            <string>Angry</string>
+            <key>videoDescription</key>
+            <string>Suzy and Billy are playing when Billy suddenly pulls her hair.
+
+
+How is Suzy feeling?</string>
+        </dict>
+        <dict>
+            <key>fileName</key>
+            <string>Suzy_suprised_by_Billy</string>
+            <key>ID</key>
+            <integer>203</integer>
+            <key>mediaType</key>
+            <string>MediaTypeVideo</string>
+            <key>answer</key>
+            <string>Surprised</string>
+            <key>videoDescription</key>
+            <string>Suzy is playing alone when Billy jumps out from behind a desk and says "Hi!". Suzy jumps back slightly.
+
+
+How is Suzy feeling?</string>
+        </dict>
 	</array>
 	<key>Mode3</key>
 	<array/>
