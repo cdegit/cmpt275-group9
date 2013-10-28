@@ -14,6 +14,7 @@
 #import "AccountManagementViewController.h"
 #import "RewardsGalleryViewController.h"
 #import "GuardianMainMenuViewController.h"
+#import "USERDATABASEMANAGER.H"
 
 @interface MainMenuViewController ()
 
@@ -46,6 +47,23 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    if ([[[UserDatabaseManager sharedInstance] activeUser] name] != NULL) {
+        _loginButton.hidden = YES;
+        _logoutButton.hidden = NO;
+        _someText.text=[[[UserDatabaseManager sharedInstance] activeUser] name];
+        [_someText setNeedsDisplay];
+    }
+    
+    else if ([[[UserDatabaseManager sharedInstance] activeUser] name] == NULL){
+        _logoutButton.hidden = YES;
+        _loginButton.hidden = NO;
+        _someText.text=[[[UserDatabaseManager sharedInstance] activeUser] name];
+        [_someText setNeedsDisplay];
+    }
 }
 
 - (IBAction)gameModeTapped:(UIButton* )sender {
@@ -95,5 +113,12 @@
     LoginViewController* vc = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:[NSBundle mainBundle]];
     [self.navigationController pushViewController:vc animated:YES];
 }
+
+- (IBAction)logoutTapped:(UIButton *)sender {
+    [[UserDatabaseManager sharedInstance] setActiveUser:nil];
+    LoginViewController* vc = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:[NSBundle mainBundle]];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 
 @end
