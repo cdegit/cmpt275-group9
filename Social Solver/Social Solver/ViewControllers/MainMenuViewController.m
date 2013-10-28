@@ -87,7 +87,7 @@
 }
 
 - (IBAction)createAccountTapped:(UIButton *)sender {
-    AccountManagementViewController* vc = [[AccountManagementViewController alloc] initWithNibName:@"AccountManagementViewController" bundle:[NSBundle mainBundle] userType:@"Guardian"];
+    AccountManagementViewController* vc = [[AccountManagementViewController alloc] initWithNibName:@"AccountManagementViewController" bundle:[NSBundle mainBundle] forUserType:@"Guardian"];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
