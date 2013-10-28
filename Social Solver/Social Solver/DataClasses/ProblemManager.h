@@ -7,6 +7,9 @@
 //
 //  Worked on by: David Woods
 
+/* A class that manages all the problems in the app.
+    It reads the problems from the plist, converts them into Problem classes
+ and then figures out which problem should be presented to the user next */
 
 #import <Foundation/Foundation.h>
 #import "User.h"
