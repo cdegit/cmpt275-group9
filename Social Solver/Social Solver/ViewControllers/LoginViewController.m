@@ -46,7 +46,7 @@
     
     UICollectionViewFlowLayout* userSelectionLayout = (UICollectionViewFlowLayout *)[_userSelectionView collectionViewLayout];
     
-    [userSelectionLayout setItemSize:CGSizeMake(150.0, 200.0)];
+    [userSelectionLayout setItemSize:CGSizeMake(250.0, 243.0)];
     [userSelectionLayout setMinimumInteritemSpacing:50.0];
     [userSelectionLayout setMinimumLineSpacing:20.0];
     [userSelectionLayout setSectionInset:UIEdgeInsetsMake(20.0, 20.0, 20.0, 20.0)];
