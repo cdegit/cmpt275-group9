@@ -107,6 +107,7 @@
 		2A105F11181E16970035232F /* ChildSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildSettings.m; sourceTree = "<group>"; };
 		2A105F13181E18CF0035232F /* ChildProblemData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildProblemData.h; sourceTree = "<group>"; };
 		2A105F14181E18CF0035232F /* ChildProblemData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildProblemData.m; sourceTree = "<group>"; };
+		2A3CDB82181EC83900A04D62 /* LoginPromptViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LoginPromptViewControllerDelegate.h; path = Protocols/LoginPromptViewControllerDelegate.h; sourceTree = "<group>"; };
 		2A475085181DDD73000EBEAB /* UIImagePickerController+ShouldAutorotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImagePickerController+ShouldAutorotate.h"; path = "Categories/UIImagePickerController+ShouldAutorotate.h"; sourceTree = "<group>"; };
 		2A475086181DDD73000EBEAB /* UIImagePickerController+ShouldAutorotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImagePickerController+ShouldAutorotate.m"; path = "Categories/UIImagePickerController+ShouldAutorotate.m"; sourceTree = "<group>"; };
 		2A730F9E1819A4EA000356DE /* LoginUserSelectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginUserSelectionCell.h; path = Views/LoginUserSelectionCell.h; sourceTree = "<group>"; };
@@ -240,6 +241,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A3CDB81181EC81700A04D62 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				2A3CDB82181EC83900A04D62 /* LoginPromptViewControllerDelegate.h */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
 		2A475084181DDD08000EBEAB /* Categories */ = {
 			isa = PBXGroup;
 			children = (
@@ -338,6 +347,7 @@
 		EACC679518037CFE00FEAC76 /* Social Solver */ = {
 			isa = PBXGroup;
 			children = (
+				2A3CDB81181EC81700A04D62 /* Protocols */,
 				2A475084181DDD08000EBEAB /* Categories */,
 				EAC698CD181DB7F000342086 /* Assets */,
 				EACC67D6180733AD00FEAC76 /* DataClasses */,

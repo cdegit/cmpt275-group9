@@ -5,6 +5,7 @@
 //  Created by David Woods on 13-10-13.
 //  Copyright (c) 2013 Group 9. All rights reserved.
 //
+//  Worked on by: Matthew Glum
 
 /* This class is the screen where the user can create a new account
  This screen should also double as the location the user comes to edit a current account 
@@ -19,7 +20,6 @@
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil forUserType:(NSString*) type;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil withUser:(User*)user;
--(void)setUser:(NSManagedObject* )user;
 
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl* userTypeControl;
