@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView* imageView;
 @property (weak, nonatomic) IBOutlet UILabel* nameLabel;
 @property (weak, nonatomic) IBOutlet UITextField* passwordField;
+@property (weak, nonatomic) IBOutlet UIView* container;
 
 -(IBAction) cancelTapped:(UIButton *)sender;
 -(IBAction) submitTapped:(UIButton *)sender;
