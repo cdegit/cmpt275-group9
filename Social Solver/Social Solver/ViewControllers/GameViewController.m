@@ -22,7 +22,7 @@
 @property (nonatomic, strong) NSMutableArray* answers;
 @property (nonatomic, strong) MPMoviePlayerController* videoPlayer;
 
-- (void)presentLevelCompleteView;
+- (void)presentLevelCompleteViewShowingCongratsMessage:(bool)show;
 - (void)setupNextProblem;
 - (void)layoutForCurrentProblem;
 - (void)resetCurrentProblem;
@@ -191,7 +191,7 @@
     self.answers = shuffledAnswers;
 }
 
-- (void)presentLevelCompleteView
+- (void)presentLevelCompleteViewShowingCongratsMessage:(bool)show
 {
     // If the video was still playing, then pause it
     if (self.videoPlayer.playbackState == MPMoviePlaybackStatePlaying) {
@@ -200,6 +200,7 @@
     
     LevelCompleteViewController* vc = [[LevelCompleteViewController alloc] initWithNibName:@"LevelCompleteViewController" bundle:[NSBundle mainBundle]];
     vc.modalPresentationStyle = UIModalPresentationFormSheet;
+    vc.shouldShowCongratsLabel = show;
     vc.delegate = self;
     [self presentViewController:vc animated:YES completion:^{} ];
 }
@@ -227,7 +228,7 @@
 
 - (IBAction)skipButtonPressed:(UIButton*)sender
 {
-    [self presentLevelCompleteView];
+    [self presentLevelCompleteViewShowingCongratsMessage:NO];
 }
 
 - (IBAction)answerButtonPressed:(UIButton*)sender {
@@ -236,7 +237,7 @@
     if ([answerChosen isEqualToString:self.currentProblem.answer])
     {
         // Correct answer - Display the level complete view
-        [self presentLevelCompleteView];
+        [self presentLevelCompleteViewShowingCongratsMessage:YES];
     }
     else
     {

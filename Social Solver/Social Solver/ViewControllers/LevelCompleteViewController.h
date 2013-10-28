@@ -29,5 +29,7 @@ enum FinishOption {
 @property (weak, nonatomic) IBOutlet UIButton *replayLevelButton;
 @property (weak, nonatomic) IBOutlet UIButton *mainMenuButton;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *congratsLabel;
+@property (nonatomic) bool shouldShowCongratsLabel;
 
 @end

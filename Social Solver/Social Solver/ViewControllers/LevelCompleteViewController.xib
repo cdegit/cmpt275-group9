@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LevelCompleteViewController">
             <connections>
+                <outlet property="congratsLabel" destination="qUj-sU-BbH" id="Knw-J3-y60"/>
                 <outlet property="mainMenuButton" destination="23" id="33"/>
                 <outlet property="nextLevelButton" destination="9" id="31"/>
                 <outlet property="replayLevelButton" destination="15" id="32"/>
@@ -20,13 +21,13 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Level Complete" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4">
-                    <rect key="frame" x="81" y="84" width="412" height="111"/>
+                    <rect key="frame" x="64" y="41" width="412" height="111"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="412" id="7"/>
                         <constraint firstAttribute="height" constant="111" id="8"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="26"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="30"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -76,11 +77,18 @@
                         <action selector="mainMenuPressed:" destination="-1" eventType="touchUpInside" id="37"/>
                     </connections>
                 </button>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Good Job!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qUj-sU-BbH">
+                    <rect key="frame" x="119" y="161" width="302" height="52"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="0.1478643003" green="0.1478643003" blue="0.1478643003" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="4" firstAttribute="top" secondItem="2" secondAttribute="top" constant="84" id="5"/>
-                <constraint firstItem="4" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="81" id="6"/>
+                <constraint firstItem="4" firstAttribute="top" secondItem="2" secondAttribute="top" constant="41" id="5"/>
+                <constraint firstItem="4" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="64" id="6"/>
                 <constraint firstItem="9" firstAttribute="top" secondItem="2" secondAttribute="top" constant="268" id="10"/>
                 <constraint firstItem="15" firstAttribute="centerX" secondItem="2" secondAttribute="centerX" id="19"/>
                 <constraint firstItem="15" firstAttribute="leading" secondItem="9" secondAttribute="leading" id="20"/>
