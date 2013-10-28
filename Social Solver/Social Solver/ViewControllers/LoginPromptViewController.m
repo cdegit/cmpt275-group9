@@ -30,9 +30,11 @@
     
     [_nameLabel setText:[_user valueForKey:@"name"]];
     
-    NSString* bundelPath = [[NSBundle mainBundle] bundlePath];
+    NSString* imgDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     
-    UIImage* img = [UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@profileImages/%@.png", bundelPath, [_user valueForKey:@"name"]]];
+    NSString* imagePath = [NSString stringWithFormat:@"%@%@.png", imgDir, [_user valueForKey:@"name"]];
+    
+    UIImage* img = [UIImage imageWithContentsOfFile:imagePath];
     if (img==nil) {
         img = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"test_image" ofType:@"jpg"]];
     }

@@ -8,11 +8,13 @@
 
 #import "AccountManagementViewController.h"
 #import "AppDelegate.h"
+#import "UIImagePickerController+ShouldAutorotate.h"
 
 @interface AccountManagementViewController ()
 {
     NSString* _userType;
     NSManagedObject* _editingUser;
+    UIPopoverController* _imageLibraryPopover;
 }
 @end
 
@@ -63,13 +65,22 @@
 
 -(IBAction)fetchImageFromiPhoto:(id)sender
 {
+    UIImagePickerController* ipc = [[UIImagePickerController alloc] init];
+    [ipc setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+    [ipc setDelegate:self];
     
+    _imageLibraryPopover = [[UIPopoverController alloc] initWithContentViewController:ipc];
+    [_imageLibraryPopover presentPopoverFromRect:CGRectMake(0, 0, 500, 500) inView:[self view] permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 
 }
 
 -(IBAction)fetchImageFromCamera:(id)sender
 {
+    UIImagePickerController* ipc = [[UIImagePickerController alloc] init];
+    [ipc setSourceType:UIImagePickerControllerSourceTypeCamera];
+    [ipc setDelegate:self];
     
+    [self presentViewController:ipc animated:YES completion:NULL];
 }
 
 -(BOOL)checkNameUnique:(NSString*)name
@@ -120,11 +131,43 @@
         [user setValue:[_emailLabel text] forKey:@"email"];
     }
     
+    if ([_profileImageView image]!=nil) {
+        NSString* imgDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+        
+        NSString* imagePath = [NSString stringWithFormat:@"%@%@.png", imgDir, [_nameField text]];
+        
+        [UIImagePNGRepresentation([_profileImageView image]) writeToFile:imagePath atomically:YES];
+        
+    }
+    
     NSError* err;
     
     [mc save:&err];
     
     [[self navigationController] popViewControllerAnimated:YES];
+}
+
+#pragma mark - UIImagePickerControllerDelegate
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    if (_imageLibraryPopover!=nil) {
+        [_imageLibraryPopover dismissPopoverAnimated:YES];
+        _imageLibraryPopover = nil;
+    }
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    [_profileImageView setImage:[info objectForKey:UIImagePickerControllerOriginalImage]];
+    if (_imageLibraryPopover) {
+        [_imageLibraryPopover dismissPopoverAnimated:YES];
+        _imageLibraryPopover = nil;
+    }
+    else
+    {
+        [self dismissViewControllerAnimated:YES completion:NULL];
+    }
 }
 
 

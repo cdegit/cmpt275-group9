@@ -147,9 +147,11 @@
     NSManagedObject *us = [userArray objectAtIndex:[indexPath row]];
     [[cell nameLabel] setText:[us valueForKey:@"name"]];
     
-    NSString* bundelPath = [[NSBundle mainBundle] bundlePath];
+    NSString* imgDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     
-    UIImage* img = [UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@profileImages/%@.png", bundelPath, [us valueForKey:@"name"]]];
+    NSString* imagePath = [NSString stringWithFormat:@"%@%@.png", imgDir, [us valueForKey:@"name"]];
+    
+    UIImage* img = [UIImage imageWithContentsOfFile:imagePath];
     if (img==nil) {
         img = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"test_image" ofType:@"jpg"]];
     }
