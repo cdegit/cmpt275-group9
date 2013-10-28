@@ -26,7 +26,7 @@
             <rect key="frame" x="0.0" y="20" width="1024" height="748"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" image="circle gradient darker.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="nsd-09-LSO">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" image="circle_gradient.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="nsd-09-LSO">
                     <rect key="frame" x="0.0" y="0.0" width="1024" height="748"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
@@ -229,6 +229,6 @@
     </objects>
     <resources>
         <image name="Button 300x50 brighter.png" width="310" height="56"/>
-        <image name="circle gradient darker.jpg" width="827" height="564"/>
+        <image name="circle_gradient.jpg" width="827" height="564"/>
     </resources>
 </document>
