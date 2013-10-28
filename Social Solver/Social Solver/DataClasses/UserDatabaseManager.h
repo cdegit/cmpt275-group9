@@ -15,6 +15,6 @@
 
 + (UserDatabaseManager*) sharedInstance;
 
-@property (weak, nonatomic) User* activeUser;
+@property (strong, nonatomic) User* activeUser;
 
 @end
