@@ -11,6 +11,9 @@
 /* This class is the root class for storing data about the user
  It's the parent class of ChildUser and GuardianUser */
 
-@interface User : NSObject
+@interface User : NSManagedObject
+
+@property (nonatomic) NSString *name, *passhash;
+@property (nonatomic) NSInteger* uid;
 
 @end

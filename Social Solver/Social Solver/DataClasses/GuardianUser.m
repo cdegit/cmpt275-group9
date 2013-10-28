@@ -11,4 +11,7 @@
 
 @implementation GuardianUser
 
+@dynamic email;
+@dynamic children, primaryChildren;
+
 @end

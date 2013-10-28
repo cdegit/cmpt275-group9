@@ -12,6 +12,7 @@
 #import "LoginPromptViewController.h"
 #import "UserDatabaseManager.h"
 #import "GuardianMainMenuViewController.h"
+#import "User.h"
 
 @interface LoginViewController ()
 {
@@ -74,16 +75,6 @@
     userArray = [mc executeFetchRequest:request
                                   error:&err];
     
-    if ([userArray count]==0&&[userType isEqualToString:@"Child"]) {
-        NSManagedObject* mo = [[NSManagedObject alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:mc];
-        [mo setValue:@"Anne" forKey:@"name"];
-        [mo setValue:@"pass" forKey:@"passhash"];
-        [mo setValue:[NSNumber numberWithInt:2] forKey:@"uid"];
-        userArray = @[mo];
-        NSLog(@"Created User");
-        
-    }
-    
 }
 
 - (IBAction)userTypeChanged:(id)sender
@@ -116,7 +107,7 @@
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
--(void) authenticatedUser:(NSManagedObject *)user
+-(void) authenticatedUser:(User *)user
 {
     [self dismissViewControllerAnimated:YES completion:NULL];
     [[UserDatabaseManager sharedInstance] setCurrentUser:user];
@@ -145,12 +136,12 @@
                                     dequeueReusableCellWithReuseIdentifier:@"UserCell"
                                                               forIndexPath:indexPath];
     
-    NSManagedObject *us = [userArray objectAtIndex:[indexPath row]];
+    User *us = (User*)[userArray objectAtIndex:[indexPath row]];
     [[cell nameLabel] setText:[us valueForKey:@"name"]];
     
     NSString* imgDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     
-    NSString* imagePath = [NSString stringWithFormat:@"%@%@.png", imgDir, [us valueForKey:@"name"]];
+    NSString* imagePath = [NSString stringWithFormat:@"%@%@.png", imgDir, [us name]];
     
     UIImage* img = [UIImage imageWithContentsOfFile:imagePath];
     if (img==nil) {
@@ -170,7 +161,7 @@
     NSLog(@"Selected?");
     LoginPromptViewController* lpvc = [[LoginPromptViewController alloc] initWithNibName:@"LoginPromptViewController" bundle:[NSBundle mainBundle]];
     
-    NSManagedObject* user = [userArray objectAtIndex:[indexPath row]];
+    User* user = [userArray objectAtIndex:[indexPath row]];
     
     [lpvc setDelegate:self];
     [lpvc setUser:user];
