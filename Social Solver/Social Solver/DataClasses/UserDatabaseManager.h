@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "User.h"
 
 /* This is a singleton class which is used to interact with the database */
 
@@ -14,6 +15,6 @@
 
 + (UserDatabaseManager*) sharedInstance;
 
-@property (weak, nonatomic) NSManagedObject* currentUser;
+@property (weak, nonatomic) User* activeUser;
 
 @end

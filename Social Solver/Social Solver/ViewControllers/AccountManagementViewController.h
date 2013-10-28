@@ -13,11 +13,12 @@
  */
 
 #import <UIKit/UIKit.h>
+#import "User.h"
 
 @interface AccountManagementViewController : UIViewController <UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil forUserType:(NSString*) type;
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil withUser:(NSManagedObject*)user;
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil withUser:(User*)user;
 -(void)setUser:(NSManagedObject* )user;
 
 

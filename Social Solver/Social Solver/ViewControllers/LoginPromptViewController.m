@@ -28,11 +28,11 @@
 {
     [super viewDidLoad];
     
-    [_nameLabel setText:[_user valueForKey:@"name"]];
+    [_nameLabel setText:[_user name]];
     
     NSString* imgDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     
-    NSString* imagePath = [NSString stringWithFormat:@"%@%@.png", imgDir, [_user valueForKey:@"name"]];
+    NSString* imagePath = [NSString stringWithFormat:@"%@%@.png", imgDir, [_user name]];
     
     UIImage* img = [UIImage imageWithContentsOfFile:imagePath];
     if (img==nil) {
@@ -75,7 +75,6 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    NSLog(@"Tapped!!!!");
     
     [self submitTapped:nil];
     

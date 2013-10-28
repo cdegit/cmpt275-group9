@@ -9,11 +9,12 @@
 #import "AccountManagementViewController.h"
 #import "AppDelegate.h"
 #import "UIImagePickerController+ShouldAutorotate.h"
+#import "GuardianUser.h"
 
 @interface AccountManagementViewController ()
 {
     NSString* _userType;
-    NSManagedObject* _editedUser;
+    User* _editedUser;
     UIPopoverController* _imageLibraryPopover;
 }
 @end
@@ -39,7 +40,7 @@
     return self;
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil withUser:(NSManagedObject*)user
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil withUser:(User*)user
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
@@ -81,7 +82,7 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)setUser:(NSManagedObject* )user
+-(void)setUser:(User* )user
 {
     _editedUser = user;
 }
@@ -149,7 +150,7 @@
 -(IBAction)save:(id)sender
 {
     NSManagedObjectContext *mc = [(AppDelegate*)[[UIApplication sharedApplication] delegate] managedObjectContext];
-    NSManagedObject* user;
+    User* user;
     
     
     if (_editedUser) {
@@ -163,7 +164,7 @@
         
         NSEntityDescription* entityDescription = [NSEntityDescription entityForName:(_userType ? _userType : ([_userTypeControl selectedSegmentIndex]==0 ? @"Child" : @"Guardian"))
                                                              inManagedObjectContext:mc];
-        user = [[NSManagedObject alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:mc];
+        user = (User*)[[NSManagedObject alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:mc];
     }
     
     if (![self checkNameUnique:[_nameField text]]) {
@@ -180,11 +181,11 @@
         [[[UIAlertView alloc] initWithTitle:@"Cannot Save" message:@"Guardian must have an email" delegate:nil cancelButtonTitle:@"OKay" otherButtonTitles:nil] show];
     }
     
-    [user setValue:[_nameField text] forKey:@"name"];
-    [user setValue:[_passwordField text] forKey:@"passhash"];
+    [user setName:[_nameField text]];
+    [user setPasshash:[_passwordField text]];
     
     if ([_userType isEqualToString:@"Guardian"]) {
-        [user setValue:[_emailLabel text] forKey:@"email"];
+        [(GuardianUser*)user setEmail:[_emailLabel text]];
     }
     
     if ([_profileImageView image]!=nil) {

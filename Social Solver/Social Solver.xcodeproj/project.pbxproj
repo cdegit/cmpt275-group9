@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A105F12181E16970035232F /* ChildSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A105F11181E16970035232F /* ChildSettings.m */; };
+		2A105F15181E18CF0035232F /* ChildProblemData.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A105F14181E18CF0035232F /* ChildProblemData.m */; };
 		2A475087181DDD73000EBEAB /* UIImagePickerController+ShouldAutorotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A475086181DDD73000EBEAB /* UIImagePickerController+ShouldAutorotate.m */; };
 		2A730FA01819A4EA000356DE /* LoginUserSelectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A730F9F1819A4EA000356DE /* LoginUserSelectionCell.m */; };
 		2A730FA21819A541000356DE /* LoginUserSelectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A730FA11819A541000356DE /* LoginUserSelectionCell.xib */; };
@@ -101,6 +103,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2A105F10181E16970035232F /* ChildSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildSettings.h; sourceTree = "<group>"; };
+		2A105F11181E16970035232F /* ChildSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildSettings.m; sourceTree = "<group>"; };
+		2A105F13181E18CF0035232F /* ChildProblemData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildProblemData.h; sourceTree = "<group>"; };
+		2A105F14181E18CF0035232F /* ChildProblemData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildProblemData.m; sourceTree = "<group>"; };
 		2A475085181DDD73000EBEAB /* UIImagePickerController+ShouldAutorotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImagePickerController+ShouldAutorotate.h"; path = "Categories/UIImagePickerController+ShouldAutorotate.h"; sourceTree = "<group>"; };
 		2A475086181DDD73000EBEAB /* UIImagePickerController+ShouldAutorotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImagePickerController+ShouldAutorotate.m"; path = "Categories/UIImagePickerController+ShouldAutorotate.m"; sourceTree = "<group>"; };
 		2A730F9E1819A4EA000356DE /* LoginUserSelectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginUserSelectionCell.h; path = Views/LoginUserSelectionCell.h; sourceTree = "<group>"; };
@@ -441,6 +447,10 @@
 				EA16940B18162A7700C40069 /* Problem.m */,
 				EA16940D18162B2B00C40069 /* ProblemManager.h */,
 				EA16940E18162B2B00C40069 /* ProblemManager.m */,
+				2A105F10181E16970035232F /* ChildSettings.h */,
+				2A105F11181E16970035232F /* ChildSettings.m */,
+				2A105F13181E18CF0035232F /* ChildProblemData.h */,
+				2A105F14181E18CF0035232F /* ChildProblemData.m */,
 			);
 			path = DataClasses;
 			sourceTree = "<group>";
@@ -610,6 +620,7 @@
 			files = (
 				EACC679C18037CFE00FEAC76 /* main.m in Sources */,
 				EACC67A018037CFE00FEAC76 /* AppDelegate.m in Sources */,
+				2A105F15181E18CF0035232F /* ChildProblemData.m in Sources */,
 				EACC67A918037CFE00FEAC76 /* Social_Solver.xcdatamodeld in Sources */,
 				EACC67CB18037DA300FEAC76 /* MainMenuViewController.m in Sources */,
 				EACC67CF1803816800FEAC76 /* RootNavigationViewController.m in Sources */,
@@ -631,6 +642,7 @@
 				EA16940C18162A7700C40069 /* Problem.m in Sources */,
 				EA16940F18162B2B00C40069 /* ProblemManager.m in Sources */,
 				EA16941B18163C5C00C40069 /* LevelCompleteViewController.m in Sources */,
+				2A105F12181E16970035232F /* ChildSettings.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

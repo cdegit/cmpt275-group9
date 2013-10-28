@@ -10,4 +10,8 @@
 
 @implementation ChildUser
 
+@dynamic completedProblems, guardians;
+@dynamic primaryGuardian;
+@dynamic settings;
+
 @end

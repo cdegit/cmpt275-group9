@@ -6,10 +6,15 @@
 //  Copyright (c) 2013 Group 9. All rights reserved.
 //
 
+#import <CoreData/CoreData.h>
 #import "User.h"
 
 /* A class for the data of the guardian profile */
 
 @interface GuardianUser : User
+
+@property (nonatomic) NSString* email;
+@property (nonatomic) NSSet *children, primaryChildren;
+
 
 @end

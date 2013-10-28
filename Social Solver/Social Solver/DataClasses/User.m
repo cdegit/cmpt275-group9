@@ -11,4 +11,7 @@
 
 @implementation User
 
+@dynamic name, passhash;
+@dynamic uid;
+
 @end
