@@ -167,18 +167,25 @@
         user = (User*)[[NSManagedObject alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:mc];
     }
     
+    if ([[_nameField text] length]==0) {
+        [[[UIAlertView alloc] initWithTitle:@"Cannot Save" message:@"A user must have a name." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil] show];
+        return;
+    }
+    
+    
     if (![self checkNameUnique:[_nameField text]]) {
-        [[[UIAlertView alloc] initWithTitle:@"Cannot Save" message:@"A user already has the same name." delegate:nil cancelButtonTitle:@"OKay" otherButtonTitles:nil] show];
+        [[[UIAlertView alloc] initWithTitle:@"Cannot Save" message:@"A user already has the same name." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil] show];
         return;
     }
     
     if (![[_passwordField text] isEqualToString:[_passwordConfirmationField text]]) {
-        [[[UIAlertView alloc] initWithTitle:@"Cannot Save" message:@"Please make sure that you enter the same password in each field" delegate:nil cancelButtonTitle:@"OKay" otherButtonTitles:nil] show];
+        [[[UIAlertView alloc] initWithTitle:@"Cannot Save" message:@"Please make sure that you enter the same password in each field" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil] show];
         return;
     }
     
-    if ([_userType isEqualToString:@"Guardian"] && [[_emailField text] isEqualToString:@""]) {
-        [[[UIAlertView alloc] initWithTitle:@"Cannot Save" message:@"Guardian must have an email" delegate:nil cancelButtonTitle:@"OKay" otherButtonTitles:nil] show];
+    if ([_userType isEqualToString:@"Guardian"] && [[_emailField text] length]==0) {
+        [[[UIAlertView alloc] initWithTitle:@"Cannot Save" message:@"Guardian must have an email" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil] show];
+        return;
     }
     
     [user setName:[_nameField text]];
