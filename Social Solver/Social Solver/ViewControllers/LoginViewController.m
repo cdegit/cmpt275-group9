@@ -5,6 +5,7 @@
 //  Created by David Woods on 13-10-13.
 //  Copyright (c) 2013 Group 9. All rights reserved.
 //
+//  Worked on by: Matthew Glum
 
 #import "LoginViewController.h"
 #import "AppDelegate.h"
@@ -26,6 +27,8 @@
 
 @implementation LoginViewController
 
+#pragma mark - Overridden Methods
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -39,26 +42,44 @@
 {
     [super viewDidLoad];
     
+    //Set the title to "Login"
     [self setTitle:@"Login"];
     
+    // Register LoginUserSelectionCell to be used for the cells
+    // in the user selection view
     [_userSelectionView registerNib:[UINib nibWithNibName:@"LoginUserSelectionCell"
                                                    bundle:[NSBundle mainBundle]]
          forCellWithReuseIdentifier:@"UserCell"];
     
+    //Set up the layout
+    
     UICollectionViewFlowLayout* userSelectionLayout = (UICollectionViewFlowLayout *)[_userSelectionView collectionViewLayout];
     
+    // Item size should be the same size as LoginUserSelectionCell
     [userSelectionLayout setItemSize:CGSizeMake(250.0, 243.0)];
     [userSelectionLayout setMinimumInteritemSpacing:50.0];
     [userSelectionLayout setMinimumLineSpacing:20.0];
     [userSelectionLayout setSectionInset:UIEdgeInsetsMake(20.0, 20.0, 20.0, 20.0)];
     
+    //Set initial userType to Child
     userType = @"Child";
     [self loadUsers];
     
 }
 
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - helperMethods
+
 - (void)loadUsers
 {
+    // Fetch User from the Apps Managed Object Context sorted by name and
+    // set the returned array as userArray
+    
     NSManagedObjectContext *mc = [(AppDelegate*)[[UIApplication sharedApplication] delegate] managedObjectContext];
     NSEntityDescription* entityDescription = [NSEntityDescription entityForName:userType
                                                          inManagedObjectContext:mc];
@@ -72,14 +93,17 @@
     [request setSortDescriptors:@[sort]];
     
     NSError* err;
+    
     userArray = [mc executeFetchRequest:request
                                   error:&err];
     
 }
 
+#pragma mark - IBActions Methods
+
 - (IBAction)userTypeChanged:(id)sender
 {
-    NSLog(@"User Type changed");
+    //Find the user type based on the which segment of the userTypeControl is selected
     NSString* newType = nil;
     switch ([_userTypeControl selectedSegmentIndex]) {
         case 0: newType = @"Child";    break;
@@ -88,6 +112,9 @@
         default: break;
     }
     
+    // If the type has changed correctly and it is different than the current usertype
+    // change the user type reload the the userArray and tell the User Selection View
+    // to reloadData
     if (newType!=nil&&![newType isEqualToString:userType]) {
         userType = newType;
         [self loadUsers];
@@ -95,28 +122,35 @@
     }
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+#pragma mark - LoginPromptViewControllerDelegate Methods
 
 
 -(void) dismissPrompt
 {
+    // Dismisses the LoginPrompt
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 -(void) authenticatedUser:(User *)user
 {
+    // This method is called with an authenticated user to be set as the activeUser
+    
+    // Dismiss the LoginPrompt
     [self dismissViewControllerAnimated:YES completion:NULL];
+    
+    // Set user as the activeUser
     [[UserDatabaseManager sharedInstance] setActiveUser:user];
+    
+    // If the user is a child bring them back to the main menu
     if ([[[user entity] name] isEqualToString:@"Child"]) {
         [self.navigationController popViewControllerAnimated:YES];
     }
     else
     {
+        // Take the Guardian back to the main menu
         [self.navigationController popViewControllerAnimated:YES];
+        
+        //// Bring the Guardian to the Guardian Main Menu
         //GuardianMainMenuViewController* gmmvc = [[GuardianMainMenuViewController alloc] initWithNibName:@"GuardianMainMenuViewController" bundle:[NSBundle mainBundle]];
         //[self.navigationController pushViewController:gmmvc animated:YES];
     }
@@ -131,14 +165,20 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    // Get Reusable login cell
     LoginUserSelectionCell* cell = [_userSelectionView
                                     dequeueReusableCellWithReuseIdentifier:@"UserCell"
                                                               forIndexPath:indexPath];
     
+    // Grab the user object associated to the index
     User *us = (User*)[userArray objectAtIndex:[indexPath row]];
+    
+    // Set the cell's user's name
     [[cell nameLabel] setText:[us valueForKey:@"name"]];
     
+    
+    // Set the cell's Image to the appropriate Profile Image
+    // If they do not have their own profile image use the default
     NSString* imgDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     
     NSString* imagePath = [NSString stringWithFormat:@"%@%@.png", imgDir, [us name]];
@@ -158,7 +198,7 @@
 
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"Selected?");
+    // Create the LoginPromptWindow for the appropriate User
     LoginPromptViewController* lpvc = [[LoginPromptViewController alloc] initWithNibName:@"LoginPromptViewController" bundle:[NSBundle mainBundle]];
     
     User* user = [userArray objectAtIndex:[indexPath row]];
