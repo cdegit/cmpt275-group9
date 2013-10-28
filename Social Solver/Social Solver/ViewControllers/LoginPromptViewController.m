@@ -88,6 +88,10 @@
     if (buttonIndex==0) {
         [_delegate dismissPrompt];
     }
+    else
+    {
+        [_passwordField setText:@""];
+    }
 }
 
 @end

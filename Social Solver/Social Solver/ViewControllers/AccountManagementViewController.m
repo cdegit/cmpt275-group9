@@ -154,6 +154,48 @@
     NSManagedObjectContext *mc = [(AppDelegate*)[[UIApplication sharedApplication] delegate] managedObjectContext];
     User* user;
     
+    if ([[_nameField text] length]==0) {
+        [[[UIAlertView alloc] initWithTitle:@"Cannot Save" message:@"A user must have a name" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil] show];
+        return;
+    }
+    
+    
+    if (![self checkNameUnique:[_nameField text]]) {
+        [[[UIAlertView alloc] initWithTitle:@"Cannot Save" message:@"A user already has the same name" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil] show];
+        return;
+    }
+    
+    if (![[_passwordField text] isEqualToString:[_passwordConfirmationField text]]) {
+        [[[UIAlertView alloc] initWithTitle:@"Cannot Save" message:@"Please make sure that you enter the same password in each field" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil] show];
+        return;
+    }
+    
+    NSInteger minLength = [_userType isEqualToString:@"Child"] ? 2 : 6;
+    
+    if ([[_passwordField text] length]<minLength) {
+        [[[UIAlertView alloc] initWithTitle:@"Cannot Save" message:[NSString stringWithFormat:@"The password must be at least %i characters long", minLength] delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil] show];
+        return;
+    }
+    
+    
+    NSPredicate *isAlphaNumeric = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", @"[A-Z0-9a-z]*"];
+    
+    if (![isAlphaNumeric evaluateWithObject:[_passwordField text]]) {
+        [[[UIAlertView alloc] initWithTitle:@"Cannot Save" message:@"The password must only contain numbers and characters" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil] show];
+        return;
+    }
+    
+    if ([_userType isEqualToString:@"Guardian"] && [[_emailField text] length]==0) {
+        [[[UIAlertView alloc] initWithTitle:@"Cannot Save" message:@"Guardian must have an email" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil] show];
+        return;
+    }
+    
+    NSPredicate *isEmail = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", @"[a-z0-9][a-z0-9\\._]*[a-z0-9]@[a-z0-9][a-z0-9\\.]*[a-z0-9]"];
+    
+    if ([_userType isEqualToString:@"Guardian"] && ![isEmail evaluateWithObject:[_emailField text]]) {
+        [[[UIAlertView alloc] initWithTitle:@"Cannot Save" message:@"Email must be a valid email address." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil] show];
+        return;
+    }
     
     if (_editedUser) {
         user = _editedUser;
@@ -164,27 +206,6 @@
         NSEntityDescription* entityDescription = [NSEntityDescription entityForName:_userType
                                                              inManagedObjectContext:mc];
         user = (User*)[[NSManagedObject alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:mc];
-    }
-    
-    if ([[_nameField text] length]==0) {
-        [[[UIAlertView alloc] initWithTitle:@"Cannot Save" message:@"A user must have a name." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil] show];
-        return;
-    }
-    
-    
-    if (![self checkNameUnique:[_nameField text]]) {
-        [[[UIAlertView alloc] initWithTitle:@"Cannot Save" message:@"A user already has the same name." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil] show];
-        return;
-    }
-    
-    if (![[_passwordField text] isEqualToString:[_passwordConfirmationField text]]) {
-        [[[UIAlertView alloc] initWithTitle:@"Cannot Save" message:@"Please make sure that you enter the same password in each field" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil] show];
-        return;
-    }
-    
-    if ([_userType isEqualToString:@"Guardian"] && [[_emailField text] length]==0) {
-        [[[UIAlertView alloc] initWithTitle:@"Cannot Save" message:@"Guardian must have an email" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil] show];
-        return;
     }
     
     [user setName:[_nameField text]];
