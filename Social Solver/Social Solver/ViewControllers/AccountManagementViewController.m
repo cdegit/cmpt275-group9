@@ -25,7 +25,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        
+        _userType = @"Child";
     }
     return self;
 }
@@ -94,11 +94,13 @@
     if ([sender selectedSegmentIndex]==0) {
         [_emailLabel setHidden:YES];
         [_emailField setHidden:YES];
+        _userType = @"Child";
     }
     else
     {
         [_emailLabel setHidden:NO];
         [_emailField setHidden:NO];
+        _userType = @"Guardian";
     }
 }
 
@@ -158,11 +160,8 @@
     }
     else
     {
-        if (_userType==nil) {
-            _userType = [_userTypeControl selectedSegmentIndex]==0 ? @"Child" : @"Guardian";
-        }
         
-        NSEntityDescription* entityDescription = [NSEntityDescription entityForName:(_userType ? _userType : ([_userTypeControl selectedSegmentIndex]==0 ? @"Child" : @"Guardian"))
+        NSEntityDescription* entityDescription = [NSEntityDescription entityForName:_userType
                                                              inManagedObjectContext:mc];
         user = (User*)[[NSManagedObject alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:mc];
     }
