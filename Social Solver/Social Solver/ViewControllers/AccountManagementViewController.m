@@ -131,6 +131,15 @@
         [user setValue:[_emailLabel text] forKey:@"email"];
     }
     
+    if ([_profileImageView image]!=nil) {
+        NSString* imgDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+        
+        NSString* imagePath = [NSString stringWithFormat:@"%@%@.png", imgDir, [_nameField text]];
+        
+        [UIImagePNGRepresentation([_profileImageView image]) writeToFile:imagePath atomically:YES];
+        
+    }
+    
     NSError* err;
     
     [mc save:&err];
