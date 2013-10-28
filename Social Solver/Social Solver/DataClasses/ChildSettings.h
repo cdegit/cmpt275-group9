@@ -12,6 +12,6 @@
 @interface ChildSettings : NSManagedObject
 
 @property (nonatomic) BOOL allowsAutoSync, allowsTracking;
-@property (nonatomic) ChildUser* child;
+@property (nonatomic) NSManagedObject* child;
 
 @end

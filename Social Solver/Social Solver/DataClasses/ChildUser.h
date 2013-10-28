@@ -17,6 +17,6 @@
 
 @property (nonatomic) NSSet *completedProblems, *guardians;
 @property (nonatomic) GuardianUser *primaryGuardian;
-@property (nonatomic) ChildSettings *settings;
+@property (nonatomic) NSManagedObject *settings;
 
 @end

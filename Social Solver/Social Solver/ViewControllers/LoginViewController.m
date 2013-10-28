@@ -110,7 +110,7 @@
 -(void) authenticatedUser:(User *)user
 {
     [self dismissViewControllerAnimated:YES completion:NULL];
-    [[UserDatabaseManager sharedInstance] setCurrentUser:user];
+    [[UserDatabaseManager sharedInstance] setActiveUser:user];
     if ([[[user entity] name] isEqualToString:@"Child"]) {
         [self.navigationController popViewControllerAnimated:YES];
     }

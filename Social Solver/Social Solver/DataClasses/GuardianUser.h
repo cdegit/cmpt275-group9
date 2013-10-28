@@ -14,7 +14,7 @@
 @interface GuardianUser : User
 
 @property (nonatomic) NSString* email;
-@property (nonatomic) NSSet *children, primaryChildren;
+@property (nonatomic) NSSet *children, *primaryChildren;
 
 
 @end
