@@ -54,7 +54,8 @@
     if ([[[UserDatabaseManager sharedInstance] activeUser] name] != NULL) {
         _loginButton.hidden = YES;
         _logoutButton.hidden = NO;
-        _someText.text=[[[UserDatabaseManager sharedInstance] activeUser] name];
+        _someText.text = [[[UserDatabaseManager sharedInstance] activeUser] name];
+        _someText.hidden = NO;
         [_someText setNeedsDisplay];
     }
     
@@ -62,6 +63,7 @@
         _logoutButton.hidden = YES;
         _loginButton.hidden = NO;
         _someText.text=[[[UserDatabaseManager sharedInstance] activeUser] name];
+        _someText.hidden = YES;
         [_someText setNeedsDisplay];
     }
 }
@@ -116,8 +118,12 @@
 
 - (IBAction)logoutTapped:(UIButton *)sender {
     [[UserDatabaseManager sharedInstance] setActiveUser:nil];
-    LoginViewController* vc = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:[NSBundle mainBundle]];
-    [self.navigationController pushViewController:vc animated:YES];
+//    LoginViewController* vc = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:[NSBundle mainBundle]];
+//    [self.navigationController pushViewController:vc animated:YES];
+    
+    self.loginButton.hidden = false;
+    self.logoutButton.hidden = true;
+    self.someText.hidden = true;
 }
 
 

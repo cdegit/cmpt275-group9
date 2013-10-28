@@ -111,7 +111,7 @@
 					</object>
 					<object class="IBUIButton" id="64502812">
 						<reference key="NSNextResponder" ref="215707306"/>
-						<int key="NSvFlags">292</int>
+						<int key="NSvFlags">-2147483356</int>
 						<string key="NSFrame">{{694, 305}, {310, 56}}</string>
 						<reference key="NSSuperview" ref="215707306"/>
 						<reference key="NSNextKeyView" ref="85096971"/>
@@ -217,7 +217,7 @@
 					</object>
 					<object class="IBUIButton" id="85096971">
 						<reference key="NSNextResponder" ref="215707306"/>
-						<int key="NSvFlags">292</int>
+						<int key="NSvFlags">-2147483356</int>
 						<string key="NSFrame">{{698, 163}, {302, 143}}</string>
 						<reference key="NSSuperview" ref="215707306"/>
 						<reference key="NSNextKeyView" ref="649623496"/>
@@ -237,7 +237,7 @@
 					<object class="IBUIButton" id="269578057">
 						<reference key="NSNextResponder" ref="215707306"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{694, 103}, {310, 56}}</string>
+						<string key="NSFrame">{{694, 99}, {310, 56}}</string>
 						<reference key="NSSuperview" ref="215707306"/>
 						<reference key="NSNextKeyView" ref="88366674"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
@@ -254,7 +254,7 @@
 					<object class="IBUILabel" id="180735483">
 						<reference key="NSNextResponder" ref="215707306"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{20, 39}, {306, 56}}</string>
+						<string key="NSFrame">{{694, 35}, {306, 56}}</string>
 						<reference key="NSSuperview" ref="215707306"/>
 						<reference key="NSNextKeyView" ref="579237726"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
@@ -4928,8 +4928,8 @@ AAgAAgAAAAIAAAAAAAgAAgAIAAEAAQABAAE</bytes>
 							<reference ref="579237726"/>
 							<reference ref="833165202"/>
 							<reference ref="487908463"/>
-							<reference ref="180735483"/>
 							<reference ref="269578057"/>
+							<reference ref="180735483"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
