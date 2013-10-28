@@ -125,8 +125,9 @@
     }
     else
     {
-        GuardianMainMenuViewController* gmmvc = [[GuardianMainMenuViewController alloc] initWithNibName:@"GuardianMainMenuViewController" bundle:[NSBundle mainBundle]];
-        [self.navigationController pushViewController:gmmvc animated:YES];
+        [self.navigationController popViewControllerAnimated:YES];
+        //GuardianMainMenuViewController* gmmvc = [[GuardianMainMenuViewController alloc] initWithNibName:@"GuardianMainMenuViewController" bundle:[NSBundle mainBundle]];
+        //[self.navigationController pushViewController:gmmvc animated:YES];
     }
 }
 
@@ -180,7 +181,7 @@
     
     [self presentViewController:lpvc animated:YES completion:NULL];
     
-    lpvc.view.superview.frame = CGRectInset(lpvc.view.superview.frame, 100, 100);
+    [[[lpvc view] superview] setFrame:CGRectInset([[[lpvc view] superview] frame], 100, 100)];
     
     return NO;
 }
