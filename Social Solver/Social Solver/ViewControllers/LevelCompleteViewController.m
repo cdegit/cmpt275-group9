@@ -14,7 +14,7 @@
 
 @implementation LevelCompleteViewController
 
-@synthesize delegate;
+@synthesize delegate, shouldShowCongratsLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,6 +29,12 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    NSArray* messages = @[@"Good Job!", @"Nice One!", @"Congratulations!", @"Well Done!"];
+    NSUInteger randI = arc4random() % [messages count];
+    self.congratsLabel.text = [messages objectAtIndex:randI];
+    
+    self.congratsLabel.hidden = !self.shouldShowCongratsLabel;
 }
 
 
@@ -42,6 +48,12 @@
 
 - (IBAction)mainMenuPressed:(id)sender {
     [self.delegate levelCompleteViewController:self didFinishWithOption:FinishOptionMainMenu];
+}
+
+- (void)setShouldShowCongratsLabel:(bool)show
+{
+    shouldShowCongratsLabel = show;
+    self.congratsLabel.hidden = !shouldShowCongratsLabel;
 }
 
 @end
