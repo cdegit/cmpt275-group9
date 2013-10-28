@@ -13,18 +13,38 @@
 @interface AccountManagementViewController ()
 {
     NSString* _userType;
-    NSManagedObject* _editingUser;
+    NSManagedObject* _editedUser;
     UIPopoverController* _imageLibraryPopover;
 }
 @end
 
 @implementation AccountManagementViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil userType:(NSString *) type
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        
+    }
+    return self;
+}
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil forUserType:(NSString*) type
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         _userType = type;
+        _editedUser = nil;
+    }
+    return self;
+}
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil withUser:(NSManagedObject*)user
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        _editedUser = user;
+        _userType = [[_editedUser entity] name];
     }
     return self;
 }
@@ -36,7 +56,6 @@
     if ([_userType isEqualToString:@"Child"]) {
         [_emailLabel setHidden:YES];
         [_emailField setHidden:YES];
-        [_emailDivider setHidden:YES];
     }
     
     if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
@@ -45,8 +64,14 @@
     }
     
     
-    
-    [self setTitle:[NSString stringWithFormat:@"%@ %@ Account", _editingUser==nil ? @"Create" : @"Edit", _userType]];
+    if (_userType==nil&&_editedUser==nil) {
+        [self setTitle:@"Creating User Account"];
+    }
+    else
+    {
+        [self setTitle:[NSString stringWithFormat:@"%@ %@ Account", _editedUser==nil ? @"Create" : @"Edit", _userType]];
+    }
+    [self userTypeChange:nil];
     
 }
 
@@ -58,10 +83,23 @@
 
 -(void)setUser:(NSManagedObject* )user
 {
-    _editingUser = user;
+    _editedUser = user;
 }
 
 #pragma mark - IBAction Methods
+
+-(IBAction)userTypeChange:(id)sender
+{
+    if ([sender selectedSegmentIndex]==0) {
+        [_emailLabel setHidden:YES];
+        [_emailField setHidden:YES];
+    }
+    else
+    {
+        [_emailLabel setHidden:NO];
+        [_emailField setHidden:NO];
+    }
+}
 
 -(IBAction)fetchImageFromiPhoto:(id)sender
 {
@@ -98,7 +136,7 @@
     NSArray* users = [mc executeFetchRequest:req error:nil];
     
     for (NSManagedObject* us in users) {
-        if (![_editingUser isEqual:us]) {
+        if (![_editedUser isEqual:us]) {
             return NO;
         }
     }
@@ -111,9 +149,22 @@
 -(IBAction)save:(id)sender
 {
     NSManagedObjectContext *mc = [(AppDelegate*)[[UIApplication sharedApplication] delegate] managedObjectContext];
-    NSEntityDescription* entityDescription = [NSEntityDescription entityForName:_userType
-                                                         inManagedObjectContext:mc];
-    NSManagedObject* user = [[NSManagedObject alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:mc];
+    NSManagedObject* user;
+    
+    
+    if (_editedUser) {
+        user = _editedUser;
+    }
+    else
+    {
+        if (_userType==nil) {
+            _userType = [_userTypeControl selectedSegmentIndex]==0 ? @"Child" : @"Guardian";
+        }
+        
+        NSEntityDescription* entityDescription = [NSEntityDescription entityForName:(_userType ? _userType : ([_userTypeControl selectedSegmentIndex]==0 ? @"Child" : @"Guardian"))
+                                                             inManagedObjectContext:mc];
+        user = [[NSManagedObject alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:mc];
+    }
     
     if (![self checkNameUnique:[_nameField text]]) {
         [[[UIAlertView alloc] initWithTitle:@"Cannot Save" message:@"A user already has the same name." delegate:nil cancelButtonTitle:@"OKay" otherButtonTitles:nil] show];
@@ -125,8 +176,13 @@
         return;
     }
     
+    if ([_userType isEqualToString:@"Guardian"] && [[_emailField text] isEqualToString:@""]) {
+        [[[UIAlertView alloc] initWithTitle:@"Cannot Save" message:@"Guardian must have an email" delegate:nil cancelButtonTitle:@"OKay" otherButtonTitles:nil] show];
+    }
+    
     [user setValue:[_nameField text] forKey:@"name"];
     [user setValue:[_passwordField text] forKey:@"passhash"];
+    
     if ([_userType isEqualToString:@"Guardian"]) {
         [user setValue:[_emailLabel text] forKey:@"email"];
     }
