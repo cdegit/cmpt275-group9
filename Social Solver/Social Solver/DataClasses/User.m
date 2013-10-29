@@ -15,4 +15,25 @@
 @dynamic name, passhash;
 @dynamic uid;
 
+- (UIImage *)profileImage
+{
+    NSString* imgDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    
+    NSString* imagePath = [NSString stringWithFormat:@"%@%@.png", imgDir, [self name]];
+    
+    return [UIImage imageWithContentsOfFile:imagePath];
+}
+
+- (void)setProfileImage:(UIImage *)pimage
+{
+    if (pimage!=nil) {
+        NSString* imgDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+        
+        NSString* imagePath = [NSString stringWithFormat:@"%@%@.png", imgDir, [self name]];
+        
+        [UIImagePNGRepresentation(pimage) writeToFile:imagePath atomically:YES];
+        
+    }
+}
+
 @end

@@ -14,6 +14,9 @@
 
 @interface User : NSManagedObject
 
+- (UIImage *)profileImage;
+- (void)setProfileImage:(UIImage *)pimage;
+
 @property (nonatomic) NSString *name, *passhash;
 @property (nonatomic) NSInteger* uid;
 
