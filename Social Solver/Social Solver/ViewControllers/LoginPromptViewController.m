@@ -9,6 +9,7 @@
 
 #import "LoginPromptViewController.h"
 #import "LoginViewController.h"
+#import "UserDatabaseManager.h"
 
 @interface LoginPromptViewController ()
 
@@ -35,12 +36,8 @@
     // Set the Name Label to the users name
     [_nameLabel setText:[_user name]];
     
-    // Find the Path where the user profile image is kept
-    NSString* imgDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    NSString* imagePath = [NSString stringWithFormat:@"%@%@.png", imgDir, [_user name]];
-    
-    // Load Image
-    UIImage* img = [UIImage imageWithContentsOfFile:imagePath];
+    // Load Profile Image
+    UIImage* img = [_user profileImage];
     
     // If the Profile Image cannot be load (likely because it does not exist)
     // Load the default Profile Image
@@ -76,8 +73,8 @@
 
 -(IBAction) submitTapped:(UIButton *)sender
 {
-    // Check that the password matches the Users hashed password
-    if ([[_passwordField text] isEqualToString:[_user valueForKey:@"passhash"]]) {
+    // Check that user is authentic
+    if ([[UserDatabaseManager sharedInstance] isAuthenticUser:_user forPassword:[_passwordField text]]) {
         
         // Tell the presenting view that the user has been authenticated
         [_delegate authenticatedUser:_user];

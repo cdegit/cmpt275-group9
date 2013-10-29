@@ -11,6 +11,7 @@
 #import "AppDelegate.h"
 #import "UIImagePickerController+ShouldAutorotate.h"
 #import "GuardianUser.h"
+#import "UserDatabaseManager.h"
 
 @interface AccountManagementViewController ()
 {
@@ -56,6 +57,19 @@
         [_userTypeControl setHidden:YES];
         [_userTypeControl setEnabled:NO];
         [self setTitle:[NSString stringWithFormat:@"%@ %@ Account", _editedUser==nil ? @"Create" : @"Edit", _userType]];
+    }
+    
+    
+    // If editing a user load Fields
+    if (_editedUser!=nil) {
+        [_nameField setText:[_editedUser name]];
+        
+        [_profileImageView setImage:[_editedUser profileImage]];
+        
+        if ([_userType isEqualToString:@"Guardian"]) {
+            [_emailField setText:[(GuardianUser *)_editedUser email]];
+        }
+        
     }
     
     // Hide email field if the current usertype is Child
@@ -204,32 +218,30 @@
     // If a user object hasn't been created for the user create one
     if (_editedUser) {
         user = _editedUser;
+        
+        // Put in values for the user
+        [user setName:[_nameField text]];
+        [user setPasshash:[_passwordField text]];
+        
+        // Save the profile Image if it has been set
+        if ([_profileImageView image]!=nil) {
+            [user setProfileImage:[_profileImageView image]];
+            
+        }
+        
+        if ([_userType isEqualToString:@"Guardian"]) {
+            [(GuardianUser*)user setEmail:[_emailLabel text]];
+        }
     }
     else
     {
-        
-        NSEntityDescription* entityDescription = [NSEntityDescription entityForName:_userType
-                                                             inManagedObjectContext:mc];
-        user = (User*)[[NSManagedObject alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:mc];
-    }
-    
-    // Put in values for the user
-    [user setName:[_nameField text]];
-    [user setPasshash:[_passwordField text]];
-    
-    if ([_userType isEqualToString:@"Guardian"]) {
-        [(GuardianUser*)user setEmail:[_emailLabel text]];
-    }
-    
-    
-    // Save the profile Image if it has been set
-    if ([_profileImageView image]!=nil) {
-        NSString* imgDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-        
-        NSString* imagePath = [NSString stringWithFormat:@"%@%@.png", imgDir, [_nameField text]];
-        
-        [UIImagePNGRepresentation([_profileImageView image]) writeToFile:imagePath atomically:YES];
-        
+        if ([_userType isEqualToString:@"Child"]) {
+            user = [[UserDatabaseManager sharedInstance] createChildWithName:[_nameField text] password:[_passwordField text] andProfileImage:[_profileImageView image]];
+        }
+        else
+        {
+            user = [[UserDatabaseManager sharedInstance] createGuardianWithName:[_nameField text] password:[_passwordField text] profileImage:[_profileImageView image] andEmail:[_emailField text]];
+        }
     }
     
     NSError* err;

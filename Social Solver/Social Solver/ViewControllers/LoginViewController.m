@@ -77,25 +77,8 @@
 
 - (void)loadUsers
 {
-    // Fetch User from the Apps Managed Object Context sorted by name and
-    // set the returned array as userArray
     
-    NSManagedObjectContext *mc = [(AppDelegate*)[[UIApplication sharedApplication] delegate] managedObjectContext];
-    NSEntityDescription* entityDescription = [NSEntityDescription entityForName:userType
-                                                         inManagedObjectContext:mc];
-    
-    NSFetchRequest* request = [[NSFetchRequest alloc] init];
-    [request setEntity:entityDescription];
-    
-    NSSortDescriptor* sort = [[NSSortDescriptor alloc] initWithKey:@"name"
-                                                         ascending:YES];
-    
-    [request setSortDescriptors:@[sort]];
-    
-    NSError* err;
-    
-    userArray = [mc executeFetchRequest:request
-                                  error:&err];
+    userArray = [[UserDatabaseManager sharedInstance] getUserListOfType:userType];
     
 }
 
@@ -179,11 +162,9 @@
     
     // Set the cell's Image to the appropriate Profile Image
     // If they do not have their own profile image use the default
-    NSString* imgDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     
-    NSString* imagePath = [NSString stringWithFormat:@"%@%@.png", imgDir, [us name]];
+    UIImage *img = [us profileImage];
     
-    UIImage* img = [UIImage imageWithContentsOfFile:imagePath];
     if (img==nil) {
         img = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"test_image" ofType:@"jpg"]];
     }
