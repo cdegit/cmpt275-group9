@@ -221,7 +221,7 @@
         
         // Put in values for the user
         [user setName:[_nameField text]];
-        [user setPasshash:[_passwordField text]];
+        [user setPasswordHash:[_passwordField text]];
         
         // Save the profile Image if it has been set
         if ([_profileImageView image]!=nil) {

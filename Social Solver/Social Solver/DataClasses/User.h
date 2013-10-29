@@ -17,7 +17,7 @@
 - (UIImage *)profileImage;
 - (void)setProfileImage:(UIImage *)pimage;
 
-@property (nonatomic) NSString *name, *passhash;
+@property (nonatomic) NSString *name, *passwordHash, *passwordSeed;
 @property (nonatomic) NSInteger* uid;
 
 @end

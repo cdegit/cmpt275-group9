@@ -12,7 +12,7 @@
 
 @implementation User
 
-@dynamic name, passhash;
+@dynamic name, passwordHash, passwordSeed;
 @dynamic uid;
 
 - (UIImage *)profileImage

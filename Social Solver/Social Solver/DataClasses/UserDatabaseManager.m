@@ -58,10 +58,10 @@ static UserDatabaseManager* instance = nil;
     NSManagedObjectContext *mc = [(AppDelegate*)[[UIApplication sharedApplication] delegate] managedObjectContext];
     NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Child" inManagedObjectContext:mc];
     
-    ChildUser *c = (ChildUser *)[[NSManagedObject alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:mc];
+    ChildUser *c = [[ChildUser alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:mc];
     
     [c setName:name];
-    [c setPasshash:pass];
+    [c setPasswordHash:pass];
     [c setProfileImage:img];
     
     return c;
@@ -76,10 +76,10 @@ static UserDatabaseManager* instance = nil;
     NSManagedObjectContext *mc = [(AppDelegate*)[[UIApplication sharedApplication] delegate] managedObjectContext];
     NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Guardian" inManagedObjectContext:mc];
     
-    GuardianUser *g = (GuardianUser *)[[NSManagedObject alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:mc];
+    GuardianUser *g = [[GuardianUser alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:mc];
     
     [g setName:name];
-    [g setPasshash:pass];
+    [g setPasswordHash:pass];
     [g setProfileImage:img];
     [g setEmail:email];
     
@@ -90,7 +90,7 @@ static UserDatabaseManager* instance = nil;
 // Checks that the password is authentic for the given user
 - (BOOL) isAuthenticUser:(User*)u forPassword:(NSString *)password
 {
-    return [password isEqualToString:[u passhash]];
+    return [password isEqualToString:[u passwordHash]];
 }
 
 // Saves any changes made to the Database
