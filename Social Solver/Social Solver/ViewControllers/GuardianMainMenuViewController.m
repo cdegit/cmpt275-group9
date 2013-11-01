@@ -15,12 +15,13 @@
 @property (nonatomic, readonly) NSArray* navigationCellInfo;
 @property (nonatomic) CGFloat cellHeight;
 @property (nonatomic) UIViewController* detailViewController;
+@property (nonatomic, strong) StatisticsViewController* statsVC;
 
 @end
 
 @implementation GuardianMainMenuViewController
 
-@synthesize navigationCellInfo, cellHeight;
+@synthesize navigationCellInfo, cellHeight, statsVC;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -76,6 +77,14 @@
     return cellHeight;
 }
 
+- (StatisticsViewController*)statsVC
+{
+    if (statsVC == nil) {
+        statsVC = [[StatisticsViewController alloc] initWithNibName:@"StatisticsViewController" bundle:[NSBundle mainBundle]];
+    }
+    return statsVC;
+}
+
 // UITableviewDatasource Methods ------------------------------------------------------------
 // ------------------------------------------------------------------------------------------
 
@@ -101,6 +110,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    // Remove the old detailViewController's view, if there was one
+    [self.detailViewController.view removeFromSuperview];
+    
     switch (indexPath.row)
     {
         case 0:
@@ -111,7 +123,7 @@
         case 1:
         {
             // Load statistics
-            self.detailViewController = [[StatisticsViewController alloc] initWithNibName:@"StatisticsViewController" bundle:[NSBundle mainBundle]];
+            self.detailViewController = self.statsVC;
             break;
         }
         case 2:
@@ -142,6 +154,7 @@
     if (self.detailViewController != nil)
     {
         self.detailViewController.view.frame = self.detailViewContainer.bounds;
+        self.detailViewController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         [self.detailViewContainer addSubview:self.detailViewController.view];
     }
 }
