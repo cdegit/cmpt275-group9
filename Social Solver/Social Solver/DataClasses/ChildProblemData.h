@@ -10,9 +10,11 @@
 #import <CoreData/CoreData.h>
 #import "ChildUser.h"
 
+@class ChildUser;
 @interface ChildProblemData : NSManagedObject
 
 @property (nonatomic) NSInteger numberCorrect, numberOfAttempts, problemID;
+@property (nonatomic) double totalResponseTime;
 @property (nonatomic) ChildUser* child;
 
 @end

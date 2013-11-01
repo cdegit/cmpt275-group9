@@ -86,6 +86,18 @@ static UserDatabaseManager* instance = nil;
     return g;
 }
 
+- (ChildProblemData*)createProblemDataForChild:(ChildUser*)child withProblemID:(NSInteger)ID
+{
+    NSManagedObjectContext *mc = [(AppDelegate*)[[UIApplication sharedApplication] delegate] managedObjectContext];
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"ProblemData" inManagedObjectContext:mc];
+    
+    ChildProblemData* pd = [[ChildProblemData alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:mc];
+    pd.problemID = ID;
+    pd.child = child;
+    
+    return pd;
+}
+
 
 // Checks that the password is authentic for the given user
 - (BOOL) isAuthenticUser:(User*)u forPassword:(NSString *)password

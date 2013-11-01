@@ -15,4 +15,18 @@
 @dynamic primaryGuardian;
 @dynamic settings;
 
+- (ChildProblemData*)completedProblemDataWithID:(NSUInteger)problemID
+{
+    NSSet* thisProblem = [self.completedProblems objectsPassingTest:^BOOL(id obj, BOOL *stop) {
+        ChildProblemData* pd = (ChildProblemData*)obj;
+        if (pd.problemID == problemID) {
+            *stop = YES;
+            return true;
+        }
+        return false;
+    }];
+
+    return [thisProblem anyObject];
+}
+
 @end

@@ -11,7 +11,11 @@
 #import "Problem.h"
 #import "ProblemManager.h"
 #import "LevelCompleteViewController.h"
+#import "UserDatabaseManager.h"
+#import "ChildProblemData.h"
 #import <MediaPlayer/MediaPlayer.h>
+
+#define MAX_LEVEL_TIME 120
 
 @interface GameViewController () <LevelCompleteViewControllerDelegate>
 
@@ -21,6 +25,7 @@
 @property (nonatomic, strong) ProblemManager* problemManager;
 @property (nonatomic, strong) NSMutableArray* answers;
 @property (nonatomic, strong) MPMoviePlayerController* videoPlayer;
+@property (nonatomic, strong) NSDate* startTime;
 
 - (void)presentLevelCompleteViewShowingCongratsMessage:(bool)show;
 - (void)setupNextProblem;
@@ -29,13 +34,15 @@
 - (void)shuffleAnswers;
 - (void)setupVideoWithURL:(NSURL*)url;
 - (void)removeVideoPlayer;
+- (void)recordCorrectAnswerWithTime:(double)time;
+- (void)recordIncorrectAnswer;
 
 @end
 
 
 @implementation GameViewController 
 
-@synthesize answerButtons, gameMode, currentProblem, problemManager, answers, videoPlayer;
+@synthesize answerButtons, gameMode, currentProblem, problemManager, answers, videoPlayer, startTime;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -164,6 +171,9 @@
     {
         NSLog(@"Unrecognized problem MediaType in %s", __PRETTY_FUNCTION__);
     }
+    
+    // Record our start time of the level
+    self.startTime = [NSDate date];
 }
 
 - (void)setupNextProblem
@@ -191,8 +201,81 @@
     self.answers = shuffledAnswers;
 }
 
+- (void)recordCorrectAnswerWithTime:(double)time
+{
+    User* user = [[UserDatabaseManager sharedInstance] activeUser];
+    if (user != nil && [user isKindOfClass:[ChildUser class]])
+    {
+        ChildUser* cUser = (ChildUser*)user;
+        NSMutableSet* mutableProblemsSolved = [NSMutableSet setWithSet:cUser.completedProblems];
+        ChildProblemData* thisProblemData = [cUser completedProblemDataWithID:self.currentProblem.ID];
+        
+        // Check if the user has solved this problem before
+        if (thisProblemData != nil) {
+            [mutableProblemsSolved removeObject:thisProblemData];
+            
+            // Update the problem data
+            if (time < MAX_LEVEL_TIME) {
+                thisProblemData.totalResponseTime += time;
+            }
+            thisProblemData.numberCorrect++;
+            thisProblemData.numberOfAttempts++;
+        }
+        else {
+            thisProblemData = [[UserDatabaseManager sharedInstance] createProblemDataForChild:cUser withProblemID:self.currentProblem.ID];
+            if (time < MAX_LEVEL_TIME) {
+                thisProblemData.totalResponseTime = time;
+            }
+            thisProblemData.numberOfAttempts = 1;
+            thisProblemData.numberCorrect = 1;
+        }
+        
+        // Store the updated completedProblems
+        [mutableProblemsSolved addObject:thisProblemData];
+        cUser.completedProblems = mutableProblemsSolved;
+    }
+    
+    [[UserDatabaseManager sharedInstance] save];
+}
+
+- (void)recordIncorrectAnswer
+{
+    User* user = [[UserDatabaseManager sharedInstance] activeUser];
+    if (user != nil && [user isKindOfClass:[ChildUser class]])
+    {
+        ChildUser* cUser = (ChildUser*)user;
+        NSMutableSet* mutableProblemsSolved = [NSMutableSet setWithSet:cUser.completedProblems];
+        ChildProblemData* thisProblemData = [cUser completedProblemDataWithID:self.currentProblem.ID];
+        
+        // Check if the user has solved this problem before
+        if (thisProblemData != nil) {
+            [mutableProblemsSolved removeObject:thisProblemData];
+            
+            // Update the problem data
+            thisProblemData.numberOfAttempts++;
+        }
+        else {
+            thisProblemData = [[UserDatabaseManager sharedInstance] createProblemDataForChild:cUser withProblemID:self.currentProblem.ID];
+            
+            thisProblemData.numberOfAttempts = 1;
+        }
+        
+        // Store the updated completedProblems
+        [mutableProblemsSolved addObject:thisProblemData];
+        cUser.completedProblems = mutableProblemsSolved;
+    }
+    
+    [[UserDatabaseManager sharedInstance] save];
+}
+
 - (void)presentLevelCompleteViewShowingCongratsMessage:(bool)show
 {
+    NSSet* cp = ((ChildUser*)[[UserDatabaseManager sharedInstance] activeUser]).completedProblems;
+    [cp enumerateObjectsUsingBlock:^(id obj, BOOL *stop) {
+        ChildProblemData* pd = (ChildProblemData*)obj;
+        NSLog(@"Problem ID = %d, numberCorrect = %d, totalResponse = %f", pd.problemID, pd.numberCorrect, pd.totalResponseTime);
+    }];
+    
     // If the video was still playing, then pause it
     if (self.videoPlayer.playbackState == MPMoviePlaybackStatePlaying) {
         [self.videoPlayer pause];
@@ -236,12 +319,17 @@
     
     if ([answerChosen isEqualToString:self.currentProblem.answer])
     {
+        // Record the correct answer
+        NSDate* endTime = [NSDate date];
+        [self recordCorrectAnswerWithTime:[endTime timeIntervalSinceDate:startTime]];
+
         // Correct answer - Display the level complete view
         [self presentLevelCompleteViewShowingCongratsMessage:YES];
     }
     else
     {
         // Incorrect answer
+        [self recordIncorrectAnswer];
         
         // Create a copy to use in the completion block
         __block UIButton* answerButton = sender;

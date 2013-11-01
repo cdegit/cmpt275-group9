@@ -13,5 +13,6 @@
 
 @dynamic numberCorrect, numberOfAttempts, problemID;
 @dynamic child;
+@dynamic totalResponseTime;
 
 @end
