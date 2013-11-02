@@ -14,6 +14,6 @@
 
 @interface AudioManager : NSObject
 
-+ (void)playSound:(NSString*)string; 
++ (void)playSound:(NSString*)string;
 
 @end
