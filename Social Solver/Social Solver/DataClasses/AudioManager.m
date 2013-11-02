@@ -11,23 +11,37 @@
 #import "AudioManager.h"
 #import <AVFoundation/AVFoundation.h>
 
+@interface AudioManager ()
+@property (nonatomic, strong) AVAudioPlayer* player;
+@end
+
 @implementation AudioManager
 
-+ (void)playSound:(NSString *)string {
+@synthesize player;
+
++ (AudioManager*)sharedInstance
+{
+    static AudioManager* sharedInstance = nil;
+    if (sharedInstance == nil) {
+        sharedInstance = [[AudioManager alloc] init];
+    }
+    
+    return sharedInstance;
+}
+
+- (void)playSound:(NSString *)string {
     NSURL *url = [[NSBundle mainBundle] URLForResource:string withExtension:@"wav"];
     
-    AVAudioPlayer *audioPlayer;
    
     NSError *error;
-    audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+    self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
     
-    if (audioPlayer == nil) {
-        NSLog([error description]); 
+    if (self.player == nil) {
+        NSLog([error description]);
     } else {
-        [audioPlayer prepareToPlay];
-        audioPlayer.volume = 1.0;
-        audioPlayer.numberOfLoops = 0;
-        [audioPlayer play];
+        [self.player prepareToPlay];
+        self.player.volume = 1.0;
+        [self.player play];
     }
 } 
 

@@ -13,6 +13,7 @@
 #import "LevelCompleteViewController.h"
 #import "UserDatabaseManager.h"
 #import "ChildProblemData.h"
+#import "AudioManager.h"
 #import <MediaPlayer/MediaPlayer.h>
 
 #define MAX_LEVEL_TIME 120
@@ -319,6 +320,9 @@
     
     if ([answerChosen isEqualToString:self.currentProblem.answer])
     {
+        // Play correct sound
+        [[AudioManager sharedInstance] playSound:@"cheering"];
+        
         // Record the correct answer
         NSDate* endTime = [NSDate date];
         [self recordCorrectAnswerWithTime:[endTime timeIntervalSinceDate:startTime]];

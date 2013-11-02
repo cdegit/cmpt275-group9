@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Social Solver/ViewControllers/GameViewController.m"
-            timestampString = "404967123.073494"
+            timestampString = "405057803.614055"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
             landmarkName = "@implementation GameViewController"
             landmarkType = "3">
          </BreakpointContent>
