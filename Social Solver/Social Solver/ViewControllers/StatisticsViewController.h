@@ -10,13 +10,11 @@
 
 @interface StatisticsViewController : UIViewController
 
-
 @property (weak, nonatomic) IBOutlet UICollectionView *childrenCollection;
 @property (weak, nonatomic) IBOutlet UICollectionView *emotionCollection;
 @property (weak, nonatomic) IBOutlet UICollectionView *legendCollection;
 @property (weak, nonatomic) IBOutlet UIView *graphContainerView;
 @property (weak, nonatomic) IBOutlet UIButton *dataButton;
 @property (weak, nonatomic) IBOutlet UIButton *gameModeButton;
-
 
 @end
