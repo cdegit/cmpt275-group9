@@ -22,7 +22,7 @@
     audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
     
     if (audioPlayer == nil) {
-        NSLog([error description]);
+        NSLog([error description]); 
     } else {
         [audioPlayer prepareToPlay];
         audioPlayer.volume = 1.0;
