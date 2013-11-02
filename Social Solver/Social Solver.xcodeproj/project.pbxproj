@@ -14,6 +14,9 @@
 		2A730FA21819A541000356DE /* LoginUserSelectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A730FA11819A541000356DE /* LoginUserSelectionCell.xib */; };
 		2A7DB106181B3A24008EF99F /* LoginPromptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7DB104181B3A24008EF99F /* LoginPromptViewController.m */; };
 		2A7DB107181B3A24008EF99F /* LoginPromptViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A7DB105181B3A24008EF99F /* LoginPromptViewController.xib */; };
+		814C11CC18249A71007AD19B /* AudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 814C11CB18249A71007AD19B /* AudioManager.m */; };
+		814C11CE18249B6F007AD19B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 814C11CD18249B6F007AD19B /* AVFoundation.framework */; };
+		814C11D018249C26007AD19B /* cheering.wav in Resources */ = {isa = PBXBuildFile; fileRef = 814C11CF18249C26007AD19B /* cheering.wav */; };
 		EA16940C18162A7700C40069 /* Problem.m in Sources */ = {isa = PBXBuildFile; fileRef = EA16940B18162A7700C40069 /* Problem.m */; };
 		EA16940F18162B2B00C40069 /* ProblemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EA16940E18162B2B00C40069 /* ProblemManager.m */; };
 		EA16941B18163C5C00C40069 /* LevelCompleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA16941918163C5C00C40069 /* LevelCompleteViewController.m */; };
@@ -116,6 +119,10 @@
 		2A7DB103181B3A24008EF99F /* LoginPromptViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginPromptViewController.h; sourceTree = "<group>"; };
 		2A7DB104181B3A24008EF99F /* LoginPromptViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginPromptViewController.m; sourceTree = "<group>"; };
 		2A7DB105181B3A24008EF99F /* LoginPromptViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginPromptViewController.xib; path = ViewControllers/LoginPromptViewController.xib; sourceTree = "<group>"; };
+		814C11CA18249A71007AD19B /* AudioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioManager.h; sourceTree = "<group>"; };
+		814C11CB18249A71007AD19B /* AudioManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioManager.m; sourceTree = "<group>"; };
+		814C11CD18249B6F007AD19B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		814C11CF18249C26007AD19B /* cheering.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = cheering.wav; sourceTree = "<group>"; };
 		EA16940A18162A7700C40069 /* Problem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Problem.h; sourceTree = "<group>"; };
 		EA16940B18162A7700C40069 /* Problem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Problem.m; sourceTree = "<group>"; };
 		EA16940D18162B2B00C40069 /* ProblemManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProblemManager.h; sourceTree = "<group>"; };
@@ -219,6 +226,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				814C11CE18249B6F007AD19B /* AVFoundation.framework in Frameworks */,
 				EAC698FC181DB87F00342086 /* MediaPlayer.framework in Frameworks */,
 				EACC678E18037CFE00FEAC76 /* UIKit.framework in Frameworks */,
 				EACC679018037CFE00FEAC76 /* Foundation.framework in Frameworks */,
@@ -261,6 +269,7 @@
 		EAC698CD181DB7F000342086 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				814C11CF18249C26007AD19B /* cheering.wav */,
 				EAC69917181DD1E700342086 /* test_image.jpg */,
 				EAC69914181DCE3C00342086 /* vert gradient 2.jpg */,
 				EAC69911181DCBC600342086 /* circle_gradient.jpg */,
@@ -334,6 +343,7 @@
 		EACC678C18037CFE00FEAC76 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				814C11CD18249B6F007AD19B /* AVFoundation.framework */,
 				EAC698FB181DB87F00342086 /* MediaPlayer.framework */,
 				EACC678D18037CFE00FEAC76 /* UIKit.framework */,
 				EACC678F18037CFE00FEAC76 /* Foundation.framework */,
@@ -461,6 +471,8 @@
 				2A105F11181E16970035232F /* ChildSettings.m */,
 				2A105F13181E18CF0035232F /* ChildProblemData.h */,
 				2A105F14181E18CF0035232F /* ChildProblemData.m */,
+				814C11CA18249A71007AD19B /* AudioManager.h */,
+				814C11CB18249A71007AD19B /* AudioManager.m */,
 			);
 			path = DataClasses;
 			sourceTree = "<group>";
@@ -553,6 +565,7 @@
 				EAC69904181DC20D00342086 /* Problem Solver Icon brighter.png in Resources */,
 				EACC67A418037CFE00FEAC76 /* Default@2x.png in Resources */,
 				EAC698EE181DB81A00342086 /* children-50x50.png in Resources */,
+				814C11D018249C26007AD19B /* cheering.wav in Resources */,
 				EACC67A618037CFE00FEAC76 /* Default-568h@2x.png in Resources */,
 				EACC67CC18037DA300FEAC76 /* MainMenuViewController.xib in Resources */,
 				2A730FA21819A541000356DE /* LoginUserSelectionCell.xib in Resources */,
@@ -636,6 +649,7 @@
 				EACC67CF1803816800FEAC76 /* RootNavigationViewController.m in Sources */,
 				EACC67D9180733CB00FEAC76 /* User.m in Sources */,
 				EACC67DC1807340700FEAC76 /* GuardianUser.m in Sources */,
+				814C11CC18249A71007AD19B /* AudioManager.m in Sources */,
 				EACC67DF1807343200FEAC76 /* ChildUser.m in Sources */,
 				2A7DB106181B3A24008EF99F /* LoginPromptViewController.m in Sources */,
 				EAC698FA181DB86300342086 /* Social_Solver.xcdatamodeld in Sources */,
