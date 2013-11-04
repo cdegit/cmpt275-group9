@@ -9,13 +9,28 @@
 
 #import <CoreData/CoreData.h>
 #import "User.h"
+#import "ChildUser.h"
 
 /* A class for the data of the guardian profile */
+
+@class ChildUser;
 
 @interface GuardianUser : User
 
 @property (nonatomic) NSString* email;
 @property (nonatomic) NSSet *children, *primaryChildren;
+
+- (void)addChildrenObject:(ChildUser *)object;
+- (void)removeChildrenObject:(ChildUser *)object;
+
+- (void)addChildren:(NSSet *)objects;
+- (void)removeChildren:(NSSet *)objects;
+
+- (void)addPrimaryChildrenObject:(ChildUser *)object;
+- (void)removePrimaryChildrenObject:(ChildUser *)object;
+
+- (void)addPrimaryChildren:(NSSet *)objects;
+- (void)removePrimaryChildren:(NSSet *)objects;
 
 
 @end

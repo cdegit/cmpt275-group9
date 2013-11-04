@@ -17,11 +17,25 @@
 
 @class ChildSettings;
 @class ChildProblemData;
+@class GuardianUser;
+
 @interface ChildUser : User
 
 @property (nonatomic) NSSet *completedProblems, *guardians;
 @property (nonatomic) GuardianUser *primaryGuardian;
 @property (nonatomic) ChildSettings *settings;
+
+- (void)addCompletedProblemsObject:(ChildProblemData *)object;
+- (void)removeCompletedProblemsObject:(ChildProblemData *)object;
+
+- (void)addCompletedProblems:(NSSet *)objects;
+- (void)removeCompletedProblems:(NSSet *)objects;
+
+- (void)addGuardiansObject:(GuardianUser *)object;
+- (void)removeGuardiansObject:(GuardianUser *)object;
+
+- (void)addGuardians:(NSSet *)objects;
+- (void)removeGuardians:(NSSet *)objects;
 
 // Returns the ChildProblemData with ID problemID from completedProblems set
 // Returns nil if no problemData with that ID is found in completedProblems
