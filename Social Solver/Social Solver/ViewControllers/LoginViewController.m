@@ -130,12 +130,10 @@
     }
     else
     {
-        // Take the Guardian back to the main menu
-        [self.navigationController popViewControllerAnimated:YES];
         
-        //// Bring the Guardian to the Guardian Main Menu
-        //GuardianMainMenuViewController* gmmvc = [[GuardianMainMenuViewController alloc] initWithNibName:@"GuardianMainMenuViewController" bundle:[NSBundle mainBundle]];
-        //[self.navigationController pushViewController:gmmvc animated:YES];
+        // Bring the Guardian to the Guardian Main Menu
+        GuardianMainMenuViewController* gmmvc = [[GuardianMainMenuViewController alloc] initWithNibName:@"GuardianMainMenuViewController" bundle:[NSBundle mainBundle]];
+        [self.navigationController pushViewController:gmmvc animated:YES];
     }
 }
 

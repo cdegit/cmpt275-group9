@@ -18,6 +18,7 @@
     NSString* _userType;
     User* _editedUser;
     UIPopoverController* _imageLibraryPopover;
+    BOOL creatingUser;
 }
 
 -(BOOL)checkNameUnique:(NSString*)name;
@@ -31,7 +32,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        
+        creatingUser = YES;
     }
     return self;
 }
@@ -100,6 +101,7 @@
         // Initialize the view for creating the given user type
         _userType = type;
         _editedUser = nil;
+        creatingUser = YES;
     }
     return self;
 }
@@ -111,6 +113,7 @@
         // Initialize the for editing the given user
         _editedUser = user;
         _userType = [[_editedUser entity] name];
+        creatingUser = NO;
     }
     return self;
 }
@@ -253,6 +256,17 @@
     // Go back to the previous view
     
     [[self navigationController] popViewControllerAnimated:YES];
+    
+    if (_delegate)
+    {
+        if (creatingUser && [_delegate respondsToSelector:@selector(createdUser:)]) {
+            [_delegate createdUser:user];
+        }
+        else if([_delegate respondsToSelector:@selector(editedUser:)])  
+        {
+            [_delegate editedUser:user];
+        }
+    }
 }
 
 #pragma mark - Internal Methods

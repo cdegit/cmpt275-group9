@@ -10,6 +10,8 @@
 		2A105F12181E16970035232F /* ChildSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A105F11181E16970035232F /* ChildSettings.m */; };
 		2A105F15181E18CF0035232F /* ChildProblemData.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A105F14181E18CF0035232F /* ChildProblemData.m */; };
 		2A475087181DDD73000EBEAB /* UIImagePickerController+ShouldAutorotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A475086181DDD73000EBEAB /* UIImagePickerController+ShouldAutorotate.m */; };
+		2A67ECE11827F245000695CC /* ViewChildrenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A67ECDF1827F245000695CC /* ViewChildrenViewController.m */; };
+		2A67ECE21827F245000695CC /* ViewChildrenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A67ECE01827F245000695CC /* ViewChildrenViewController.xib */; };
 		2A730FA01819A4EA000356DE /* LoginUserSelectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A730F9F1819A4EA000356DE /* LoginUserSelectionCell.m */; };
 		2A730FA21819A541000356DE /* LoginUserSelectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A730FA11819A541000356DE /* LoginUserSelectionCell.xib */; };
 		2A7DB106181B3A24008EF99F /* LoginPromptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7DB104181B3A24008EF99F /* LoginPromptViewController.m */; };
@@ -110,6 +112,10 @@
 		2A3CDB82181EC83900A04D62 /* LoginPromptViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LoginPromptViewControllerDelegate.h; path = Protocols/LoginPromptViewControllerDelegate.h; sourceTree = "<group>"; };
 		2A475085181DDD73000EBEAB /* UIImagePickerController+ShouldAutorotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImagePickerController+ShouldAutorotate.h"; path = "Categories/UIImagePickerController+ShouldAutorotate.h"; sourceTree = "<group>"; };
 		2A475086181DDD73000EBEAB /* UIImagePickerController+ShouldAutorotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImagePickerController+ShouldAutorotate.m"; path = "Categories/UIImagePickerController+ShouldAutorotate.m"; sourceTree = "<group>"; };
+		2A67ECDE1827F245000695CC /* ViewChildrenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewChildrenViewController.h; sourceTree = "<group>"; };
+		2A67ECDF1827F245000695CC /* ViewChildrenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewChildrenViewController.m; sourceTree = "<group>"; };
+		2A67ECE01827F245000695CC /* ViewChildrenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ViewChildrenViewController.xib; path = ViewControllers/ViewChildrenViewController.xib; sourceTree = "<group>"; };
+		2A67ECE31827FCC7000695CC /* AccountManagementViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AccountManagementViewControllerDelegate.h; path = Protocols/AccountManagementViewControllerDelegate.h; sourceTree = "<group>"; };
 		2A730F9E1819A4EA000356DE /* LoginUserSelectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginUserSelectionCell.h; path = Views/LoginUserSelectionCell.h; sourceTree = "<group>"; };
 		2A730F9F1819A4EA000356DE /* LoginUserSelectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginUserSelectionCell.m; path = Views/LoginUserSelectionCell.m; sourceTree = "<group>"; };
 		2A730FA11819A541000356DE /* LoginUserSelectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginUserSelectionCell.xib; path = Views/LoginUserSelectionCell.xib; sourceTree = "<group>"; };
@@ -245,6 +251,7 @@
 			isa = PBXGroup;
 			children = (
 				2A3CDB82181EC83900A04D62 /* LoginPromptViewControllerDelegate.h */,
+				2A67ECE31827FCC7000695CC /* AccountManagementViewControllerDelegate.h */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -400,6 +407,7 @@
 		EACC67D41807339500FEAC76 /* Xibs */ = {
 			isa = PBXGroup;
 			children = (
+				2A67ECE01827F245000695CC /* ViewChildrenViewController.xib */,
 				2A7DB105181B3A24008EF99F /* LoginPromptViewController.xib */,
 				EA16941A18163C5C00C40069 /* LevelCompleteViewController.xib */,
 				EACC6809180B9CE900FEAC76 /* StatisticsViewController.xib */,
@@ -438,6 +446,8 @@
 				EACC6808180B9CE900FEAC76 /* StatisticsViewController.m */,
 				EA16941818163C5C00C40069 /* LevelCompleteViewController.h */,
 				EA16941918163C5C00C40069 /* LevelCompleteViewController.m */,
+				2A67ECDE1827F245000695CC /* ViewChildrenViewController.h */,
+				2A67ECDF1827F245000695CC /* ViewChildrenViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -565,6 +575,7 @@
 				EAC698EB181DB81A00342086 /* sad.png in Resources */,
 				EAC698E9181DB81A00342086 /* happy.png in Resources */,
 				EAC698E1181DB81A00342086 /* anger.png in Resources */,
+				2A67ECE21827F245000695CC /* ViewChildrenViewController.xib in Resources */,
 				EAC69918181DD1E700342086 /* test_image.jpg in Resources */,
 				EAC6991E181DF59500342086 /* Billy_make_Suzy_Angry.mp4 in Resources */,
 				EACC67EE180B4B8D00FEAC76 /* GameViewController.xib in Resources */,
@@ -628,6 +639,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A67ECE11827F245000695CC /* ViewChildrenViewController.m in Sources */,
 				EACC679C18037CFE00FEAC76 /* main.m in Sources */,
 				EACC67A018037CFE00FEAC76 /* AppDelegate.m in Sources */,
 				2A105F15181E18CF0035232F /* ChildProblemData.m in Sources */,

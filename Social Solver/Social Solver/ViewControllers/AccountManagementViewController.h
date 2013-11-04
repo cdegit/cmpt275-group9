@@ -15,12 +15,16 @@
 
 #import <UIKit/UIKit.h>
 #import "User.h"
+#import "AccountManagementViewControllerDelegate.h"
+
 
 @interface AccountManagementViewController : UIViewController <UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil forUserType:(NSString*) type;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil withUser:(User*)user;
 
+
+@property (nonatomic, assign) id<AccountManagementViewControllerDelegate> delegate;
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl* userTypeControl;
 @property (weak, nonatomic) IBOutlet UITextField* nameField;

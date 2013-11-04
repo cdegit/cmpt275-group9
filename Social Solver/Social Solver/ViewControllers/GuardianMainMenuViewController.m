@@ -9,6 +9,7 @@
 #import "GuardianMainMenuViewController.h"
 #import "NavigationTableCell.h"
 #import "StatisticsViewController.h"
+#import "ViewChildrenViewController.h"
 
 @interface GuardianMainMenuViewController ()
 
@@ -106,6 +107,7 @@
         case 0:
         {
             // Load view children
+            [self setDetailViewController:[[ViewChildrenViewController alloc] initWithNibName:@"ViewChildrenViewController" bundle:[NSBundle mainBundle]]];
             break;
         }
         case 1:
