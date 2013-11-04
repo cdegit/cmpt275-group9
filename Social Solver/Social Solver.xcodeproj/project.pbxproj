@@ -162,7 +162,6 @@
 		EAC6992118271BED00342086 /* StatsChildCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StatsChildCell.xib; path = "Social Solver/Views/StatsChildCell.xib"; sourceTree = SOURCE_ROOT; };
 		EAC6992618271D8800342086 /* StatsChildCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StatsChildCell.h; path = Views/StatsChildCell.h; sourceTree = "<group>"; };
 		EAC6992718271D8800342086 /* StatsChildCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StatsChildCell.m; path = Views/StatsChildCell.m; sourceTree = "<group>"; };
-		EAC6992918271E5000342086 /* StatsChildCellDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = StatsChildCellDelegate.h; path = Protocols/StatsChildCellDelegate.h; sourceTree = "<group>"; };
 		EACC678A18037CFE00FEAC76 /* Social Solver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Social Solver.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EACC678D18037CFE00FEAC76 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EACC678F18037CFE00FEAC76 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -251,7 +250,6 @@
 			isa = PBXGroup;
 			children = (
 				2A3CDB82181EC83900A04D62 /* LoginPromptViewControllerDelegate.h */,
-				EAC6992918271E5000342086 /* StatsChildCellDelegate.h */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
