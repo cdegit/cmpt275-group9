@@ -10,6 +10,7 @@
 #import "StatisticsViewController.h"
 #import "UserDatabaseManager.h"
 #import "StatsChildCell.h"
+#import "StatisticsViewGestureRecognizer.h"
 
 
 @interface StatisticsViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
@@ -20,7 +21,7 @@
 @property (nonatomic, weak) UIView* movingTileHomeCell;
 @property (nonatomic, strong) ChildUser* movingChildUser;
 
-- (void)handlePanGesture:(UIPanGestureRecognizer*)pan;
+- (void)handlePanGesture:(StatisticsViewGestureRecognizer*)pan;
 
 @end
 
@@ -43,6 +44,7 @@
     // Do any additional setup after loading the view from its nib.
     
     [self.childrenCollection registerNib:[UINib nibWithNibName:@"StatsChildCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"ChildCell"];
+    [self.legendCollection registerNib:[UINib nibWithNibName:@"StatsChildCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"ChildCell"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -70,6 +72,9 @@
     if (collectionView == self.childrenCollection) {
         return 1;
     }
+    else if (collectionView == self.legendCollection) {
+        return 1;
+    }
     else {
         return 0;
     }
@@ -81,16 +86,32 @@
     {
         return [self.childList count];
     }
+    else if (collectionView == self.legendCollection)
+    {
+        return [self.legendChildList count];
+    }
     return 0;
 }
 
 
 - (UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (collectionView == self.childrenCollection)
+    if (collectionView == self.childrenCollection || collectionView == self.legendCollection)
     {
         // Get the child associated with this location
-        ChildUser* user = (ChildUser*)[self.childList objectAtIndex:[indexPath row]];
+        ChildUser* user;
+        StatsChildCell* cell;
+        if (collectionView == self.childrenCollection) {
+            user = (ChildUser*)[self.childList objectAtIndex:[indexPath row]];
+            cell = [self.childrenCollection
+                                    dequeueReusableCellWithReuseIdentifier:@"ChildCell"
+                                    forIndexPath:indexPath];
+        }
+        else {
+            user = (ChildUser*)[self.legendChildList objectAtIndex:[indexPath row]];
+            cell = [self.legendCollection dequeueReusableCellWithReuseIdentifier:@"ChildCell"
+                                                                    forIndexPath:indexPath];
+        }
         
         UIImage* img = user.profileImage;
         
@@ -99,15 +120,19 @@
             img = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"test_image"
                                                                                    ofType:@"jpg"]];
         }
-        
-        StatsChildCell* cell = [self.childrenCollection
-                                        dequeueReusableCellWithReuseIdentifier:@"ChildCell"
-                                        forIndexPath:indexPath];
+
         cell.nameLabel.text = user.name;
         cell.nameLabel.adjustsFontSizeToFitWidth = true;
         cell.profilePicture.image = img;
         
-        UIPanGestureRecognizer* panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)];
+        NSArray* prevGestures = cell.gestureRecognizers;
+        for (int i = 0; i < [prevGestures count]; i++) {
+            [cell removeGestureRecognizer:[prevGestures objectAtIndex:i]];
+        }
+        
+        StatisticsViewGestureRecognizer* panGesture = [[StatisticsViewGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)];
+        panGesture.cellIndex = [indexPath row];
+        panGesture.startingCollection = self.childrenCollection;
         [cell.containerView addGestureRecognizer:panGesture];
         
         return cell;
@@ -116,14 +141,27 @@
     return nil;
 }
 
-- (void)handlePanGesture:(UIPanGestureRecognizer*)pan
+- (void)handlePanGesture:(StatisticsViewGestureRecognizer*)pan
 {
     if (pan.state == UIGestureRecognizerStateCancelled || pan.state == UIGestureRecognizerStateFailed || pan.state == UIGestureRecognizerStateEnded)
     {
         // If the tile ended somewhere meaningful then handle the tile switch
         CGRect tileRect = self.movingTile.frame;
-        if (CGRectIntersectsRect(tileRect, self.legendCollection.frame)) {
+        if (CGRectIntersectsRect(tileRect, self.legendCollection.frame) && pan.startingCollection == self.childrenCollection) {
             
+            // Transfer the child from the childList to the legends list
+            ChildUser* user = [self.childList objectAtIndex:pan.cellIndex];
+            [self.childList removeObjectAtIndex:pan.cellIndex];
+            [self.legendChildList addObject:user];
+            
+            [self.movingTileHomeCell addSubview:self.movingTile];
+            self.movingTile.frame = self.movingTileHomeCell.bounds;
+            
+            self.movingTile = nil;
+            self.movingTileHomeCell = nil;
+            
+            [self.childrenCollection reloadData];
+            [self.legendCollection reloadData];
         }
         else
         {

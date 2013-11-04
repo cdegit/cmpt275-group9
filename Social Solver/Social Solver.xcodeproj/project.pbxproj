@@ -54,6 +54,7 @@
 		EAC6991E181DF59500342086 /* Billy_make_Suzy_Angry.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EAC6991D181DF59500342086 /* Billy_make_Suzy_Angry.mp4 */; };
 		EAC6992218271BED00342086 /* StatsChildCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAC6992118271BED00342086 /* StatsChildCell.xib */; };
 		EAC6992818271D8800342086 /* StatsChildCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC6992718271D8800342086 /* StatsChildCell.m */; };
+		EAC6992C182766BA00342086 /* StatisticsViewGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC6992B182766BA00342086 /* StatisticsViewGestureRecognizer.m */; };
 		EACC678E18037CFE00FEAC76 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACC678D18037CFE00FEAC76 /* UIKit.framework */; };
 		EACC679018037CFE00FEAC76 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACC678F18037CFE00FEAC76 /* Foundation.framework */; };
 		EACC679218037CFE00FEAC76 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACC679118037CFE00FEAC76 /* CoreGraphics.framework */; };
@@ -162,6 +163,8 @@
 		EAC6992118271BED00342086 /* StatsChildCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StatsChildCell.xib; path = "Social Solver/Views/StatsChildCell.xib"; sourceTree = SOURCE_ROOT; };
 		EAC6992618271D8800342086 /* StatsChildCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StatsChildCell.h; path = Views/StatsChildCell.h; sourceTree = "<group>"; };
 		EAC6992718271D8800342086 /* StatsChildCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StatsChildCell.m; path = Views/StatsChildCell.m; sourceTree = "<group>"; };
+		EAC6992A182766BA00342086 /* StatisticsViewGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatisticsViewGestureRecognizer.h; sourceTree = "<group>"; };
+		EAC6992B182766BA00342086 /* StatisticsViewGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatisticsViewGestureRecognizer.m; sourceTree = "<group>"; };
 		EACC678A18037CFE00FEAC76 /* Social Solver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Social Solver.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EACC678D18037CFE00FEAC76 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EACC678F18037CFE00FEAC76 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -467,6 +470,8 @@
 				2A105F11181E16970035232F /* ChildSettings.m */,
 				2A105F13181E18CF0035232F /* ChildProblemData.h */,
 				2A105F14181E18CF0035232F /* ChildProblemData.m */,
+				EAC6992A182766BA00342086 /* StatisticsViewGestureRecognizer.h */,
+				EAC6992B182766BA00342086 /* StatisticsViewGestureRecognizer.m */,
 			);
 			path = DataClasses;
 			sourceTree = "<group>";
@@ -659,6 +664,7 @@
 				EACC6804180B944E00FEAC76 /* NavigationTableCell.m in Sources */,
 				2A730FA01819A4EA000356DE /* LoginUserSelectionCell.m in Sources */,
 				EACC680A180B9CE900FEAC76 /* StatisticsViewController.m in Sources */,
+				EAC6992C182766BA00342086 /* StatisticsViewGestureRecognizer.m in Sources */,
 				EA16940C18162A7700C40069 /* Problem.m in Sources */,
 				EA16940F18162B2B00C40069 /* ProblemManager.m in Sources */,
 				EA16941B18163C5C00C40069 /* LevelCompleteViewController.m in Sources */,
