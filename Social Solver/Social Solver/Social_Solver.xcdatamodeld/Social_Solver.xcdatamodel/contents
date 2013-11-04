@@ -13,8 +13,8 @@
     </entity>
     <entity name="Guardian" representedClassName="GuardianUser" parentEntity="User" syncable="YES">
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="children" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Child" inverseName="guardians" inverseEntity="Child" syncable="YES"/>
-        <relationship name="primaryChildren" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Child" inverseName="primaryGuardian" inverseEntity="Child" syncable="YES"/>
+        <relationship name="children" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Child" inverseName="guardians" inverseEntity="Child" syncable="YES"/>
+        <relationship name="primaryChildren" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Child" inverseName="primaryGuardian" inverseEntity="Child" syncable="YES"/>
     </entity>
     <entity name="ProblemData" representedClassName="ChildProblemData" syncable="YES">
         <attribute name="numberCorrect" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
