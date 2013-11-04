@@ -9,6 +9,7 @@
 #import "GuardianMainMenuViewController.h"
 #import "NavigationTableCell.h"
 #import "StatisticsViewController.h"
+#import "ShareProfilesViewController.h"
 
 @interface GuardianMainMenuViewController ()
 
@@ -116,7 +117,8 @@
         }
         case 2:
         {
-            // Load share profiles
+            // Load share profile
+            self.detailViewController = [[ShareProfilesViewController alloc]  initWithNibName:@"ShareProfilesViewController" bundle:[NSBundle mainBundle]];
             break;
         }
         case 3:
