@@ -5,6 +5,10 @@
 //  Created by David Woods on 13-10-13.
 //  Copyright (c) 2013 Group 9. All rights reserved.
 //
+//  Worked on by: David Woods
+
+/* This class is the view controller for the statistics screen where the Guardian can view
+    the progress of their children by viewing a graph. */
 
 #import <UIKit/UIKit.h>
 

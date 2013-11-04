@@ -52,6 +52,8 @@
 		EAC6991B181DF56100342086 /* Billy_scared_by_Spider.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EAC69919181DF56100342086 /* Billy_scared_by_Spider.mp4 */; };
 		EAC6991C181DF56100342086 /* Suzy_suprised_by_Billy.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EAC6991A181DF56100342086 /* Suzy_suprised_by_Billy.mp4 */; };
 		EAC6991E181DF59500342086 /* Billy_make_Suzy_Angry.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EAC6991D181DF59500342086 /* Billy_make_Suzy_Angry.mp4 */; };
+		EAC6992218271BED00342086 /* StatsChildCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAC6992118271BED00342086 /* StatsChildCell.xib */; };
+		EAC6992818271D8800342086 /* StatsChildCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC6992718271D8800342086 /* StatsChildCell.m */; };
 		EACC678E18037CFE00FEAC76 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACC678D18037CFE00FEAC76 /* UIKit.framework */; };
 		EACC679018037CFE00FEAC76 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACC678F18037CFE00FEAC76 /* Foundation.framework */; };
 		EACC679218037CFE00FEAC76 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACC679118037CFE00FEAC76 /* CoreGraphics.framework */; };
@@ -157,6 +159,10 @@
 		EAC69919181DF56100342086 /* Billy_scared_by_Spider.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Billy_scared_by_Spider.mp4; sourceTree = "<group>"; };
 		EAC6991A181DF56100342086 /* Suzy_suprised_by_Billy.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Suzy_suprised_by_Billy.mp4; sourceTree = "<group>"; };
 		EAC6991D181DF59500342086 /* Billy_make_Suzy_Angry.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Billy_make_Suzy_Angry.mp4; sourceTree = "<group>"; };
+		EAC6992118271BED00342086 /* StatsChildCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StatsChildCell.xib; path = "Social Solver/Views/StatsChildCell.xib"; sourceTree = SOURCE_ROOT; };
+		EAC6992618271D8800342086 /* StatsChildCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StatsChildCell.h; path = Views/StatsChildCell.h; sourceTree = "<group>"; };
+		EAC6992718271D8800342086 /* StatsChildCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StatsChildCell.m; path = Views/StatsChildCell.m; sourceTree = "<group>"; };
+		EAC6992918271E5000342086 /* StatsChildCellDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = StatsChildCellDelegate.h; path = Protocols/StatsChildCellDelegate.h; sourceTree = "<group>"; };
 		EACC678A18037CFE00FEAC76 /* Social Solver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Social Solver.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EACC678D18037CFE00FEAC76 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EACC678F18037CFE00FEAC76 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -245,6 +251,7 @@
 			isa = PBXGroup;
 			children = (
 				2A3CDB82181EC83900A04D62 /* LoginPromptViewControllerDelegate.h */,
+				EAC6992918271E5000342086 /* StatsChildCellDelegate.h */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -400,6 +407,7 @@
 		EACC67D41807339500FEAC76 /* Xibs */ = {
 			isa = PBXGroup;
 			children = (
+				EAC6992118271BED00342086 /* StatsChildCell.xib */,
 				2A7DB105181B3A24008EF99F /* LoginPromptViewController.xib */,
 				EA16941A18163C5C00C40069 /* LevelCompleteViewController.xib */,
 				EACC6809180B9CE900FEAC76 /* StatisticsViewController.xib */,
@@ -472,6 +480,8 @@
 				EACC6803180B944E00FEAC76 /* NavigationTableCell.m */,
 				2A730F9E1819A4EA000356DE /* LoginUserSelectionCell.h */,
 				2A730F9F1819A4EA000356DE /* LoginUserSelectionCell.m */,
+				EAC6992618271D8800342086 /* StatsChildCell.h */,
+				EAC6992718271D8800342086 /* StatsChildCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -585,6 +595,7 @@
 				EAC698E8181DB81A00342086 /* fear.png in Resources */,
 				EACC680B180B9CE900FEAC76 /* StatisticsViewController.xib in Resources */,
 				EAC69903181DC20D00342086 /* Face Finder Icon brighter.png in Resources */,
+				EAC6992218271BED00342086 /* StatsChildCell.xib in Resources */,
 				EAC6990E181DCAC100342086 /* stressed_linen_@2X.png in Resources */,
 				EAC698E5181DB81A00342086 /* Button 300x50.png in Resources */,
 				EAC69906181DC20D00342086 /* Scene Solver Icon brighter.png in Resources */,
@@ -646,6 +657,7 @@
 				2A475087181DDD73000EBEAB /* UIImagePickerController+ShouldAutorotate.m in Sources */,
 				EACC67FC180B4C7400FEAC76 /* GuardianMainMenuViewController.m in Sources */,
 				EACC6800180B4ECD00FEAC76 /* UserDatabaseManager.m in Sources */,
+				EAC6992818271D8800342086 /* StatsChildCell.m in Sources */,
 				EACC6804180B944E00FEAC76 /* NavigationTableCell.m in Sources */,
 				2A730FA01819A4EA000356DE /* LoginUserSelectionCell.m in Sources */,
 				EACC680A180B9CE900FEAC76 /* StatisticsViewController.m in Sources */,
