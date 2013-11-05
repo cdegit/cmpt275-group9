@@ -55,6 +55,8 @@
 		EAC6992218271BED00342086 /* StatsChildCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAC6992118271BED00342086 /* StatsChildCell.xib */; };
 		EAC6992818271D8800342086 /* StatsChildCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC6992718271D8800342086 /* StatsChildCell.m */; };
 		EAC6992C182766BA00342086 /* StatisticsViewGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC6992B182766BA00342086 /* StatisticsViewGestureRecognizer.m */; };
+		EAC6992F18284E4300342086 /* StatsProblemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC6992E18284E4300342086 /* StatsProblemCell.m */; };
+		EAC6993118284E5900342086 /* StatsProblemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAC6993018284E5900342086 /* StatsProblemCell.xib */; };
 		EACC678E18037CFE00FEAC76 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACC678D18037CFE00FEAC76 /* UIKit.framework */; };
 		EACC679018037CFE00FEAC76 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACC678F18037CFE00FEAC76 /* Foundation.framework */; };
 		EACC679218037CFE00FEAC76 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACC679118037CFE00FEAC76 /* CoreGraphics.framework */; };
@@ -165,6 +167,9 @@
 		EAC6992718271D8800342086 /* StatsChildCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StatsChildCell.m; path = Views/StatsChildCell.m; sourceTree = "<group>"; };
 		EAC6992A182766BA00342086 /* StatisticsViewGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatisticsViewGestureRecognizer.h; sourceTree = "<group>"; };
 		EAC6992B182766BA00342086 /* StatisticsViewGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatisticsViewGestureRecognizer.m; sourceTree = "<group>"; };
+		EAC6992D18284E4300342086 /* StatsProblemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StatsProblemCell.h; path = Views/StatsProblemCell.h; sourceTree = "<group>"; };
+		EAC6992E18284E4300342086 /* StatsProblemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StatsProblemCell.m; path = Views/StatsProblemCell.m; sourceTree = "<group>"; };
+		EAC6993018284E5900342086 /* StatsProblemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StatsProblemCell.xib; path = Views/StatsProblemCell.xib; sourceTree = "<group>"; };
 		EACC678A18037CFE00FEAC76 /* Social Solver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Social Solver.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EACC678D18037CFE00FEAC76 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EACC678F18037CFE00FEAC76 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -408,6 +413,7 @@
 		EACC67D41807339500FEAC76 /* Xibs */ = {
 			isa = PBXGroup;
 			children = (
+				EAC6993018284E5900342086 /* StatsProblemCell.xib */,
 				EAC6992118271BED00342086 /* StatsChildCell.xib */,
 				2A7DB105181B3A24008EF99F /* LoginPromptViewController.xib */,
 				EA16941A18163C5C00C40069 /* LevelCompleteViewController.xib */,
@@ -485,6 +491,8 @@
 				2A730F9F1819A4EA000356DE /* LoginUserSelectionCell.m */,
 				EAC6992618271D8800342086 /* StatsChildCell.h */,
 				EAC6992718271D8800342086 /* StatsChildCell.m */,
+				EAC6992D18284E4300342086 /* StatsProblemCell.h */,
+				EAC6992E18284E4300342086 /* StatsProblemCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -568,6 +576,7 @@
 				EAC698EE181DB81A00342086 /* children-50x50.png in Resources */,
 				EACC67A618037CFE00FEAC76 /* Default-568h@2x.png in Resources */,
 				EACC67CC18037DA300FEAC76 /* MainMenuViewController.xib in Resources */,
+				EAC6993118284E5900342086 /* StatsProblemCell.xib in Resources */,
 				2A730FA21819A541000356DE /* LoginUserSelectionCell.xib in Resources */,
 				EAC698EC181DB81A00342086 /* Scene Solver Icon.png in Resources */,
 				EACC67E9180B4B6600FEAC76 /* LoginViewController.xib in Resources */,
@@ -643,6 +652,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EACC679C18037CFE00FEAC76 /* main.m in Sources */,
+				EAC6992F18284E4300342086 /* StatsProblemCell.m in Sources */,
 				EACC67A018037CFE00FEAC76 /* AppDelegate.m in Sources */,
 				2A105F15181E18CF0035232F /* ChildProblemData.m in Sources */,
 				EACC67A918037CFE00FEAC76 /* Social_Solver.xcdatamodeld in Sources */,

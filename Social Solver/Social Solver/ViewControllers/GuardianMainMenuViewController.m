@@ -102,6 +102,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"Cell height %.2f", self.cellHeight);
     return self.cellHeight;
 }
 

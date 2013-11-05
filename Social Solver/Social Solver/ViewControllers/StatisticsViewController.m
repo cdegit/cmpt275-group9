@@ -7,33 +7,47 @@
 //
 // Worked on by: David Woods
 
+//  Created in Version 2
+
 #import "StatisticsViewController.h"
 #import "UserDatabaseManager.h"
 #import "StatsChildCell.h"
 #import "StatisticsViewGestureRecognizer.h"
-
+#import "ProblemManager.h"
+#import "GameViewController.h"
+#import "Problem.h"
+#import "StatsProblemCell.h"
 
 @interface StatisticsViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (nonatomic) NSMutableArray* childList;
 @property (nonatomic) NSMutableArray* legendChildList;
+@property (nonatomic) NSMutableArray* emotionList;
+@property (nonatomic) NSMutableArray* legendEmotionList;
 @property (nonatomic, weak) UIView* movingTile;
 @property (nonatomic, weak) UIView* movingTileHomeCell;
 @property (nonatomic, strong) ChildUser* movingChildUser;
+@property (nonatomic) enum GameMode gameMode;
 
 - (void)handlePanGesture:(StatisticsViewGestureRecognizer*)pan;
+- (void)transferTileFromCollection:(UICollectionView*)fromCollection toCollection:(UICollectionView*)toCollection fromArray:(NSMutableArray*)fromArray toArray:(NSMutableArray*)toArray withIndex:(NSUInteger)index;
 
 @end
 
 @implementation StatisticsViewController
 
-@synthesize childList, movingTile, movingTileHomeCell, legendChildList, movingChildUser;
+@synthesize childList, movingTile, movingTileHomeCell, legendChildList, movingChildUser, gameMode;
+@synthesize emotionList, legendEmotionList;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.childList = [NSMutableArray arrayWithArray:[[UserDatabaseManager sharedInstance] getUserListOfType:@"Child"]];
+        self.gameMode = GameModeFaceFinder;
+        
+        ProblemManager* pm = [[ProblemManager alloc] init];
+        self.emotionList = [pm allProblemsForGameMode:self.gameMode];
     }
     return self;
 }
@@ -44,7 +58,9 @@
     // Do any additional setup after loading the view from its nib.
     
     [self.childrenCollection registerNib:[UINib nibWithNibName:@"StatsChildCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"ChildCell"];
-    [self.legendCollection registerNib:[UINib nibWithNibName:@"StatsChildCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"ChildCell"];
+    [self.legendChildrenCollection registerNib:[UINib nibWithNibName:@"StatsChildCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"ChildCell"];
+    [self.emotionCollection registerNib:[UINib nibWithNibName:@"StatsProblemCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"ProblemCell"];
+    [self.legendEmotionCollection registerNib:[UINib nibWithNibName:@"StatsProblemCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"ProblemCell"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -65,19 +81,31 @@
     return legendChildList;
 }
 
+- (NSMutableArray*)legendEmotionList
+{
+    if (legendEmotionList == nil)
+    {
+        legendEmotionList = [[NSMutableArray alloc] init];
+    }
+    
+    return legendEmotionList;
+}
+
+- (NSMutableArray*)emotionList
+{
+    if (emotionList == nil)
+    {
+        emotionList = [[NSMutableArray alloc] init];
+    }
+    
+    return emotionList;
+}
+
 // ----------------------------- UICollectionViewDataSource -----------------------------
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    if (collectionView == self.childrenCollection) {
-        return 1;
-    }
-    else if (collectionView == self.legendCollection) {
-        return 1;
-    }
-    else {
-        return 0;
-    }
+    return 1;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
@@ -86,17 +114,29 @@
     {
         return [self.childList count];
     }
-    else if (collectionView == self.legendCollection)
+    else if (collectionView == self.legendChildrenCollection)
     {
         return [self.legendChildList count];
     }
+    else if (collectionView == self.emotionCollection)
+    {
+        return [self.emotionList count];
+    }
+    else if (collectionView == self.legendEmotionCollection)
+    {
+        return [self.legendEmotionList count];
+    }
+    else {
+        NSAssert(false, @"Unknown collection view %@ in %s", collectionView, __PRETTY_FUNCTION__);
+    }
+    
     return 0;
 }
 
 
 - (UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (collectionView == self.childrenCollection || collectionView == self.legendCollection)
+    if (collectionView == self.childrenCollection || collectionView == self.legendChildrenCollection)
     {
         // Get the child associated with this location
         ChildUser* user;
@@ -109,12 +149,12 @@
         }
         else {
             user = (ChildUser*)[self.legendChildList objectAtIndex:[indexPath row]];
-            cell = [self.legendCollection dequeueReusableCellWithReuseIdentifier:@"ChildCell"
+            cell = [self.legendChildrenCollection dequeueReusableCellWithReuseIdentifier:@"ChildCell"
                                                                     forIndexPath:indexPath];
         }
         
+        // Setup the cell
         UIImage* img = user.profileImage;
-        
         if (img == nil) {
 #warning TODO: replace this with a placeholder image
             img = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"test_image"
@@ -125,6 +165,7 @@
         cell.nameLabel.adjustsFontSizeToFitWidth = true;
         cell.profilePicture.image = img;
         
+        // Remove any previous gestures to ensure the meta data is correct
         NSArray* prevGestures = cell.gestureRecognizers;
         for (int i = 0; i < [prevGestures count]; i++) {
             [cell removeGestureRecognizer:[prevGestures objectAtIndex:i]];
@@ -132,14 +173,58 @@
         
         StatisticsViewGestureRecognizer* panGesture = [[StatisticsViewGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)];
         panGesture.cellIndex = [indexPath row];
-        panGesture.startingCollection = self.childrenCollection;
+        panGesture.startingCollection = collectionView;
         [cell.containerView addGestureRecognizer:panGesture];
         
         return cell;
     }
-    
-    return nil;
+    else if (collectionView == self.emotionCollection || collectionView == self.legendEmotionCollection)
+    {
+        Problem* problem;
+        StatsProblemCell* cell;
+
+        //  Get the appropriate problem and cell
+        if (collectionView == self.emotionCollection)
+        {
+            problem = [self.emotionList objectAtIndex:[indexPath row]];
+            cell = [self.emotionCollection dequeueReusableCellWithReuseIdentifier:@"ProblemCell" forIndexPath:indexPath];
+        }
+        else
+        {
+            problem = [self.legendEmotionList objectAtIndex:[indexPath row]];
+            cell = [self.legendEmotionCollection dequeueReusableCellWithReuseIdentifier:@"ProblemCell" forIndexPath:indexPath];
+        }
+        
+        // Set the image
+        UIImage* image = [UIImage imageNamed:problem.iconFileName];
+        
+        if (image == nil) {
+            NSAssert(false, @"Failed to find file %@ for problem with ID %i", problem.iconFileName, problem.ID);
+        }
+        
+        [cell.imageView setImage:image];
+        
+        // Remove any previous gestures to ensure the meta data is correct
+        NSArray* prevGestures = cell.gestureRecognizers;
+        for (int i = 0; i < [prevGestures count]; i++) {
+            [cell removeGestureRecognizer:[prevGestures objectAtIndex:i]];
+        }
+        
+        // Add the pan gesture
+        StatisticsViewGestureRecognizer* panGesture = [[StatisticsViewGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)];
+        panGesture.cellIndex = [indexPath row];
+        panGesture.startingCollection = collectionView;
+        [cell.imageView addGestureRecognizer:panGesture];
+        
+        return cell;
+    }
+    else {
+        NSAssert(false, @"Unrecognized collection view %@ in %s", collectionView, __PRETTY_FUNCTION__);
+        return nil;
+    }
 }
+
+// ---------------------- Private Methods ------------------------------------
 
 - (void)handlePanGesture:(StatisticsViewGestureRecognizer*)pan
 {
@@ -147,22 +232,47 @@
     {
         // If the tile ended somewhere meaningful then handle the tile switch
         CGRect tileRect = self.movingTile.frame;
-        if (CGRectIntersectsRect(tileRect, self.legendCollection.frame) && pan.startingCollection == self.childrenCollection) {
-            
-            // Transfer the child from the childList to the legends list
-            ChildUser* user = [self.childList objectAtIndex:pan.cellIndex];
-            [self.childList removeObjectAtIndex:pan.cellIndex];
-            [self.legendChildList addObject:user];
-            
-            [self.movingTileHomeCell addSubview:self.movingTile];
-            self.movingTile.frame = self.movingTileHomeCell.bounds;
-            
-            self.movingTile = nil;
-            self.movingTileHomeCell = nil;
-            
-            [self.childrenCollection reloadData];
-            [self.legendCollection reloadData];
+        
+        // Child from tray to legend or graph
+        if (pan.startingCollection == self.childrenCollection &&
+            (CGRectIntersectsRect(tileRect, self.legendChildrenCollection.frame) || CGRectIntersectsRect(tileRect, self.graphContainerView.frame)))
+        {
+            [self transferTileFromCollection:self.childrenCollection
+                                toCollection:self.legendChildrenCollection
+                                    fromArray:self.childList
+                                     toArray:self.legendChildList
+                                   withIndex:pan.cellIndex];
         }
+        // Child from legend to tray
+        else if (CGRectIntersectsRect(tileRect, self.childrenCollection.frame) && pan.startingCollection == self.legendChildrenCollection)
+        {
+            [self transferTileFromCollection:self.legendChildrenCollection
+                                toCollection:self.childrenCollection
+                                   fromArray:self.legendChildList
+                                     toArray:self.childList
+                                   withIndex:pan.cellIndex];
+        }
+        // From emotion tray to legend
+        else if (pan.startingCollection == self.emotionCollection &&
+                 (CGRectIntersectsRect(tileRect, self.legendEmotionCollection.frame) ||
+                  CGRectIntersectsRect(tileRect, self.graphContainerView.frame)))
+        {
+            [self transferTileFromCollection:self.emotionCollection
+                                toCollection:self.legendEmotionCollection
+                                   fromArray:self.emotionList
+                                     toArray:self.legendEmotionList
+                                   withIndex:pan.cellIndex];
+        }
+        // From legend to emotion tray
+        else if (CGRectIntersectsRect(tileRect, self.emotionCollection.frame) && pan.startingCollection == self.legendEmotionCollection)
+        {
+            [self transferTileFromCollection:self.legendEmotionCollection
+                                toCollection:self.emotionCollection
+                                   fromArray:self.legendEmotionList
+                                     toArray:self.emotionList
+                                   withIndex:pan.cellIndex];
+        }
+        // Tile didn't end in any meaningful location so put it back in its original location
         else
         {
             // Put the tile back into the tray
@@ -225,14 +335,34 @@
                 newY = maxY;
             }
             
+            // Move the tile
             CGRect newFrame = self.movingTile.frame;
             newFrame.origin.x = newX;
             newFrame.origin.y = newY;
             self.movingTile.frame = newFrame;
             
+            // Reset the translation on the pan gesture
             [pan setTranslation:CGPointMake(0, 0) inView:self.movingTile];
         }
     }
+}
+
+- (void)transferTileFromCollection:(UICollectionView*)fromCollection toCollection:(UICollectionView*)toCollection fromArray:(NSMutableArray*)fromArray toArray:(NSMutableArray*)toArray withIndex:(NSUInteger)index
+{
+    // Transfer the object
+    id object = [fromArray objectAtIndex:index];
+    [fromArray removeObjectAtIndex:index];
+    [toArray addObject:object];
+    
+    // Put the tile back into the cell, since the cells gets recycled
+    [self.movingTileHomeCell addSubview:self.movingTile];
+    self.movingTile.frame = self.movingTileHomeCell.bounds;
+    
+    self.movingTile = nil;
+    self.movingTileHomeCell = nil;
+    
+    [fromCollection reloadData];
+    [toCollection reloadData];
 }
 
 

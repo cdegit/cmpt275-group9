@@ -25,29 +25,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Social Solver/ViewControllers/StatisticsViewController.m"
-            timestampString = "405238624.449899"
+            filePath = "Social Solver/Views/NavigationTableCell.m"
+            timestampString = "405306484.496658"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
-            landmarkName = "-numberOfSectionsInCollectionView:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Social Solver/ViewControllers/StatisticsViewController.m"
-            timestampString = "405238624.449899"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
-            landmarkName = "-collectionView:numberOfItemsInSection:"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "+cellWithTitle:imageName:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

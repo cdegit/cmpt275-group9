@@ -7,6 +7,10 @@
 //
 //  Worked on by: David Woods
 
+//  Created in Version 2
+
+/*  This class is a custom CollectionViewCell to be displayed in the statistics screen */
+
 #import <UIKit/UIKit.h>
 
 @interface StatsChildCell : UICollectionViewCell

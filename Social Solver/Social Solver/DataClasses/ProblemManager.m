@@ -7,6 +7,7 @@
 //
 //  Worked on by: David Woods
 
+//  Version 2 changes: Added -(NSMutableArray*)allProblemsForGameMode:(enum GameMode)mode;
 
 #import "ProblemManager.h"
 
@@ -41,6 +42,23 @@
     return self;
 }
 
+- (NSMutableArray*)allProblemsForGameMode:(enum GameMode)mode
+{
+    switch (mode) {
+        case GameModeFaceFinder:
+            return self.gameMode1Problems;
+            break;
+        case GameModeProblemSolver:
+            return self.gameMode2Problems;
+            break;
+        case GameModeStorySolver:
+            return self.gameMode3Problems;
+            break;
+        default:
+            NSAssert(false, @"Unknown game mode %i in %s", mode, __PRETTY_FUNCTION__);
+            break;
+    }
+}
 
 - (Problem*)nextProblemForGameMode:(enum GameMode)mode withAnswers:(NSMutableArray *)answers
 {
@@ -195,5 +213,7 @@
     
     return gameMode3Problems;
 }
+
+
 
 @end

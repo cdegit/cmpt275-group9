@@ -7,6 +7,8 @@
 //
 //  Worked on by: David Woods
 
+//  Created in Version 2
+
 /* This class is the view controller for the statistics screen where the Guardian can view
     the progress of their children by viewing a graph. */
 
@@ -16,7 +18,9 @@
 
 @property (weak, nonatomic) IBOutlet UICollectionView *childrenCollection;
 @property (weak, nonatomic) IBOutlet UICollectionView *emotionCollection;
-@property (weak, nonatomic) IBOutlet UICollectionView *legendCollection;
+@property (weak, nonatomic) IBOutlet UICollectionView *legendEmotionCollection;
+@property (weak, nonatomic) IBOutlet UICollectionView* legendChildrenCollection;
+
 @property (weak, nonatomic) IBOutlet UIView *graphContainerView;
 @property (weak, nonatomic) IBOutlet UIButton *dataButton;
 @property (weak, nonatomic) IBOutlet UIButton *gameModeButton;

@@ -5,6 +5,8 @@
 	<key>Mode1</key>
 	<array>
 		<dict>
+			<key>iconFileName</key>
+			<string>test_image.jpg</string>
 			<key>fileName</key>
 			<string>sad.png</string>
 			<key>ID</key>
@@ -15,6 +17,8 @@
 			<string>Sad</string>
 		</dict>
 		<dict>
+            <key>iconFileName</key>
+			<string>test_image.jpg</string>
 			<key>fileName</key>
 			<string>happy.png</string>
 			<key>ID</key>
@@ -25,6 +29,8 @@
 			<string>Happy</string>
 		</dict>
 		<dict>
+            <key>iconFileName</key>
+			<string>test_image.jpg</string>
 			<key>fileName</key>
 			<string>anger.png</string>
 			<key>ID</key>
@@ -35,6 +41,8 @@
 			<string>Anger</string>
 		</dict>
 		<dict>
+            <key>iconFileName</key>
+			<string>test_image.jpg</string>
 			<key>fileName</key>
 			<string>surprised.png</string>
 			<key>ID</key>
@@ -45,6 +53,8 @@
 			<string>Surprised</string>
 		</dict>
 		<dict>
+            <key>iconFileName</key>
+			<string>test_image.jpg</string>
 			<key>fileName</key>
 			<string>fear.png</string>
 			<key>ID</key>
@@ -55,6 +65,8 @@
 			<string>Fear</string>
 		</dict>
 		<dict>
+            <key>iconFileName</key>
+			<string>test_image.jpg</string>
 			<key>fileName</key>
 			<string>disgust.png</string>
 			<key>ID</key>
@@ -68,6 +80,8 @@
 	<key>Mode2</key>
 	<array>
 		<dict>
+            <key>iconFileName</key>
+			<string>test_image.jpg</string>
 			<key>fileName</key>
 			<string>billy_drop_icecream</string>
 			<key>ID</key>
@@ -82,52 +96,58 @@
 
 
 How is Billy feeling?</string>
-        </dict>
-        <dict>
-            <key>fileName</key>
-            <string>Billy_scared_by_Spider</string>
-            <key>ID</key>
-            <integer>201</integer>
-            <key>mediaType</key>
-            <string>MediaTypeVideo</string>
-            <key>answer</key>
-            <string>Afraid</string>
-            <key>videoDescription</key>
-            <string>Billy is drawing on a piece of paper when a spider crawls onto his desk.
+		</dict>
+		<dict>
+            <key>iconFileName</key>
+			<string>test_image.jpg</string>
+			<key>fileName</key>
+			<string>Billy_scared_by_Spider</string>
+			<key>ID</key>
+			<integer>201</integer>
+			<key>mediaType</key>
+			<string>MediaTypeVideo</string>
+			<key>answer</key>
+			<string>Afraid</string>
+			<key>videoDescription</key>
+			<string>Billy is drawing on a piece of paper when a spider crawls onto his desk.
 
 
 How is Billy feeling?</string>
-        </dict>
+		</dict>
 		<dict>
-            <key>fileName</key>
-            <string>Billy_make_Suzy_Angry</string>
-            <key>ID</key>
-            <integer>202</integer>
-            <key>mediaType</key>
-            <string>MediaTypeVideo</string>
-            <key>answer</key>
-            <string>Angry</string>
-            <key>videoDescription</key>
-            <string>Suzy and Billy are playing when Billy suddenly pulls her hair.
+            <key>iconFileName</key>
+			<string>test_image.jpg</string>
+			<key>fileName</key>
+			<string>Billy_make_Suzy_Angry</string>
+			<key>ID</key>
+			<integer>202</integer>
+			<key>mediaType</key>
+			<string>MediaTypeVideo</string>
+			<key>answer</key>
+			<string>Angry</string>
+			<key>videoDescription</key>
+			<string>Suzy and Billy are playing when Billy suddenly pulls her hair.
 
 
 How is Suzy feeling?</string>
-        </dict>
-        <dict>
-            <key>fileName</key>
-            <string>Suzy_suprised_by_Billy</string>
-            <key>ID</key>
-            <integer>203</integer>
-            <key>mediaType</key>
-            <string>MediaTypeVideo</string>
-            <key>answer</key>
-            <string>Surprised</string>
-            <key>videoDescription</key>
-            <string>Suzy is playing alone when Billy jumps out from behind a desk and says "Hi!". Suzy jumps back slightly.
+		</dict>
+		<dict>
+            <key>iconFileName</key>
+			<string>test_image.jpg</string>
+			<key>fileName</key>
+			<string>Suzy_suprised_by_Billy</string>
+			<key>ID</key>
+			<integer>203</integer>
+			<key>mediaType</key>
+			<string>MediaTypeVideo</string>
+			<key>answer</key>
+			<string>Surprised</string>
+			<key>videoDescription</key>
+			<string>Suzy is playing alone when Billy jumps out from behind a desk and says &quot;Hi!&quot;. Suzy jumps back slightly.
 
 
 How is Suzy feeling?</string>
-        </dict>
+		</dict>
 	</array>
 	<key>Mode3</key>
 	<array/>
