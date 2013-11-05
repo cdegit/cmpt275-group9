@@ -223,7 +223,6 @@
         user = _editedUser;
         
         // Put in values for the user
-        [user setName:[_nameField text]];
         [user setPasswordHash:[_passwordField text]];
         
         // Save the profile Image if it has been set
@@ -231,6 +230,8 @@
             [user setProfileImage:[_profileImageView image]];
             
         }
+        
+        [user setName:[_nameField text]];
         
         if ([_userType isEqualToString:@"Guardian"]) {
             [(GuardianUser*)user setEmail:[_emailLabel text]];

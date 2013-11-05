@@ -21,3 +21,10 @@
 @property (nonatomic) NSInteger* uid;
 
 @end
+
+@interface User (PrimitiveAccessors)
+
+- (NSString *)primitiveName;
+- (void)setPrimitiveName:(NSString *)newName;
+
+@end
