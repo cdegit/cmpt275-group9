@@ -14,16 +14,16 @@
                 <rect key="frame" x="0.0" y="0.0" width="200" height="51"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4">
-                        <rect key="frame" x="50" y="0.0" width="147" height="50"/>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4">
+                        <rect key="frame" x="50" y="0.0" width="150" height="50"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="20"/>
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </label>
-                    <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" id="14">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" id="14">
                         <rect key="frame" x="5" y="5" width="40" height="40"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
                     <view contentMode="scaleToFill" id="34" userLabel="Divider">
                         <rect key="frame" x="0.0" y="50" width="200" height="2"/>
@@ -34,7 +34,7 @@
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.1478643003" green="0.1478643003" blue="0.1478643003" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
-                <outlet property="imageView" destination="14" id="29"/>
+                <outlet property="icon" destination="14" id="znA-Pp-mJE"/>
                 <outlet property="titleLabel" destination="4" id="28"/>
             </connections>
         </tableViewCell>

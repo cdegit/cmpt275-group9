@@ -14,6 +14,6 @@
 + (CGFloat)cellHeight;
 
 @property (nonatomic, strong) IBOutlet UILabel* titleLabel;
-@property (nonatomic, strong) IBOutlet UIImageView* imageView;
+@property (nonatomic, strong) IBOutlet UIImageView* icon;
 
 @end

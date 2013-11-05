@@ -17,8 +17,14 @@
 #import "GameViewController.h"
 #import "Problem.h"
 #import "StatsProblemCell.h"
+#import "PopoverPickerViewController.h"
 
-@interface StatisticsViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
+enum yAxisDataType {
+    yAxisDataTypePercentCorrect = 0,
+    yAxisDataTypeAverageResponse
+};
+
+@interface StatisticsViewController () <UICollectionViewDataSource, UICollectionViewDelegate, PopoverPickerViewControllerDelegate, UIPopoverControllerDelegate>
 
 @property (nonatomic) NSMutableArray* childList;
 @property (nonatomic) NSMutableArray* legendChildList;
@@ -27,7 +33,15 @@
 @property (nonatomic, weak) UIView* movingTile;
 @property (nonatomic, weak) UIView* movingTileHomeCell;
 @property (nonatomic, strong) ChildUser* movingChildUser;
+
+@property (nonatomic, strong) NSArray* gameModePickerValues;
+@property (nonatomic, strong) NSArray* dataTypePickerValues;
 @property (nonatomic) enum GameMode gameMode;
+@property (nonatomic) enum yAxisDataType yDataType;
+@property (nonatomic, weak) UIButton* buttonDisplayingPopover;
+@property (nonatomic, strong) NSString* prePopoverGameMode;
+@property (nonatomic, strong) NSString* prePopoverDataType;
+@property (nonatomic, strong) UIPopoverController* popoverController;
 
 - (void)handlePanGesture:(StatisticsViewGestureRecognizer*)pan;
 - (void)transferTileFromCollection:(UICollectionView*)fromCollection toCollection:(UICollectionView*)toCollection fromArray:(NSMutableArray*)fromArray toArray:(NSMutableArray*)toArray withIndex:(NSUInteger)index;
@@ -37,7 +51,7 @@
 @implementation StatisticsViewController
 
 @synthesize childList, movingTile, movingTileHomeCell, legendChildList, movingChildUser, gameMode;
-@synthesize emotionList, legendEmotionList;
+@synthesize emotionList, legendEmotionList, gameModePickerValues, dataTypePickerValues, buttonDisplayingPopover, popoverController, prePopoverDataType, prePopoverGameMode;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -45,6 +59,7 @@
     if (self) {
         self.childList = [NSMutableArray arrayWithArray:[[UserDatabaseManager sharedInstance] getUserListOfType:@"Child"]];
         self.gameMode = GameModeFaceFinder;
+        self.yDataType = yAxisDataTypePercentCorrect;
         
         ProblemManager* pm = [[ProblemManager alloc] init];
         self.emotionList = [pm allProblemsForGameMode:self.gameMode];
@@ -61,12 +76,9 @@
     [self.legendChildrenCollection registerNib:[UINib nibWithNibName:@"StatsChildCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"ChildCell"];
     [self.emotionCollection registerNib:[UINib nibWithNibName:@"StatsProblemCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"ProblemCell"];
     [self.legendEmotionCollection registerNib:[UINib nibWithNibName:@"StatsProblemCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"ProblemCell"];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
+    [self.gameModeButton setTitle:[self.gameModePickerValues objectAtIndex:self.gameMode] forState:UIControlStateNormal];
+    [self.dataButton setTitle:[self.dataTypePickerValues objectAtIndex:self.yDataType] forState:UIControlStateNormal];
 }
 
 // ----------------------------- Accessors ----------------------------------------------
@@ -99,6 +111,16 @@
     }
     
     return emotionList;
+}
+
+- (NSArray*)gameModePickerValues
+{
+    return @[@"Face Finder", @"Story Solver", @"Problem Solver"];
+}
+
+- (NSArray*)dataTypePickerValues
+{
+    return @[@"% Correct", @"Average Response Time"];
 }
 
 // ----------------------------- UICollectionViewDataSource -----------------------------
@@ -364,6 +386,66 @@
     [fromCollection reloadData];
     [toCollection reloadData];
 }
+
+// --------------------------------- IBAction Handlers -----------------------------------
+
+- (IBAction)gameModePressed:(UIButton *)sender
+{
+    self.buttonDisplayingPopover = sender;
+    self.prePopoverGameMode = sender.titleLabel.text;
+    
+    PopoverPickerViewController* pickerController = [[PopoverPickerViewController alloc] initWithPickerValues:self.gameModePickerValues currentSelection:self.gameModeButton.titleLabel.text];
+    pickerController.delegate = self;
+    CGRect rect = pickerController.view.bounds;
+    
+    self.popoverController = [[UIPopoverController alloc] initWithContentViewController:pickerController];
+    self.popoverController.delegate = self;
+    [self.popoverController setPopoverContentSize:rect.size];
+
+    [self.popoverController presentPopoverFromRect:sender.bounds inView:sender permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+}
+
+- (IBAction)dataButtonPressed:(UIButton *)sender
+{
+    self.buttonDisplayingPopover = sender;
+    self.prePopoverDataType = sender.titleLabel.text;
+    
+    PopoverPickerViewController* pickerController = [[PopoverPickerViewController alloc] initWithPickerValues:self.dataTypePickerValues currentSelection:self.dataButton.titleLabel.text];
+    pickerController.delegate = self;
+    CGRect rect = pickerController.view.bounds;
+    
+    self.popoverController = [[UIPopoverController alloc] initWithContentViewController:pickerController];
+    self.popoverController.delegate = self;
+    [self.popoverController setPopoverContentSize:rect.size];
+    
+    [self.popoverController presentPopoverFromRect:sender.bounds inView:sender permittedArrowDirections:UIPopoverArrowDirectionLeft | UIPopoverArrowDirectionDown animated:YES];
+}
+
+// ------------------------------------- PopoverPickerViewControllerDelegate --------------------
+
+- (void)popoverPickerViewController:(PopoverPickerViewController *)controller
+                     didSelectValue:(NSString *)value
+{
+    [self.buttonDisplayingPopover setTitle:value forState:UIControlStateNormal];
+}
+
+// ----------------------------------- UIPopoverViewControllerDelegate ---------------------------
+
+- (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
+{
+    // If game mode changed then update the graph
+    if (self.buttonDisplayingPopover == self.gameModeButton && ![self.prePopoverGameMode isEqualToString:self.gameModeButton.titleLabel.text]) {
+        // Update the graph
+    }
+    // If the y-axis data type has changed then update the graph
+    else if (self.buttonDisplayingPopover == self.dataButton && ![self.prePopoverDataType isEqualToString:self.dataButton.titleLabel.text])
+    {
+        
+    }
+    
+    self.buttonDisplayingPopover = nil;
+}
+
 
 
 @end
