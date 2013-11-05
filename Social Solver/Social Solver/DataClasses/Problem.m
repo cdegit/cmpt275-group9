@@ -12,7 +12,7 @@
 
 @implementation Problem
 
-@synthesize ID, mediaFileName, mediaType, answer, videoDescription;
+@synthesize ID, mediaFileName, mediaType, answer, videoDescription, iconFileName;
 
 - (id)initWithAttributes:(NSDictionary*)attrDict
 {
@@ -23,6 +23,7 @@
     self.mediaFileName = (NSString*)[attrDict objectForKey:@"fileName"];
     self.answer = (NSString*)[attrDict objectForKey:@"answer"];
     self.videoDescription = (NSString*)[attrDict objectForKey:@"videoDescription"];
+    self.iconFileName = (NSString*)[attrDict objectForKey:@"iconFileName"];
     
     // Read the mediaType from the attr dictionary
     // This is stored as a string instead of an int to provide error detection

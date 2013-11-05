@@ -54,6 +54,13 @@
 		EAC6991B181DF56100342086 /* Billy_scared_by_Spider.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EAC69919181DF56100342086 /* Billy_scared_by_Spider.mp4 */; };
 		EAC6991C181DF56100342086 /* Suzy_suprised_by_Billy.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EAC6991A181DF56100342086 /* Suzy_suprised_by_Billy.mp4 */; };
 		EAC6991E181DF59500342086 /* Billy_make_Suzy_Angry.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EAC6991D181DF59500342086 /* Billy_make_Suzy_Angry.mp4 */; };
+		EAC6993B1828B38600342086 /* StatisticsViewGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC6993A1828B38600342086 /* StatisticsViewGestureRecognizer.m */; };
+		EAC6993F1828B39100342086 /* PopoverPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC6993D1828B39100342086 /* PopoverPickerViewController.m */; };
+		EAC699401828B39100342086 /* PopoverPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAC6993E1828B39100342086 /* PopoverPickerViewController.xib */; };
+		EAC699471828B3A000342086 /* StatsChildCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC699421828B3A000342086 /* StatsChildCell.m */; };
+		EAC699481828B3A000342086 /* StatsChildCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAC699431828B3A000342086 /* StatsChildCell.xib */; };
+		EAC699491828B3A000342086 /* StatsProblemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC699451828B3A000342086 /* StatsProblemCell.m */; };
+		EAC6994A1828B3A000342086 /* StatsProblemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAC699461828B3A000342086 /* StatsProblemCell.xib */; };
 		EACC678E18037CFE00FEAC76 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACC678D18037CFE00FEAC76 /* UIKit.framework */; };
 		EACC679018037CFE00FEAC76 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACC678F18037CFE00FEAC76 /* Foundation.framework */; };
 		EACC679218037CFE00FEAC76 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACC679118037CFE00FEAC76 /* CoreGraphics.framework */; };
@@ -163,6 +170,18 @@
 		EAC69919181DF56100342086 /* Billy_scared_by_Spider.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Billy_scared_by_Spider.mp4; sourceTree = "<group>"; };
 		EAC6991A181DF56100342086 /* Suzy_suprised_by_Billy.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Suzy_suprised_by_Billy.mp4; sourceTree = "<group>"; };
 		EAC6991D181DF59500342086 /* Billy_make_Suzy_Angry.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Billy_make_Suzy_Angry.mp4; sourceTree = "<group>"; };
+		EAC699381828B37C00342086 /* PopoverPickerViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PopoverPickerViewControllerDelegate.h; path = Protocols/PopoverPickerViewControllerDelegate.h; sourceTree = "<group>"; };
+		EAC699391828B38600342086 /* StatisticsViewGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatisticsViewGestureRecognizer.h; sourceTree = "<group>"; };
+		EAC6993A1828B38600342086 /* StatisticsViewGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatisticsViewGestureRecognizer.m; sourceTree = "<group>"; };
+		EAC6993C1828B39100342086 /* PopoverPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverPickerViewController.h; sourceTree = "<group>"; };
+		EAC6993D1828B39100342086 /* PopoverPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverPickerViewController.m; sourceTree = "<group>"; };
+		EAC6993E1828B39100342086 /* PopoverPickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PopoverPickerViewController.xib; path = ViewControllers/PopoverPickerViewController.xib; sourceTree = "<group>"; };
+		EAC699411828B3A000342086 /* StatsChildCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StatsChildCell.h; path = Views/StatsChildCell.h; sourceTree = "<group>"; };
+		EAC699421828B3A000342086 /* StatsChildCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StatsChildCell.m; path = Views/StatsChildCell.m; sourceTree = "<group>"; };
+		EAC699431828B3A000342086 /* StatsChildCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StatsChildCell.xib; path = Views/StatsChildCell.xib; sourceTree = "<group>"; };
+		EAC699441828B3A000342086 /* StatsProblemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StatsProblemCell.h; path = Views/StatsProblemCell.h; sourceTree = "<group>"; };
+		EAC699451828B3A000342086 /* StatsProblemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StatsProblemCell.m; path = Views/StatsProblemCell.m; sourceTree = "<group>"; };
+		EAC699461828B3A000342086 /* StatsProblemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StatsProblemCell.xib; path = Views/StatsProblemCell.xib; sourceTree = "<group>"; };
 		EACC678A18037CFE00FEAC76 /* Social Solver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Social Solver.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EACC678D18037CFE00FEAC76 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EACC678F18037CFE00FEAC76 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -250,6 +269,7 @@
 		2A3CDB81181EC81700A04D62 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				EAC699381828B37C00342086 /* PopoverPickerViewControllerDelegate.h */,
 				2A3CDB82181EC83900A04D62 /* LoginPromptViewControllerDelegate.h */,
 				2A67ECE31827FCC7000695CC /* AccountManagementViewControllerDelegate.h */,
 			);
@@ -407,6 +427,7 @@
 		EACC67D41807339500FEAC76 /* Xibs */ = {
 			isa = PBXGroup;
 			children = (
+				EAC6993E1828B39100342086 /* PopoverPickerViewController.xib */,
 				2A67ECE01827F245000695CC /* ViewChildrenViewController.xib */,
 				2A7DB105181B3A24008EF99F /* LoginPromptViewController.xib */,
 				EA16941A18163C5C00C40069 /* LevelCompleteViewController.xib */,
@@ -426,6 +447,8 @@
 		EACC67D5180733A000FEAC76 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				EAC6993C1828B39100342086 /* PopoverPickerViewController.h */,
+				EAC6993D1828B39100342086 /* PopoverPickerViewController.m */,
 				2A7DB103181B3A24008EF99F /* LoginPromptViewController.h */,
 				2A7DB104181B3A24008EF99F /* LoginPromptViewController.m */,
 				EACC67EA180B4B8D00FEAC76 /* GameViewController.h */,
@@ -455,6 +478,8 @@
 		EACC67D6180733AD00FEAC76 /* DataClasses */ = {
 			isa = PBXGroup;
 			children = (
+				EAC699391828B38600342086 /* StatisticsViewGestureRecognizer.h */,
+				EAC6993A1828B38600342086 /* StatisticsViewGestureRecognizer.m */,
 				EACC67D7180733CB00FEAC76 /* User.h */,
 				EACC67D8180733CB00FEAC76 /* User.m */,
 				EACC67DA1807340700FEAC76 /* GuardianUser.h */,
@@ -478,6 +503,12 @@
 		EACC6801180B941C00FEAC76 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EAC699411828B3A000342086 /* StatsChildCell.h */,
+				EAC699421828B3A000342086 /* StatsChildCell.m */,
+				EAC699431828B3A000342086 /* StatsChildCell.xib */,
+				EAC699441828B3A000342086 /* StatsProblemCell.h */,
+				EAC699451828B3A000342086 /* StatsProblemCell.m */,
+				EAC699461828B3A000342086 /* StatsProblemCell.xib */,
 				EACC6802180B944E00FEAC76 /* NavigationTableCell.h */,
 				EACC6803180B944E00FEAC76 /* NavigationTableCell.m */,
 				2A730F9E1819A4EA000356DE /* LoginUserSelectionCell.h */,
@@ -566,12 +597,15 @@
 				EACC67A618037CFE00FEAC76 /* Default-568h@2x.png in Resources */,
 				EACC67CC18037DA300FEAC76 /* MainMenuViewController.xib in Resources */,
 				2A730FA21819A541000356DE /* LoginUserSelectionCell.xib in Resources */,
+				EAC6994A1828B3A000342086 /* StatsProblemCell.xib in Resources */,
+				EAC699401828B39100342086 /* PopoverPickerViewController.xib in Resources */,
 				EAC698EC181DB81A00342086 /* Scene Solver Icon.png in Resources */,
 				EACC67E9180B4B6600FEAC76 /* LoginViewController.xib in Resources */,
 				EAC698FE181DC15800342086 /* Button 300x50 brighter.png in Resources */,
 				EAC698EA181DB81A00342086 /* Problem Solver Icon.png in Resources */,
 				EAC698F3181DB81A00342086 /* stats-50x50.png in Resources */,
 				EAC698E6181DB81A00342086 /* disgust.png in Resources */,
+				EAC699481828B3A000342086 /* StatsChildCell.xib in Resources */,
 				EAC698EB181DB81A00342086 /* sad.png in Resources */,
 				EAC698E9181DB81A00342086 /* happy.png in Resources */,
 				EAC698E1181DB81A00342086 /* anger.png in Resources */,
@@ -639,6 +673,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAC6993F1828B39100342086 /* PopoverPickerViewController.m in Sources */,
 				2A67ECE11827F245000695CC /* ViewChildrenViewController.m in Sources */,
 				EACC679C18037CFE00FEAC76 /* main.m in Sources */,
 				EACC67A018037CFE00FEAC76 /* AppDelegate.m in Sources */,
@@ -653,6 +688,7 @@
 				EAC698FA181DB86300342086 /* Social_Solver.xcdatamodeld in Sources */,
 				EACC67E8180B4B6600FEAC76 /* LoginViewController.m in Sources */,
 				EACC67ED180B4B8D00FEAC76 /* GameViewController.m in Sources */,
+				EAC699491828B3A000342086 /* StatsProblemCell.m in Sources */,
 				EACC67F2180B4BC700FEAC76 /* AccountManagementViewController.m in Sources */,
 				EACC67F7180B4C4800FEAC76 /* RewardsGalleryViewController.m in Sources */,
 				2A475087181DDD73000EBEAB /* UIImagePickerController+ShouldAutorotate.m in Sources */,
@@ -661,6 +697,8 @@
 				EACC6804180B944E00FEAC76 /* NavigationTableCell.m in Sources */,
 				2A730FA01819A4EA000356DE /* LoginUserSelectionCell.m in Sources */,
 				EACC680A180B9CE900FEAC76 /* StatisticsViewController.m in Sources */,
+				EAC6993B1828B38600342086 /* StatisticsViewGestureRecognizer.m in Sources */,
+				EAC699471828B3A000342086 /* StatsChildCell.m in Sources */,
 				EA16940C18162A7700C40069 /* Problem.m in Sources */,
 				EA16940F18162B2B00C40069 /* ProblemManager.m in Sources */,
 				EA16941B18163C5C00C40069 /* LevelCompleteViewController.m in Sources */,

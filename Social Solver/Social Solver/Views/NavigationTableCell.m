@@ -16,7 +16,7 @@
     cell.titleLabel.text = title;
     if (imageName != nil && ![imageName isEqualToString:@""])
     {
-        [cell.imageView setImage:[UIImage imageNamed:imageName]];
+        [cell.icon setImage:[UIImage imageNamed:imageName]];
     }
     
     return cell;

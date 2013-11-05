@@ -23,6 +23,7 @@ enum MediaType {
 
 @property (nonatomic) enum MediaType mediaType;
 @property (nonatomic, strong) NSString* mediaFileName;
+@property (nonatomic, strong) NSString* iconFileName;
 @property (nonatomic, strong) NSString* answer;
 @property (nonatomic, strong) NSString* videoDescription;
 @property (nonatomic) NSUInteger ID;
