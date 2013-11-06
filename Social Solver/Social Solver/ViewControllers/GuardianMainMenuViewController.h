@@ -8,9 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GuardianMainMenuViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@protocol GuardianMainMenuViewControllerDelegate <NSObject>
+
+- (void) changeView:(int)view;
+
+@end
+
+@interface GuardianMainMenuViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, GuardianMainMenuViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *navigationTable;
 @property (weak, nonatomic) IBOutlet UIView* detailViewContainer;
+
+extern const int SHARE_PROFILES_WITH_GUARDIAN;
+extern const int SHARE_PROFILES_SECURITY_CODE;
 
 @end

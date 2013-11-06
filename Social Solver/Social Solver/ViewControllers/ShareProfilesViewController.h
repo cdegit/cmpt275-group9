@@ -7,9 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GuardianMainMenuViewController.h"
 
 @interface ShareProfilesViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UICollectionView* shareProfileSelectionView;
+//@class GuardianMainMenuViewController;
+
+@property (weak, nonatomic) id<GuardianMainMenuViewControllerDelegate> delegate;
+
+-(IBAction) shareWithButtonPressed:(id) sender;
 
 @end

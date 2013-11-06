@@ -25,6 +25,8 @@
 
 @implementation ShareProfilesViewController
 
+@synthesize delegate = _delegate;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -125,6 +127,10 @@
     // add further functionality here
     
     return NO;
+}
+
+-(IBAction) shareWithButtonPressed:(id) sender {
+    [self.delegate changeView:SHARE_PROFILES_WITH_GUARDIAN];
 }
 
 @end

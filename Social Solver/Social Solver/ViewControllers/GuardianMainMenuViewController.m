@@ -10,6 +10,8 @@
 #import "NavigationTableCell.h"
 #import "StatisticsViewController.h"
 #import "ShareProfilesViewController.h"
+#import "ShareProfilesWithGuardianViewController.h"
+#import "ShareProfileSecurityCodeViewController.h"
 
 @interface GuardianMainMenuViewController ()
 
@@ -20,6 +22,9 @@
 @end
 
 @implementation GuardianMainMenuViewController
+
+const int SHARE_PROFILES_WITH_GUARDIAN = 0;
+const int SHARE_PROFILES_SECURITY_CODE = 1;
 
 @synthesize navigationCellInfo, cellHeight;
 
@@ -118,7 +123,10 @@
         case 2:
         {
             // Load share profile
-            self.detailViewController = [[ShareProfilesViewController alloc]  initWithNibName:@"ShareProfilesViewController" bundle:[NSBundle mainBundle]];
+            ShareProfilesViewController *shareProfiles = [[ShareProfilesViewController alloc]  initWithNibName:@"ShareProfilesViewController" bundle:[NSBundle mainBundle]];
+            shareProfiles.delegate = self;
+            self.detailViewController = shareProfiles;
+            
             break;
         }
         case 3:
@@ -141,6 +149,34 @@
             break;
     }
 
+    if (self.detailViewController != nil)
+    {
+        self.detailViewController.view.frame = self.detailViewContainer.bounds;
+        [self.detailViewContainer addSubview:self.detailViewController.view];
+    }
+}
+
+- (void) changeView:(int) view {
+    switch(view) {
+        case SHARE_PROFILES_WITH_GUARDIAN: // load share profile guardian input
+        {
+            ShareProfilesWithGuardianViewController *shareProfiles = [[ShareProfilesWithGuardianViewController alloc]  initWithNibName:@"ShareProfilesWithGuardianViewController" bundle:[NSBundle mainBundle]];
+            shareProfiles.delegate = self;
+            self.detailViewController = shareProfiles;
+            break;
+        }
+        case SHARE_PROFILES_SECURITY_CODE: // load share profile confirmation/security code
+        {
+            self.detailViewController = [[ShareProfileSecurityCodeViewController alloc]  initWithNibName:@"ShareProfileSecurityCodeViewController" bundle:[NSBundle mainBundle]];
+            break;
+        }
+        default:
+        {
+            NSAssert(false, @"Unkown cell selected");
+            break;
+        }
+    }
+    
     if (self.detailViewController != nil)
     {
         self.detailViewController.view.frame = self.detailViewContainer.bounds;

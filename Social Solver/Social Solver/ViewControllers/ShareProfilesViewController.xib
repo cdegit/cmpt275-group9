@@ -38,6 +38,9 @@
                     <state key="normal" title="Share">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="shareWithButtonPressed:" destination="-1" eventType="touchDown" id="3Of-J4-Wfu"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
