@@ -2,7 +2,7 @@
 //  ShareProfileSecurityCodeViewController.m
 //  Social Solver
 //
-//  Created by Jake Miner on 2013-11-05.
+//  Created by Cassandra de Git on 2013-11-05.
 //  Copyright (c) 2013 Group 9. All rights reserved.
 //
 
