@@ -74,10 +74,10 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    [_delegate serverRespondedWith:_receivedData];
+    [_delegate serverRequest:(ServerRequest *)self respondedWith:_receivedData];
 }
 
-- (void)serverRespondedWith:(NSData *)data
+- (void)serverRequest:(ServerRequest *)sreq respondedWith:(NSData *)data
 {
     NSString *stringRep = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     NSLog(@"Received Data: %@", stringRep);

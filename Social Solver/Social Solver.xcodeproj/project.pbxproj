@@ -130,6 +130,7 @@
 		2A7DB103181B3A24008EF99F /* LoginPromptViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginPromptViewController.h; sourceTree = "<group>"; };
 		2A7DB104181B3A24008EF99F /* LoginPromptViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginPromptViewController.m; sourceTree = "<group>"; };
 		2A7DB105181B3A24008EF99F /* LoginPromptViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginPromptViewController.xib; path = ViewControllers/LoginPromptViewController.xib; sourceTree = "<group>"; };
+		2A964BE7182D5CDD0016B43F /* ServerRequestDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ServerRequestDelegate.h; path = Protocols/ServerRequestDelegate.h; sourceTree = "<group>"; };
 		2AAABD96182D506900FBCD60 /* ServerRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerRequest.h; sourceTree = "<group>"; };
 		2AAABD97182D506900FBCD60 /* ServerRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerRequest.m; sourceTree = "<group>"; };
 		EA16940A18162A7700C40069 /* Problem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Problem.h; sourceTree = "<group>"; };
@@ -275,6 +276,7 @@
 				EAC699381828B37C00342086 /* PopoverPickerViewControllerDelegate.h */,
 				2A3CDB82181EC83900A04D62 /* LoginPromptViewControllerDelegate.h */,
 				2A67ECE31827FCC7000695CC /* AccountManagementViewControllerDelegate.h */,
+				2A964BE7182D5CDD0016B43F /* ServerRequestDelegate.h */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";

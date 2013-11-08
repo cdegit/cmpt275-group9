@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ServerRequestDelegate.h"
 
 @interface ServerRequest : NSObject
 
@@ -15,6 +16,6 @@
 - (void)serverRespondedWith:(NSData*)data;
 
 
-@property (assign, nonatomic) id delegate;
+@property (assign, nonatomic) id<ServerRequestDelegate> delegate;
 
 @end
