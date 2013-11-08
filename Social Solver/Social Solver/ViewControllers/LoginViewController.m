@@ -191,7 +191,13 @@
     
     [self presentViewController:lpvc animated:YES completion:NULL];
     
-    [[[lpvc view] superview] setFrame:CGRectInset([[[lpvc view] superview] frame], 100, 100)];
+    CGRect lpvcFrame = [[[lpvc view] superview] bounds];
+    lpvcFrame.size.width = 330;
+    lpvcFrame.size.height = 343;
+
+    [[[lpvc view] superview] setBounds:lpvcFrame];
+    
+    
     
     return NO;
 }
