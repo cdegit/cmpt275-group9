@@ -21,10 +21,14 @@
 - (NSArray *) getUserListOfType:(NSString *)userType;
 - (ChildUser *) createChildWithName:(NSString *)name password:(NSString *)pass andProfileImage:(UIImage *)img;
 - (GuardianUser *) createGuardianWithName:(NSString *)name password:(NSString *)pass profileImage:(UIImage *)img andEmail:(NSString *)email;
-- (ChildProblemData*)createProblemDataForChild:(ChildUser*)child withProblemID:(NSInteger)ID;
+- (ChildProblemData*)createProblemDataWithProblemID:(NSInteger)ID;
 - (BOOL) isAuthenticUser:(User*)u forPassword:(NSString *)password;
 - (BOOL) save;
 
-@property (strong, nonatomic) User* activeUser;
+- (void)loginUser:(User*)user;
+- (void)logoutActiveUser;
+
+@property (strong, readonly, nonatomic) User* activeUser;
+@property (strong, readonly, nonatomic) NSDate* sessionDate;
 
 @end

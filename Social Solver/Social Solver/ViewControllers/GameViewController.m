@@ -13,6 +13,7 @@
 #import "LevelCompleteViewController.h"
 #import "UserDatabaseManager.h"
 #import "ChildProblemData.h"
+#import "Session.h"
 #import <MediaPlayer/MediaPlayer.h>
 
 #define MAX_LEVEL_TIME 120
@@ -207,12 +208,18 @@
     if (user != nil && [user isKindOfClass:[ChildUser class]])
     {
         ChildUser* cUser = (ChildUser*)user;
-        NSMutableSet* mutableProblemsSolved = [NSMutableSet setWithSet:cUser.completedProblems];
-        ChildProblemData* thisProblemData = [cUser completedProblemDataWithID:self.currentProblem.ID];
+        
+        // 1 - Update the session data
+        Session* currentSession = [cUser sessionWithDate:[[UserDatabaseManager sharedInstance] sessionDate]];
+        // If there isn't currently a Session object for this session then create one
+        if (currentSession == nil) {
+            currentSession = [Session sessionWithChild:cUser date:[[UserDatabaseManager sharedInstance] sessionDate]];
+        }
+        
+        ChildProblemData* thisProblemData = [currentSession problemDataWithID:self.currentProblem.ID];
         
         // Check if the user has solved this problem before
         if (thisProblemData != nil) {
-            [mutableProblemsSolved removeObject:thisProblemData];
             
             // Update the problem data
             if (time < MAX_LEVEL_TIME) {
@@ -222,20 +229,27 @@
             thisProblemData.numberOfAttempts++;
         }
         else {
-            thisProblemData = [[UserDatabaseManager sharedInstance] createProblemDataForChild:cUser withProblemID:self.currentProblem.ID];
+            thisProblemData = [[UserDatabaseManager sharedInstance] createProblemDataWithProblemID:self.currentProblem.ID];
             if (time < MAX_LEVEL_TIME) {
                 thisProblemData.totalResponseTime = time;
             }
             thisProblemData.numberOfAttempts = 1;
             thisProblemData.numberCorrect = 1;
+            
+            [currentSession addProblemDataObject:thisProblemData];
         }
         
-        // Store the updated completedProblems
-        [mutableProblemsSolved addObject:thisProblemData];
-        cUser.completedProblems = mutableProblemsSolved;
+        // 2 - Add this problem ID as one of the completed problems
+        NSNumber* problemID = [NSNumber numberWithInteger:self.currentProblem.ID];
+        if (![cUser.completedProblems containsObject:problemID])
+        {
+            NSMutableArray* mutableProblems = [cUser.completedProblems mutableCopy];
+            [mutableProblems addObject:problemID];
+            cUser.completedProblems = mutableProblems;
+        }
+        
+        [[UserDatabaseManager sharedInstance] save];
     }
-    
-    [[UserDatabaseManager sharedInstance] save];
 }
 
 - (void)recordIncorrectAnswer
@@ -244,38 +258,33 @@
     if (user != nil && [user isKindOfClass:[ChildUser class]])
     {
         ChildUser* cUser = (ChildUser*)user;
-        NSMutableSet* mutableProblemsSolved = [NSMutableSet setWithSet:cUser.completedProblems];
-        ChildProblemData* thisProblemData = [cUser completedProblemDataWithID:self.currentProblem.ID];
+        Session* currentSession = [cUser sessionWithDate:[[UserDatabaseManager sharedInstance] sessionDate]];
+        // If there isn't currently a Session object for this session then create one
+        if (currentSession == nil) {
+            currentSession = [Session sessionWithChild:cUser date:[[UserDatabaseManager sharedInstance] sessionDate]];
+        }
+        
+        ChildProblemData* thisProblemData = [currentSession problemDataWithID:self.currentProblem.ID];
         
         // Check if the user has solved this problem before
         if (thisProblemData != nil) {
-            [mutableProblemsSolved removeObject:thisProblemData];
-            
             // Update the problem data
             thisProblemData.numberOfAttempts++;
         }
         else {
-            thisProblemData = [[UserDatabaseManager sharedInstance] createProblemDataForChild:cUser withProblemID:self.currentProblem.ID];
+            thisProblemData = [[UserDatabaseManager sharedInstance] createProblemDataWithProblemID:self.currentProblem.ID];
             
             thisProblemData.numberOfAttempts = 1;
+            
+            [currentSession addProblemDataObject:thisProblemData];
         }
         
-        // Store the updated completedProblems
-        [mutableProblemsSolved addObject:thisProblemData];
-        cUser.completedProblems = mutableProblemsSolved;
+        [[UserDatabaseManager sharedInstance] save];
     }
-    
-    [[UserDatabaseManager sharedInstance] save];
 }
 
 - (void)presentLevelCompleteViewShowingCongratsMessage:(bool)show
 {
-    NSSet* cp = ((ChildUser*)[[UserDatabaseManager sharedInstance] activeUser]).completedProblems;
-    [cp enumerateObjectsUsingBlock:^(id obj, BOOL *stop) {
-        ChildProblemData* pd = (ChildProblemData*)obj;
-        NSLog(@"Problem ID = %d, numberCorrect = %d, totalResponse = %f", pd.problemID, pd.numberCorrect, pd.totalResponseTime);
-    }];
-    
     // If the video was still playing, then pause it
     if (self.videoPlayer.playbackState == MPMoviePlaybackStatePlaying) {
         [self.videoPlayer pause];

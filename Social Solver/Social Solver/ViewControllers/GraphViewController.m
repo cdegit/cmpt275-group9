@@ -7,12 +7,13 @@
 //
 
 #import "GraphViewController.h"
-#import "SessionData.h"
 #import "ChildProblemData.h"
+#import "Session.h"
 
 #define DEFAULT_DATA_POINT_SIZE 10.0f
 #define DEFAULT_LINE_WIDTH 2.5f
 #define NUM_X_MAJOR_TICKS 5
+#define GRAPH_PADDING 30.0f
 
 @interface GraphViewController () <CPTPlotDataSource>
 
@@ -28,6 +29,7 @@
 // A function which filters the rawData and converts it into an array of X,Y coordinates
 - (NSArray*)convertToGraphData:(NSArray*)rawData;
 - (void)configureAxes;
+- (void)labelAxes;
 - (NSString*)yAxisTitle;
 - (NSNumber*)xCoordForDate:(NSDate*)date;
 - (NSDate*)dateForXCoord:(CGFloat)xCoord;
@@ -57,8 +59,8 @@
     self.hostingView.hostedGraph = graph;
     
     // Set padding for plot area
-    [self.graph.plotAreaFrame setPaddingLeft:30.0f];
-    [self.graph.plotAreaFrame setPaddingBottom:30.0f];
+    [self.graph.plotAreaFrame setPaddingLeft:GRAPH_PADDING];
+    [self.graph.plotAreaFrame setPaddingBottom:GRAPH_PADDING];
     
     self.graph.defaultPlotSpace.allowsUserInteraction = YES;
     
@@ -146,6 +148,26 @@
     xAxis.majorTickLength = 1.0f;
     xAxis.tickDirection = CPTSignNegative;
     
+    // Configure y-axis
+    CPTAxis* yAxis = axisSet.yAxis;
+    yAxis.title = [self yAxisTitle];
+    yAxis.titleTextStyle = axisTitleStyle;
+    yAxis.titleOffset = -20.0f;
+    yAxis.axisLineStyle = axisLineStyle;
+    yAxis.labelingPolicy = CPTAxisLabelingPolicyEqualDivisions;
+    yAxis.labelTextStyle = axisTextStyle;
+    yAxis.labelOffset = 16.0f;
+    yAxis.majorTickLineStyle = axisLineStyle;
+    yAxis.majorTickLength = 2.0f;
+    yAxis.tickDirection = CPTSignPositive;
+}
+
+- (void)labelAxes
+{
+    CPTXYAxisSet* axisSet = (CPTXYAxisSet*)self.hostingView.hostedGraph.axisSet;
+    CPTAxis* xAxis = axisSet.xAxis;
+    
+    // Label the xAxis
     NSMutableSet* xLabels = [[NSMutableSet alloc] init];
     NSMutableSet* xLocations = [[NSMutableSet alloc] init];
     
@@ -160,9 +182,9 @@
         NSDate* date = [self dateForXCoord:location];
         NSString* labelText = [dateFormatter stringFromDate:date];
         
-        CPTAxisLabel* l = [[CPTAxisLabel alloc] initWithText:labelText textStyle:axisTextStyle];
+        CPTAxisLabel* l = [[CPTAxisLabel alloc] initWithText:labelText textStyle:xAxis.labelTextStyle];
         l.tickLocation = CPTDecimalFromFloat(location);
-//        l.offset = xAxis.majorTickLength;
+        //        l.offset = xAxis.majorTickLength;
         [xLocations addObject:[NSNumber numberWithFloat:i]];
         [xLabels addObject:l];
         
@@ -172,43 +194,11 @@
     xAxis.axisLabels = xLabels;
     xAxis.majorTickLocations = xLocations;
     
-    // Configure y-axis
+    // Retitle the y axis
     CPTAxis* yAxis = axisSet.yAxis;
     yAxis.title = [self yAxisTitle];
-    yAxis.titleTextStyle = axisTitleStyle;
-    yAxis.titleOffset = -40.0f;
-    yAxis.axisLineStyle = axisLineStyle;
-    yAxis.labelingPolicy = CPTAxisLabelingPolicyEqualDivisions;
-    yAxis.labelTextStyle = axisTextStyle;
-    yAxis.labelOffset = 16.0f;
-    yAxis.majorTickLineStyle = axisLineStyle;
-    yAxis.majorTickLength = 2.0f;
-    yAxis.tickDirection = CPTSignPositive;
     
-//    NSInteger majorIncrement = 100;
-//    NSInteger minorIncrement = 50;
-//    CGFloat yMax = 700.0f;  // should determine dynamically based on max price
-//    NSMutableSet *yLabels = [NSMutableSet set];
-//    NSMutableSet *yMajorLocations = [NSMutableSet set];
-//    NSMutableSet *yMinorLocations = [NSMutableSet set];
-//    for (NSInteger j = minorIncrement; j <= yMax; j += minorIncrement) {
-//        NSUInteger mod = j % majorIncrement;
-//        if (mod == 0) {
-//            CPTAxisLabel *label = [[CPTAxisLabel alloc] initWithText:[NSString stringWithFormat:@"%i", j] textStyle:y.labelTextStyle];
-//            NSDecimal location = CPTDecimalFromInteger(j);
-//            label.tickLocation = location;
-//            label.offset = -y.majorTickLength - y.labelOffset;
-//            if (label) {
-//                [yLabels addObject:label];
-//            }
-//            [yMajorLocations addObject:[NSDecimalNumber decimalNumberWithDecimal:location]];
-//        } else {
-//            [yMinorLocations addObject:[NSDecimalNumber decimalNumberWithDecimal:CPTDecimalFromInteger(j)]];
-//        }
-//    }
-//    y.axisLabels = yLabels;
-//    y.majorTickLocations = yMajorLocations;
-//    y.minorTickLocations = yMinorLocations;
+    
 }
 
 - (void)addChild:(NSString*)child withColor:(UIColor*)color;
@@ -239,7 +229,7 @@
 - (NSArray*)convertToGraphData:(NSArray*)rawData
 {
     NSArray* sortedData = [rawData sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-        return [((SessionData*)obj1).date compare:obj2];
+        return [((Session*)obj1).date compare:obj2];
              }];
     
     NSMutableArray* convertedData = [[NSMutableArray alloc] init];
@@ -254,9 +244,9 @@
     }];
     
     // Iterate through the sortedData and calculate the cumulative values for the yValues
-    for (SessionData* session in sortedData)
+    for (Session* session in sortedData)
     {
-        NSArray* filteredData = [session.sessionData filteredArrayUsingPredicate:predicate
+        NSSet* filteredData = [session.problemData filteredSetUsingPredicate:predicate
                                  ];
         // If the session didn't include any problems in problemIDsToInclude, then exclude this as a data point
         if ([filteredData count] > 0)

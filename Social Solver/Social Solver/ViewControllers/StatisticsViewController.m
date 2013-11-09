@@ -19,7 +19,7 @@
 #import "StatsProblemCell.h"
 #import "PopoverPickerViewController.h"
 #import "GraphViewController.h"
-#import "SessionData.h"
+#import "Session.h"
 
 enum yAxisDataType {
     yAxisDataTypePercentCorrect = 0,
@@ -493,16 +493,7 @@ enum yAxisDataType {
     for (ChildUser* user in self.legendChildList)
     {
         if ([user.name isEqualToString:ID]) {
-            NSMutableArray* dummyData = [[NSMutableArray alloc] init];
-            for (ChildProblemData* pd in user.completedProblems)
-            {
-                SessionData* data = [[SessionData alloc] init];
-                double time = arc4random() % 360000;
-                data.date = [NSDate dateWithTimeIntervalSince1970:time];
-                data.sessionData = [NSArray arrayWithObject:pd];
-                [dummyData addObject:data];
-            }
-            return dummyData;
+            return [user.sessions allObjects];
         }
     }
     

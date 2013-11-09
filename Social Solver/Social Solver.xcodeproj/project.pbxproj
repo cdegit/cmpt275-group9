@@ -21,7 +21,6 @@
 		EA16940F18162B2B00C40069 /* ProblemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EA16940E18162B2B00C40069 /* ProblemManager.m */; };
 		EA16941B18163C5C00C40069 /* LevelCompleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA16941918163C5C00C40069 /* LevelCompleteViewController.m */; };
 		EA16941C18163C5C00C40069 /* LevelCompleteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA16941A18163C5C00C40069 /* LevelCompleteViewController.xib */; };
-		EABC93AC182E06B900E81664 /* SessionData.m in Sources */ = {isa = PBXBuildFile; fileRef = EABC93AB182E06B900E81664 /* SessionData.m */; };
 		EABC93AF182E06C200E81664 /* GraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EABC93AE182E06C200E81664 /* GraphViewController.m */; };
 		EABC93B1182E06CA00E81664 /* GraphViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EABC93B0182E06CA00E81664 /* GraphViewController.xib */; };
 		EABC9403182E06E600E81664 /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EABC9402182E06E600E81664 /* libCorePlot-CocoaTouch.a */; };
@@ -105,6 +104,20 @@
 		EACC6806180B954C00FEAC76 /* NavigationTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EACC6805180B954C00FEAC76 /* NavigationTableCell.xib */; };
 		EACC680A180B9CE900FEAC76 /* StatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EACC6808180B9CE900FEAC76 /* StatisticsViewController.m */; };
 		EACC680B180B9CE900FEAC76 /* StatisticsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EACC6809180B9CE900FEAC76 /* StatisticsViewController.xib */; };
+		EAE43994182EC8510026370C /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = EAE43993182EC8510026370C /* Session.m */; };
+		EAE4399C182EE9D90026370C /* afraid-75x85.png in Resources */ = {isa = PBXBuildFile; fileRef = EAE43996182EE9D90026370C /* afraid-75x85.png */; };
+		EAE4399D182EE9D90026370C /* angry-75x85.png in Resources */ = {isa = PBXBuildFile; fileRef = EAE43997182EE9D90026370C /* angry-75x85.png */; };
+		EAE4399E182EE9D90026370C /* disgusted-75x85.png in Resources */ = {isa = PBXBuildFile; fileRef = EAE43998182EE9D90026370C /* disgusted-75x85.png */; };
+		EAE4399F182EE9D90026370C /* happy-75x85.png in Resources */ = {isa = PBXBuildFile; fileRef = EAE43999182EE9D90026370C /* happy-75x85.png */; };
+		EAE439A0182EE9D90026370C /* sad-75x85.png in Resources */ = {isa = PBXBuildFile; fileRef = EAE4399A182EE9D90026370C /* sad-75x85.png */; };
+		EAE439A1182EE9D90026370C /* surprised-75x85.png in Resources */ = {isa = PBXBuildFile; fileRef = EAE4399B182EE9D90026370C /* surprised-75x85.png */; };
+		EAE439A9182EE9E50026370C /* problem-asking for bear.png in Resources */ = {isa = PBXBuildFile; fileRef = EAE439A2182EE9E50026370C /* problem-asking for bear.png */; };
+		EAE439AA182EE9E50026370C /* problem-broken bear toy.png in Resources */ = {isa = PBXBuildFile; fileRef = EAE439A3182EE9E50026370C /* problem-broken bear toy.png */; };
+		EAE439AB182EE9E50026370C /* scene-bear toy.png in Resources */ = {isa = PBXBuildFile; fileRef = EAE439A4182EE9E50026370C /* scene-bear toy.png */; };
+		EAE439AC182EE9E50026370C /* scene-Billy surprises Suzy.png in Resources */ = {isa = PBXBuildFile; fileRef = EAE439A5182EE9E50026370C /* scene-Billy surprises Suzy.png */; };
+		EAE439AD182EE9E50026370C /* scene-ice cream.png in Resources */ = {isa = PBXBuildFile; fileRef = EAE439A6182EE9E50026370C /* scene-ice cream.png */; };
+		EAE439AE182EE9E50026370C /* scene-pulling hair.png in Resources */ = {isa = PBXBuildFile; fileRef = EAE439A7182EE9E50026370C /* scene-pulling hair.png */; };
+		EAE439AF182EE9E50026370C /* scene-spider.png in Resources */ = {isa = PBXBuildFile; fileRef = EAE439A8182EE9E50026370C /* scene-spider.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -146,8 +159,6 @@
 		EA16941918163C5C00C40069 /* LevelCompleteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelCompleteViewController.m; sourceTree = "<group>"; };
 		EA16941A18163C5C00C40069 /* LevelCompleteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LevelCompleteViewController.xib; path = ViewControllers/LevelCompleteViewController.xib; sourceTree = "<group>"; };
 		EABC93A9182E06AE00E81664 /* GraphViewControllerDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GraphViewControllerDataSource.h; path = Protocols/GraphViewControllerDataSource.h; sourceTree = "<group>"; };
-		EABC93AA182E06B900E81664 /* SessionData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionData.h; sourceTree = "<group>"; };
-		EABC93AB182E06B900E81664 /* SessionData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionData.m; sourceTree = "<group>"; };
 		EABC93AD182E06C200E81664 /* GraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphViewController.h; sourceTree = "<group>"; };
 		EABC93AE182E06C200E81664 /* GraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphViewController.m; sourceTree = "<group>"; };
 		EABC93B0182E06CA00E81664 /* GraphViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GraphViewController.xib; path = ViewControllers/GraphViewController.xib; sourceTree = "<group>"; };
@@ -332,6 +343,21 @@
 		EACC6807180B9CE900FEAC76 /* StatisticsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatisticsViewController.h; sourceTree = "<group>"; };
 		EACC6808180B9CE900FEAC76 /* StatisticsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatisticsViewController.m; sourceTree = "<group>"; };
 		EACC6809180B9CE900FEAC76 /* StatisticsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StatisticsViewController.xib; path = ViewControllers/StatisticsViewController.xib; sourceTree = "<group>"; };
+		EAE43992182EC8510026370C /* Session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Session.h; sourceTree = "<group>"; };
+		EAE43993182EC8510026370C /* Session.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Session.m; sourceTree = "<group>"; };
+		EAE43996182EE9D90026370C /* afraid-75x85.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "afraid-75x85.png"; sourceTree = "<group>"; };
+		EAE43997182EE9D90026370C /* angry-75x85.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "angry-75x85.png"; sourceTree = "<group>"; };
+		EAE43998182EE9D90026370C /* disgusted-75x85.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "disgusted-75x85.png"; sourceTree = "<group>"; };
+		EAE43999182EE9D90026370C /* happy-75x85.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "happy-75x85.png"; sourceTree = "<group>"; };
+		EAE4399A182EE9D90026370C /* sad-75x85.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sad-75x85.png"; sourceTree = "<group>"; };
+		EAE4399B182EE9D90026370C /* surprised-75x85.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "surprised-75x85.png"; sourceTree = "<group>"; };
+		EAE439A2182EE9E50026370C /* problem-asking for bear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "problem-asking for bear.png"; sourceTree = "<group>"; };
+		EAE439A3182EE9E50026370C /* problem-broken bear toy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "problem-broken bear toy.png"; sourceTree = "<group>"; };
+		EAE439A4182EE9E50026370C /* scene-bear toy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scene-bear toy.png"; sourceTree = "<group>"; };
+		EAE439A5182EE9E50026370C /* scene-Billy surprises Suzy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scene-Billy surprises Suzy.png"; sourceTree = "<group>"; };
+		EAE439A6182EE9E50026370C /* scene-ice cream.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scene-ice cream.png"; sourceTree = "<group>"; };
+		EAE439A7182EE9E50026370C /* scene-pulling hair.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scene-pulling hair.png"; sourceTree = "<group>"; };
+		EAE439A8182EE9E50026370C /* scene-spider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scene-spider.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -482,6 +508,7 @@
 		EAC698CD181DB7F000342086 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				EAE43995182EE9C80026370C /* Stats Problem Icons */,
 				EAC69917181DD1E700342086 /* test_image.jpg */,
 				EAC69914181DCE3C00342086 /* vert gradient 2.jpg */,
 				EAC69911181DCBC600342086 /* circle_gradient.jpg */,
@@ -644,30 +671,30 @@
 		EACC67D5180733A000FEAC76 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				EABC93AD182E06C200E81664 /* GraphViewController.h */,
-				EABC93AE182E06C200E81664 /* GraphViewController.m */,
-				EAC6993C1828B39100342086 /* PopoverPickerViewController.h */,
-				EAC6993D1828B39100342086 /* PopoverPickerViewController.m */,
-				2A7DB103181B3A24008EF99F /* LoginPromptViewController.h */,
-				2A7DB104181B3A24008EF99F /* LoginPromptViewController.m */,
-				EACC67EA180B4B8D00FEAC76 /* GameViewController.h */,
-				EACC67EB180B4B8D00FEAC76 /* GameViewController.m */,
-				EACC67C818037DA300FEAC76 /* MainMenuViewController.h */,
-				EACC67C918037DA300FEAC76 /* MainMenuViewController.m */,
-				EACC67CD1803816800FEAC76 /* RootNavigationViewController.h */,
-				EACC67CE1803816800FEAC76 /* RootNavigationViewController.m */,
-				EACC67E5180B4B6600FEAC76 /* LoginViewController.h */,
-				EACC67E6180B4B6600FEAC76 /* LoginViewController.m */,
 				EACC67EF180B4BC600FEAC76 /* AccountManagementViewController.h */,
 				EACC67F0180B4BC700FEAC76 /* AccountManagementViewController.m */,
-				EACC67F4180B4C4800FEAC76 /* RewardsGalleryViewController.h */,
-				EACC67F5180B4C4800FEAC76 /* RewardsGalleryViewController.m */,
+				EACC67EA180B4B8D00FEAC76 /* GameViewController.h */,
+				EACC67EB180B4B8D00FEAC76 /* GameViewController.m */,
+				EABC93AD182E06C200E81664 /* GraphViewController.h */,
+				EABC93AE182E06C200E81664 /* GraphViewController.m */,
 				EACC67F9180B4C7400FEAC76 /* GuardianMainMenuViewController.h */,
 				EACC67FA180B4C7400FEAC76 /* GuardianMainMenuViewController.m */,
-				EACC6807180B9CE900FEAC76 /* StatisticsViewController.h */,
-				EACC6808180B9CE900FEAC76 /* StatisticsViewController.m */,
 				EA16941818163C5C00C40069 /* LevelCompleteViewController.h */,
 				EA16941918163C5C00C40069 /* LevelCompleteViewController.m */,
+				2A7DB103181B3A24008EF99F /* LoginPromptViewController.h */,
+				2A7DB104181B3A24008EF99F /* LoginPromptViewController.m */,
+				EACC67E5180B4B6600FEAC76 /* LoginViewController.h */,
+				EACC67E6180B4B6600FEAC76 /* LoginViewController.m */,
+				EACC67C818037DA300FEAC76 /* MainMenuViewController.h */,
+				EACC67C918037DA300FEAC76 /* MainMenuViewController.m */,
+				EAC6993C1828B39100342086 /* PopoverPickerViewController.h */,
+				EAC6993D1828B39100342086 /* PopoverPickerViewController.m */,
+				EACC67F4180B4C4800FEAC76 /* RewardsGalleryViewController.h */,
+				EACC67F5180B4C4800FEAC76 /* RewardsGalleryViewController.m */,
+				EACC67CD1803816800FEAC76 /* RootNavigationViewController.h */,
+				EACC67CE1803816800FEAC76 /* RootNavigationViewController.m */,
+				EACC6807180B9CE900FEAC76 /* StatisticsViewController.h */,
+				EACC6808180B9CE900FEAC76 /* StatisticsViewController.m */,
 				2A67ECDE1827F245000695CC /* ViewChildrenViewController.h */,
 				2A67ECDF1827F245000695CC /* ViewChildrenViewController.m */,
 			);
@@ -677,28 +704,28 @@
 		EACC67D6180733AD00FEAC76 /* DataClasses */ = {
 			isa = PBXGroup;
 			children = (
-				EABC93AA182E06B900E81664 /* SessionData.h */,
-				EABC93AB182E06B900E81664 /* SessionData.m */,
-				EAC699391828B38600342086 /* StatisticsViewGestureRecognizer.h */,
-				EAC6993A1828B38600342086 /* StatisticsViewGestureRecognizer.m */,
-				EACC67D7180733CB00FEAC76 /* User.h */,
-				EACC67D8180733CB00FEAC76 /* User.m */,
-				EACC67DA1807340700FEAC76 /* GuardianUser.h */,
-				EACC67DB1807340700FEAC76 /* GuardianUser.m */,
+				2A105F13181E18CF0035232F /* ChildProblemData.h */,
+				2A105F14181E18CF0035232F /* ChildProblemData.m */,
+				2A105F10181E16970035232F /* ChildSettings.h */,
+				2A105F11181E16970035232F /* ChildSettings.m */,
 				EACC67DD1807343200FEAC76 /* ChildUser.h */,
 				EACC67DE1807343200FEAC76 /* ChildUser.m */,
-				EACC67FE180B4ECD00FEAC76 /* UserDatabaseManager.h */,
-				EACC67FF180B4ECD00FEAC76 /* UserDatabaseManager.m */,
+				EACC67DA1807340700FEAC76 /* GuardianUser.h */,
+				EACC67DB1807340700FEAC76 /* GuardianUser.m */,
 				EA16940A18162A7700C40069 /* Problem.h */,
 				EA16940B18162A7700C40069 /* Problem.m */,
 				EA16940D18162B2B00C40069 /* ProblemManager.h */,
 				EA16940E18162B2B00C40069 /* ProblemManager.m */,
-				2A105F10181E16970035232F /* ChildSettings.h */,
-				2A105F11181E16970035232F /* ChildSettings.m */,
-				2A105F13181E18CF0035232F /* ChildProblemData.h */,
-				2A105F14181E18CF0035232F /* ChildProblemData.m */,
 				2AAABD96182D506900FBCD60 /* ServerRequest.h */,
 				2AAABD97182D506900FBCD60 /* ServerRequest.m */,
+				EAE43992182EC8510026370C /* Session.h */,
+				EAE43993182EC8510026370C /* Session.m */,
+				EAC699391828B38600342086 /* StatisticsViewGestureRecognizer.h */,
+				EAC6993A1828B38600342086 /* StatisticsViewGestureRecognizer.m */,
+				EACC67D7180733CB00FEAC76 /* User.h */,
+				EACC67D8180733CB00FEAC76 /* User.m */,
+				EACC67FE180B4ECD00FEAC76 /* UserDatabaseManager.h */,
+				EACC67FF180B4ECD00FEAC76 /* UserDatabaseManager.m */,
 			);
 			path = DataClasses;
 			sourceTree = "<group>";
@@ -718,6 +745,26 @@
 				2A730F9F1819A4EA000356DE /* LoginUserSelectionCell.m */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		EAE43995182EE9C80026370C /* Stats Problem Icons */ = {
+			isa = PBXGroup;
+			children = (
+				EAE439A2182EE9E50026370C /* problem-asking for bear.png */,
+				EAE439A3182EE9E50026370C /* problem-broken bear toy.png */,
+				EAE439A4182EE9E50026370C /* scene-bear toy.png */,
+				EAE439A5182EE9E50026370C /* scene-Billy surprises Suzy.png */,
+				EAE439A6182EE9E50026370C /* scene-ice cream.png */,
+				EAE439A7182EE9E50026370C /* scene-pulling hair.png */,
+				EAE439A8182EE9E50026370C /* scene-spider.png */,
+				EAE43996182EE9D90026370C /* afraid-75x85.png */,
+				EAE43997182EE9D90026370C /* angry-75x85.png */,
+				EAE43998182EE9D90026370C /* disgusted-75x85.png */,
+				EAE43999182EE9D90026370C /* happy-75x85.png */,
+				EAE4399A182EE9D90026370C /* sad-75x85.png */,
+				EAE4399B182EE9D90026370C /* surprised-75x85.png */,
+			);
+			name = "Stats Problem Icons";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -793,14 +840,19 @@
 			files = (
 				EACC679A18037CFE00FEAC76 /* InfoPlist.strings in Resources */,
 				EACC67A218037CFE00FEAC76 /* Default.png in Resources */,
+				EAE439AD182EE9E50026370C /* scene-ice cream.png in Resources */,
+				EAE439AE182EE9E50026370C /* scene-pulling hair.png in Resources */,
 				EAC69916181DCE3C00342086 /* vert gradient 2.jpg in Resources */,
 				EAC69904181DC20D00342086 /* Problem Solver Icon brighter.png in Resources */,
 				EACC67A418037CFE00FEAC76 /* Default@2x.png in Resources */,
 				EAC698EE181DB81A00342086 /* children-50x50.png in Resources */,
+				EAE4399E182EE9D90026370C /* disgusted-75x85.png in Resources */,
 				EACC67A618037CFE00FEAC76 /* Default-568h@2x.png in Resources */,
 				EACC67CC18037DA300FEAC76 /* MainMenuViewController.xib in Resources */,
 				2A730FA21819A541000356DE /* LoginUserSelectionCell.xib in Resources */,
 				EAC6994A1828B3A000342086 /* StatsProblemCell.xib in Resources */,
+				EAE439A9182EE9E50026370C /* problem-asking for bear.png in Resources */,
+				EAE439A0182EE9D90026370C /* sad-75x85.png in Resources */,
 				EAC699401828B39100342086 /* PopoverPickerViewController.xib in Resources */,
 				EAC698EC181DB81A00342086 /* Scene Solver Icon.png in Resources */,
 				EACC67E9180B4B6600FEAC76 /* LoginViewController.xib in Resources */,
@@ -812,17 +864,23 @@
 				EAC699481828B3A000342086 /* StatsChildCell.xib in Resources */,
 				EAC698EB181DB81A00342086 /* sad.png in Resources */,
 				EAC698E9181DB81A00342086 /* happy.png in Resources */,
+				EAE439AB182EE9E50026370C /* scene-bear toy.png in Resources */,
+				EAE4399D182EE9D90026370C /* angry-75x85.png in Resources */,
 				EAC698E1181DB81A00342086 /* anger.png in Resources */,
 				2A67ECE21827F245000695CC /* ViewChildrenViewController.xib in Resources */,
 				EAC69918181DD1E700342086 /* test_image.jpg in Resources */,
+				EAE4399F182EE9D90026370C /* happy-75x85.png in Resources */,
 				EAC6991E181DF59500342086 /* Billy_make_Suzy_Angry.mp4 in Resources */,
 				EACC67EE180B4B8D00FEAC76 /* GameViewController.xib in Resources */,
+				EAE4399C182EE9D90026370C /* afraid-75x85.png in Resources */,
 				EACC67F3180B4BC700FEAC76 /* AccountManagementViewController.xib in Resources */,
 				EAC698EF181DB81A00342086 /* games-50x50.png in Resources */,
+				EAE439A1182EE9D90026370C /* surprised-75x85.png in Resources */,
 				EAC698E4181DB81A00342086 /* billy_drop_icecream.mp4 in Resources */,
 				EACC67F8180B4C4800FEAC76 /* RewardsGalleryViewController.xib in Resources */,
 				EAC698ED181DB81A00342086 /* surprised.png in Resources */,
 				EACC67FD180B4C7400FEAC76 /* GuardianMainMenuViewController.xib in Resources */,
+				EAE439AF182EE9E50026370C /* scene-spider.png in Resources */,
 				EACC6806180B954C00FEAC76 /* NavigationTableCell.xib in Resources */,
 				EAC698F2181DB81A00342086 /* share-50x50.png in Resources */,
 				EAC698E7181DB81A00342086 /* Face Finder Icon.png in Resources */,
@@ -832,9 +890,11 @@
 				EAC6991B181DF56100342086 /* Billy_scared_by_Spider.mp4 in Resources */,
 				EAC698F0181DB81A00342086 /* pending-50x50.png in Resources */,
 				EAC698E8181DB81A00342086 /* fear.png in Resources */,
+				EAE439AC182EE9E50026370C /* scene-Billy surprises Suzy.png in Resources */,
 				EACC680B180B9CE900FEAC76 /* StatisticsViewController.xib in Resources */,
 				EAC69903181DC20D00342086 /* Face Finder Icon brighter.png in Resources */,
 				EAC6990E181DCAC100342086 /* stressed_linen_@2X.png in Resources */,
+				EAE439AA182EE9E50026370C /* problem-broken bear toy.png in Resources */,
 				EAC698E5181DB81A00342086 /* Button 300x50.png in Resources */,
 				EAC69906181DC20D00342086 /* Scene Solver Icon brighter.png in Resources */,
 				EAC698E3181DB81A00342086 /* App Icon 144x144.png in Resources */,
@@ -883,7 +943,6 @@
 				EACC67A018037CFE00FEAC76 /* AppDelegate.m in Sources */,
 				2A105F15181E18CF0035232F /* ChildProblemData.m in Sources */,
 				EABC93AF182E06C200E81664 /* GraphViewController.m in Sources */,
-				EABC93AC182E06B900E81664 /* SessionData.m in Sources */,
 				EACC67CB18037DA300FEAC76 /* MainMenuViewController.m in Sources */,
 				EACC67CF1803816800FEAC76 /* RootNavigationViewController.m in Sources */,
 				EACC67D9180733CB00FEAC76 /* User.m in Sources */,
@@ -903,6 +962,7 @@
 				EACC6804180B944E00FEAC76 /* NavigationTableCell.m in Sources */,
 				2A730FA01819A4EA000356DE /* LoginUserSelectionCell.m in Sources */,
 				EACC680A180B9CE900FEAC76 /* StatisticsViewController.m in Sources */,
+				EAE43994182EC8510026370C /* Session.m in Sources */,
 				EAC6993B1828B38600342086 /* StatisticsViewGestureRecognizer.m in Sources */,
 				EAC699471828B3A000342086 /* StatsChildCell.m in Sources */,
 				EA16940C18162A7700C40069 /* Problem.m in Sources */,

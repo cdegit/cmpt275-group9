@@ -9,11 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "ServerRequestDelegate.h"
 
-@interface ServerRequest : NSObject
+@interface ServerRequest : NSObject <ServerRequestDelegate>
 
 + (void)test;
 
-- (void)serverRespondedWith:(NSData*)data;
+- (void)serverRequest:(ServerRequest *)sreq respondedWith:(NSData *)data;
 
 
 @property (assign, nonatomic) id<ServerRequestDelegate> delegate;

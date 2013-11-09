@@ -18,27 +18,29 @@
 @class ChildSettings;
 @class ChildProblemData;
 @class GuardianUser;
+@class Session;
 
 @interface ChildUser : User
 
-@property (nonatomic) NSSet *completedProblems, *guardians;
+@property (nonatomic) NSSet *guardians, *sessions;
 @property (nonatomic) GuardianUser *primaryGuardian;
 @property (nonatomic) ChildSettings *settings;
+@property (nonatomic) NSArray* completedProblems;
 
-- (void)addCompletedProblemsObject:(ChildProblemData *)object;
-- (void)removeCompletedProblemsObject:(ChildProblemData *)object;
+- (Session*)sessionWithDate:(NSDate*)date;
 
-- (void)addCompletedProblems:(NSSet *)objects;
-- (void)removeCompletedProblems:(NSSet *)objects;
+@end
+
+@interface ChildUser(CoreDataGeneratedAccessors)
 
 - (void)addGuardiansObject:(GuardianUser *)object;
 - (void)removeGuardiansObject:(GuardianUser *)object;
-
 - (void)addGuardians:(NSSet *)objects;
 - (void)removeGuardians:(NSSet *)objects;
 
-// Returns the ChildProblemData with ID problemID from completedProblems set
-// Returns nil if no problemData with that ID is found in completedProblems
-- (ChildProblemData*)completedProblemDataWithID:(NSUInteger)problemID;
+- (void)addSessionsObject:(Session *)object;
+- (void)removeSessionsObject:(Session *)object;
+- (void)addSessions:(NSSet *)objects;
+- (void)removeSessions:(NSSet *)objects;
 
 @end
