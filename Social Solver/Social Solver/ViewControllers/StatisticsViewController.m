@@ -18,22 +18,28 @@
 #import "Problem.h"
 #import "StatsProblemCell.h"
 #import "PopoverPickerViewController.h"
+#import "GraphViewController.h"
+#import "SessionData.h"
 
 enum yAxisDataType {
     yAxisDataTypePercentCorrect = 0,
     yAxisDataTypeAverageResponse
 };
 
-@interface StatisticsViewController () <UICollectionViewDataSource, UICollectionViewDelegate, PopoverPickerViewControllerDelegate, UIPopoverControllerDelegate>
+@interface StatisticsViewController () <UICollectionViewDataSource, UICollectionViewDelegate, PopoverPickerViewControllerDelegate, UIPopoverControllerDelegate, GraphViewControllerDataSource>
 
+// The arrays containing data information for each of the 4 "Trays" display on the screen
 @property (nonatomic) NSMutableArray* childList;
 @property (nonatomic) NSMutableArray* legendChildList;
 @property (nonatomic) NSMutableArray* emotionList;
 @property (nonatomic) NSMutableArray* legendEmotionList;
+
+// Information about the current tile being dragged around the screen
 @property (nonatomic, weak) UIView* movingTile;
 @property (nonatomic, weak) UIView* movingTileHomeCell;
 @property (nonatomic, strong) ChildUser* movingChildUser;
 
+// Information for the ability to change the game mode and data type of the graph
 @property (nonatomic, strong) NSArray* gameModePickerValues;
 @property (nonatomic, strong) NSArray* dataTypePickerValues;
 @property (nonatomic) enum GameMode gameMode;
@@ -43,8 +49,12 @@ enum yAxisDataType {
 @property (nonatomic, strong) NSString* prePopoverDataType;
 @property (nonatomic, strong) UIPopoverController* popoverController;
 
+@property (nonatomic, strong) GraphViewController* graphVC;
+
+// A method to handle the dragging of a tile from one of the trays
 - (void)handlePanGesture:(StatisticsViewGestureRecognizer*)pan;
 - (void)transferTileFromCollection:(UICollectionView*)fromCollection toCollection:(UICollectionView*)toCollection fromArray:(NSMutableArray*)fromArray toArray:(NSMutableArray*)toArray withIndex:(NSUInteger)index;
+- (NSArray*)problemIDsToIncludeInDataset;
 
 @end
 
@@ -52,6 +62,7 @@ enum yAxisDataType {
 
 @synthesize childList, movingTile, movingTileHomeCell, legendChildList, movingChildUser, gameMode;
 @synthesize emotionList, legendEmotionList, gameModePickerValues, dataTypePickerValues, buttonDisplayingPopover, popoverController, prePopoverDataType, prePopoverGameMode;
+@synthesize graphVC;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -62,7 +73,7 @@ enum yAxisDataType {
         self.yDataType = yAxisDataTypePercentCorrect;
         
         ProblemManager* pm = [[ProblemManager alloc] init];
-        self.emotionList = [pm allProblemsForGameMode:self.gameMode];
+        self.legendEmotionList = [pm allProblemsForGameMode:self.gameMode];
     }
     return self;
 }
@@ -70,8 +81,8 @@ enum yAxisDataType {
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    
+
+    // Setup the nib's for the 4 collection views
     [self.childrenCollection registerNib:[UINib nibWithNibName:@"StatsChildCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"ChildCell"];
     [self.legendChildrenCollection registerNib:[UINib nibWithNibName:@"StatsChildCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"ChildCell"];
     [self.emotionCollection registerNib:[UINib nibWithNibName:@"StatsProblemCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"ProblemCell"];
@@ -79,6 +90,16 @@ enum yAxisDataType {
     
     [self.gameModeButton setTitle:[self.gameModePickerValues objectAtIndex:self.gameMode] forState:UIControlStateNormal];
     [self.dataButton setTitle:[self.dataTypePickerValues objectAtIndex:self.yDataType] forState:UIControlStateNormal];
+    
+    // Setup the graph
+    self.graphVC = [[GraphViewController alloc] initWithNibName:@"GraphViewController" bundle:[NSBundle mainBundle]];
+    self.graphVC.dataSource = self;
+    self.graphVC.yDataType = GraphYDataTypeCorrectPercent;
+    self.graphVC.problemIDsToInclude = [self problemIDsToIncludeInDataset];
+    
+    [self addChildViewController:self.graphVC];
+    self.graphVC.view.frame = self.graphContainerView.bounds;
+    [self.graphContainerView addSubview:self.graphVC.view];
 }
 
 // ----------------------------- Accessors ----------------------------------------------
@@ -247,6 +268,16 @@ enum yAxisDataType {
 }
 
 // ---------------------- Private Methods ------------------------------------
+
+- (NSArray*)problemIDsToIncludeInDataset
+{
+    NSMutableArray* retVal = [[NSMutableArray alloc] init];
+    for (Problem* p in self.legendEmotionList)
+    {
+        [retVal addObject:[NSNumber numberWithInt:p.ID]];
+    }
+    return retVal;
+}
 
 - (void)handlePanGesture:(StatisticsViewGestureRecognizer*)pan
 {
@@ -444,6 +475,30 @@ enum yAxisDataType {
     }
     
     self.buttonDisplayingPopover = nil;
+}
+
+// ------------------------- GraphViewControllerDataSource ----------------------------------
+
+- (NSArray*)dataForChildWithID:(NSString *)ID
+{
+    for (ChildUser* user in self.legendChildList)
+    {
+        if ([user.name isEqualToString:ID]) {
+            NSMutableArray* dummyData = [[NSMutableArray alloc] init];
+            for (ChildProblemData* pd in user.completedProblems)
+            {
+                SessionData* data = [[SessionData alloc] init];
+                double time = arc4random() % 360000;
+                data.date = [NSDate dateWithTimeIntervalSince1970:time];
+                data.sessionData = [NSArray arrayWithObject:pd];
+                [dummyData addObject:data];
+            }
+            return dummyData;
+        }
+    }
+    
+    NSAssert(false, @"Child with ID %@ isn't in the legend data set", ID);
+    return [NSArray array];
 }
 
 
