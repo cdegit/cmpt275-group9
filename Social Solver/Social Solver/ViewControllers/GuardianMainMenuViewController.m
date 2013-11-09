@@ -12,6 +12,7 @@
 #import "ShareProfilesViewController.h"
 #import "ShareProfilesWithGuardianViewController.h"
 #import "ShareProfileSecurityCodeViewController.h"
+#import "PendingSharesViewController.h"
 
 @interface GuardianMainMenuViewController ()
 
@@ -132,6 +133,7 @@ const int SHARE_PROFILES_SECURITY_CODE = 1;
         case 3:
         {
             // Load pending shares
+            self.detailViewController = [[PendingSharesViewController alloc] initWithNibName:@"PendingSharesViewController" bundle:[NSBundle mainBundle]];
             break;
         }
         case 4:

@@ -10,4 +10,8 @@
 
 @interface ShareProfileSecurityCodeViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UILabel* guardianEmail;
+
+@property (weak, nonatomic) IBOutlet UILabel* securityCode;
+
 @end
