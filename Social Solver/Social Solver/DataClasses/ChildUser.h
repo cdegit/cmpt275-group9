@@ -27,6 +27,14 @@
 @property (nonatomic) ChildSettings *settings;
 @property (nonatomic) NSArray* completedProblems;
 
+// Returns the ChildProblemData with ID problemID from completedProblems set
+// Returns nil if no problemData with that ID is found in completedProblems
+- (ChildProblemData*)completedProblemDataWithID:(NSUInteger)problemID;
+
+@end
+
+
+@interface ChildUser (CoreDataGeneratedAccessors)
 
 - (void)addGuardiansObject:(GuardianUser *)object;
 - (void)removeGuardiansObject:(GuardianUser *)object;
@@ -37,9 +45,5 @@
 - (void)removeSessionsObject:(Session *)object;
 - (void)addSessions:(NSSet *)objects;
 - (void)removeSessions:(NSSet *)objects;
-
-// Returns the ChildProblemData with ID problemID from completedProblems set
-// Returns nil if no problemData with that ID is found in completedProblems
-- (ChildProblemData*)completedProblemDataWithID:(NSUInteger)problemID;
 
 @end

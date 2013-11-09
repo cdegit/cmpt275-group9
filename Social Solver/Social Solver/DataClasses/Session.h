@@ -17,6 +17,11 @@
 @property (nonatomic) NSDate* date;
 @property (nonatomic) ChildUser* child;
 
+@end
+
+
+@interface Session (CoreDataGeneratedAccessors)
+
 - (void)addProblemDataObject:(ChildProblemData*)problemData;
 - (void)removeProblemDataObject:(ChildProblemData*)object;
 - (void)addProblemData:(NSSet *)objects;

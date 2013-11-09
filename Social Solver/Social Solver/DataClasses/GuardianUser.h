@@ -20,6 +20,10 @@
 @property (nonatomic) NSString* email;
 @property (nonatomic) NSSet *children, *primaryChildren;
 
+@end
+
+@interface GuardianUser (CoreDataGeneratedAccessors)
+
 - (void)addChildrenObject:(ChildUser *)object;
 - (void)removeChildrenObject:(ChildUser *)object;
 
@@ -31,6 +35,5 @@
 
 - (void)addPrimaryChildren:(NSSet *)objects;
 - (void)removePrimaryChildren:(NSSet *)objects;
-
 
 @end
