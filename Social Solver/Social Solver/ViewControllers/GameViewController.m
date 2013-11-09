@@ -244,11 +244,17 @@
         if (![cUser.completedProblems containsObject:problemID])
         {
             NSMutableArray* mutableProblems = [cUser.completedProblems mutableCopy];
+            // If this is the first problem solved, mutableProblems will be nil so create it
+            if (mutableProblems == nil) {
+                mutableProblems = [[NSMutableArray alloc] init];
+            }
+            
             [mutableProblems addObject:problemID];
             cUser.completedProblems = mutableProblems;
         }
         
         [[UserDatabaseManager sharedInstance] save];
+//        NSLog(@"Recorded correct answer: Child's session size is now %i. This sessions problem data is of size %i. Complete problems is now size %i", [[cUser sessions] count], [[[cUser sessionWithDate:[[UserDatabaseManager sharedInstance] sessionDate]] problemData] count], [cUser.completedProblems count]);
     }
 }
 
@@ -280,6 +286,7 @@
         }
         
         [[UserDatabaseManager sharedInstance] save];
+//        NSLog(@"Recorded incorrect answer: Child's session size is now %i. This sessions problem data is of size %i", [[cUser sessions] count], [[[cUser sessionWithDate:[[UserDatabaseManager sharedInstance] sessionDate]] problemData] count]);
     }
 }
 

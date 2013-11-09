@@ -33,7 +33,9 @@ enum yAxisDataType {
 @property (nonatomic) NSMutableArray* legendChildList;
 @property (nonatomic) NSMutableArray* emotionList;
 @property (nonatomic) NSMutableArray* legendEmotionList;
-@property (nonatomic) NSMutableArray* colors;
+@property (nonatomic) NSMutableArray* availableColors;
+// An array containing the colors associated with the child tiles in the legend
+@property (nonatomic) NSMutableArray* usedColors;
 
 // Information about the current tile being dragged around the screen
 @property (nonatomic, weak) UIView* movingTile;
@@ -56,6 +58,7 @@ enum yAxisDataType {
 - (void)handlePanGesture:(StatisticsViewGestureRecognizer*)pan;
 - (void)transferTileFromCollection:(UICollectionView*)fromCollection toCollection:(UICollectionView*)toCollection fromArray:(NSMutableArray*)fromArray toArray:(NSMutableArray*)toArray withIndex:(NSUInteger)index;
 - (NSArray*)problemIDsToIncludeInDataset;
+- (void)displayGraphFullErrorMessage;
 
 @end
 
@@ -63,7 +66,7 @@ enum yAxisDataType {
 
 @synthesize childList, movingTile, movingTileHomeCell, legendChildList, movingChildUser, gameMode;
 @synthesize emotionList, legendEmotionList, gameModePickerValues, dataTypePickerValues, buttonDisplayingPopover, popoverController, prePopoverDataType, prePopoverGameMode;
-@synthesize graphVC, colors;
+@synthesize graphVC, availableColors, usedColors;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -145,12 +148,20 @@ enum yAxisDataType {
     return @[@"% Correct", @"Average Response Time"];
 }
 
-- (NSMutableArray*)colors
+- (NSMutableArray*)availableColors
 {
-    if (colors == nil) {
-        colors = [NSMutableArray arrayWithArray:@[[UIColor whiteColor], [UIColor cyanColor], [UIColor redColor], [UIColor yellowColor], [UIColor purpleColor],[UIColor greenColor], [UIColor orangeColor]]];
+    if (availableColors == nil) {
+        availableColors = [NSMutableArray arrayWithArray:@[[UIColor whiteColor], [UIColor cyanColor], [UIColor redColor], [UIColor yellowColor], [UIColor purpleColor],[UIColor greenColor], [UIColor orangeColor]]];
     }
-    return colors;
+    return availableColors;
+}
+
+- (NSMutableArray*)usedColors
+{
+    if (usedColors == nil) {
+        usedColors = [[NSMutableArray alloc] init];
+    }
+    return usedColors;
 }
 
 // ----------------------------- UICollectionViewDataSource -----------------------------
@@ -198,11 +209,13 @@ enum yAxisDataType {
             cell = [self.childrenCollection
                                     dequeueReusableCellWithReuseIdentifier:@"ChildCell"
                                     forIndexPath:indexPath];
+            cell.nameLabel.textColor = [UIColor whiteColor];
         }
         else {
             user = (ChildUser*)[self.legendChildList objectAtIndex:[indexPath row]];
             cell = [self.legendChildrenCollection dequeueReusableCellWithReuseIdentifier:@"ChildCell"
                                                                     forIndexPath:indexPath];
+            cell.nameLabel.textColor = [self.usedColors objectAtIndex:indexPath.row];
         }
         
         // Setup the cell
@@ -299,20 +312,43 @@ enum yAxisDataType {
         if (pan.startingCollection == self.childrenCollection &&
             (CGRectIntersectsRect(tileRect, self.legendChildrenCollection.frame) || CGRectIntersectsRect(tileRect, self.graphContainerView.frame)))
         {
-            [self transferTileFromCollection:self.childrenCollection
-                                toCollection:self.legendChildrenCollection
-                                    fromArray:self.childList
-                                     toArray:self.legendChildList
-                                   withIndex:pan.cellIndex];
+            // Check we still have a color available to use in the graph
+            if ([self.availableColors count] > 0)
+            {
+                ChildUser* cUser = [self.childList objectAtIndex:pan.cellIndex];
+                [self transferTileFromCollection:self.childrenCollection
+                                    toCollection:self.legendChildrenCollection
+                                       fromArray:self.childList
+                                         toArray:self.legendChildList
+                                       withIndex:pan.cellIndex];
+                
+                [self.usedColors addObject:[self.availableColors lastObject]];
+                [self.graphVC addChild:cUser.name withColor:[self.availableColors lastObject]];
+                [self.graphVC reloadGraph];
+                [self.availableColors removeLastObject];
+            }
+            else
+            {
+                [self displayGraphFullErrorMessage];
+            }
+
         }
         // Child from legend to tray
         else if (CGRectIntersectsRect(tileRect, self.childrenCollection.frame) && pan.startingCollection == self.legendChildrenCollection)
         {
+            ChildUser* cUser = [self.legendChildList objectAtIndex:pan.cellIndex];
             [self transferTileFromCollection:self.legendChildrenCollection
                                 toCollection:self.childrenCollection
                                    fromArray:self.legendChildList
                                      toArray:self.childList
                                    withIndex:pan.cellIndex];
+            UIColor* color = [self.usedColors objectAtIndex:pan.cellIndex];
+            [self.usedColors removeObject:color];
+            [self.availableColors addObject:color];
+
+            // Update the graph
+            [self.graphVC removeChild:cUser.name];
+            [self.graphVC reloadGraph];
         }
         // From emotion tray to legend
         else if (pan.startingCollection == self.emotionCollection &&
@@ -324,6 +360,8 @@ enum yAxisDataType {
                                    fromArray:self.emotionList
                                      toArray:self.legendEmotionList
                                    withIndex:pan.cellIndex];
+            self.graphVC.problemIDsToInclude = [self problemIDsToIncludeInDataset];
+            [self.graphVC reloadGraph];
         }
         // From legend to emotion tray
         else if (CGRectIntersectsRect(tileRect, self.emotionCollection.frame) && pan.startingCollection == self.legendEmotionCollection)
@@ -333,6 +371,8 @@ enum yAxisDataType {
                                    fromArray:self.legendEmotionList
                                      toArray:self.emotionList
                                    withIndex:pan.cellIndex];
+            self.graphVC.problemIDsToInclude = [self problemIDsToIncludeInDataset];
+            [self.graphVC reloadGraph];
         }
         // Tile didn't end in any meaningful location so put it back in its original location
         else
@@ -425,6 +465,16 @@ enum yAxisDataType {
     
     [fromCollection reloadData];
     [toCollection reloadData];
+}
+
+- (void)displayGraphFullErrorMessage
+{
+    UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Graph Full"
+                                                        message:@"Can't add any more children to the graph"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+    [alertView show];
 }
 
 // --------------------------------- IBAction Handlers -----------------------------------

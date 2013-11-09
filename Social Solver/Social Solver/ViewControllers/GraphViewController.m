@@ -13,7 +13,10 @@
 #define DEFAULT_DATA_POINT_SIZE 10.0f
 #define DEFAULT_LINE_WIDTH 2.5f
 #define NUM_X_MAJOR_TICKS 5
-#define GRAPH_PADDING 30.0f
+#define GRAPH_PADDING_BOTTOM 50.0f
+#define GRAPH_PADDING_LEFT 50.0f
+#define Y_MAJOR_TICK_INC 20
+#define Y_AXIS_POINTS_PADDING 10
 
 @interface GraphViewController () <CPTPlotDataSource>
 
@@ -44,7 +47,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        self.maxYValue = (self.yDataType == GraphYDataTypeCorrectPercent) ? 100 : 0;
     }
     return self;
 }
@@ -55,16 +58,14 @@
 
     self.graph = [[CPTXYGraph alloc] initWithFrame:self.hostingView.bounds];
     [self.graph applyTheme:[CPTTheme themeNamed:kCPTPlainBlackTheme]];
-    self.hostingView.allowPinchScaling = YES;
     self.hostingView.hostedGraph = graph;
     
     // Set padding for plot area
-    [self.graph.plotAreaFrame setPaddingLeft:GRAPH_PADDING];
-    [self.graph.plotAreaFrame setPaddingBottom:GRAPH_PADDING];
-    
-    self.graph.defaultPlotSpace.allowsUserInteraction = YES;
+    [self.graph.plotAreaFrame setPaddingLeft:GRAPH_PADDING_LEFT];
+    [self.graph.plotAreaFrame setPaddingBottom:GRAPH_PADDING_BOTTOM];
     
     [self configureAxes];
+//    [self labelAxes];
 }
 
 - (void)didReceiveMemoryWarning
@@ -107,11 +108,16 @@
     
     CPTXYPlotSpace* plotSpace = (CPTXYPlotSpace*)self.graph.defaultPlotSpace;
     CPTMutablePlotRange* xRange = [plotSpace.xRange mutableCopy];
-    [xRange expandRangeByFactor:CPTDecimalFromCGFloat(1.1f)];
+    xRange.location = CPTDecimalFromCGFloat(0);
+    xRange.length = CPTDecimalFromCGFloat(1.1f);
     plotSpace.xRange = xRange;
+    
     CPTMutablePlotRange *yRange = [plotSpace.yRange mutableCopy];
-    [yRange expandRangeByFactor:CPTDecimalFromCGFloat(1.2f)];
+    yRange.location = CPTDecimalFromCGFloat(0);
+    yRange.length = CPTDecimalFromCGFloat(self.maxYValue + Y_AXIS_POINTS_PADDING);
     plotSpace.yRange = yRange;
+    
+    [self labelAxes];
 }
 
 -(void)configureAxes
@@ -140,25 +146,26 @@
     CPTAxis* xAxis = axisSet.xAxis;
     xAxis.title = @"Date";
     xAxis.titleTextStyle = axisTitleStyle;
-    xAxis.titleOffset = 15.0f;
+    xAxis.titleOffset = 30.0f;
     xAxis.axisLineStyle = axisLineStyle;
-    xAxis.labelingPolicy = CPTAxisLabelingPolicyLocationsProvided;
+    xAxis.labelingPolicy = CPTAxisLabelingPolicyNone;
     xAxis.labelTextStyle = axisTextStyle;
     xAxis.majorTickLineStyle = axisLineStyle;
-    xAxis.majorTickLength = 1.0f;
+    xAxis.majorTickLength = 4.0f;
+    xAxis.labelOffset = 10.0f;
     xAxis.tickDirection = CPTSignNegative;
     
     // Configure y-axis
     CPTAxis* yAxis = axisSet.yAxis;
     yAxis.title = [self yAxisTitle];
     yAxis.titleTextStyle = axisTitleStyle;
-    yAxis.titleOffset = -20.0f;
+    yAxis.titleOffset = -GRAPH_PADDING_LEFT;
     yAxis.axisLineStyle = axisLineStyle;
-    yAxis.labelingPolicy = CPTAxisLabelingPolicyEqualDivisions;
+    yAxis.labelingPolicy = CPTAxisLabelingPolicyNone;
     yAxis.labelTextStyle = axisTextStyle;
-    yAxis.labelOffset = 16.0f;
+    yAxis.labelOffset = 20.0f;
     yAxis.majorTickLineStyle = axisLineStyle;
-    yAxis.majorTickLength = 2.0f;
+    yAxis.majorTickLength = 4.0f;
     yAxis.tickDirection = CPTSignPositive;
 }
 
@@ -176,16 +183,16 @@
     dateFormatter.dateStyle = NSDateFormatterShortStyle;
     dateFormatter.locale = [NSLocale currentLocale];
     
-    CGFloat location = (1.0 / NUM_X_MAJOR_TICKS);
-    for (int i = 0; i < NUM_X_MAJOR_TICKS; i++)
+    CGFloat location = 0.0f;
+    for (int i = 0; location <= 1.0; i++)
     {
         NSDate* date = [self dateForXCoord:location];
         NSString* labelText = [dateFormatter stringFromDate:date];
         
         CPTAxisLabel* l = [[CPTAxisLabel alloc] initWithText:labelText textStyle:xAxis.labelTextStyle];
         l.tickLocation = CPTDecimalFromFloat(location);
-        //        l.offset = xAxis.majorTickLength;
-        [xLocations addObject:[NSNumber numberWithFloat:i]];
+        l.offset = xAxis.labelOffset;
+        [xLocations addObject:[NSDecimalNumber decimalNumberWithDecimal:CPTDecimalFromCGFloat(location)]];
         [xLabels addObject:l];
         
         location += (1.0 / NUM_X_MAJOR_TICKS);
@@ -198,7 +205,22 @@
     CPTAxis* yAxis = axisSet.yAxis;
     yAxis.title = [self yAxisTitle];
     
+    // Label the y-axis
+    NSMutableSet* yLabels = [NSMutableSet set];
+    NSMutableSet* yMajorLocations = [NSMutableSet set];
     
+    for (int j = 0; j <= (self.maxYValue + Y_AXIS_POINTS_PADDING); j += Y_MAJOR_TICK_INC)
+    {
+        CPTAxisLabel* label = [[CPTAxisLabel alloc] initWithText:[NSString stringWithFormat:@"%i", j] textStyle:yAxis.labelTextStyle];
+        NSDecimal location = CPTDecimalFromInteger(j);
+        label.tickLocation = location;
+        label.offset = -yAxis.labelOffset;
+        [yLabels addObject:label];
+        [yMajorLocations addObject:[NSDecimalNumber decimalNumberWithDecimal:location]];
+    }
+    
+    yAxis.axisLabels = yLabels;
+    yAxis.majorTickLocations = yMajorLocations;
 }
 
 - (void)addChild:(NSString*)child withColor:(UIColor*)color;
@@ -220,16 +242,17 @@
     [self.graphData removeAllObjects];
     self.minDate = nil;
     self.maxDate = nil;
-    self.maxYValue = 0;
+    self.maxYValue = (self.yDataType == GraphYDataTypeCorrectPercent) ? 100 : 0;
     
     // Reload the graph
     [self.graph reloadData];
+    [self labelAxes];
 }
 
 - (NSArray*)convertToGraphData:(NSArray*)rawData
 {
     NSArray* sortedData = [rawData sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-        return [((Session*)obj1).date compare:obj2];
+        return [((Session*)obj1).date compare:((Session*)obj2).date];
              }];
     
     NSMutableArray* convertedData = [[NSMutableArray alloc] init];
@@ -262,6 +285,7 @@
                     case GraphYDataTypeCorrectPercent:
                         numerator += problem.numberCorrect;
                         denominator += problem.numberOfAttempts;
+                        break;
                     default:
                         NSAssert(false, @"Unknown GraphYDataType in %s", __PRETTY_FUNCTION__);
                         break;
@@ -279,7 +303,10 @@
             // Update our xRange bounds if necessary
             self.minDate = [xPoint earlierDate:self.minDate];
             self.maxDate = [xPoint laterDate:self.maxDate];
-            self.maxYValue = MAX(self.maxYValue, val);
+            // Update the max Y is our data isn't in %
+            if (self.yDataType != GraphYDataTypeCorrectPercent) {
+                self.maxYValue = MAX(self.maxYValue, val);
+            }
 
             [convertedData addObject:@[xPoint, yPoint]];
         }
