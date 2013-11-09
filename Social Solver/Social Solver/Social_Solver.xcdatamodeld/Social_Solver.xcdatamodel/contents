@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3400" systemVersion="13A603" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Child" representedClassName="ChildUser" parentEntity="User" syncable="YES">
+        <relationship name="completedProblems" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ProblemData" inverseName="child" inverseEntity="ProblemData" syncable="YES"/>
+        <relationship name="guardians" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Guardian" inverseName="children" inverseEntity="Guardian" syncable="YES"/>
+        <relationship name="primaryGuardian" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Guardian" inverseName="primaryChildren" inverseEntity="Guardian" syncable="YES"/>
+        <relationship name="settings" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ChildSettings" inverseName="child" inverseEntity="ChildSettings" syncable="YES"/>
+    </entity>
+    <entity name="ChildSettings" representedClassName="ChildSettings" syncable="YES">
+        <attribute name="allowsAutoSync" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="allowsTracking" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <relationship name="child" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Child" inverseName="settings" inverseEntity="Child" syncable="YES"/>
+    </entity>
+    <entity name="Guardian" representedClassName="GuardianUser" parentEntity="User" syncable="YES">
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="children" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Child" inverseName="guardians" inverseEntity="Child" syncable="YES"/>
+        <relationship name="primaryChildren" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Child" inverseName="primaryGuardian" inverseEntity="Child" syncable="YES"/>
+    </entity>
+    <entity name="ProblemData" representedClassName="ChildProblemData" syncable="YES">
+        <attribute name="numberCorrect" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="numberOfAttempts" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="problemID" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="totalResponseTime" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="child" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Child" inverseName="completedProblems" inverseEntity="Child" syncable="YES"/>
+    </entity>
+    <entity name="User" representedClassName="User" isAbstract="YES" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="passwordHash" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="passwordSeed" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="uid" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Child" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="ChildSettings" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Guardian" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="ProblemData" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="User" positionX="0" positionY="0" width="0" height="0"/>
+    </elements>
+</model>

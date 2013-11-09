@@ -33,6 +33,7 @@ enum yAxisDataType {
 @property (nonatomic) NSMutableArray* legendChildList;
 @property (nonatomic) NSMutableArray* emotionList;
 @property (nonatomic) NSMutableArray* legendEmotionList;
+@property (nonatomic) NSMutableArray* colors;
 
 // Information about the current tile being dragged around the screen
 @property (nonatomic, weak) UIView* movingTile;
@@ -62,7 +63,7 @@ enum yAxisDataType {
 
 @synthesize childList, movingTile, movingTileHomeCell, legendChildList, movingChildUser, gameMode;
 @synthesize emotionList, legendEmotionList, gameModePickerValues, dataTypePickerValues, buttonDisplayingPopover, popoverController, prePopoverDataType, prePopoverGameMode;
-@synthesize graphVC;
+@synthesize graphVC, colors;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -142,6 +143,14 @@ enum yAxisDataType {
 - (NSArray*)dataTypePickerValues
 {
     return @[@"% Correct", @"Average Response Time"];
+}
+
+- (NSMutableArray*)colors
+{
+    if (colors == nil) {
+        colors = [NSMutableArray arrayWithArray:@[[UIColor whiteColor], [UIColor cyanColor], [UIColor redColor], [UIColor yellowColor], [UIColor purpleColor],[UIColor greenColor], [UIColor orangeColor]]];
+    }
+    return colors;
 }
 
 // ----------------------------- UICollectionViewDataSource -----------------------------

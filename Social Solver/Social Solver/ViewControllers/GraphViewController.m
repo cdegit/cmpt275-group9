@@ -63,8 +63,6 @@
     self.graph.defaultPlotSpace.allowsUserInteraction = YES;
     
     [self configureAxes];
-    
-    [self addPlotWithID:@"test" color:[CPTColor cyanColor]];
 }
 
 - (void)didReceiveMemoryWarning
