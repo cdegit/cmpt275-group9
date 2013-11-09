@@ -12,6 +12,8 @@
 #import "Session.h"
 
 @class ChildUser;
+@class Session;
+
 @interface ChildProblemData : NSManagedObject
 
 @property (nonatomic) NSInteger numberCorrect, numberOfAttempts, problemID;
