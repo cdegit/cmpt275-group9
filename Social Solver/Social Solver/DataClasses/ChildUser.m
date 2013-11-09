@@ -14,6 +14,7 @@
 @dynamic completedProblems, guardians;
 @dynamic primaryGuardian;
 @dynamic settings;
+@dynamic sessions;
 
 - (ChildProblemData*)completedProblemDataWithID:(NSUInteger)problemID
 {

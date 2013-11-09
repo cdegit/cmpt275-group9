@@ -12,7 +12,7 @@
 @implementation ChildProblemData
 
 @dynamic numberCorrect, numberOfAttempts, problemID;
-@dynamic child;
 @dynamic totalResponseTime;
+@dynamic session;
 
 @end

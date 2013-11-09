@@ -9,12 +9,14 @@
 
 #import <CoreData/CoreData.h>
 #import "ChildUser.h"
+#import "Session.h"
 
 @class ChildUser;
 @interface ChildProblemData : NSManagedObject
 
 @property (nonatomic) NSInteger numberCorrect, numberOfAttempts, problemID;
 @property (nonatomic) double totalResponseTime;
-@property (nonatomic) ChildUser* child;
+@property (nonatomic) Session* session;
+
 
 @end

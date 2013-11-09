@@ -10,6 +10,7 @@
 		2A105F12181E16970035232F /* ChildSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A105F11181E16970035232F /* ChildSettings.m */; };
 		2A105F15181E18CF0035232F /* ChildProblemData.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A105F14181E18CF0035232F /* ChildProblemData.m */; };
 		2A475087181DDD73000EBEAB /* UIImagePickerController+ShouldAutorotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A475086181DDD73000EBEAB /* UIImagePickerController+ShouldAutorotate.m */; };
+		2A48CB3B182EBEC40037AEB0 /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A48CB3A182EBEC40037AEB0 /* Session.m */; };
 		2A67ECE11827F245000695CC /* ViewChildrenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A67ECDF1827F245000695CC /* ViewChildrenViewController.m */; };
 		2A67ECE21827F245000695CC /* ViewChildrenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A67ECE01827F245000695CC /* ViewChildrenViewController.xib */; };
 		2A730FA01819A4EA000356DE /* LoginUserSelectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A730F9F1819A4EA000356DE /* LoginUserSelectionCell.m */; };
@@ -120,6 +121,8 @@
 		2A3CDB82181EC83900A04D62 /* LoginPromptViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LoginPromptViewControllerDelegate.h; path = Protocols/LoginPromptViewControllerDelegate.h; sourceTree = "<group>"; };
 		2A475085181DDD73000EBEAB /* UIImagePickerController+ShouldAutorotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImagePickerController+ShouldAutorotate.h"; path = "Categories/UIImagePickerController+ShouldAutorotate.h"; sourceTree = "<group>"; };
 		2A475086181DDD73000EBEAB /* UIImagePickerController+ShouldAutorotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImagePickerController+ShouldAutorotate.m"; path = "Categories/UIImagePickerController+ShouldAutorotate.m"; sourceTree = "<group>"; };
+		2A48CB39182EBEC40037AEB0 /* Session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Session.h; sourceTree = "<group>"; };
+		2A48CB3A182EBEC40037AEB0 /* Session.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Session.m; sourceTree = "<group>"; };
 		2A67ECDE1827F245000695CC /* ViewChildrenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewChildrenViewController.h; sourceTree = "<group>"; };
 		2A67ECDF1827F245000695CC /* ViewChildrenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewChildrenViewController.m; sourceTree = "<group>"; };
 		2A67ECE01827F245000695CC /* ViewChildrenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ViewChildrenViewController.xib; path = ViewControllers/ViewChildrenViewController.xib; sourceTree = "<group>"; };
@@ -503,6 +506,8 @@
 				2A105F14181E18CF0035232F /* ChildProblemData.m */,
 				2AAABD96182D506900FBCD60 /* ServerRequest.h */,
 				2AAABD97182D506900FBCD60 /* ServerRequest.m */,
+				2A48CB39182EBEC40037AEB0 /* Session.h */,
+				2A48CB3A182EBEC40037AEB0 /* Session.m */,
 			);
 			path = DataClasses;
 			sourceTree = "<group>";
@@ -688,6 +693,7 @@
 				EACC67A918037CFE00FEAC76 /* Social_Solver.xcdatamodeld in Sources */,
 				EACC67CB18037DA300FEAC76 /* MainMenuViewController.m in Sources */,
 				EACC67CF1803816800FEAC76 /* RootNavigationViewController.m in Sources */,
+				2A48CB3B182EBEC40037AEB0 /* Session.m in Sources */,
 				EACC67D9180733CB00FEAC76 /* User.m in Sources */,
 				EACC67DC1807340700FEAC76 /* GuardianUser.m in Sources */,
 				2AAABD98182D506900FBCD60 /* ServerRequest.m in Sources */,
