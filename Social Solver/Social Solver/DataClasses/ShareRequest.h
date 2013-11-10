@@ -13,12 +13,14 @@
     NSString* childName;
     NSString*  guardianEmail;
     NSString* securityCode;
+    NSString* password;
 }
 
 @property (nonatomic) NSString* childName;
 @property (nonatomic) NSString* guardianEmail;
 @property (nonatomic) NSString* securityCode;
+@property (nonatomic) NSString* password;
 
--(id) initWithChild:(NSString*)name AndGuardianEmail:(NSString*)email AndSecurityCode:(NSString*)code;
+-(id) initWithChild:(NSString*)name AndGuardianEmail:(NSString*)email AndSecurityCode:(NSString*)code AndPassword:(NSString*)pass;
 
 @end

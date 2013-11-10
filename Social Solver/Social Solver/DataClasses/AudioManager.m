@@ -29,13 +29,13 @@
     self = [super init];
     if (self)
     {
-        NSURL *buttonURL = [[NSBundle mainBundle] URLForResource:@"cheering" withExtension:@"wav"];
+        NSURL *buttonURL = [[NSBundle mainBundle] URLForResource:@"button" withExtension:@"wav"];
         AudioServicesCreateSystemSoundID((__bridge CFURLRef)buttonURL, &buttonPress);
         
         NSURL *cheeringURL = [[NSBundle mainBundle] URLForResource:@"cheering" withExtension:@"wav"];
         AudioServicesCreateSystemSoundID((__bridge CFURLRef)cheeringURL, &cheering);
         
-        NSURL *tryAgainURL = [[NSBundle mainBundle] URLForResource:@"cheering" withExtension:@"wav"];
+        NSURL *tryAgainURL = [[NSBundle mainBundle] URLForResource:@"tryagain" withExtension:@"wav"];
         AudioServicesCreateSystemSoundID((__bridge CFURLRef)tryAgainURL, &tryAgain);
     }
     return self;

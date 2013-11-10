@@ -9,6 +9,8 @@
 #import "PendingSharesViewController.h"
 #import "ShareRequest.h"
 #import "PendingSharesTableCell.h"
+#import "User.h"
+#import "UserDatabaseManager.h"
 
 @interface PendingSharesViewController ()
 
@@ -37,9 +39,9 @@ UITableView* table;
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    ShareRequest* child = [[ShareRequest alloc] initWithChild:@"Timmy" AndGuardianEmail:@"bob@example.com" AndSecurityCode:@"1111"];
+    ShareRequest* child = [[ShareRequest alloc] initWithChild:@"Timmy" AndGuardianEmail:@"bob@example.com" AndSecurityCode:@"1111" AndPassword:@"pass"];
     
-    ShareRequest* child2 = [[ShareRequest alloc] initWithChild:@"Sally" AndGuardianEmail:@"jane@gmail.com" AndSecurityCode:@"1321"];
+    ShareRequest* child2 = [[ShareRequest alloc] initWithChild:@"Sally" AndGuardianEmail:@"jane@gmail.com" AndSecurityCode:@"1321" AndPassword:@"pass"];
     
     tableData = [NSMutableArray arrayWithObjects:child, child2, nil];
     
@@ -70,9 +72,20 @@ UITableView* table;
                 [alert setTag:1];
                 [alert show];
                 
+                // Add new child
+                User* user;
+                user = [[UserDatabaseManager sharedInstance] createChildWithName:child.childName password:child.password andProfileImage:nil];
+                
                 [tableData removeObjectAtIndex:selectedChildIndex];
                 [table reloadData];
                 _numberOfShares.text = [NSString stringWithFormat:@"%d", [tableData count]];
+                
+                // Hide the table if it is empty
+                if ([tableData count] == 0)
+                {
+                    table.hidden = YES;
+                }
+
                 
             } else {
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Incorrect Security Code" message:@"Please enter the code sent to you by the original guardian." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
