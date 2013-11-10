@@ -89,7 +89,7 @@
     CPTMutableLineStyle* symbolLineStyle = [CPTMutableLineStyle lineStyle];
     symbolLineStyle.lineColor = color;
     
-    CPTPlotSymbol* symbol = [CPTPlotSymbol snowPlotSymbol];
+    CPTPlotSymbol* symbol = [CPTPlotSymbol starPlotSymbol];
     symbol.fill = [CPTFill fillWithColor:color];
     symbol.lineStyle = symbolLineStyle;
     symbol.size = CGSizeMake(DEFAULT_DATA_POINT_SIZE, DEFAULT_DATA_POINT_SIZE);

@@ -131,7 +131,6 @@
 		EAE439C318302BA80026370C /* GuardianGameMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAE439C118302BA80026370C /* GuardianGameMenuViewController.xib */; };
 		EAE439C818303AF40026370C /* button.wav in Resources */ = {isa = PBXBuildFile; fileRef = EAE439C418303AF40026370C /* button.wav */; };
 		EAE439C918303AF40026370C /* button2.wav in Resources */ = {isa = PBXBuildFile; fileRef = EAE439C518303AF40026370C /* button2.wav */; };
-		EAE439CA18303AF40026370C /* cheering-short.wav in Resources */ = {isa = PBXBuildFile; fileRef = EAE439C618303AF40026370C /* cheering-short.wav */; };
 		EAE439CB18303AF40026370C /* tryagain.wav in Resources */ = {isa = PBXBuildFile; fileRef = EAE439C718303AF40026370C /* tryagain.wav */; };
 		EAE439D018303B080026370C /* AudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EAE439CD18303B080026370C /* AudioManager.m */; };
 		EAE439D118303B080026370C /* ShareRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = EAE439CF18303B080026370C /* ShareRequest.m */; };
@@ -405,7 +404,6 @@
 		EAE439C118302BA80026370C /* GuardianGameMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GuardianGameMenuViewController.xib; path = ViewControllers/GuardianGameMenuViewController.xib; sourceTree = "<group>"; };
 		EAE439C418303AF40026370C /* button.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = button.wav; sourceTree = "<group>"; };
 		EAE439C518303AF40026370C /* button2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = button2.wav; sourceTree = "<group>"; };
-		EAE439C618303AF40026370C /* cheering-short.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "cheering-short.wav"; sourceTree = "<group>"; };
 		EAE439C718303AF40026370C /* tryagain.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = tryagain.wav; sourceTree = "<group>"; };
 		EAE439CC18303B080026370C /* AudioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioManager.h; sourceTree = "<group>"; };
 		EAE439CD18303B080026370C /* AudioManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioManager.m; sourceTree = "<group>"; };
@@ -593,7 +591,6 @@
 				EAC698D2181DB81A00342086 /* Button 300x50.png */,
 				EAE439C418303AF40026370C /* button.wav */,
 				EAE439C518303AF40026370C /* button2.wav */,
-				EAE439C618303AF40026370C /* cheering-short.wav */,
 				EAC698DB181DB81A00342086 /* children-50x50.png */,
 				EAC69911181DCBC600342086 /* circle_gradient.jpg */,
 				EAC698FF181DC20D00342086 /* Face Finder Icon brighter.png */,
@@ -1009,7 +1006,6 @@
 				EAC698E7181DB81A00342086 /* Face Finder Icon.png in Resources */,
 				EAE439BB182F05AB0026370C /* open arrow right.png in Resources */,
 				2A7DB107181B3A24008EF99F /* LoginPromptViewController.xib in Resources */,
-				EAE439CA18303AF40026370C /* cheering-short.wav in Resources */,
 				EAE439B5182F03880026370C /* arrow-down.png in Resources */,
 				EAC69905181DC20D00342086 /* Rewards Gallery Icon brighter.png in Resources */,
 				EAE439C918303AF40026370C /* button2.wav in Resources */,
