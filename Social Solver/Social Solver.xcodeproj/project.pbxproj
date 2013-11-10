@@ -408,10 +408,10 @@
 		2A3CDB81181EC81700A04D62 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				EABC93A9182E06AE00E81664 /* GraphViewControllerDataSource.h */,
-				EAC699381828B37C00342086 /* PopoverPickerViewControllerDelegate.h */,
-				2A3CDB82181EC83900A04D62 /* LoginPromptViewControllerDelegate.h */,
 				2A67ECE31827FCC7000695CC /* AccountManagementViewControllerDelegate.h */,
+				EABC93A9182E06AE00E81664 /* GraphViewControllerDataSource.h */,
+				2A3CDB82181EC83900A04D62 /* LoginPromptViewControllerDelegate.h */,
+				EAC699381828B37C00342086 /* PopoverPickerViewControllerDelegate.h */,
 				2A964BE7182D5CDD0016B43F /* ServerRequestDelegate.h */,
 			);
 			name = Protocols;
@@ -523,23 +523,23 @@
 		EAC698CD181DB7F000342086 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				EAE439BA182F05AB0026370C /* open arrow right.png */,
-				EAE439B0182F03880026370C /* arrow-down.png */,
-				EAE439B1182F03880026370C /* arrow-left.png */,
-				EAE439B2182F03880026370C /* arrow-right.png */,
-				EAE439B3182F03880026370C /* arrow-up.png */,
-				EAE439B4182F03880026370C /* open arrow down.png */,
 				EAC69911181DCBC600342086 /* circle_gradient.jpg */,
 				EAC69917181DD1E700342086 /* test_image.jpg */,
 				EAC69914181DCE3C00342086 /* vert gradient 2.jpg */,
 				EAC698D0181DB81A00342086 /* App Icon 144x144.png */,
 				EAC698CF181DB81A00342086 /* App Icon 72x72.png */,
+				EAE439B0182F03880026370C /* arrow-down.png */,
+				EAE439B1182F03880026370C /* arrow-left.png */,
+				EAE439B2182F03880026370C /* arrow-right.png */,
+				EAE439B3182F03880026370C /* arrow-up.png */,
 				EAC698FD181DC15800342086 /* Button 300x50 brighter.png */,
 				EAC698D2181DB81A00342086 /* Button 300x50.png */,
 				EAC698DB181DB81A00342086 /* children-50x50.png */,
 				EAC698FF181DC20D00342086 /* Face Finder Icon brighter.png */,
 				EAC698D4181DB81A00342086 /* Face Finder Icon.png */,
 				EAC698DC181DB81A00342086 /* games-50x50.png */,
+				EAE439B4182F03880026370C /* open arrow down.png */,
+				EAE439BA182F05AB0026370C /* open arrow right.png */,
 				EAC698DD181DB81A00342086 /* pending-50x50.png */,
 				EAC69900181DC20D00342086 /* Problem Solver Icon brighter.png */,
 				EAC698D7181DB81A00342086 /* Problem Solver Icon.png */,
@@ -671,22 +671,22 @@
 		EACC67D41807339500FEAC76 /* Xibs */ = {
 			isa = PBXGroup;
 			children = (
-				EABC93B0182E06CA00E81664 /* GraphViewController.xib */,
-				EAC699431828B3A000342086 /* StatsChildCell.xib */,
-				EAC699461828B3A000342086 /* StatsProblemCell.xib */,
-				EAC6993E1828B39100342086 /* PopoverPickerViewController.xib */,
-				2A67ECE01827F245000695CC /* ViewChildrenViewController.xib */,
-				2A7DB105181B3A24008EF99F /* LoginPromptViewController.xib */,
-				EA16941A18163C5C00C40069 /* LevelCompleteViewController.xib */,
-				EACC6809180B9CE900FEAC76 /* StatisticsViewController.xib */,
-				EACC67FB180B4C7400FEAC76 /* GuardianMainMenuViewController.xib */,
-				EACC67F6180B4C4800FEAC76 /* RewardsGalleryViewController.xib */,
 				EACC67F1180B4BC700FEAC76 /* AccountManagementViewController.xib */,
 				EACC67EC180B4B8D00FEAC76 /* GameViewController.xib */,
+				EABC93B0182E06CA00E81664 /* GraphViewController.xib */,
+				EACC67FB180B4C7400FEAC76 /* GuardianMainMenuViewController.xib */,
+				EA16941A18163C5C00C40069 /* LevelCompleteViewController.xib */,
+				2A7DB105181B3A24008EF99F /* LoginPromptViewController.xib */,
+				2A730FA11819A541000356DE /* LoginUserSelectionCell.xib */,
 				EACC67E7180B4B6600FEAC76 /* LoginViewController.xib */,
 				EACC67CA18037DA300FEAC76 /* MainMenuViewController.xib */,
 				EACC6805180B954C00FEAC76 /* NavigationTableCell.xib */,
-				2A730FA11819A541000356DE /* LoginUserSelectionCell.xib */,
+				EAC6993E1828B39100342086 /* PopoverPickerViewController.xib */,
+				EACC67F6180B4C4800FEAC76 /* RewardsGalleryViewController.xib */,
+				EACC6809180B9CE900FEAC76 /* StatisticsViewController.xib */,
+				EAC699431828B3A000342086 /* StatsChildCell.xib */,
+				EAC699461828B3A000342086 /* StatsProblemCell.xib */,
+				2A67ECE01827F245000695CC /* ViewChildrenViewController.xib */,
 			);
 			name = Xibs;
 			sourceTree = "<group>";
@@ -756,14 +756,14 @@
 		EACC6801180B941C00FEAC76 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2A730F9E1819A4EA000356DE /* LoginUserSelectionCell.h */,
+				2A730F9F1819A4EA000356DE /* LoginUserSelectionCell.m */,
+				EACC6802180B944E00FEAC76 /* NavigationTableCell.h */,
+				EACC6803180B944E00FEAC76 /* NavigationTableCell.m */,
 				EAC699411828B3A000342086 /* StatsChildCell.h */,
 				EAC699421828B3A000342086 /* StatsChildCell.m */,
 				EAC699441828B3A000342086 /* StatsProblemCell.h */,
 				EAC699451828B3A000342086 /* StatsProblemCell.m */,
-				EACC6802180B944E00FEAC76 /* NavigationTableCell.h */,
-				EACC6803180B944E00FEAC76 /* NavigationTableCell.m */,
-				2A730F9E1819A4EA000356DE /* LoginUserSelectionCell.h */,
-				2A730F9F1819A4EA000356DE /* LoginUserSelectionCell.m */,
 				EAE439BC182F320B0026370C /* StatsTrayCollectionView.h */,
 				EAE439BD182F320B0026370C /* StatsTrayCollectionView.m */,
 			);

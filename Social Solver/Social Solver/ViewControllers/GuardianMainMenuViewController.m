@@ -17,6 +17,7 @@
 @property (nonatomic) CGFloat cellHeight;
 @property (nonatomic) UIViewController* detailViewController;
 @property (nonatomic, strong) StatisticsViewController* statsVC;
+@property (nonatomic, strong) ViewChildrenViewController* viewChildrenVC;
 
 @end
 
@@ -39,6 +40,14 @@
 
     // Select the first cell by default
     [self.navigationTable selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionNone];
+    
+    self.detailViewController = self.viewChildrenVC;
+    if (self.detailViewController != nil)
+    {
+        self.detailViewController.view.frame = self.detailViewContainer.bounds;
+        self.detailViewController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        [self.detailViewContainer addSubview:self.detailViewController.view];
+    }
     
     self.navigationItem.title = @"Social Solver";
     
@@ -86,6 +95,14 @@
     return statsVC;
 }
 
+- (ViewChildrenViewController*)viewChildrenVC
+{
+    if (_viewChildrenVC == nil) {
+        _viewChildrenVC = [[ViewChildrenViewController alloc] initWithNibName:@"ViewChildrenViewController" bundle:[NSBundle mainBundle]];
+    }
+    return _viewChildrenVC;
+}
+
 // UITableviewDatasource Methods ------------------------------------------------------------
 // ------------------------------------------------------------------------------------------
 
@@ -119,7 +136,7 @@
         case 0:
         {
             // Load view children
-            [self setDetailViewController:[[ViewChildrenViewController alloc] initWithNibName:@"ViewChildrenViewController" bundle:[NSBundle mainBundle]]];
+            self.detailViewController = self.viewChildrenVC;
             break;
         }
         case 1:
