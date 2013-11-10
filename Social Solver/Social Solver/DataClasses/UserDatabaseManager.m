@@ -114,10 +114,9 @@ static UserDatabaseManager* instance = nil;
 
 - (void)loginUser:(User*)user
 {
-    static int count = 0;
-    
     _activeUser = user;
-    double timeInterval = 3600*(count++);
+    int day = arc4random()%10;
+    double timeInterval = 24*3600*(day);
     _sessionDate = [NSDate dateWithTimeIntervalSince1970:timeInterval];
 }
 

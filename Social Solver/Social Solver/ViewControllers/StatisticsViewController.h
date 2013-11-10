@@ -24,5 +24,9 @@
 @property (weak, nonatomic) IBOutlet UIView *graphContainerView;
 @property (weak, nonatomic) IBOutlet UIButton *dataButton;
 @property (weak, nonatomic) IBOutlet UIButton *gameModeButton;
+@property (weak, nonatomic) IBOutlet UILabel *emotionLegendHelperLabel;
+@property (weak, nonatomic) IBOutlet UILabel *childLegendHelperLabel;
+@property (weak, nonatomic) IBOutlet UILabel *emotionHelperLabel;
+@property (weak, nonatomic) IBOutlet UILabel *childHelperLabel;
 
 @end

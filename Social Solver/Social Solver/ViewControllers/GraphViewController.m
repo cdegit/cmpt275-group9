@@ -15,7 +15,8 @@
 #define NUM_X_MAJOR_TICKS 5
 #define GRAPH_PADDING_BOTTOM 50.0f
 #define GRAPH_PADDING_LEFT 50.0f
-#define Y_MAJOR_TICK_INC 20
+#define Y_MAJOR_TICK_INC_PERCENT 20
+#define Y_MAJOR_TICK_INC_OTHER 10
 #define Y_AXIS_POINTS_PADDING 10
 
 @interface GraphViewController () <CPTPlotDataSource>
@@ -66,12 +67,6 @@
     
     [self configureAxes];
 //    [self labelAxes];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)addPlotWithID:(NSString*)ID color:(CPTColor*)color
@@ -128,7 +123,7 @@
     axisTitleStyle.fontName = @"Helvetica-Bold";
     axisTitleStyle.fontSize = 12.0f;
     CPTMutableLineStyle* axisLineStyle = [CPTMutableLineStyle lineStyle];
-    axisLineStyle.lineWidth = 2.0f;
+    axisLineStyle.lineWidth = 1.0f;
     axisLineStyle.lineColor = [CPTColor whiteColor];
     
     CPTMutableTextStyle* axisTextStyle = [[CPTMutableTextStyle alloc] init];
@@ -150,7 +145,7 @@
     xAxis.axisLineStyle = axisLineStyle;
     xAxis.labelingPolicy = CPTAxisLabelingPolicyNone;
     xAxis.labelTextStyle = axisTextStyle;
-    xAxis.majorTickLineStyle = axisLineStyle;
+    xAxis.majorTickLineStyle = tickLineStyle;
     xAxis.majorTickLength = 4.0f;
     xAxis.labelOffset = 10.0f;
     xAxis.tickDirection = CPTSignNegative;
@@ -164,9 +159,13 @@
     yAxis.labelingPolicy = CPTAxisLabelingPolicyNone;
     yAxis.labelTextStyle = axisTextStyle;
     yAxis.labelOffset = 20.0f;
-    yAxis.majorTickLineStyle = axisLineStyle;
+    yAxis.majorTickLineStyle = tickLineStyle;
     yAxis.majorTickLength = 4.0f;
     yAxis.tickDirection = CPTSignPositive;
+    
+    tickLineStyle.lineWidth = 1.0f;
+    yAxis.minorTickLineStyle = tickLineStyle;
+    yAxis.minorTickLength = 4.0f;
 }
 
 - (void)labelAxes
@@ -205,22 +204,41 @@
     CPTAxis* yAxis = axisSet.yAxis;
     yAxis.title = [self yAxisTitle];
     
+    // Adjust the y range
+    CPTMutablePlotRange *yRange = [((CPTXYPlotSpace*)self.graph.defaultPlotSpace).yRange mutableCopy];
+    yRange.location = CPTDecimalFromCGFloat(0);
+    yRange.length = CPTDecimalFromCGFloat(self.maxYValue + Y_AXIS_POINTS_PADDING);
+    ((CPTXYPlotSpace*)self.graph.defaultPlotSpace).yRange = yRange;
+    
     // Label the y-axis
     NSMutableSet* yLabels = [NSMutableSet set];
     NSMutableSet* yMajorLocations = [NSMutableSet set];
+    NSMutableSet* yMinorLocations = [NSMutableSet set];
     
-    for (int j = 0; j <= (self.maxYValue + Y_AXIS_POINTS_PADDING); j += Y_MAJOR_TICK_INC)
+    // Calculate major and minor increments
+    NSInteger majorInc = (self.yDataType == GraphYDataTypeCorrectPercent) ? Y_MAJOR_TICK_INC_PERCENT : Y_MAJOR_TICK_INC_OTHER;
+    NSInteger minorInc = (self.yDataType == GraphYDataTypeAverageResponse && self.maxYValue <= 60) ? Y_MAJOR_TICK_INC_OTHER / 2 : majorInc;
+    
+    for (int j = 0; j <= (self.maxYValue + Y_AXIS_POINTS_PADDING); j += minorInc)
     {
-        CPTAxisLabel* label = [[CPTAxisLabel alloc] initWithText:[NSString stringWithFormat:@"%i", j] textStyle:yAxis.labelTextStyle];
         NSDecimal location = CPTDecimalFromInteger(j);
-        label.tickLocation = location;
-        label.offset = -yAxis.labelOffset;
-        [yLabels addObject:label];
-        [yMajorLocations addObject:[NSDecimalNumber decimalNumberWithDecimal:location]];
+
+        if (j % majorInc == 0)
+        {
+            CPTAxisLabel* label = [[CPTAxisLabel alloc] initWithText:[NSString stringWithFormat:@"%i", j] textStyle:yAxis.labelTextStyle];
+            label.tickLocation = location;
+            label.offset = -yAxis.labelOffset;
+            [yLabels addObject:label];
+            [yMajorLocations addObject:[NSDecimalNumber decimalNumberWithDecimal:location]];
+        }
+        else {
+            [yMinorLocations addObject:[NSDecimalNumber decimalNumberWithDecimal:location]];
+        }
     }
     
     yAxis.axisLabels = yLabels;
     yAxis.majorTickLocations = yMajorLocations;
+    yAxis.minorTickLocations = yMinorLocations;
 }
 
 - (void)addChild:(NSString*)child withColor:(UIColor*)color;

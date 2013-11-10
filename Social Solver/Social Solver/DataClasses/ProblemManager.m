@@ -48,10 +48,10 @@
         case GameModeFaceFinder:
             return self.gameMode1Problems;
             break;
-        case GameModeProblemSolver:
+        case GameModeStorySolver:
             return self.gameMode2Problems;
             break;
-        case GameModeStorySolver:
+        case GameModeProblemSolver:
             return self.gameMode3Problems;
             break;
         default:
