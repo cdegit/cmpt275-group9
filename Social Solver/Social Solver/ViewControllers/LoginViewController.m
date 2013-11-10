@@ -123,7 +123,7 @@
     [self dismissViewControllerAnimated:YES completion:NULL];
     
     // Set user as the activeUser
-    [[UserDatabaseManager sharedInstance] setActiveUser:user];
+    [[UserDatabaseManager sharedInstance] loginUser:user];
     
     // If the user is a child bring them back to the main menu
     if ([[[user entity] name] isEqualToString:@"Child"]) {

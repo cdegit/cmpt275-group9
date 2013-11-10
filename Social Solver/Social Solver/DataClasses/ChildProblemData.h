@@ -9,7 +9,6 @@
 
 #import <CoreData/CoreData.h>
 #import "ChildUser.h"
-#import "Session.h"
 
 @class ChildUser;
 @class Session;

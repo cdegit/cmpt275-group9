@@ -12,13 +12,13 @@
 #import "GuardianUser.h"
 #import "ChildSettings.h"
 #import "ChildProblemData.h"
-#import "Session.h"
 
 /* A class for data associated with a child profile */
 
 @class ChildSettings;
 @class ChildProblemData;
 @class GuardianUser;
+@class Session;
 
 @interface ChildUser : User
 
@@ -27,14 +27,11 @@
 @property (nonatomic) ChildSettings *settings;
 @property (nonatomic) NSArray* completedProblems;
 
-// Returns the ChildProblemData with ID problemID from completedProblems set
-// Returns nil if no problemData with that ID is found in completedProblems
-- (ChildProblemData*)completedProblemDataWithID:(NSUInteger)problemID;
+- (Session*)sessionWithDate:(NSDate*)date;
 
 @end
 
-
-@interface ChildUser (CoreDataGeneratedAccessors)
+@interface ChildUser(CoreDataGeneratedAccessors)
 
 - (void)addGuardiansObject:(GuardianUser *)object;
 - (void)removeGuardiansObject:(GuardianUser *)object;

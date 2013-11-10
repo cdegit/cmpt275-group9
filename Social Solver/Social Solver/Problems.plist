@@ -6,7 +6,7 @@
 	<array>
 		<dict>
 			<key>iconFileName</key>
-			<string>test_image.jpg</string>
+			<string>sad-75x85.png</string>
 			<key>fileName</key>
 			<string>sad.png</string>
 			<key>ID</key>
@@ -17,8 +17,8 @@
 			<string>Sad</string>
 		</dict>
 		<dict>
-            <key>iconFileName</key>
-			<string>test_image.jpg</string>
+			<key>iconFileName</key>
+			<string>happy-75x85.png</string>
 			<key>fileName</key>
 			<string>happy.png</string>
 			<key>ID</key>
@@ -29,8 +29,8 @@
 			<string>Happy</string>
 		</dict>
 		<dict>
-            <key>iconFileName</key>
-			<string>test_image.jpg</string>
+			<key>iconFileName</key>
+			<string>angry-75x85.png</string>
 			<key>fileName</key>
 			<string>anger.png</string>
 			<key>ID</key>
@@ -41,8 +41,8 @@
 			<string>Anger</string>
 		</dict>
 		<dict>
-            <key>iconFileName</key>
-			<string>test_image.jpg</string>
+			<key>iconFileName</key>
+			<string>surprised-75x85.png</string>
 			<key>fileName</key>
 			<string>surprised.png</string>
 			<key>ID</key>
@@ -53,8 +53,8 @@
 			<string>Surprised</string>
 		</dict>
 		<dict>
-            <key>iconFileName</key>
-			<string>test_image.jpg</string>
+			<key>iconFileName</key>
+			<string>afraid-75x85.png</string>
 			<key>fileName</key>
 			<string>fear.png</string>
 			<key>ID</key>
@@ -65,8 +65,8 @@
 			<string>Fear</string>
 		</dict>
 		<dict>
-            <key>iconFileName</key>
-			<string>test_image.jpg</string>
+			<key>iconFileName</key>
+			<string>disgusted-75x85.png</string>
 			<key>fileName</key>
 			<string>disgust.png</string>
 			<key>ID</key>
@@ -80,8 +80,8 @@
 	<key>Mode2</key>
 	<array>
 		<dict>
-            <key>iconFileName</key>
-			<string>test_image.jpg</string>
+			<key>iconFileName</key>
+			<string>scene-ice cream.png</string>
 			<key>fileName</key>
 			<string>billy_drop_icecream</string>
 			<key>ID</key>
@@ -98,8 +98,8 @@
 How is Billy feeling?</string>
 		</dict>
 		<dict>
-            <key>iconFileName</key>
-			<string>test_image.jpg</string>
+			<key>iconFileName</key>
+			<string>scene-spider.png</string>
 			<key>fileName</key>
 			<string>Billy_scared_by_Spider</string>
 			<key>ID</key>
@@ -115,8 +115,8 @@ How is Billy feeling?</string>
 How is Billy feeling?</string>
 		</dict>
 		<dict>
-            <key>iconFileName</key>
-			<string>test_image.jpg</string>
+			<key>iconFileName</key>
+			<string>scene-pulling hair.png</string>
 			<key>fileName</key>
 			<string>Billy_make_Suzy_Angry</string>
 			<key>ID</key>
@@ -132,8 +132,8 @@ How is Billy feeling?</string>
 How is Suzy feeling?</string>
 		</dict>
 		<dict>
-            <key>iconFileName</key>
-			<string>test_image.jpg</string>
+			<key>iconFileName</key>
+			<string>scene-Billy surprises Suzy.png</string>
 			<key>fileName</key>
 			<string>Suzy_suprised_by_Billy</string>
 			<key>ID</key>

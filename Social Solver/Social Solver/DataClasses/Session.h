@@ -6,6 +6,10 @@
 //  Copyright (c) 2013 Group 9. All rights reserved.
 //
 
+//  Worked on by: Matthew Glum, David Woods
+
+//  Created in version 2
+
 #import <CoreData/CoreData.h>
 #import "ChildUser.h"
 #import "ChildProblemData.h"
@@ -16,6 +20,10 @@
 
 @property (nonatomic) NSDate* date;
 @property (nonatomic) ChildUser* child;
+@property (nonatomic) NSSet* problemData;
+
+- (ChildProblemData*)problemDataWithID:(NSUInteger)ID;
++ (Session*)sessionWithChild:(ChildUser*)user date:(NSDate*)date;
 
 @end
 

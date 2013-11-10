@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3400" systemVersion="13A603" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Child" representedClassName="ChildUser" parentEntity="User" syncable="YES">
-        <attribute name="completedProblems" optional="YES" attributeType="Transformable" valueTransformerName="NSArray" syncable="YES"/>
+        <attribute name="completedProblems" optional="YES" attributeType="Transformable" valueTransformerName="" syncable="YES"/>
         <relationship name="guardians" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Guardian" inverseName="children" inverseEntity="Guardian" syncable="YES"/>
         <relationship name="primaryGuardian" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Guardian" inverseName="primaryChildren" inverseEntity="Guardian" syncable="YES"/>
         <relationship name="sessions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Session" inverseName="child" inverseEntity="Session" syncable="YES"/>
@@ -36,11 +36,11 @@
         <attribute name="uid" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Child" positionX="142" positionY="-0" width="128" height="120"/>
-        <element name="ChildSettings" positionX="-36" positionY="207" width="128" height="90"/>
-        <element name="Guardian" positionX="-153" positionY="0" width="128" height="90"/>
-        <element name="ProblemData" positionX="108" positionY="315" width="128" height="120"/>
-        <element name="User" positionX="52" positionY="-150" width="128" height="105"/>
-        <element name="Session" positionX="135" positionY="180" width="128" height="90"/>
+        <element name="Child" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="ChildSettings" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Guardian" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="ProblemData" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Session" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="User" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

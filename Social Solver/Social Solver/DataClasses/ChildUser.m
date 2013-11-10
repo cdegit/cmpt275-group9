@@ -8,6 +8,7 @@
 //  Worked on by: Matthew Glum
 
 #import "ChildUser.h"
+#import "Session.h"
 
 @implementation ChildUser
 
@@ -16,18 +17,17 @@
 @dynamic settings;
 @dynamic sessions;
 
-- (ChildProblemData*)completedProblemDataWithID:(NSUInteger)problemID
+- (Session*)sessionWithDate:(NSDate*)date
 {
-    NSSet* thisProblem = [self.completedProblems objectsPassingTest:^BOOL(id obj, BOOL *stop) {
-        ChildProblemData* pd = (ChildProblemData*)obj;
-        if (pd.problemID == problemID) {
+    NSSet* result = [self.sessions objectsPassingTest:^BOOL(id obj, BOOL *stop) {
+        if ([((Session*)obj).date isEqualToDate:date]) {
             *stop = YES;
             return true;
         }
         return false;
     }];
-
-    return [thisProblem anyObject];
+    
+    return [result anyObject];
 }
 
 @end

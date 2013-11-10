@@ -12,6 +12,8 @@
 
 @implementation UserDatabaseManager
 
+@synthesize activeUser = _activeUser, sessionDate = _sessionDate;
+
 static UserDatabaseManager* instance = nil;
 
 
@@ -86,14 +88,13 @@ static UserDatabaseManager* instance = nil;
     return g;
 }
 
-- (ChildProblemData*)createProblemDataForChild:(ChildUser*)child withProblemID:(NSInteger)ID
+- (ChildProblemData*)createProblemDataWithProblemID:(NSInteger)ID
 {
     NSManagedObjectContext *mc = [(AppDelegate*)[[UIApplication sharedApplication] delegate] managedObjectContext];
     NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"ProblemData" inManagedObjectContext:mc];
     
     ChildProblemData* pd = [[ChildProblemData alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:mc];
     pd.problemID = ID;
-    pd.child = child;
     
     return pd;
 }
@@ -109,6 +110,20 @@ static UserDatabaseManager* instance = nil;
 - (BOOL) save
 {
     return[[(AppDelegate*)[[UIApplication sharedApplication] delegate] managedObjectContext] save:nil];
+}
+
+- (void)loginUser:(User*)user
+{
+    _activeUser = user;
+    int day = arc4random()%10;
+    double timeInterval = 24*3600*(day);
+    _sessionDate = [NSDate dateWithTimeIntervalSince1970:timeInterval];
+}
+
+- (void)logoutActiveUser
+{
+    _activeUser = nil;
+    _sessionDate = nil;
 }
 
 @end
