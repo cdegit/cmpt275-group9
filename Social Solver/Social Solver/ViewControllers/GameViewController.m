@@ -347,7 +347,7 @@
         [self presentLevelCompleteViewShowingCongratsMessage:YES];
     }
     else
-    {
+    { 
         // Incorrect answer
         [self recordIncorrectAnswer]; 
         

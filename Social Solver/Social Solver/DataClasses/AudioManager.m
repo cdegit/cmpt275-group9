@@ -20,7 +20,7 @@
     SystemSoundID buttonPress;
     SystemSoundID cheering;
     SystemSoundID tryAgain; 
-}
+} 
 
 @synthesize soundEnabled = _soundEnabled;
 
