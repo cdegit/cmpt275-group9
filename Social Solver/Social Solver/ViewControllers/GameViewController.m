@@ -321,7 +321,7 @@
     if ([answerChosen isEqualToString:self.currentProblem.answer])
     {
         // Play correct sound
-        [[AudioManager sharedInstance] playSound:@"cheering"];
+        [[AudioManager sharedInstance] playCheering];
         
         // Record the correct answer
         NSDate* endTime = [NSDate date];

@@ -14,8 +14,14 @@
 
 @interface AudioManager : NSObject
 
+@property (nonatomic) BOOL soundEnabled;
 
 + (AudioManager*)sharedInstance;
-- (void)playSound:(NSString*)string;
+
+- (void)setSoundEnabled:(BOOL)soundEnabled;
+- (BOOL)soundEnabled;
+- (void)playButtonPress;
+- (void)playCheering;
+- (void)playTryAgain;
 
 @end
