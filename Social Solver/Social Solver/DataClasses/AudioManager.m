@@ -19,7 +19,7 @@
 @implementation AudioManager {
     SystemSoundID buttonPress;
     SystemSoundID cheering;
-    SystemSoundID tryAgain;
+    SystemSoundID tryAgain; 
 }
 
 @synthesize soundEnabled = _soundEnabled;

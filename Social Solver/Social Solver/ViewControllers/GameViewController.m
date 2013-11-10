@@ -349,7 +349,7 @@
     else
     {
         // Incorrect answer
-        [self recordIncorrectAnswer];
+        [self recordIncorrectAnswer]; 
         
         // Play incorrect sound
         [[AudioManager sharedInstance] playTryAgain];
