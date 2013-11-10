@@ -9,7 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "AccountManagementViewControllerDelegate.h"
 
-@interface ViewChildrenViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, AccountManagementViewControllerDelegate>
+@interface ViewChildrenViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UIAlertViewDelegate, AccountManagementViewControllerDelegate>
+
+
+- (void)manageChildPopupSelection:(NSInteger)selectionIndex;
 
 @property (weak, nonatomic) IBOutlet UICollectionView *childrenView;
 

@@ -9,10 +9,23 @@
 #import "ManageChildPopoverViewController.h"
 
 @interface ManageChildPopoverViewController ()
-
+{
+    NSInteger _index;
+}
 @end
 
 @implementation ManageChildPopoverViewController
+
+- (id)initForIndex:(NSInteger)ind
+{
+    self = [super init];
+    
+    if (self) {
+        _index = ind;
+    }
+    
+    return self;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -38,6 +51,7 @@
 - (void)loadView
 {
     UITableView* tv = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 100, 200) style:UITableViewStylePlain];
+    [tv setDelegate:self];
     [tv setDataSource:self];
     [tv setAutoresizingMask:UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth];
     [tv setScrollEnabled:NO];
@@ -69,6 +83,16 @@
     [[cell textLabel] setText:[menuOptions objectAtIndex:[indexPath row]]];
     
     return cell;
+}
+
+# pragma mark - UITableViewDelegate methods
+
+- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"Clicky!");
+    [_delegate manageChildPopupSelection:[indexPath row]];
+    
+    return NO;
 }
 
 @end

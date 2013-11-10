@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ViewChildrenViewController.h"
 
 @interface ManageChildPopoverViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+
+@property (nonatomic, assign) ViewChildrenViewController *delegate;
 
 @end

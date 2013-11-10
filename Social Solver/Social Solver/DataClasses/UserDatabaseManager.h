@@ -19,8 +19,11 @@
 + (UserDatabaseManager*) sharedInstance;
 
 - (NSArray *) getUserListOfType:(NSString *)userType;
+
 - (ChildUser *) createChildWithName:(NSString *)name password:(NSString *)pass andProfileImage:(UIImage *)img;
 - (GuardianUser *) createGuardianWithName:(NSString *)name password:(NSString *)pass profileImage:(UIImage *)img andEmail:(NSString *)email;
+- (void)deleteUser:(User *)user;
+
 - (ChildProblemData*)createProblemDataWithProblemID:(NSInteger)ID;
 - (BOOL) isAuthenticUser:(User*)u forPassword:(NSString *)password;
 - (BOOL) save;

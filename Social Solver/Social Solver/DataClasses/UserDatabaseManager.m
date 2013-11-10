@@ -88,6 +88,14 @@ static UserDatabaseManager* instance = nil;
     return g;
 }
 
+- (void)deleteUser:(User *)user
+{
+    NSManagedObjectContext *mv = [(AppDelegate*)[[UIApplication sharedApplication] delegate] managedObjectContext];
+    [mv deleteObject:user];
+    NSError* err;
+    [mv save:&err];
+}
+
 - (ChildProblemData*)createProblemDataWithProblemID:(NSInteger)ID
 {
     NSManagedObjectContext *mc = [(AppDelegate*)[[UIApplication sharedApplication] delegate] managedObjectContext];
