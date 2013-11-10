@@ -271,6 +271,12 @@
     }
 }
 
+-(IBAction)cancel:(id)sender
+{
+    [[self navigationController] popViewControllerAnimated:YES];
+    [_delegate editedUser:nil];
+}
+
 #pragma mark - Internal Methods
 
 -(BOOL)checkNameUnique:(NSString*)name

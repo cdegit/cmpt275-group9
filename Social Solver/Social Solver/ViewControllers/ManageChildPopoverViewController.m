@@ -89,7 +89,6 @@
 
 - (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"Clicky!");
     [_delegate manageChildPopupSelection:[indexPath row]];
     
     return NO;

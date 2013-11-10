@@ -37,7 +37,6 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    NSLog(@"Became Background");
     [[UserDatabaseManager sharedInstance] logoutActiveUser];
     
     [((RootNavigationViewController*)[self.window rootViewController]) popToRootViewControllerAnimated:NO];

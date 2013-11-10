@@ -155,7 +155,6 @@ static UserDatabaseManager* instance = nil;
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    NSLog(@"Are we here?");
     switch (buttonIndex) {
         case 0:
             [_requestDelegate logoutRequestDenied];

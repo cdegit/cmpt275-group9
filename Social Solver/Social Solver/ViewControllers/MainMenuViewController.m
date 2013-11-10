@@ -136,8 +136,6 @@
     //    LoginViewController* vc = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:[NSBundle mainBundle]];
     //    [self.navigationController pushViewController:vc animated:YES];
     
-    NSLog(@"Are we getting here?");
-    
     self.loginButton.hidden = false;
     self.logoutButton.hidden = true;
     self.someText.hidden = true;
