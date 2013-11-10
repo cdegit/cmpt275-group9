@@ -11,6 +11,7 @@
 #import "PendingSharesTableCell.h"
 #import "User.h"
 #import "UserDatabaseManager.h"
+#import "AppDelegate.h"
 
 @interface PendingSharesViewController ()
 
@@ -43,7 +44,9 @@ UITableView* table;
     
     ShareRequest* child2 = [[ShareRequest alloc] initWithChild:@"Sally" AndGuardianEmail:@"jane@gmail.com" AndSecurityCode:@"1321" AndPassword:@"pass"];
     
-    tableData = [NSMutableArray arrayWithObjects:child, child2, nil];
+    ShareRequest* child3 = [[ShareRequest alloc] initWithChild:@"Billy" AndGuardianEmail:@"jane@gmail.com" AndSecurityCode:@"1010" AndPassword:@"pass"];
+    
+    tableData = [NSMutableArray arrayWithObjects:child, child2, child3, nil];
     
     _numberOfShares.text = [NSString stringWithFormat:@"%d", [tableData count]];
     
@@ -65,27 +68,20 @@ UITableView* table;
         
             ShareRequest* child = [tableData objectAtIndex:selectedChildIndex];
            
-            if ([textfield.text isEqualToString:child.securityCode])
-            {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Share Success" message:@"You may now access x's profile." delegate:self cancelButtonTitle:@"Continue" otherButtonTitles:nil];
+            // Need to check if child's name is unique
+            // if so, add, if not, prompt to change
+            if (![self checkNameUnique:child.childName]) {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Existing Name" message:@"You already have a child with that name. Please enter a new name." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
                 
-                [alert setTag:1];
+                alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+                
+                [alert addButtonWithTitle:@"Continue"];
+                
+                [alert setTag:3];
                 [alert show];
-                
-                // Add new child
-                User* user;
-                user = [[UserDatabaseManager sharedInstance] createChildWithName:child.childName password:child.password andProfileImage:nil];
-                
-                [tableData removeObjectAtIndex:selectedChildIndex];
-                [table reloadData];
-                _numberOfShares.text = [NSString stringWithFormat:@"%d", [tableData count]];
-                
-                // Hide the table if it is empty
-                if ([tableData count] == 0)
-                {
-                    table.hidden = YES;
-                }
-
+            } else if ([textfield.text isEqualToString:child.securityCode])
+            {
+                [self shareSuccess:child];
                 
             } else {
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Incorrect Security Code" message:@"Please enter the code sent to you by the original guardian." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
@@ -97,9 +93,59 @@ UITableView* table;
                 
                 // add more buttons:
                 [alert addButtonWithTitle:@"Accept Profile"];
+                
                 [alert show];
             }
         }
+    } else if (([alertView tag] == 3) && (buttonIndex == 1)) { // if conflicting name
+        UITextField *textfield = [alertView textFieldAtIndex:0];
+        
+        ShareRequest* child = [tableData objectAtIndex:selectedChildIndex];
+        
+        // Need to check if child's name is unique
+        // if so, add, if not, prompt to change
+        if (![self checkNameUnique:textfield.text]) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Existing Name" message:@"You already have a child with that name. Please enter a new name." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
+            
+            alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+            
+            [alert addButtonWithTitle:@"Continue"];
+            
+            [alert setTag:3];
+            [alert show];
+        } else {
+            child.childName = textfield.text;
+            [self shareSuccess:child];
+        }
+    }
+}
+
+- (void) shareSuccess:(ShareRequest*)child
+{
+    NSString* firstPart = @"You may now have access to ";
+    NSString* secondPart = @"'s Profile";
+    NSString* message = [firstPart stringByAppendingString:child.childName];
+    message = [message stringByAppendingString:secondPart];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Share Success" message:message delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+    
+    [alert setTag:1];
+    [alert show];
+    
+    
+    // Add new child
+    User* user;
+    user = [[UserDatabaseManager sharedInstance] createChildWithName:child.childName password:child.password andProfileImage:nil];
+    
+    [tableData removeObjectAtIndex:selectedChildIndex];
+    
+    [table reloadData];
+    _numberOfShares.text = [NSString stringWithFormat:@"%d", [tableData count]];
+    
+    // Hide the table if it is empty
+    if ([tableData count] == 0)
+    {
+        table.hidden = YES;
     }
 }
 
@@ -142,6 +188,32 @@ UITableView* table;
     // add more buttons:
     [alert addButtonWithTitle:@"Accept Profile"];
     [alert show];
+}
+
+-(BOOL)checkNameUnique:(NSString*)name
+{
+    // Make sure that the only user with the given name is that of the current user
+    
+    NSManagedObjectContext *mc = [(AppDelegate*)[[UIApplication sharedApplication] delegate] managedObjectContext];
+    NSEntityDescription* entityDescription = [NSEntityDescription entityForName:@"User"
+                                                         inManagedObjectContext:mc];
+    NSFetchRequest* req = [[NSFetchRequest alloc] init];
+    [req setEntity:entityDescription];
+    
+    NSPredicate* namePredicate = [NSPredicate predicateWithFormat:@"%K like %@", @"name", name];
+    
+    [req setPredicate:namePredicate];
+    
+    NSArray* users = [mc executeFetchRequest:req error:nil];
+    
+    for (NSManagedObject* us in users) {
+        User* user = (User*)us;
+        if ([name isEqual:user.name]) {
+            return NO;
+        }
+    }
+    
+    return YES;
 }
 
 

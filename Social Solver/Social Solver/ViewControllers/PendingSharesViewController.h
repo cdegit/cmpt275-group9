@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ShareRequest.h"
 
 @interface PendingSharesViewController : UIViewController <UIAlertViewDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel* numberOfShares;
+
+-(BOOL)checkNameUnique:(NSString*)name;
+-(void)shareSuccess:(ShareRequest*)child;
 
 @end

@@ -19,6 +19,7 @@
 
     NSString* userType;
     NSArray* userArray;
+    NSMutableArray* selectedUsers;
 }
 
 @end
@@ -32,6 +33,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        selectedUsers = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -125,12 +127,22 @@
     [shareCell changeSwitch];
     
     // add further functionality here
+    // Grab the user object associated to the index
+    User *us = (User*)[userArray objectAtIndex:[indexPath row]];
+    [selectedUsers addObject:us];
+    
     
     return NO;
 }
 
 -(IBAction) shareWithButtonPressed:(id) sender {
-    [self.delegate changeView:SHARE_PROFILES_WITH_GUARDIAN];
+    if ([selectedUsers count] == 0) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Select a Child" message:@"Please select at least one child to share." delegate:self cancelButtonTitle:@"Continue" otherButtonTitles:nil];
+        
+        [alert show];
+    } else {
+        [self.delegate changeView:SHARE_PROFILES_WITH_GUARDIAN];
+    }
 }
 
 @end

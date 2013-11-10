@@ -31,6 +31,9 @@
 		817F149E182DC62200D058A8 /* PendingSharesTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 817F149D182DC62200D058A8 /* PendingSharesTableCell.m */; };
 		817F14A0182DC66A00D058A8 /* PendingSharesTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 817F149F182DC66A00D058A8 /* PendingSharesTableCell.xib */; };
 		817F14A2182F0EE600D058A8 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 817F14A1182F0EE600D058A8 /* AudioToolbox.framework */; };
+		817F14A5182F6A7D00D058A8 /* button2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 817F14A3182F6A7D00D058A8 /* button2.wav */; };
+		817F14A6182F6A7D00D058A8 /* button.wav in Resources */ = {isa = PBXBuildFile; fileRef = 817F14A4182F6A7D00D058A8 /* button.wav */; };
+		817F14A8182F6DF600D058A8 /* tryagain.wav in Resources */ = {isa = PBXBuildFile; fileRef = 817F14A7182F6DF600D058A8 /* tryagain.wav */; };
 		EA16940C18162A7700C40069 /* Problem.m in Sources */ = {isa = PBXBuildFile; fileRef = EA16940B18162A7700C40069 /* Problem.m */; };
 		EA16940F18162B2B00C40069 /* ProblemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EA16940E18162B2B00C40069 /* ProblemManager.m */; };
 		EA16941B18163C5C00C40069 /* LevelCompleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA16941918163C5C00C40069 /* LevelCompleteViewController.m */; };
@@ -158,6 +161,9 @@
 		817F149D182DC62200D058A8 /* PendingSharesTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PendingSharesTableCell.m; sourceTree = "<group>"; };
 		817F149F182DC66A00D058A8 /* PendingSharesTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PendingSharesTableCell.xib; sourceTree = "<group>"; };
 		817F14A1182F0EE600D058A8 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		817F14A3182F6A7D00D058A8 /* button2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = button2.wav; sourceTree = "<group>"; };
+		817F14A4182F6A7D00D058A8 /* button.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = button.wav; sourceTree = "<group>"; };
+		817F14A7182F6DF600D058A8 /* tryagain.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = tryagain.wav; sourceTree = "<group>"; };
 		EA16940A18162A7700C40069 /* Problem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Problem.h; sourceTree = "<group>"; };
 		EA16940B18162A7700C40069 /* Problem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Problem.m; sourceTree = "<group>"; };
 		EA16940D18162B2B00C40069 /* ProblemManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProblemManager.h; sourceTree = "<group>"; };
@@ -305,6 +311,9 @@
 		EAC698CD181DB7F000342086 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				817F14A7182F6DF600D058A8 /* tryagain.wav */,
+				817F14A3182F6A7D00D058A8 /* button2.wav */,
+				817F14A4182F6A7D00D058A8 /* button.wav */,
 				814C11CF18249C26007AD19B /* cheering.wav */,
 				EAC69917181DD1E700342086 /* test_image.jpg */,
 				EAC69914181DCE3C00342086 /* vert gradient 2.jpg */,
@@ -621,6 +630,7 @@
 				EACC67A218037CFE00FEAC76 /* Default.png in Resources */,
 				EAC69916181DCE3C00342086 /* vert gradient 2.jpg in Resources */,
 				EAC69904181DC20D00342086 /* Problem Solver Icon brighter.png in Resources */,
+				817F14A5182F6A7D00D058A8 /* button2.wav in Resources */,
 				EACC67A418037CFE00FEAC76 /* Default@2x.png in Resources */,
 				817F14901829BCF600D058A8 /* ShareProfileSecurityCodeViewController.xib in Resources */,
 				EAC698EE181DB81A00342086 /* children-50x50.png in Resources */,
@@ -633,6 +643,7 @@
 				EACC67E9180B4B6600FEAC76 /* LoginViewController.xib in Resources */,
 				EAC698FE181DC15800342086 /* Button 300x50 brighter.png in Resources */,
 				EAC698EA181DB81A00342086 /* Problem Solver Icon.png in Resources */,
+				817F14A6182F6A7D00D058A8 /* button.wav in Resources */,
 				EAC698F3181DB81A00342086 /* stats-50x50.png in Resources */,
 				817F148B1829A1D400D058A8 /* ShareProfilesWithGuardianViewController.xib in Resources */,
 				EAC698E6181DB81A00342086 /* disgust.png in Resources */,
@@ -666,6 +677,7 @@
 				EAC69906181DC20D00342086 /* Scene Solver Icon brighter.png in Resources */,
 				EAC698E3181DB81A00342086 /* App Icon 144x144.png in Resources */,
 				EAC6991C181DF56100342086 /* Suzy_suprised_by_Billy.mp4 in Resources */,
+				817F14A8182F6DF600D058A8 /* tryagain.wav in Resources */,
 				EAC698F7181DB84900342086 /* Problems.plist in Resources */,
 				EA16941C18163C5C00C40069 /* LevelCompleteViewController.xib in Resources */,
 				EAC69912181DCBC600342086 /* circle_gradient.jpg in Resources */,

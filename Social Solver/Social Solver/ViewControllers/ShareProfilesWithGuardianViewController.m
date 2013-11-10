@@ -38,7 +38,21 @@
 }
 
 -(IBAction) shareButtonPressed:(id) sender {
-    [self.delegate changeView:SHARE_PROFILES_SECURITY_CODE];
+    // Check that, if the user is a guardian, that the email address is valid
+    NSPredicate *isEmail = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", @"[a-z0-9][a-z0-9\\._]*[a-z0-9]@[a-z0-9][a-z0-9\\.]*[a-z0-9]"];
+    
+    if (_guardianEmail.text.length == 0) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Enter an Email" message:@"Please enter the email of the guardian you would like to share this profile with." delegate:self cancelButtonTitle:@"Continue" otherButtonTitles:nil];
+        
+        [alert show];
+    } else if (![isEmail evaluateWithObject:[_guardianEmail text]]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Enter a Valid Email" message:@"The email you have entered is incorrect. Please try again." delegate:self cancelButtonTitle:@"Continue" otherButtonTitles:nil];
+        
+        [alert show];
+    } else {
+        [self.delegate changeView:SHARE_PROFILES_SECURITY_CODE];
+    }
 }
+
 
 @end

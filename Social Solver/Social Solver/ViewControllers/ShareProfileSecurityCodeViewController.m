@@ -29,10 +29,14 @@
     // Do any additional setup after loading the view from its nib.
     
     // Generate security code
+    int lowerBound = 1000;
+    int upperBound = 9999;
+    int randomValue = lowerBound + arc4random() % (upperBound - lowerBound);
+    
     // Send share request to server
     
     // Display security code
-    _securityCode.text = @"0001";
+    _securityCode.text = [NSString stringWithFormat:@"%d", randomValue];
     
     // Display email of guardian being transferred to
     _guardianEmail.text = @"email@domain.com";
