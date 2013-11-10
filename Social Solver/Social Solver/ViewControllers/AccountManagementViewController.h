@@ -18,7 +18,7 @@
 #import "AccountManagementViewControllerDelegate.h"
 
 
-@interface AccountManagementViewController : UIViewController <UINavigationControllerDelegate,UIImagePickerControllerDelegate>
+@interface AccountManagementViewController : UIViewController <UINavigationControllerDelegate,UIImagePickerControllerDelegate, UITextFieldDelegate>
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil forUserType:(NSString*) type;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil withUser:(User*)user;
