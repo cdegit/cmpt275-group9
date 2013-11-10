@@ -19,6 +19,23 @@
 		2AAABD98182D506900FBCD60 /* ServerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AAABD97182D506900FBCD60 /* ServerRequest.m */; };
 		2ACA5DF4182FEF48003CEFEE /* ManageChildPopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACA5DF3182FEF48003CEFEE /* ManageChildPopoverViewController.m */; };
 		817F14B01830463C00D058A8 /* cheering.wav in Resources */ = {isa = PBXBuildFile; fileRef = 817F14AF1830463C00D058A8 /* cheering.wav */; };
+		817F14C218304AE100D058A8 /* launch-768-1004.png in Resources */ = {isa = PBXBuildFile; fileRef = 817F14B118304AE100D058A8 /* launch-768-1004.png */; };
+		817F14C318304AE100D058A8 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 817F14B218304AE100D058A8 /* Default.png */; };
+		817F14C418304AE100D058A8 /* launch-1024x748.png in Resources */ = {isa = PBXBuildFile; fileRef = 817F14B318304AE100D058A8 /* launch-1024x748.png */; };
+		817F14C518304AE100D058A8 /* launch-1024x768.png in Resources */ = {isa = PBXBuildFile; fileRef = 817F14B418304AE100D058A8 /* launch-1024x768.png */; };
+		817F14C618304AE100D058A8 /* launch-1536x2008.png in Resources */ = {isa = PBXBuildFile; fileRef = 817F14B518304AE100D058A8 /* launch-1536x2008.png */; };
+		817F14C718304AE100D058A8 /* launch-1536x2048.png in Resources */ = {isa = PBXBuildFile; fileRef = 817F14B618304AE100D058A8 /* launch-1536x2048.png */; };
+		817F14C818304AE100D058A8 /* launch-2048x1496.png in Resources */ = {isa = PBXBuildFile; fileRef = 817F14B718304AE100D058A8 /* launch-2048x1496.png */; };
+		817F14C918304AE100D058A8 /* launch-2048x1536.png in Resources */ = {isa = PBXBuildFile; fileRef = 817F14B818304AE100D058A8 /* launch-2048x1536.png */; };
+		817F14CA18304AE100D058A8 /* non-retina.png in Resources */ = {isa = PBXBuildFile; fileRef = 817F14B918304AE100D058A8 /* non-retina.png */; };
+		817F14CB18304AE100D058A8 /* retina.png in Resources */ = {isa = PBXBuildFile; fileRef = 817F14BA18304AE100D058A8 /* retina.png */; };
+		817F14CC18304AE100D058A8 /* settings-29x29.png in Resources */ = {isa = PBXBuildFile; fileRef = 817F14BB18304AE100D058A8 /* settings-29x29.png */; };
+		817F14CD18304AE100D058A8 /* settings-58x58.png in Resources */ = {isa = PBXBuildFile; fileRef = 817F14BC18304AE100D058A8 /* settings-58x58.png */; };
+		817F14CF18304AE100D058A8 /* spotlight-40x40.png in Resources */ = {isa = PBXBuildFile; fileRef = 817F14BE18304AE100D058A8 /* spotlight-40x40.png */; };
+		817F14D018304AE100D058A8 /* spotlight-50x50.png in Resources */ = {isa = PBXBuildFile; fileRef = 817F14BF18304AE100D058A8 /* spotlight-50x50.png */; };
+		817F14D118304AE100D058A8 /* spotlight-80x80.png in Resources */ = {isa = PBXBuildFile; fileRef = 817F14C018304AE100D058A8 /* spotlight-80x80.png */; };
+		817F14D218304AE100D058A8 /* spotlight-100x100.png in Resources */ = {isa = PBXBuildFile; fileRef = 817F14C118304AE100D058A8 /* spotlight-100x100.png */; };
+		817F14D518304C0200D058A8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 817F14D418304C0200D058A8 /* Images.xcassets */; };
 		EA16940C18162A7700C40069 /* Problem.m in Sources */ = {isa = PBXBuildFile; fileRef = EA16940B18162A7700C40069 /* Problem.m */; };
 		EA16940F18162B2B00C40069 /* ProblemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EA16940E18162B2B00C40069 /* ProblemManager.m */; };
 		EA16941B18163C5C00C40069 /* LevelCompleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA16941918163C5C00C40069 /* LevelCompleteViewController.m */; };
@@ -185,6 +202,23 @@
 		2ACA5DF3182FEF48003CEFEE /* ManageChildPopoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManageChildPopoverViewController.m; sourceTree = "<group>"; };
 		2AD01A4D18302E11000EEF89 /* LogoutRequestDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LogoutRequestDelegate.h; path = Protocols/LogoutRequestDelegate.h; sourceTree = "<group>"; };
 		817F14AF1830463C00D058A8 /* cheering.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = cheering.wav; sourceTree = "<group>"; };
+		817F14B118304AE100D058A8 /* launch-768-1004.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-768-1004.png"; sourceTree = "<group>"; };
+		817F14B218304AE100D058A8 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		817F14B318304AE100D058A8 /* launch-1024x748.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-1024x748.png"; sourceTree = "<group>"; };
+		817F14B418304AE100D058A8 /* launch-1024x768.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-1024x768.png"; sourceTree = "<group>"; };
+		817F14B518304AE100D058A8 /* launch-1536x2008.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-1536x2008.png"; sourceTree = "<group>"; };
+		817F14B618304AE100D058A8 /* launch-1536x2048.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-1536x2048.png"; sourceTree = "<group>"; };
+		817F14B718304AE100D058A8 /* launch-2048x1496.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-2048x1496.png"; sourceTree = "<group>"; };
+		817F14B818304AE100D058A8 /* launch-2048x1536.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-2048x1536.png"; sourceTree = "<group>"; };
+		817F14B918304AE100D058A8 /* non-retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "non-retina.png"; sourceTree = "<group>"; };
+		817F14BA18304AE100D058A8 /* retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = retina.png; sourceTree = "<group>"; };
+		817F14BB18304AE100D058A8 /* settings-29x29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings-29x29.png"; sourceTree = "<group>"; };
+		817F14BC18304AE100D058A8 /* settings-58x58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings-58x58.png"; sourceTree = "<group>"; };
+		817F14BE18304AE100D058A8 /* spotlight-40x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spotlight-40x40.png"; sourceTree = "<group>"; };
+		817F14BF18304AE100D058A8 /* spotlight-50x50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spotlight-50x50.png"; sourceTree = "<group>"; };
+		817F14C018304AE100D058A8 /* spotlight-80x80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spotlight-80x80.png"; sourceTree = "<group>"; };
+		817F14C118304AE100D058A8 /* spotlight-100x100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spotlight-100x100.png"; sourceTree = "<group>"; };
+		817F14D418304C0200D058A8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		EA16940A18162A7700C40069 /* Problem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Problem.h; sourceTree = "<group>"; };
 		EA16940B18162A7700C40069 /* Problem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Problem.m; sourceTree = "<group>"; };
 		EA16940D18162B2B00C40069 /* ProblemManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProblemManager.h; sourceTree = "<group>"; };
@@ -485,6 +519,29 @@
 			name = Categories;
 			sourceTree = "<group>";
 		};
+		817F14D318304AE800D058A8 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				817F14BE18304AE100D058A8 /* spotlight-40x40.png */,
+				817F14BF18304AE100D058A8 /* spotlight-50x50.png */,
+				817F14C018304AE100D058A8 /* spotlight-80x80.png */,
+				817F14C118304AE100D058A8 /* spotlight-100x100.png */,
+				817F14B218304AE100D058A8 /* Default.png */,
+				817F14B318304AE100D058A8 /* launch-1024x748.png */,
+				817F14B418304AE100D058A8 /* launch-1024x768.png */,
+				817F14B518304AE100D058A8 /* launch-1536x2008.png */,
+				817F14B618304AE100D058A8 /* launch-1536x2048.png */,
+				817F14B718304AE100D058A8 /* launch-2048x1496.png */,
+				817F14B818304AE100D058A8 /* launch-2048x1536.png */,
+				817F14B918304AE100D058A8 /* non-retina.png */,
+				817F14BA18304AE100D058A8 /* retina.png */,
+				817F14BB18304AE100D058A8 /* settings-29x29.png */,
+				817F14BC18304AE100D058A8 /* settings-58x58.png */,
+				817F14B118304AE100D058A8 /* launch-768-1004.png */,
+			);
+			name = Icons;
+			sourceTree = "<group>";
+		};
 		EABC93B2182E06DC00E81664 /* CorePlot */ = {
 			isa = PBXGroup;
 			children = (
@@ -582,6 +639,7 @@
 		EAC698CD181DB7F000342086 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				817F14D318304AE800D058A8 /* Icons */,
 				EAC698D0181DB81A00342086 /* App Icon 144x144.png */,
 				817F14AF1830463C00D058A8 /* cheering.wav */,
 				EAC698CF181DB81A00342086 /* App Icon 72x72.png */,
@@ -693,6 +751,7 @@
 				EACC67D41807339500FEAC76 /* Xibs */,
 				EACC679E18037CFE00FEAC76 /* AppDelegate.h */,
 				EACC679F18037CFE00FEAC76 /* AppDelegate.m */,
+				817F14D418304C0200D058A8 /* Images.xcassets */,
 				EACC679618037CFE00FEAC76 /* Supporting Files */,
 			);
 			path = "Social Solver";
@@ -953,6 +1012,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				817F14C918304AE100D058A8 /* launch-2048x1536.png in Resources */,
+				817F14D518304C0200D058A8 /* Images.xcassets in Resources */,
+				817F14CC18304AE100D058A8 /* settings-29x29.png in Resources */,
 				EAE439ED18303B890026370C /* PendingSharesTableCell.xib in Resources */,
 				EACC679A18037CFE00FEAC76 /* InfoPlist.strings in Resources */,
 				EACC67A218037CFE00FEAC76 /* Default.png in Resources */,
@@ -961,14 +1023,18 @@
 				EAC69916181DCE3C00342086 /* vert gradient 2.jpg in Resources */,
 				EAC69904181DC20D00342086 /* Problem Solver Icon brighter.png in Resources */,
 				EACC67A418037CFE00FEAC76 /* Default@2x.png in Resources */,
+				817F14C618304AE100D058A8 /* launch-1536x2008.png in Resources */,
 				EAC698EE181DB81A00342086 /* children-50x50.png in Resources */,
 				EAE4399E182EE9D90026370C /* disgusted-75x85.png in Resources */,
 				EACC67A618037CFE00FEAC76 /* Default-568h@2x.png in Resources */,
 				EACC67CC18037DA300FEAC76 /* MainMenuViewController.xib in Resources */,
+				817F14CB18304AE100D058A8 /* retina.png in Resources */,
 				2A730FA21819A541000356DE /* LoginUserSelectionCell.xib in Resources */,
 				EAC6994A1828B3A000342086 /* StatsProblemCell.xib in Resources */,
 				EAE439A9182EE9E50026370C /* problem-asking for bear.png in Resources */,
 				EAE439A0182EE9D90026370C /* sad-75x85.png in Resources */,
+				817F14D218304AE100D058A8 /* spotlight-100x100.png in Resources */,
+				817F14C818304AE100D058A8 /* launch-2048x1496.png in Resources */,
 				EAE439E318303B2D0026370C /* ShareProfilesViewController.xib in Resources */,
 				EAC699401828B39100342086 /* PopoverPickerViewController.xib in Resources */,
 				EAC698EC181DB81A00342086 /* Scene Solver Icon.png in Resources */,
@@ -980,11 +1046,13 @@
 				EAC698FE181DC15800342086 /* Button 300x50 brighter.png in Resources */,
 				EAC698EA181DB81A00342086 /* Problem Solver Icon.png in Resources */,
 				EAC698F3181DB81A00342086 /* stats-50x50.png in Resources */,
+				817F14C718304AE100D058A8 /* launch-1536x2048.png in Resources */,
 				EAC698E6181DB81A00342086 /* disgust.png in Resources */,
 				EAC699481828B3A000342086 /* StatsChildCell.xib in Resources */,
 				EAC698EB181DB81A00342086 /* sad.png in Resources */,
 				EAC698E9181DB81A00342086 /* happy.png in Resources */,
 				EAE439AB182EE9E50026370C /* scene-bear toy.png in Resources */,
+				817F14C418304AE100D058A8 /* launch-1024x748.png in Resources */,
 				EAE4399D182EE9D90026370C /* angry-75x85.png in Resources */,
 				EAC698E1181DB81A00342086 /* anger.png in Resources */,
 				2A67ECE21827F245000695CC /* ViewChildrenViewController.xib in Resources */,
@@ -1001,12 +1069,15 @@
 				EAE439B7182F03880026370C /* arrow-right.png in Resources */,
 				EAC698ED181DB81A00342086 /* surprised.png in Resources */,
 				EAE439DF18303B2D0026370C /* PendingSharesViewController.xib in Resources */,
+				817F14D118304AE100D058A8 /* spotlight-80x80.png in Resources */,
 				EAE439EF18303B890026370C /* ShareUserSelectionCell.xib in Resources */,
 				EACC67FD180B4C7400FEAC76 /* GuardianMainMenuViewController.xib in Resources */,
 				EAE439AF182EE9E50026370C /* scene-spider.png in Resources */,
 				EACC6806180B954C00FEAC76 /* NavigationTableCell.xib in Resources */,
 				EAC698F2181DB81A00342086 /* share-50x50.png in Resources */,
+				817F14C218304AE100D058A8 /* launch-768-1004.png in Resources */,
 				EAC698E7181DB81A00342086 /* Face Finder Icon.png in Resources */,
+				817F14C518304AE100D058A8 /* launch-1024x768.png in Resources */,
 				EAE439BB182F05AB0026370C /* open arrow right.png in Resources */,
 				2A7DB107181B3A24008EF99F /* LoginPromptViewController.xib in Resources */,
 				EAE439CA18303AF40026370C /* cheering-short.wav in Resources */,
@@ -1017,9 +1088,11 @@
 				EAE439E118303B2D0026370C /* ShareProfileSecurityCodeViewController.xib in Resources */,
 				EAC6991B181DF56100342086 /* Billy_scared_by_Spider.mp4 in Resources */,
 				EAC698F0181DB81A00342086 /* pending-50x50.png in Resources */,
+				817F14C318304AE100D058A8 /* Default.png in Resources */,
 				EAC698E8181DB81A00342086 /* fear.png in Resources */,
 				EAE439C818303AF40026370C /* button.wav in Resources */,
 				EAE439AC182EE9E50026370C /* scene-Billy surprises Suzy.png in Resources */,
+				817F14CF18304AE100D058A8 /* spotlight-40x40.png in Resources */,
 				EACC680B180B9CE900FEAC76 /* StatisticsViewController.xib in Resources */,
 				EAC69903181DC20D00342086 /* Face Finder Icon brighter.png in Resources */,
 				EAE439B6182F03880026370C /* arrow-left.png in Resources */,
@@ -1029,11 +1102,14 @@
 				EAC69906181DC20D00342086 /* Scene Solver Icon brighter.png in Resources */,
 				EAC698E3181DB81A00342086 /* App Icon 144x144.png in Resources */,
 				EAC6991C181DF56100342086 /* Suzy_suprised_by_Billy.mp4 in Resources */,
+				817F14CD18304AE100D058A8 /* settings-58x58.png in Resources */,
 				EAE439E518303B2D0026370C /* ShareProfilesWithGuardianViewController.xib in Resources */,
 				EAC698F7181DB84900342086 /* Problems.plist in Resources */,
 				EAE439CB18303AF40026370C /* tryagain.wav in Resources */,
 				EA16941C18163C5C00C40069 /* LevelCompleteViewController.xib in Resources */,
+				817F14CA18304AE100D058A8 /* non-retina.png in Resources */,
 				EAC69912181DCBC600342086 /* circle_gradient.jpg in Resources */,
+				817F14D018304AE100D058A8 /* spotlight-50x50.png in Resources */,
 				EAC698E2181DB81A00342086 /* App Icon 72x72.png in Resources */,
 				EAE439B8182F03880026370C /* arrow-up.png in Resources */,
 			);

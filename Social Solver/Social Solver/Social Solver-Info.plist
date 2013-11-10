@@ -14,6 +14,14 @@
 		<dict>
 			<key>CFBundleIconFiles</key>
 			<array>
+				<string>spotlight-80x80</string>
+				<string>spotlight-40x40</string>
+				<string>spotlight-100x100</string>
+				<string>spotlight-50x50</string>
+				<string>settings-58x58</string>
+				<string>settings-29x29</string>
+				<string>retina</string>
+				<string>non-retina</string>
 				<string>App Icon 144x144</string>
 				<string>App Icon 72x72</string>
 			</array>
