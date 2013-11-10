@@ -185,7 +185,7 @@ NSComparator caseInsensitiveComparator = ^(NSString *obj1, NSString *obj2)
         _manageChildPopover = pc;
         //[pc setDelegate:self];
         
-        [_manageChildPopover setPopoverContentSize:CGSizeMake(200, 120)];
+        [_manageChildPopover setPopoverContentSize:CGSizeMake(225, 120)];
         
         NSLog(@"Frame: %@", NSStringFromCGRect([[[_childrenView cellForItemAtIndexPath:indexPath] contentView] frame]));
         
