@@ -31,16 +31,16 @@
     </entity>
     <entity name="User" representedClassName="User" isAbstract="YES" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="passwordHash" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="passwordSeed" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="passwordHash" optional="YES" attributeType="Binary" valueTransformerName="NSData" syncable="YES"/>
+        <attribute name="passwordSeed" optional="YES" attributeType="Binary" valueTransformerName="NSData" syncable="YES"/>
         <attribute name="uid" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Child" positionX="142" positionY="-0" width="128" height="120"/>
-        <element name="ChildSettings" positionX="-36" positionY="207" width="128" height="90"/>
-        <element name="Guardian" positionX="-153" positionY="0" width="128" height="90"/>
-        <element name="ProblemData" positionX="108" positionY="315" width="128" height="120"/>
-        <element name="User" positionX="52" positionY="-150" width="128" height="105"/>
-        <element name="Session" positionX="135" positionY="180" width="128" height="90"/>
+        <element name="Child" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="ChildSettings" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Guardian" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="ProblemData" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Session" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="User" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>
