@@ -77,7 +77,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    const NSArray* menuOptions = @[@"Edit Child", @"Delete Child"];
+    const NSArray* menuOptions = @[@"Edit Account", @"Remove Account"];
     
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
     [[cell textLabel] setText:[menuOptions objectAtIndex:[indexPath row]]];
