@@ -14,10 +14,16 @@
 
 @interface User : NSManagedObject
 
++ (NSData*)generatePasswordSeed;
++ (NSData*)hashPassword:(NSString*)password withSeed:(NSData*)seed;
+
 - (UIImage *)profileImage;
 - (void)setProfileImage:(UIImage *)pimage;
 
-@property (nonatomic) NSString *name, *passwordHash, *passwordSeed;
+- (void)setPassword:(NSString*)newPass;
+
+@property (nonatomic) NSString *name;
+@property (nonatomic) NSData *passwordHash, *passwordSeed;
 @property (nonatomic) NSInteger* uid;
 
 @end

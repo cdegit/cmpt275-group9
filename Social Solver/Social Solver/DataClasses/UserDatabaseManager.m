@@ -63,7 +63,7 @@ static UserDatabaseManager* instance = nil;
     ChildUser *c = [[ChildUser alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:mc];
     
     [c setName:name];
-    [c setPasswordHash:pass];
+    [c setPassword:pass];
     [c setProfileImage:img];
     
     return c;
@@ -81,7 +81,7 @@ static UserDatabaseManager* instance = nil;
     GuardianUser *g = [[GuardianUser alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:mc];
     
     [g setName:name];
-    [g setPasswordHash:pass];
+    [g setPassword:pass];
     [g setProfileImage:img];
     [g setEmail:email];
     
@@ -103,7 +103,7 @@ static UserDatabaseManager* instance = nil;
 // Checks that the password is authentic for the given user
 - (BOOL) isAuthenticUser:(User*)u forPassword:(NSString *)password
 {
-    return [password isEqualToString:[u passwordHash]];
+    return [[User hashPassword:password withSeed:[u passwordSeed]] isEqualToData:[u passwordHash]];
 }
 
 // Saves any changes made to the Database

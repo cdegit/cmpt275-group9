@@ -223,7 +223,8 @@
         user = _editedUser;
         
         // Put in values for the user
-        [user setPasswordHash:[_passwordField text]];
+        [user setPassword:[_passwordField text]];
+        //[user setPasswordHash:[_passwordField text]];
         
         // Save the profile Image if it has been set
         if ([_profileImageView image]!=nil) {

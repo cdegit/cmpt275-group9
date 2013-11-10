@@ -8,12 +8,46 @@
 //  Worked on by: Matthew Glum
 
 #import "User.h"
+#import <CommonCrypto/CommonKeyDerivation.h>
+#import <CommonCrypto/CommonCrypto.h>
 
 
 @implementation User
 
 @dynamic name, passwordHash, passwordSeed;
 @dynamic uid;
+
++ (NSData*)generatePasswordSeed
+{
+    NSMutableData* seed = [[NSMutableData alloc] initWithCapacity:256];
+    
+    for (int i = 0; i < 8; ++i) {
+        
+        u_int32_t rb = arc4random();
+        [seed appendBytes:(void*)&rb length:4];
+        
+    }
+    
+    return seed;
+    
+}
+
++ (NSData*)hashPassword:(NSString*)password withSeed:(NSData*)seed
+{
+    const NSString *plainData = @"Apple Sauce";
+    
+    u_int8_t key[kCCKeySizeAES128];
+    
+    CCKeyDerivationPBKDF(kCCPBKDF2, [password UTF8String], [password lengthOfBytesUsingEncoding:NSUTF8StringEncoding], [seed bytes], [seed length], kCCPRFHmacAlgSHA256, 500, key, kCCKeySizeAES128);
+    
+    u_int8_t hmac[CC_SHA256_DIGEST_LENGTH];
+    
+    CCHmac(kCCHmacAlgSHA256, key, kCCKeySizeAES128, [plainData UTF8String], [plainData lengthOfBytesUsingEncoding:NSUTF8StringEncoding], hmac);
+    
+    return [NSData dataWithBytes:hmac length:CC_SHA256_DIGEST_LENGTH];
+    
+    
+}
 
 - (NSString *)name
 {
@@ -68,6 +102,16 @@
         [UIImagePNGRepresentation(pimage) writeToFile:imagePath atomically:YES];
         
     }
+}
+
+- (void)setPassword:(NSString*)newPass
+{
+    NSData* seed = [User generatePasswordSeed];
+    NSData* passhash = [User hashPassword:newPass withSeed:seed];
+    
+    [self setPasswordSeed:seed];
+    [self setPasswordHash:passhash];
+    
 }
 
 @end
