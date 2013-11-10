@@ -18,6 +18,7 @@
 		2A7DB107181B3A24008EF99F /* LoginPromptViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A7DB105181B3A24008EF99F /* LoginPromptViewController.xib */; };
 		2AAABD98182D506900FBCD60 /* ServerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AAABD97182D506900FBCD60 /* ServerRequest.m */; };
 		2ACA5DF4182FEF48003CEFEE /* ManageChildPopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACA5DF3182FEF48003CEFEE /* ManageChildPopoverViewController.m */; };
+		817F14AA1830419800D058A8 /* cheering-short.wav in Resources */ = {isa = PBXBuildFile; fileRef = 817F14A91830419800D058A8 /* cheering-short.wav */; };
 		EA16940C18162A7700C40069 /* Problem.m in Sources */ = {isa = PBXBuildFile; fileRef = EA16940B18162A7700C40069 /* Problem.m */; };
 		EA16940F18162B2B00C40069 /* ProblemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EA16940E18162B2B00C40069 /* ProblemManager.m */; };
 		EA16941B18163C5C00C40069 /* LevelCompleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA16941918163C5C00C40069 /* LevelCompleteViewController.m */; };
@@ -183,6 +184,7 @@
 		2ACA5DF2182FEF48003CEFEE /* ManageChildPopoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManageChildPopoverViewController.h; sourceTree = "<group>"; };
 		2ACA5DF3182FEF48003CEFEE /* ManageChildPopoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManageChildPopoverViewController.m; sourceTree = "<group>"; };
 		2AD01A4D18302E11000EEF89 /* LogoutRequestDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LogoutRequestDelegate.h; path = Protocols/LogoutRequestDelegate.h; sourceTree = "<group>"; };
+		817F14A91830419800D058A8 /* cheering-short.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "cheering-short.wav"; sourceTree = "<group>"; };
 		EA16940A18162A7700C40069 /* Problem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Problem.h; sourceTree = "<group>"; };
 		EA16940B18162A7700C40069 /* Problem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Problem.m; sourceTree = "<group>"; };
 		EA16940D18162B2B00C40069 /* ProblemManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProblemManager.h; sourceTree = "<group>"; };
@@ -580,6 +582,7 @@
 		EAC698CD181DB7F000342086 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				817F14A91830419800D058A8 /* cheering-short.wav */,
 				EAC698D0181DB81A00342086 /* App Icon 144x144.png */,
 				EAC698CF181DB81A00342086 /* App Icon 72x72.png */,
 				EAE439B0182F03880026370C /* arrow-down.png */,
@@ -956,6 +959,7 @@
 				EAE439AD182EE9E50026370C /* scene-ice cream.png in Resources */,
 				EAE439AE182EE9E50026370C /* scene-pulling hair.png in Resources */,
 				EAC69916181DCE3C00342086 /* vert gradient 2.jpg in Resources */,
+				817F14AA1830419800D058A8 /* cheering-short.wav in Resources */,
 				EAC69904181DC20D00342086 /* Problem Solver Icon brighter.png in Resources */,
 				EACC67A418037CFE00FEAC76 /* Default@2x.png in Resources */,
 				EAC698EE181DB81A00342086 /* children-50x50.png in Resources */,

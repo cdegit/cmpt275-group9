@@ -351,6 +351,9 @@
         // Incorrect answer
         [self recordIncorrectAnswer];
         
+        // Play incorrect sound
+        [[AudioManager sharedInstance] playTryAgain];
+        
         // Create a copy to use in the completion block
         __block UIButton* answerButton = sender;
         [UIView animateWithDuration:1.0
