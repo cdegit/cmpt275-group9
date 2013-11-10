@@ -13,6 +13,8 @@
 
 static int KVOContentSizeContext;
 
+#define BUTTON_SIZE 40.0f
+
 
 @interface StatsTrayCollectionView()
 
@@ -36,6 +38,7 @@ static int KVOContentSizeContext;
 
 - (void)setupViews
 {
+    // 1 - Setup collection view
     UICollectionViewFlowLayout* flow = [[UICollectionViewFlowLayout alloc] init];
     flow.scrollDirection = (self.isHorizontal ? UICollectionViewScrollDirectionHorizontal : UICollectionViewScrollDirectionVertical);
     flow.itemSize = CGSizeMake(75, 85);
@@ -56,21 +59,25 @@ static int KVOContentSizeContext;
     
     [self.collectionView addObserver:self forKeyPath:@"contentSize" options:0 context:&KVOContentSizeContext];
     
+    // 2 - Setup previous button
     UIButton* prevButton = [UIButton buttonWithType:UIButtonTypeCustom];
     prevButton.autoresizingMask = (self.isHorizontal ? (UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleHeight) : (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleBottomMargin));
     [prevButton setImage:[UIImage imageNamed:(self.isHorizontal ? @"arrow-left" : @"arrow-up")] forState:UIControlStateNormal];
     prevButton.backgroundColor = [UIColor colorWithWhite:0 alpha:0.75f];
-    prevButton.frame = (self.isHorizontal ? CGRectMake(0, 0, 80, CGRectGetHeight(self.bounds)) : CGRectMake(0, 0, CGRectGetWidth(self.bounds), 80));
+    prevButton.frame = (self.isHorizontal ? CGRectMake(0, 0, BUTTON_SIZE, CGRectGetHeight(self.bounds)) : CGRectMake(0, 0, CGRectGetWidth(self.bounds), BUTTON_SIZE));
     [prevButton addTarget:self action:@selector(handlePreviousButtonTapped) forControlEvents:UIControlEventTouchUpInside];
-    prevButton.adjustsImageWhenHighlighted = NO;
+//    prevButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
     [self addSubview:prevButton];
     self.previousButton = prevButton;
+    
+    // 3 - Setup next button
     UIButton* nextButton = [UIButton buttonWithType:UIButtonTypeCustom];
     nextButton.autoresizingMask = (self.isHorizontal ? (UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleHeight) : (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin));
     [nextButton setImage:[UIImage imageNamed:(self.isHorizontal ? @"arrow-right" : @"arrow-down")] forState:UIControlStateNormal];
     nextButton.backgroundColor = [UIColor colorWithWhite:0 alpha:0.75f];
-    nextButton.frame = (self.isHorizontal ? CGRectMake(CGRectGetWidth(self.bounds) - 80, 0, 80, CGRectGetHeight(self.bounds)) : CGRectMake(0, CGRectGetHeight(self.bounds) - 80, CGRectGetWidth(self.bounds), 80));
+    nextButton.frame = (self.isHorizontal ? CGRectMake(CGRectGetWidth(self.bounds) - BUTTON_SIZE, 0, BUTTON_SIZE, CGRectGetHeight(self.bounds)) : CGRectMake(0, CGRectGetHeight(self.bounds) - BUTTON_SIZE, CGRectGetWidth(self.bounds), BUTTON_SIZE));
     [nextButton addTarget:self action:@selector(handleNextButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+//    nextButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
     [self addSubview:nextButton];
     self.nextButton = nextButton;
 }
