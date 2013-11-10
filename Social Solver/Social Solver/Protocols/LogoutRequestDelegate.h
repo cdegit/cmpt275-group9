@@ -10,4 +10,7 @@
 
 @protocol LogoutRequestDelegate <NSObject>
 
+- (void)logoutRequestGranted;
+- (void)logoutRequestDenied;
+
 @end

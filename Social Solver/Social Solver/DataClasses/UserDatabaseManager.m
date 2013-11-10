@@ -10,6 +10,13 @@
 #import "UserDatabaseManager.h"
 #import "AppDelegate.h"
 
+@interface UserDatabaseManager ()
+{
+    id<LogoutRequestDelegate> _requestDelegate;
+}
+
+@end
+
 @implementation UserDatabaseManager
 
 @synthesize activeUser = _activeUser, sessionDate = _sessionDate;
@@ -132,6 +139,36 @@ static UserDatabaseManager* instance = nil;
 {
     _activeUser = nil;
     _sessionDate = nil;
+}
+
+- (void)requestLogout:(id<LogoutRequestDelegate>)del
+{
+    
+    _requestDelegate = del;
+    
+    UIAlertView *reqview = [[UIAlertView alloc] initWithTitle:@"Logout?" message:@"Do you wish to logout?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+    
+    [reqview show];
+}
+
+#pragma mark - UIAlertViewDelegate Methods
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSLog(@"Are we here?");
+    switch (buttonIndex) {
+        case 0:
+            [_requestDelegate logoutRequestDenied];
+            break;
+            
+        case 1:
+            [[UserDatabaseManager sharedInstance] logoutActiveUser];
+            [_requestDelegate logoutRequestGranted];
+            break;
+            
+        default:
+            break;
+    }
 }
 
 @end
