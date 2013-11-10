@@ -11,6 +11,7 @@
 #import "User.h"
 #import "ChildUser.h"
 #import "GuardianUser.h"
+#import "LogoutRequestDelegate.h"
 
 /* This is a singleton class which is used to interact with the database */
 
@@ -30,6 +31,7 @@
 
 - (void)loginUser:(User*)user;
 - (void)logoutActiveUser;
+- (void)requestLogout:(id<LogoutRequestDelegate>)del;
 
 @property (strong, readonly, nonatomic) User* activeUser;
 @property (strong, readonly, nonatomic) NSDate* sessionDate;
