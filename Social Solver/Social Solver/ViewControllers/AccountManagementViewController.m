@@ -330,5 +330,15 @@
     }
 }
 
+#pragma mark - UITextFieldDelegate methods
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    
+    [textField resignFirstResponder];
+    
+    return NO;
+}
+
 
 @end
