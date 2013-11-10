@@ -11,9 +11,11 @@
 #import "GuardianUser.h"
 #import "LoginUserSelectionCell.h"
 #import "AccountManagementViewController.h"
+#import "ManageChildPopoverViewController.h"
 
 @interface ViewChildrenViewController ()
 {
+    UIPopoverController *_manageChildPopover;
     NSMutableArray* childArray;
 }
 
@@ -145,10 +147,23 @@ NSComparator caseInsensitiveComparator = ^(NSString *obj1, NSString *obj2)
     }
     else
     {
+        
+        ManageChildPopoverViewController *mcpvc = [[ManageChildPopoverViewController alloc] init];
+        
+        UIPopoverController *pc = [[UIPopoverController alloc] initWithContentViewController:mcpvc];
+        
+        _manageChildPopover = pc;
+        //[pc setDelegate:self];
+        
+        [pc setPopoverContentSize:CGSizeMake(200, 120)];
+        
+        [_manageChildPopover presentPopoverFromRect:[[[_childrenView cellForItemAtIndexPath:indexPath] contentView] frame] inView:_childrenView permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+        
+        /*
         AccountManagementViewController *amvc = [[AccountManagementViewController alloc] initWithNibName:@"AccountManagementViewController" bundle:[NSBundle mainBundle] withUser:[childArray objectAtIndex:[indexPath row]]];
         [amvc setDelegate:self];
         [amvc setModalPresentationStyle:UIModalPresentationCurrentContext];
-        [self presentViewController:amvc animated:YES completion:NULL];
+        [self presentViewController:amvc animated:YES completion:NULL];*/
     }
     
     return NO;

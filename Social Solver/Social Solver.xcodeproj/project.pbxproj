@@ -17,6 +17,7 @@
 		2A7DB106181B3A24008EF99F /* LoginPromptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7DB104181B3A24008EF99F /* LoginPromptViewController.m */; };
 		2A7DB107181B3A24008EF99F /* LoginPromptViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A7DB105181B3A24008EF99F /* LoginPromptViewController.xib */; };
 		2AAABD98182D506900FBCD60 /* ServerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AAABD97182D506900FBCD60 /* ServerRequest.m */; };
+		2ACA5DF4182FEF48003CEFEE /* ManageChildPopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACA5DF3182FEF48003CEFEE /* ManageChildPopoverViewController.m */; };
 		EA16940C18162A7700C40069 /* Problem.m in Sources */ = {isa = PBXBuildFile; fileRef = EA16940B18162A7700C40069 /* Problem.m */; };
 		EA16940F18162B2B00C40069 /* ProblemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EA16940E18162B2B00C40069 /* ProblemManager.m */; };
 		EA16941B18163C5C00C40069 /* LevelCompleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA16941918163C5C00C40069 /* LevelCompleteViewController.m */; };
@@ -158,6 +159,8 @@
 		2A964BE7182D5CDD0016B43F /* ServerRequestDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ServerRequestDelegate.h; path = Protocols/ServerRequestDelegate.h; sourceTree = "<group>"; };
 		2AAABD96182D506900FBCD60 /* ServerRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerRequest.h; sourceTree = "<group>"; };
 		2AAABD97182D506900FBCD60 /* ServerRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerRequest.m; sourceTree = "<group>"; };
+		2ACA5DF2182FEF48003CEFEE /* ManageChildPopoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManageChildPopoverViewController.h; sourceTree = "<group>"; };
+		2ACA5DF3182FEF48003CEFEE /* ManageChildPopoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManageChildPopoverViewController.m; sourceTree = "<group>"; };
 		EA16940A18162A7700C40069 /* Problem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Problem.h; sourceTree = "<group>"; };
 		EA16940B18162A7700C40069 /* Problem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Problem.m; sourceTree = "<group>"; };
 		EA16940D18162B2B00C40069 /* ProblemManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProblemManager.h; sourceTree = "<group>"; };
@@ -720,6 +723,8 @@
 				EACC6808180B9CE900FEAC76 /* StatisticsViewController.m */,
 				2A67ECDE1827F245000695CC /* ViewChildrenViewController.h */,
 				2A67ECDF1827F245000695CC /* ViewChildrenViewController.m */,
+				2ACA5DF2182FEF48003CEFEE /* ManageChildPopoverViewController.h */,
+				2ACA5DF3182FEF48003CEFEE /* ManageChildPopoverViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -968,6 +973,7 @@
 			files = (
 				EAC6993F1828B39100342086 /* PopoverPickerViewController.m in Sources */,
 				2A67ECE11827F245000695CC /* ViewChildrenViewController.m in Sources */,
+				2ACA5DF4182FEF48003CEFEE /* ManageChildPopoverViewController.m in Sources */,
 				EACC679C18037CFE00FEAC76 /* main.m in Sources */,
 				EACC67A018037CFE00FEAC76 /* AppDelegate.m in Sources */,
 				2A105F15181E18CF0035232F /* ChildProblemData.m in Sources */,
