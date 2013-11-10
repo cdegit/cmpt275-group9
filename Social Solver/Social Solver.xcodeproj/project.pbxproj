@@ -1105,10 +1105,7 @@
 				GCC_PREFIX_HEADER = "Social Solver/Social Solver-Prefix.pch";
 				INFOPLIST_FILE = "Social Solver/Social Solver-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Users/dwoods/Documents/SFU/CMPT\\ 275/Git\\ Repo/Social\\ Solver/Social\\ Solver",
-				);
+				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/Social\\ Solver/";
 				OTHER_LDFLAGS = "-ObjC";
 				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1124,10 +1121,7 @@
 				GCC_PREFIX_HEADER = "Social Solver/Social Solver-Prefix.pch";
 				INFOPLIST_FILE = "Social Solver/Social Solver-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Users/dwoods/Documents/SFU/CMPT\\ 275/Git\\ Repo/Social\\ Solver/Social\\ Solver",
-				);
+				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/Social\\ Solver/";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 2;
