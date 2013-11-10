@@ -11,6 +11,8 @@
 
 @interface MainMenuViewController : UIViewController
 
+- (void)becameBackground:(NSNotification*)notification;
+
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
 @property (weak, nonatomic) IBOutlet UIButton *gameMode1Button;
 @property (weak, nonatomic) IBOutlet UIButton *gameMode2Button;

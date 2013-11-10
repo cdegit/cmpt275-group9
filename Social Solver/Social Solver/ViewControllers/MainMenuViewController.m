@@ -26,7 +26,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(becameBackground:) name:UIApplicationDidEnterBackgroundNotification object:nil];
     }
     return self;
 }
@@ -66,6 +66,14 @@
         _someText.hidden = YES;
         [_someText setNeedsDisplay];
     }
+}
+
+- (void)becameBackground:(NSNotification*)notification
+{
+    _logoutButton.hidden = YES;
+    _loginButton.hidden = NO;
+    _someText.text=[[[UserDatabaseManager sharedInstance] activeUser] name];
+    _someText.hidden = YES;
 }
 
 - (IBAction)gameModeTapped:(UIButton* )sender {

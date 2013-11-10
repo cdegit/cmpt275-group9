@@ -66,6 +66,8 @@ NSComparator caseInsensitiveComparator = ^(NSString *obj1, NSString *obj2)
     
     
     [self loadUsers];
+    
+    _activeTile = -1;
 }
 
 - (void)didReceiveMemoryWarning
@@ -240,6 +242,8 @@ NSComparator caseInsensitiveComparator = ^(NSString *obj1, NSString *obj2)
         [_childArray removeObjectAtIndex:_activeTile];
         
         [_childrenView reloadData];
+        
+        _activeTile = -1;
         
     }
 }
