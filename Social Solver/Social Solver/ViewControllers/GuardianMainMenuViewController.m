@@ -11,6 +11,10 @@
 #import "StatisticsViewController.h"
 #import "ViewChildrenViewController.h"
 #import "GuardianGameMenuViewController.h"
+#import "ShareProfilesViewController.h"
+#import "ShareProfilesWithGuardianViewController.h"
+#import "ShareProfileSecurityCodeViewController.h"
+#import "PendingSharesViewController.h"
 
 @interface GuardianMainMenuViewController ()
 
@@ -22,6 +26,9 @@
 @end
 
 @implementation GuardianMainMenuViewController
+
+const int SHARE_PROFILES_WITH_GUARDIAN = 0;
+const int SHARE_PROFILES_SECURITY_CODE = 1;
 
 @synthesize navigationCellInfo, cellHeight, statsVC;
 
@@ -137,12 +144,17 @@
         }
         case 2:
         {
-            // Load share profiles
+            // Load share profile
+            ShareProfilesViewController *shareProfiles = [[ShareProfilesViewController alloc]  initWithNibName:@"ShareProfilesViewController" bundle:[NSBundle mainBundle]];
+            shareProfiles.delegate = self;
+            self.detailViewController = shareProfiles;
+            
             break;
         }
         case 3:
         {
             // Load pending shares
+            self.detailViewController = [[PendingSharesViewController alloc] initWithNibName:@"PendingSharesViewController" bundle:[NSBundle mainBundle]];
             break;
         }
         case 4:
@@ -166,6 +178,34 @@
     {
         self.detailViewController.view.frame = self.detailViewContainer.bounds;
         self.detailViewController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        [self.detailViewContainer addSubview:self.detailViewController.view];
+    }
+}
+
+- (void) changeView:(int) view {
+    switch(view) {
+        case SHARE_PROFILES_WITH_GUARDIAN: // load share profile guardian input
+        {
+            ShareProfilesWithGuardianViewController *shareProfiles = [[ShareProfilesWithGuardianViewController alloc]  initWithNibName:@"ShareProfilesWithGuardianViewController" bundle:[NSBundle mainBundle]];
+            shareProfiles.delegate = self;
+            self.detailViewController = shareProfiles;
+            break;
+        }
+        case SHARE_PROFILES_SECURITY_CODE: // load share profile confirmation/security code
+        {
+            self.detailViewController = [[ShareProfileSecurityCodeViewController alloc]  initWithNibName:@"ShareProfileSecurityCodeViewController" bundle:[NSBundle mainBundle]];
+            break;
+        }
+        default:
+        {
+            NSAssert(false, @"Unkown cell selected");
+            break;
+        }
+    }
+    
+    if (self.detailViewController != nil)
+    {
+        self.detailViewController.view.frame = self.detailViewContainer.bounds;
         [self.detailViewContainer addSubview:self.detailViewController.view];
     }
 }

@@ -128,6 +128,25 @@
 		EAE439BE182F320B0026370C /* StatsTrayCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = EAE439BD182F320B0026370C /* StatsTrayCollectionView.m */; };
 		EAE439C218302BA80026370C /* GuardianGameMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAE439C018302BA80026370C /* GuardianGameMenuViewController.m */; };
 		EAE439C318302BA80026370C /* GuardianGameMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAE439C118302BA80026370C /* GuardianGameMenuViewController.xib */; };
+		EAE439C818303AF40026370C /* button.wav in Resources */ = {isa = PBXBuildFile; fileRef = EAE439C418303AF40026370C /* button.wav */; };
+		EAE439C918303AF40026370C /* button2.wav in Resources */ = {isa = PBXBuildFile; fileRef = EAE439C518303AF40026370C /* button2.wav */; };
+		EAE439CA18303AF40026370C /* cheering.wav in Resources */ = {isa = PBXBuildFile; fileRef = EAE439C618303AF40026370C /* cheering.wav */; };
+		EAE439CB18303AF40026370C /* tryagain.wav in Resources */ = {isa = PBXBuildFile; fileRef = EAE439C718303AF40026370C /* tryagain.wav */; };
+		EAE439D018303B080026370C /* AudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EAE439CD18303B080026370C /* AudioManager.m */; };
+		EAE439D118303B080026370C /* ShareRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = EAE439CF18303B080026370C /* ShareRequest.m */; };
+		EAE439DE18303B2D0026370C /* PendingSharesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAE439D318303B2D0026370C /* PendingSharesViewController.m */; };
+		EAE439DF18303B2D0026370C /* PendingSharesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAE439D418303B2D0026370C /* PendingSharesViewController.xib */; };
+		EAE439E018303B2D0026370C /* ShareProfileSecurityCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAE439D618303B2D0026370C /* ShareProfileSecurityCodeViewController.m */; };
+		EAE439E118303B2D0026370C /* ShareProfileSecurityCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAE439D718303B2D0026370C /* ShareProfileSecurityCodeViewController.xib */; };
+		EAE439E218303B2D0026370C /* ShareProfilesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAE439D918303B2D0026370C /* ShareProfilesViewController.m */; };
+		EAE439E318303B2D0026370C /* ShareProfilesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAE439DA18303B2D0026370C /* ShareProfilesViewController.xib */; };
+		EAE439E418303B2D0026370C /* ShareProfilesWithGuardianViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAE439DC18303B2D0026370C /* ShareProfilesWithGuardianViewController.m */; };
+		EAE439E518303B2D0026370C /* ShareProfilesWithGuardianViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAE439DD18303B2D0026370C /* ShareProfilesWithGuardianViewController.xib */; };
+		EAE439EC18303B890026370C /* PendingSharesTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EAE439E718303B890026370C /* PendingSharesTableCell.m */; };
+		EAE439ED18303B890026370C /* PendingSharesTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAE439E818303B890026370C /* PendingSharesTableCell.xib */; };
+		EAE439EE18303B890026370C /* ShareUserSelectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EAE439EA18303B890026370C /* ShareUserSelectionCell.m */; };
+		EAE439EF18303B890026370C /* ShareUserSelectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAE439EB18303B890026370C /* ShareUserSelectionCell.xib */; };
+		EAE439F118303CFF0026370C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAE439F018303CFF0026370C /* AudioToolbox.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -382,6 +401,33 @@
 		EAE439BF18302BA80026370C /* GuardianGameMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuardianGameMenuViewController.h; sourceTree = "<group>"; };
 		EAE439C018302BA80026370C /* GuardianGameMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuardianGameMenuViewController.m; sourceTree = "<group>"; };
 		EAE439C118302BA80026370C /* GuardianGameMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GuardianGameMenuViewController.xib; path = ViewControllers/GuardianGameMenuViewController.xib; sourceTree = "<group>"; };
+		EAE439C418303AF40026370C /* button.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = button.wav; sourceTree = "<group>"; };
+		EAE439C518303AF40026370C /* button2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = button2.wav; sourceTree = "<group>"; };
+		EAE439C618303AF40026370C /* cheering.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = cheering.wav; sourceTree = "<group>"; };
+		EAE439C718303AF40026370C /* tryagain.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = tryagain.wav; sourceTree = "<group>"; };
+		EAE439CC18303B080026370C /* AudioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioManager.h; sourceTree = "<group>"; };
+		EAE439CD18303B080026370C /* AudioManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioManager.m; sourceTree = "<group>"; };
+		EAE439CE18303B080026370C /* ShareRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareRequest.h; sourceTree = "<group>"; };
+		EAE439CF18303B080026370C /* ShareRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareRequest.m; sourceTree = "<group>"; };
+		EAE439D218303B2D0026370C /* PendingSharesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PendingSharesViewController.h; sourceTree = "<group>"; };
+		EAE439D318303B2D0026370C /* PendingSharesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PendingSharesViewController.m; sourceTree = "<group>"; };
+		EAE439D418303B2D0026370C /* PendingSharesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PendingSharesViewController.xib; path = ViewControllers/PendingSharesViewController.xib; sourceTree = "<group>"; };
+		EAE439D518303B2D0026370C /* ShareProfileSecurityCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareProfileSecurityCodeViewController.h; sourceTree = "<group>"; };
+		EAE439D618303B2D0026370C /* ShareProfileSecurityCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareProfileSecurityCodeViewController.m; sourceTree = "<group>"; };
+		EAE439D718303B2D0026370C /* ShareProfileSecurityCodeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ShareProfileSecurityCodeViewController.xib; path = ViewControllers/ShareProfileSecurityCodeViewController.xib; sourceTree = "<group>"; };
+		EAE439D818303B2D0026370C /* ShareProfilesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareProfilesViewController.h; sourceTree = "<group>"; };
+		EAE439D918303B2D0026370C /* ShareProfilesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareProfilesViewController.m; sourceTree = "<group>"; };
+		EAE439DA18303B2D0026370C /* ShareProfilesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ShareProfilesViewController.xib; path = ViewControllers/ShareProfilesViewController.xib; sourceTree = "<group>"; };
+		EAE439DB18303B2D0026370C /* ShareProfilesWithGuardianViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareProfilesWithGuardianViewController.h; sourceTree = "<group>"; };
+		EAE439DC18303B2D0026370C /* ShareProfilesWithGuardianViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareProfilesWithGuardianViewController.m; sourceTree = "<group>"; };
+		EAE439DD18303B2D0026370C /* ShareProfilesWithGuardianViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ShareProfilesWithGuardianViewController.xib; path = ViewControllers/ShareProfilesWithGuardianViewController.xib; sourceTree = "<group>"; };
+		EAE439E618303B890026370C /* PendingSharesTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PendingSharesTableCell.h; path = Views/PendingSharesTableCell.h; sourceTree = "<group>"; };
+		EAE439E718303B890026370C /* PendingSharesTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PendingSharesTableCell.m; path = Views/PendingSharesTableCell.m; sourceTree = "<group>"; };
+		EAE439E818303B890026370C /* PendingSharesTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PendingSharesTableCell.xib; path = Views/PendingSharesTableCell.xib; sourceTree = "<group>"; };
+		EAE439E918303B890026370C /* ShareUserSelectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShareUserSelectionCell.h; path = Views/ShareUserSelectionCell.h; sourceTree = "<group>"; };
+		EAE439EA18303B890026370C /* ShareUserSelectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShareUserSelectionCell.m; path = Views/ShareUserSelectionCell.m; sourceTree = "<group>"; };
+		EAE439EB18303B890026370C /* ShareUserSelectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ShareUserSelectionCell.xib; path = Views/ShareUserSelectionCell.xib; sourceTree = "<group>"; };
+		EAE439F018303CFF0026370C /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -389,6 +435,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAE439F118303CFF0026370C /* AudioToolbox.framework in Frameworks */,
 				EABC9407182E070B00E81664 /* Accelerate.framework in Frameworks */,
 				EABC9405182E070600E81664 /* QuartzCore.framework in Frameworks */,
 				EAC698FC181DB87F00342086 /* MediaPlayer.framework in Frameworks */,
@@ -420,9 +467,9 @@
 				2A67ECE31827FCC7000695CC /* AccountManagementViewControllerDelegate.h */,
 				EABC93A9182E06AE00E81664 /* GraphViewControllerDataSource.h */,
 				2A3CDB82181EC83900A04D62 /* LoginPromptViewControllerDelegate.h */,
+				2AD01A4D18302E11000EEF89 /* LogoutRequestDelegate.h */,
 				EAC699381828B37C00342086 /* PopoverPickerViewControllerDelegate.h */,
 				2A964BE7182D5CDD0016B43F /* ServerRequestDelegate.h */,
-				2AD01A4D18302E11000EEF89 /* LogoutRequestDelegate.h */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -533,9 +580,6 @@
 		EAC698CD181DB7F000342086 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				EAC69911181DCBC600342086 /* circle_gradient.jpg */,
-				EAC69917181DD1E700342086 /* test_image.jpg */,
-				EAC69914181DCE3C00342086 /* vert gradient 2.jpg */,
 				EAC698D0181DB81A00342086 /* App Icon 144x144.png */,
 				EAC698CF181DB81A00342086 /* App Icon 72x72.png */,
 				EAE439B0182F03880026370C /* arrow-down.png */,
@@ -544,9 +588,14 @@
 				EAE439B3182F03880026370C /* arrow-up.png */,
 				EAC698FD181DC15800342086 /* Button 300x50 brighter.png */,
 				EAC698D2181DB81A00342086 /* Button 300x50.png */,
+				EAE439C418303AF40026370C /* button.wav */,
+				EAE439C518303AF40026370C /* button2.wav */,
+				EAE439C618303AF40026370C /* cheering.wav */,
 				EAC698DB181DB81A00342086 /* children-50x50.png */,
+				EAC69911181DCBC600342086 /* circle_gradient.jpg */,
 				EAC698FF181DC20D00342086 /* Face Finder Icon brighter.png */,
 				EAC698D4181DB81A00342086 /* Face Finder Icon.png */,
+				EAC698F4181DB81E00342086 /* FaceFinder images */,
 				EAC698DC181DB81A00342086 /* games-50x50.png */,
 				EAE439B4182F03880026370C /* open arrow down.png */,
 				EAE439BA182F05AB0026370C /* open arrow right.png */,
@@ -558,11 +607,13 @@
 				EAC698D9181DB81A00342086 /* Scene Solver Icon.png */,
 				EAC698DE181DB81A00342086 /* settings-50x50.png */,
 				EAC698DF181DB81A00342086 /* share-50x50.png */,
-				EAC698E0181DB81A00342086 /* stats-50x50.png */,
-				EAC6990D181DCAC100342086 /* stressed_linen_@2X.png */,
-				EAC698F4181DB81E00342086 /* FaceFinder images */,
 				EAE43995182EE9C80026370C /* Stats Problem Icons */,
+				EAC698E0181DB81A00342086 /* stats-50x50.png */,
 				EAC698F5181DB83400342086 /* StorySolver videos */,
+				EAC6990D181DCAC100342086 /* stressed_linen_@2X.png */,
+				EAC69917181DD1E700342086 /* test_image.jpg */,
+				EAE439C718303AF40026370C /* tryagain.wav */,
+				EAC69914181DCE3C00342086 /* vert gradient 2.jpg */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -613,6 +664,7 @@
 		EACC678C18037CFE00FEAC76 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EAE439F018303CFF0026370C /* AudioToolbox.framework */,
 				EABC9406182E070B00E81664 /* Accelerate.framework */,
 				EABC9404182E070600E81664 /* QuartzCore.framework */,
 				EAC698FB181DB87F00342086 /* MediaPlayer.framework */,
@@ -692,8 +744,14 @@
 				EACC67E7180B4B6600FEAC76 /* LoginViewController.xib */,
 				EACC67CA18037DA300FEAC76 /* MainMenuViewController.xib */,
 				EACC6805180B954C00FEAC76 /* NavigationTableCell.xib */,
+				EAE439E818303B890026370C /* PendingSharesTableCell.xib */,
+				EAE439D418303B2D0026370C /* PendingSharesViewController.xib */,
 				EAC6993E1828B39100342086 /* PopoverPickerViewController.xib */,
 				EACC67F6180B4C4800FEAC76 /* RewardsGalleryViewController.xib */,
+				EAE439D718303B2D0026370C /* ShareProfileSecurityCodeViewController.xib */,
+				EAE439DA18303B2D0026370C /* ShareProfilesViewController.xib */,
+				EAE439DD18303B2D0026370C /* ShareProfilesWithGuardianViewController.xib */,
+				EAE439EB18303B890026370C /* ShareUserSelectionCell.xib */,
 				EACC6809180B9CE900FEAC76 /* StatisticsViewController.xib */,
 				EAC699431828B3A000342086 /* StatsChildCell.xib */,
 				EAC699461828B3A000342086 /* StatsProblemCell.xib */,
@@ -725,12 +783,20 @@
 				EACC67C918037DA300FEAC76 /* MainMenuViewController.m */,
 				2ACA5DF2182FEF48003CEFEE /* ManageChildPopoverViewController.h */,
 				2ACA5DF3182FEF48003CEFEE /* ManageChildPopoverViewController.m */,
+				EAE439D218303B2D0026370C /* PendingSharesViewController.h */,
+				EAE439D318303B2D0026370C /* PendingSharesViewController.m */,
 				EAC6993C1828B39100342086 /* PopoverPickerViewController.h */,
 				EAC6993D1828B39100342086 /* PopoverPickerViewController.m */,
 				EACC67F4180B4C4800FEAC76 /* RewardsGalleryViewController.h */,
 				EACC67F5180B4C4800FEAC76 /* RewardsGalleryViewController.m */,
 				EACC67CD1803816800FEAC76 /* RootNavigationViewController.h */,
 				EACC67CE1803816800FEAC76 /* RootNavigationViewController.m */,
+				EAE439D518303B2D0026370C /* ShareProfileSecurityCodeViewController.h */,
+				EAE439D618303B2D0026370C /* ShareProfileSecurityCodeViewController.m */,
+				EAE439D818303B2D0026370C /* ShareProfilesViewController.h */,
+				EAE439D918303B2D0026370C /* ShareProfilesViewController.m */,
+				EAE439DB18303B2D0026370C /* ShareProfilesWithGuardianViewController.h */,
+				EAE439DC18303B2D0026370C /* ShareProfilesWithGuardianViewController.m */,
 				EACC6807180B9CE900FEAC76 /* StatisticsViewController.h */,
 				EACC6808180B9CE900FEAC76 /* StatisticsViewController.m */,
 				2A67ECDE1827F245000695CC /* ViewChildrenViewController.h */,
@@ -742,6 +808,8 @@
 		EACC67D6180733AD00FEAC76 /* DataClasses */ = {
 			isa = PBXGroup;
 			children = (
+				EAE439CC18303B080026370C /* AudioManager.h */,
+				EAE439CD18303B080026370C /* AudioManager.m */,
 				2A105F13181E18CF0035232F /* ChildProblemData.h */,
 				2A105F14181E18CF0035232F /* ChildProblemData.m */,
 				2A105F10181E16970035232F /* ChildSettings.h */,
@@ -758,6 +826,8 @@
 				2AAABD97182D506900FBCD60 /* ServerRequest.m */,
 				EAE43992182EC8510026370C /* Session.h */,
 				EAE43993182EC8510026370C /* Session.m */,
+				EAE439CE18303B080026370C /* ShareRequest.h */,
+				EAE439CF18303B080026370C /* ShareRequest.m */,
 				EAC699391828B38600342086 /* StatisticsViewGestureRecognizer.h */,
 				EAC6993A1828B38600342086 /* StatisticsViewGestureRecognizer.m */,
 				EACC67D7180733CB00FEAC76 /* User.h */,
@@ -775,6 +845,10 @@
 				2A730F9F1819A4EA000356DE /* LoginUserSelectionCell.m */,
 				EACC6802180B944E00FEAC76 /* NavigationTableCell.h */,
 				EACC6803180B944E00FEAC76 /* NavigationTableCell.m */,
+				EAE439E618303B890026370C /* PendingSharesTableCell.h */,
+				EAE439E718303B890026370C /* PendingSharesTableCell.m */,
+				EAE439E918303B890026370C /* ShareUserSelectionCell.h */,
+				EAE439EA18303B890026370C /* ShareUserSelectionCell.m */,
 				EAC699411828B3A000342086 /* StatsChildCell.h */,
 				EAC699421828B3A000342086 /* StatsChildCell.m */,
 				EAC699441828B3A000342086 /* StatsProblemCell.h */,
@@ -876,6 +950,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAE439ED18303B890026370C /* PendingSharesTableCell.xib in Resources */,
 				EACC679A18037CFE00FEAC76 /* InfoPlist.strings in Resources */,
 				EACC67A218037CFE00FEAC76 /* Default.png in Resources */,
 				EAE439AD182EE9E50026370C /* scene-ice cream.png in Resources */,
@@ -891,6 +966,7 @@
 				EAC6994A1828B3A000342086 /* StatsProblemCell.xib in Resources */,
 				EAE439A9182EE9E50026370C /* problem-asking for bear.png in Resources */,
 				EAE439A0182EE9D90026370C /* sad-75x85.png in Resources */,
+				EAE439E318303B2D0026370C /* ShareProfilesViewController.xib in Resources */,
 				EAC699401828B39100342086 /* PopoverPickerViewController.xib in Resources */,
 				EAC698EC181DB81A00342086 /* Scene Solver Icon.png in Resources */,
 				EACC67E9180B4B6600FEAC76 /* LoginViewController.xib in Resources */,
@@ -920,6 +996,8 @@
 				EACC67F8180B4C4800FEAC76 /* RewardsGalleryViewController.xib in Resources */,
 				EAE439B7182F03880026370C /* arrow-right.png in Resources */,
 				EAC698ED181DB81A00342086 /* surprised.png in Resources */,
+				EAE439DF18303B2D0026370C /* PendingSharesViewController.xib in Resources */,
+				EAE439EF18303B890026370C /* ShareUserSelectionCell.xib in Resources */,
 				EACC67FD180B4C7400FEAC76 /* GuardianMainMenuViewController.xib in Resources */,
 				EAE439AF182EE9E50026370C /* scene-spider.png in Resources */,
 				EACC6806180B954C00FEAC76 /* NavigationTableCell.xib in Resources */,
@@ -927,12 +1005,16 @@
 				EAC698E7181DB81A00342086 /* Face Finder Icon.png in Resources */,
 				EAE439BB182F05AB0026370C /* open arrow right.png in Resources */,
 				2A7DB107181B3A24008EF99F /* LoginPromptViewController.xib in Resources */,
+				EAE439CA18303AF40026370C /* cheering.wav in Resources */,
 				EAE439B5182F03880026370C /* arrow-down.png in Resources */,
 				EAC69905181DC20D00342086 /* Rewards Gallery Icon brighter.png in Resources */,
+				EAE439C918303AF40026370C /* button2.wav in Resources */,
 				EAC698F1181DB81A00342086 /* settings-50x50.png in Resources */,
+				EAE439E118303B2D0026370C /* ShareProfileSecurityCodeViewController.xib in Resources */,
 				EAC6991B181DF56100342086 /* Billy_scared_by_Spider.mp4 in Resources */,
 				EAC698F0181DB81A00342086 /* pending-50x50.png in Resources */,
 				EAC698E8181DB81A00342086 /* fear.png in Resources */,
+				EAE439C818303AF40026370C /* button.wav in Resources */,
 				EAE439AC182EE9E50026370C /* scene-Billy surprises Suzy.png in Resources */,
 				EACC680B180B9CE900FEAC76 /* StatisticsViewController.xib in Resources */,
 				EAC69903181DC20D00342086 /* Face Finder Icon brighter.png in Resources */,
@@ -943,7 +1025,9 @@
 				EAC69906181DC20D00342086 /* Scene Solver Icon brighter.png in Resources */,
 				EAC698E3181DB81A00342086 /* App Icon 144x144.png in Resources */,
 				EAC6991C181DF56100342086 /* Suzy_suprised_by_Billy.mp4 in Resources */,
+				EAE439E518303B2D0026370C /* ShareProfilesWithGuardianViewController.xib in Resources */,
 				EAC698F7181DB84900342086 /* Problems.plist in Resources */,
+				EAE439CB18303AF40026370C /* tryagain.wav in Resources */,
 				EA16941C18163C5C00C40069 /* LevelCompleteViewController.xib in Resources */,
 				EAC69912181DCBC600342086 /* circle_gradient.jpg in Resources */,
 				EAC698E2181DB81A00342086 /* App Icon 72x72.png in Resources */,
@@ -989,17 +1073,22 @@
 				EACC679C18037CFE00FEAC76 /* main.m in Sources */,
 				EACC67A018037CFE00FEAC76 /* AppDelegate.m in Sources */,
 				2A105F15181E18CF0035232F /* ChildProblemData.m in Sources */,
+				EAE439D118303B080026370C /* ShareRequest.m in Sources */,
 				EABC93AF182E06C200E81664 /* GraphViewController.m in Sources */,
 				EACC67CB18037DA300FEAC76 /* MainMenuViewController.m in Sources */,
 				EAE439BE182F320B0026370C /* StatsTrayCollectionView.m in Sources */,
+				EAE439EE18303B890026370C /* ShareUserSelectionCell.m in Sources */,
 				EACC67CF1803816800FEAC76 /* RootNavigationViewController.m in Sources */,
 				EACC67D9180733CB00FEAC76 /* User.m in Sources */,
+				EAE439E418303B2D0026370C /* ShareProfilesWithGuardianViewController.m in Sources */,
 				EACC67DC1807340700FEAC76 /* GuardianUser.m in Sources */,
+				EAE439DE18303B2D0026370C /* PendingSharesViewController.m in Sources */,
 				2AAABD98182D506900FBCD60 /* ServerRequest.m in Sources */,
 				EACC67DF1807343200FEAC76 /* ChildUser.m in Sources */,
 				2A7DB106181B3A24008EF99F /* LoginPromptViewController.m in Sources */,
 				EAC698FA181DB86300342086 /* Social_Solver.xcdatamodeld in Sources */,
 				EACC67E8180B4B6600FEAC76 /* LoginViewController.m in Sources */,
+				EAE439D018303B080026370C /* AudioManager.m in Sources */,
 				EACC67ED180B4B8D00FEAC76 /* GameViewController.m in Sources */,
 				EAC699491828B3A000342086 /* StatsProblemCell.m in Sources */,
 				EACC67F2180B4BC700FEAC76 /* AccountManagementViewController.m in Sources */,
@@ -1009,13 +1098,16 @@
 				EACC6800180B4ECD00FEAC76 /* UserDatabaseManager.m in Sources */,
 				EACC6804180B944E00FEAC76 /* NavigationTableCell.m in Sources */,
 				2A730FA01819A4EA000356DE /* LoginUserSelectionCell.m in Sources */,
+				EAE439E018303B2D0026370C /* ShareProfileSecurityCodeViewController.m in Sources */,
 				EACC680A180B9CE900FEAC76 /* StatisticsViewController.m in Sources */,
 				EAE43994182EC8510026370C /* Session.m in Sources */,
 				EAC6993B1828B38600342086 /* StatisticsViewGestureRecognizer.m in Sources */,
 				EAC699471828B3A000342086 /* StatsChildCell.m in Sources */,
+				EAE439EC18303B890026370C /* PendingSharesTableCell.m in Sources */,
 				EA16940C18162A7700C40069 /* Problem.m in Sources */,
 				EA16940F18162B2B00C40069 /* ProblemManager.m in Sources */,
 				EA16941B18163C5C00C40069 /* LevelCompleteViewController.m in Sources */,
+				EAE439E218303B2D0026370C /* ShareProfilesViewController.m in Sources */,
 				2A105F12181E16970035232F /* ChildSettings.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
