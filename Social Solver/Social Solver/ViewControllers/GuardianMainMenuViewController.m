@@ -10,6 +10,7 @@
 #import "NavigationTableCell.h"
 #import "StatisticsViewController.h"
 #import "ViewChildrenViewController.h"
+#import "GuardianGameMenuViewController.h"
 
 @interface GuardianMainMenuViewController ()
 
@@ -17,7 +18,6 @@
 @property (nonatomic) CGFloat cellHeight;
 @property (nonatomic) UIViewController* detailViewController;
 @property (nonatomic, strong) StatisticsViewController* statsVC;
-@property (nonatomic, strong) ViewChildrenViewController* viewChildrenVC;
 
 @end
 
@@ -41,13 +41,10 @@
     // Select the first cell by default
     [self.navigationTable selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionNone];
     
-    self.detailViewController = self.viewChildrenVC;
-    if (self.detailViewController != nil)
-    {
-        self.detailViewController.view.frame = self.detailViewContainer.bounds;
-        self.detailViewController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        [self.detailViewContainer addSubview:self.detailViewController.view];
-    }
+    self.detailViewController = [[ViewChildrenViewController alloc] initWithNibName:@"ViewChildrenViewController" bundle:[NSBundle mainBundle]];;
+    self.detailViewController.view.frame = self.detailViewContainer.bounds;
+    self.detailViewController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    [self.detailViewContainer addSubview:self.detailViewController.view];
     
     self.navigationItem.title = @"Social Solver";
     
@@ -95,14 +92,6 @@
     return statsVC;
 }
 
-- (ViewChildrenViewController*)viewChildrenVC
-{
-    if (_viewChildrenVC == nil) {
-        _viewChildrenVC = [[ViewChildrenViewController alloc] initWithNibName:@"ViewChildrenViewController" bundle:[NSBundle mainBundle]];
-    }
-    return _viewChildrenVC;
-}
-
 // UITableviewDatasource Methods ------------------------------------------------------------
 // ------------------------------------------------------------------------------------------
 
@@ -129,6 +118,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Remove the old detailViewController's view, if there was one
+    [self.detailViewController removeFromParentViewController];
     [self.detailViewController.view removeFromSuperview];
     
     switch (indexPath.row)
@@ -136,7 +126,7 @@
         case 0:
         {
             // Load view children
-            self.detailViewController = self.viewChildrenVC;
+            self.detailViewController = [[ViewChildrenViewController alloc] initWithNibName:@"ViewChildrenViewController" bundle:[NSBundle mainBundle]];;
             break;
         }
         case 1:
@@ -158,6 +148,8 @@
         case 4:
         {
             // Load games
+            self.detailViewController = [[GuardianGameMenuViewController alloc] initWithNibName:@"GuardianGameMenuViewController" bundle:[NSBundle mainBundle]];
+            [self addChildViewController:self.detailViewController];
             break;
         }
         case 5:

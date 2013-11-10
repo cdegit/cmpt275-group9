@@ -563,6 +563,7 @@
         
         self.graphVC.problemIDsToInclude = [self problemIDsToIncludeInDataset];
         [self.graphVC reloadGraph];
+        [self updateHelperLabels];
     }
     // If the y-axis data type has changed then update the graph
     else if (self.buttonDisplayingPopover == self.dataButton && ![self.prePopoverDataType isEqualToString:self.dataButton.titleLabel.text])
