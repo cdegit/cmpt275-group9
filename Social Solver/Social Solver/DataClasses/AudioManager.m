@@ -37,6 +37,8 @@
         
         NSURL *tryAgainURL = [[NSBundle mainBundle] URLForResource:@"tryagain" withExtension:@"wav"];
         AudioServicesCreateSystemSoundID((__bridge CFURLRef)tryAgainURL, &tryAgain);
+        
+        _soundEnabled = [self soundEnabled];
     }
     return self;
 }
