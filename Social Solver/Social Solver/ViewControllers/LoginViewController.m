@@ -134,7 +134,11 @@
         
         // Bring the Guardian to the Guardian Main Menu
         GuardianMainMenuViewController* gmmvc = [[GuardianMainMenuViewController alloc] initWithNibName:@"GuardianMainMenuViewController" bundle:[NSBundle mainBundle]];
-        [self.navigationController pushViewController:gmmvc animated:YES];
+        NSMutableArray* vcStack = [[self.navigationController viewControllers] mutableCopy];
+        // Remove this controller from the stack
+        [vcStack removeLastObject];
+        [vcStack addObject:gmmvc];
+        [self.navigationController setViewControllers:vcStack animated:YES];
     }
 }
 

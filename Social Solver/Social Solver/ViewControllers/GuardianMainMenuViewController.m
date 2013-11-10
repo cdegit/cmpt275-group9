@@ -15,13 +15,16 @@
 #import "ShareProfilesWithGuardianViewController.h"
 #import "ShareProfileSecurityCodeViewController.h"
 #import "PendingSharesViewController.h"
+#include "UserDatabaseManager.h"
 
-@interface GuardianMainMenuViewController ()
+@interface GuardianMainMenuViewController () <LogoutRequestDelegate>
 
 @property (nonatomic, readonly) NSArray* navigationCellInfo;
 @property (nonatomic) CGFloat cellHeight;
 @property (nonatomic) UIViewController* detailViewController;
 @property (nonatomic, strong) StatisticsViewController* statsVC;
+
+- (void)handleLogoutTapped;
 
 @end
 
@@ -55,8 +58,8 @@ const int SHARE_PROFILES_SECURITY_CODE = 1;
     
     self.navigationItem.title = @"Social Solver";
     
-    UIBarButtonItem* back = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:nil action:nil];
-    [self.navigationItem setBackBarButtonItem:back];
+    UIBarButtonItem* logout = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStyleDone target:self action:@selector(handleLogoutTapped)];
+    self.navigationItem.leftBarButtonItem = logout;
 }
 
 - (void)didReceiveMemoryWarning
@@ -68,6 +71,23 @@ const int SHARE_PROFILES_SECURITY_CODE = 1;
 - (void)viewDidUnload {
     [self setNavigationTable:nil];
     [super viewDidUnload];
+}
+
+- (void)handleLogoutTapped
+{
+    [[UserDatabaseManager sharedInstance] requestLogout:self];
+}
+
+// ------------------- LogoutRequestDelegate -------------------------------
+
+- (void)logoutRequestDenied
+{
+    // Do nothing
+}
+
+- (void)logoutRequestGranted
+{
+    [self.navigationController popToRootViewControllerAnimated:NO];
 }
 
 // Accessors --------------------------------------------------------------------------------
