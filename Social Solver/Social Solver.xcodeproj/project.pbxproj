@@ -18,7 +18,7 @@
 		2A7DB107181B3A24008EF99F /* LoginPromptViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A7DB105181B3A24008EF99F /* LoginPromptViewController.xib */; };
 		2AAABD98182D506900FBCD60 /* ServerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AAABD97182D506900FBCD60 /* ServerRequest.m */; };
 		2ACA5DF4182FEF48003CEFEE /* ManageChildPopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACA5DF3182FEF48003CEFEE /* ManageChildPopoverViewController.m */; };
-		817F14AA1830419800D058A8 /* cheering-short.wav in Resources */ = {isa = PBXBuildFile; fileRef = 817F14A91830419800D058A8 /* cheering-short.wav */; };
+		817F14B01830463C00D058A8 /* cheering.wav in Resources */ = {isa = PBXBuildFile; fileRef = 817F14AF1830463C00D058A8 /* cheering.wav */; };
 		EA16940C18162A7700C40069 /* Problem.m in Sources */ = {isa = PBXBuildFile; fileRef = EA16940B18162A7700C40069 /* Problem.m */; };
 		EA16940F18162B2B00C40069 /* ProblemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EA16940E18162B2B00C40069 /* ProblemManager.m */; };
 		EA16941B18163C5C00C40069 /* LevelCompleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA16941918163C5C00C40069 /* LevelCompleteViewController.m */; };
@@ -131,7 +131,7 @@
 		EAE439C318302BA80026370C /* GuardianGameMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAE439C118302BA80026370C /* GuardianGameMenuViewController.xib */; };
 		EAE439C818303AF40026370C /* button.wav in Resources */ = {isa = PBXBuildFile; fileRef = EAE439C418303AF40026370C /* button.wav */; };
 		EAE439C918303AF40026370C /* button2.wav in Resources */ = {isa = PBXBuildFile; fileRef = EAE439C518303AF40026370C /* button2.wav */; };
-		EAE439CA18303AF40026370C /* cheering.wav in Resources */ = {isa = PBXBuildFile; fileRef = EAE439C618303AF40026370C /* cheering.wav */; };
+		EAE439CA18303AF40026370C /* cheering-short.wav in Resources */ = {isa = PBXBuildFile; fileRef = EAE439C618303AF40026370C /* cheering-short.wav */; };
 		EAE439CB18303AF40026370C /* tryagain.wav in Resources */ = {isa = PBXBuildFile; fileRef = EAE439C718303AF40026370C /* tryagain.wav */; };
 		EAE439D018303B080026370C /* AudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EAE439CD18303B080026370C /* AudioManager.m */; };
 		EAE439D118303B080026370C /* ShareRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = EAE439CF18303B080026370C /* ShareRequest.m */; };
@@ -184,7 +184,7 @@
 		2ACA5DF2182FEF48003CEFEE /* ManageChildPopoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManageChildPopoverViewController.h; sourceTree = "<group>"; };
 		2ACA5DF3182FEF48003CEFEE /* ManageChildPopoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManageChildPopoverViewController.m; sourceTree = "<group>"; };
 		2AD01A4D18302E11000EEF89 /* LogoutRequestDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LogoutRequestDelegate.h; path = Protocols/LogoutRequestDelegate.h; sourceTree = "<group>"; };
-		817F14A91830419800D058A8 /* cheering-short.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "cheering-short.wav"; sourceTree = "<group>"; };
+		817F14AF1830463C00D058A8 /* cheering.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = cheering.wav; sourceTree = "<group>"; };
 		EA16940A18162A7700C40069 /* Problem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Problem.h; sourceTree = "<group>"; };
 		EA16940B18162A7700C40069 /* Problem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Problem.m; sourceTree = "<group>"; };
 		EA16940D18162B2B00C40069 /* ProblemManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProblemManager.h; sourceTree = "<group>"; };
@@ -405,7 +405,7 @@
 		EAE439C118302BA80026370C /* GuardianGameMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GuardianGameMenuViewController.xib; path = ViewControllers/GuardianGameMenuViewController.xib; sourceTree = "<group>"; };
 		EAE439C418303AF40026370C /* button.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = button.wav; sourceTree = "<group>"; };
 		EAE439C518303AF40026370C /* button2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = button2.wav; sourceTree = "<group>"; };
-		EAE439C618303AF40026370C /* cheering.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = cheering.wav; sourceTree = "<group>"; };
+		EAE439C618303AF40026370C /* cheering-short.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "cheering-short.wav"; sourceTree = "<group>"; };
 		EAE439C718303AF40026370C /* tryagain.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = tryagain.wav; sourceTree = "<group>"; };
 		EAE439CC18303B080026370C /* AudioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioManager.h; sourceTree = "<group>"; };
 		EAE439CD18303B080026370C /* AudioManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioManager.m; sourceTree = "<group>"; };
@@ -582,8 +582,8 @@
 		EAC698CD181DB7F000342086 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				817F14A91830419800D058A8 /* cheering-short.wav */,
 				EAC698D0181DB81A00342086 /* App Icon 144x144.png */,
+				817F14AF1830463C00D058A8 /* cheering.wav */,
 				EAC698CF181DB81A00342086 /* App Icon 72x72.png */,
 				EAE439B0182F03880026370C /* arrow-down.png */,
 				EAE439B1182F03880026370C /* arrow-left.png */,
@@ -593,7 +593,7 @@
 				EAC698D2181DB81A00342086 /* Button 300x50.png */,
 				EAE439C418303AF40026370C /* button.wav */,
 				EAE439C518303AF40026370C /* button2.wav */,
-				EAE439C618303AF40026370C /* cheering.wav */,
+				EAE439C618303AF40026370C /* cheering-short.wav */,
 				EAC698DB181DB81A00342086 /* children-50x50.png */,
 				EAC69911181DCBC600342086 /* circle_gradient.jpg */,
 				EAC698FF181DC20D00342086 /* Face Finder Icon brighter.png */,
@@ -959,7 +959,6 @@
 				EAE439AD182EE9E50026370C /* scene-ice cream.png in Resources */,
 				EAE439AE182EE9E50026370C /* scene-pulling hair.png in Resources */,
 				EAC69916181DCE3C00342086 /* vert gradient 2.jpg in Resources */,
-				817F14AA1830419800D058A8 /* cheering-short.wav in Resources */,
 				EAC69904181DC20D00342086 /* Problem Solver Icon brighter.png in Resources */,
 				EACC67A418037CFE00FEAC76 /* Default@2x.png in Resources */,
 				EAC698EE181DB81A00342086 /* children-50x50.png in Resources */,
@@ -975,6 +974,7 @@
 				EAC698EC181DB81A00342086 /* Scene Solver Icon.png in Resources */,
 				EACC67E9180B4B6600FEAC76 /* LoginViewController.xib in Resources */,
 				EAE439B9182F03880026370C /* open arrow down.png in Resources */,
+				817F14B01830463C00D058A8 /* cheering.wav in Resources */,
 				EABC93B1182E06CA00E81664 /* GraphViewController.xib in Resources */,
 				EAE439C318302BA80026370C /* GuardianGameMenuViewController.xib in Resources */,
 				EAC698FE181DC15800342086 /* Button 300x50 brighter.png in Resources */,
@@ -1009,7 +1009,7 @@
 				EAC698E7181DB81A00342086 /* Face Finder Icon.png in Resources */,
 				EAE439BB182F05AB0026370C /* open arrow right.png in Resources */,
 				2A7DB107181B3A24008EF99F /* LoginPromptViewController.xib in Resources */,
-				EAE439CA18303AF40026370C /* cheering.wav in Resources */,
+				EAE439CA18303AF40026370C /* cheering-short.wav in Resources */,
 				EAE439B5182F03880026370C /* arrow-down.png in Resources */,
 				EAC69905181DC20D00342086 /* Rewards Gallery Icon brighter.png in Resources */,
 				EAE439C918303AF40026370C /* button2.wav in Resources */,
