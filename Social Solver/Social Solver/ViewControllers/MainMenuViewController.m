@@ -125,13 +125,26 @@
 }
 
 - (IBAction)logoutTapped:(UIButton *)sender {
-    [[UserDatabaseManager sharedInstance] logoutActiveUser];
-//    LoginViewController* vc = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:[NSBundle mainBundle]];
-//    [self.navigationController pushViewController:vc animated:YES];
+    [[UserDatabaseManager sharedInstance] requestLogout:self];
+
+}
+
+#pragma mark - LogoutRequestDelegate methods
+
+- (void)logoutRequestGranted
+{
+    //    LoginViewController* vc = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:[NSBundle mainBundle]];
+    //    [self.navigationController pushViewController:vc animated:YES];
+    
+    NSLog(@"Are we getting here?");
     
     self.loginButton.hidden = false;
     self.logoutButton.hidden = true;
     self.someText.hidden = true;
+}
+- (void)logoutRequestDenied
+{
+    // Do nothing
 }
 
 

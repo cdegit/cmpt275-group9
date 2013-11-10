@@ -8,8 +8,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LogoutRequestDelegate.h"
 
-@interface MainMenuViewController : UIViewController
+@interface MainMenuViewController : UIViewController <LogoutRequestDelegate>
 
 - (void)becameBackground:(NSNotification*)notification;
 
