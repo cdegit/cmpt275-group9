@@ -55,6 +55,7 @@
 - (NSArray*)problemIDsToIncludeInDataset;
 - (void)displayGraphFullErrorMessage;
 - (void)updateHelperLabels;
+- (void)sendMovingTileHomeAnimated:(BOOL)animated;
 
 @end
 
@@ -339,6 +340,7 @@
             }
             else
             {
+                [self sendMovingTileHomeAnimated:YES];
                 [self displayGraphFullErrorMessage];
             }
 
@@ -387,22 +389,7 @@
         // Tile didn't end in any meaningful location so put it back in its original location
         else
         {
-            // Put the tile back into the tray
-            CGRect dest = [self.view convertRect:self.movingTileHomeCell.frame fromView:self.movingTileHomeCell];
-            
-            // Animate the tile back to it's home
-            [UIView animateWithDuration:0.25 delay:0 options:UIViewAnimationOptionCurveEaseInOut
-                             animations:^{
-                                 self.movingTile.frame = dest;
-                             }
-                             completion:^(BOOL finished) {
-                                 [self.movingTileHomeCell addSubview:self.movingTile];
-                                 self.movingTile.frame = self.movingTileHomeCell.bounds;
-                                 
-                                 // This tile is no longer "Active" so forget it
-                                 self.movingTile = nil;
-                                 self.movingTileHomeCell = nil;
-                             }];
+            [self sendMovingTileHomeAnimated:YES];
         }
         
         // Since our collections may have changed, update the helper labels
@@ -460,6 +447,29 @@
             [pan setTranslation:CGPointMake(0, 0) inView:self.movingTile];
         }
     }
+}
+
+- (void)sendMovingTileHomeAnimated:(BOOL)animated
+{
+    // Put the tile back into the tray
+    CGRect dest = [self.view convertRect:self.movingTileHomeCell.frame fromView:self.movingTileHomeCell];
+    
+    // Animate the tile back to it's home
+    [UIView animateWithDuration:(animated ? 0.25 : 0.0f)
+                          delay:0
+                        options:UIViewAnimationOptionCurveEaseInOut
+                     animations:^{
+                         self.movingTile.frame = dest;
+                     }
+                     completion:^(BOOL finished) {
+                         [self.movingTileHomeCell addSubview:self.movingTile];
+                         self.movingTile.frame = self.movingTileHomeCell.bounds;
+                         
+                         // This tile is no longer "Active" so forget it
+                         self.movingTile = nil;
+                         self.movingTileHomeCell = nil;
+                     }];
+
 }
 
 - (void)transferTileFromCollection:(StatsTrayCollectionView*)fromCollection toCollection:(StatsTrayCollectionView*)toCollection fromArray:(NSMutableArray*)fromArray toArray:(NSMutableArray*)toArray withIndex:(NSUInteger)index
