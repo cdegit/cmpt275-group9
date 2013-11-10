@@ -9,15 +9,15 @@
             <connections>
                 <outlet property="childHelperLabel" destination="UUF-qo-3Aw" id="WXK-Dz-u8w"/>
                 <outlet property="childLegendHelperLabel" destination="ez8-Hl-jJa" id="irh-yI-PwB"/>
-                <outlet property="childrenCollection" destination="Xet-Bt-Bm7" id="R4w-Qs-g2F"/>
+                <outlet property="childrenCollection" destination="HKR-RZ-dvX" id="nWV-74-caX"/>
                 <outlet property="dataButton" destination="bHA-N7-chc" id="Wv2-AC-M2k"/>
-                <outlet property="emotionCollection" destination="gKO-yG-Az0" id="Tax-kV-Bmk"/>
+                <outlet property="emotionCollection" destination="cEc-PS-QE0" id="XSs-Lq-2c0"/>
                 <outlet property="emotionHelperLabel" destination="xEE-Ic-ILh" id="hq0-0n-lBy"/>
                 <outlet property="emotionLegendHelperLabel" destination="MYc-dA-pP3" id="uYM-zd-Sla"/>
                 <outlet property="gameModeButton" destination="myx-5Q-Fub" id="vJq-on-XFK"/>
                 <outlet property="graphContainerView" destination="dCT-1i-0pb" id="sbb-8O-cwl"/>
-                <outlet property="legendChildrenCollection" destination="OO6-wJ-aX4" id="D0N-58-t2H"/>
-                <outlet property="legendEmotionCollection" destination="Zlk-7Q-430" id="Kbz-lF-MSV"/>
+                <outlet property="legendChildrenCollection" destination="YPI-7l-rzy" id="yzh-ve-54q"/>
+                <outlet property="legendEmotionCollection" destination="gXn-HT-hEX" id="p29-oh-AjB"/>
                 <outlet property="view" destination="2" id="3"/>
             </connections>
         </placeholder>
@@ -26,26 +26,10 @@
             <rect key="frame" x="0.0" y="0.0" width="804" height="748"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" id="HKR-RZ-dvX" userLabel="Child collection view container">
+                <view contentMode="scaleToFill" id="HKR-RZ-dvX" userLabel="Child collection view container" customClass="StatsTrayCollectionView">
                     <rect key="frame" x="20" y="531" width="764" height="85"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <subviews>
-                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="590" horizontalCompressionResistancePriority="1000" showsVerticalScrollIndicator="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="none" id="Xet-Bt-Bm7" userLabel="Child collection view">
-                            <rect key="frame" x="0.0" y="0.0" width="764" height="85"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
-                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="wyv-qh-JyV">
-                                <size key="itemSize" width="75" height="85"/>
-                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            </collectionViewFlowLayout>
-                            <cells/>
-                            <connections>
-                                <outlet property="dataSource" destination="-1" id="dhy-94-9xu"/>
-                                <outlet property="delegate" destination="-1" id="MfH-Av-QU2"/>
-                            </connections>
-                        </collectionView>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drag a child tile here to remove them from the graph" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UUF-qo-3Aw">
                             <rect key="frame" x="20" y="32" width="730" height="21"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
@@ -54,28 +38,19 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHorizontal" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="gyM-zm-m7A"/>
+                        <outlet property="delegate" destination="-1" id="vTX-MB-0kQ"/>
+                    </connections>
                 </view>
-                <view contentMode="scaleToFill" id="cEc-PS-QE0" userLabel="Emotion view container">
+                <view contentMode="scaleToFill" id="cEc-PS-QE0" userLabel="Emotion view container" customClass="StatsTrayCollectionView">
                     <rect key="frame" x="20" y="643" width="764" height="85"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <subviews>
-                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="569" horizontalCompressionResistancePriority="1000" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="none" id="gKO-yG-Az0" userLabel="Emotion collection view">
-                            <rect key="frame" x="0.0" y="0.0" width="764" height="85"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
-                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Bmm-ic-I8z">
-                                <size key="itemSize" width="75" height="85"/>
-                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            </collectionViewFlowLayout>
-                            <cells/>
-                            <connections>
-                                <outlet property="dataSource" destination="-1" id="mK3-J2-qJ1"/>
-                                <outlet property="delegate" destination="-1" id="Le4-cu-BW2"/>
-                            </connections>
-                        </collectionView>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drag an emotion tile here to remove them it graph's data set" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xEE-Ic-ILh">
                             <rect key="frame" x="17" y="32" width="730" height="21"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
@@ -84,28 +59,19 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHorizontal" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="MUq-vO-xoX"/>
+                        <outlet property="delegate" destination="-1" id="qZc-NN-j0r"/>
+                    </connections>
                 </view>
-                <view contentMode="scaleToFill" id="gXn-HT-hEX" userLabel="Emotion Legend container">
+                <view contentMode="scaleToFill" id="gXn-HT-hEX" userLabel="Emotion Legend container" customClass="StatsTrayCollectionView">
                     <rect key="frame" x="709" y="50" width="75" height="471"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" heightSizable="YES"/>
                     <subviews>
-                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="94" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="none" id="Zlk-7Q-430" userLabel="Legend emotion collection">
-                            <rect key="frame" x="0.0" y="0.0" width="75" height="471"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
-                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zxX-YA-XId">
-                                <size key="itemSize" width="75" height="85"/>
-                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            </collectionViewFlowLayout>
-                            <cells/>
-                            <connections>
-                                <outlet property="dataSource" destination="-1" id="hy8-dv-wiv"/>
-                                <outlet property="delegate" destination="-1" id="O4R-Ig-HnL"/>
-                            </connections>
-                        </collectionView>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drag an emotion tile here (or onto the graph) to add it to the graph's data set" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MYc-dA-pP3">
                             <rect key="frame" x="2" y="0.0" width="71" height="471"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -114,28 +80,19 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHorizontal" value="NO"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="XC0-m8-cI0"/>
+                        <outlet property="delegate" destination="-1" id="F8f-kq-83d"/>
+                    </connections>
                 </view>
-                <view contentMode="scaleToFill" id="YPI-7l-rzy" userLabel="Child Legend Container">
+                <view contentMode="scaleToFill" id="YPI-7l-rzy" userLabel="Child Legend Container" customClass="StatsTrayCollectionView">
                     <rect key="frame" x="624" y="50" width="75" height="471"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" heightSizable="YES"/>
                     <subviews>
-                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="94" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="none" id="OO6-wJ-aX4" userLabel="Legend child collection">
-                            <rect key="frame" x="0.0" y="0.0" width="75" height="471"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
-                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="A0r-v7-86H">
-                                <size key="itemSize" width="75" height="85"/>
-                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            </collectionViewFlowLayout>
-                            <cells/>
-                            <connections>
-                                <outlet property="dataSource" destination="-1" id="xSb-fu-zPA"/>
-                                <outlet property="delegate" destination="-1" id="Vhi-SS-peb"/>
-                            </connections>
-                        </collectionView>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drag a child tile here (or onto the graph) to add them to the graph" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ez8-Hl-jJa">
                             <rect key="frame" x="2" y="0.0" width="71" height="471"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -144,7 +101,14 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHorizontal" value="NO"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="MOf-pC-DOa"/>
+                        <outlet property="delegate" destination="-1" id="0zv-Ez-xJX"/>
+                    </connections>
                 </view>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Children" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lJj-I8-XT6">
                     <rect key="frame" x="20" y="508" width="87" height="22"/>

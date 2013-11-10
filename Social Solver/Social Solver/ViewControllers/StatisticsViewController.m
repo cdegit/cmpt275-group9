@@ -51,7 +51,7 @@
 
 // A method to handle the dragging of a tile from one of the trays
 - (void)handlePanGesture:(StatisticsViewGestureRecognizer*)pan;
-- (void)transferTileFromCollection:(UICollectionView*)fromCollection toCollection:(UICollectionView*)toCollection fromArray:(NSMutableArray*)fromArray toArray:(NSMutableArray*)toArray withIndex:(NSUInteger)index;
+- (void)transferTileFromCollection:(StatsTrayCollectionView*)fromCollection toCollection:(StatsTrayCollectionView*)toCollection fromArray:(NSMutableArray*)fromArray toArray:(NSMutableArray*)toArray withIndex:(NSUInteger)index;
 - (NSArray*)problemIDsToIncludeInDataset;
 - (void)displayGraphFullErrorMessage;
 - (void)updateHelperLabels;
@@ -83,10 +83,10 @@
     [super viewDidLoad];
 
     // Setup the nib's for the 4 collection views
-    [self.childrenCollection registerNib:[UINib nibWithNibName:@"StatsChildCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"ChildCell"];
-    [self.legendChildrenCollection registerNib:[UINib nibWithNibName:@"StatsChildCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"ChildCell"];
-    [self.emotionCollection registerNib:[UINib nibWithNibName:@"StatsProblemCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"ProblemCell"];
-    [self.legendEmotionCollection registerNib:[UINib nibWithNibName:@"StatsProblemCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"ProblemCell"];
+    [self.childrenCollection.collectionView registerNib:[UINib nibWithNibName:@"StatsChildCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"ChildCell"];
+    [self.legendChildrenCollection.collectionView registerNib:[UINib nibWithNibName:@"StatsChildCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"ChildCell"];
+    [self.emotionCollection.collectionView registerNib:[UINib nibWithNibName:@"StatsProblemCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"ProblemCell"];
+    [self.legendEmotionCollection.collectionView registerNib:[UINib nibWithNibName:@"StatsProblemCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"ProblemCell"];
     
     [self.gameModeButton setTitle:[self.gameModePickerValues objectAtIndex:self.gameMode] forState:UIControlStateNormal];
     [self.dataButton setTitle:[self.dataTypePickerValues objectAtIndex:self.yDataType] forState:UIControlStateNormal];
@@ -179,19 +179,19 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    if (collectionView == self.childrenCollection)
+    if (collectionView == self.childrenCollection.collectionView)
     {
         return [self.childList count];
     }
-    else if (collectionView == self.legendChildrenCollection)
+    else if (collectionView == self.legendChildrenCollection.collectionView)
     {
         return [self.legendChildList count];
     }
-    else if (collectionView == self.emotionCollection)
+    else if (collectionView == self.emotionCollection.collectionView)
     {
         return [self.emotionList count];
     }
-    else if (collectionView == self.legendEmotionCollection)
+    else if (collectionView == self.legendEmotionCollection.collectionView)
     {
         return [self.legendEmotionList count];
     }
@@ -205,21 +205,21 @@
 
 - (UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (collectionView == self.childrenCollection || collectionView == self.legendChildrenCollection)
+    if (collectionView == self.childrenCollection.collectionView || collectionView == self.legendChildrenCollection.collectionView)
     {
         // Get the child associated with this location
         ChildUser* user;
         StatsChildCell* cell;
-        if (collectionView == self.childrenCollection) {
+        if (collectionView == self.childrenCollection.collectionView) {
             user = (ChildUser*)[self.childList objectAtIndex:[indexPath row]];
-            cell = [self.childrenCollection
+            cell = [self.childrenCollection.collectionView
                                     dequeueReusableCellWithReuseIdentifier:@"ChildCell"
                                     forIndexPath:indexPath];
             cell.nameLabel.textColor = [UIColor whiteColor];
         }
         else {
             user = (ChildUser*)[self.legendChildList objectAtIndex:[indexPath row]];
-            cell = [self.legendChildrenCollection dequeueReusableCellWithReuseIdentifier:@"ChildCell"
+            cell = [self.legendChildrenCollection.collectionView dequeueReusableCellWithReuseIdentifier:@"ChildCell"
                                                                     forIndexPath:indexPath];
             cell.nameLabel.textColor = [self.usedColors objectAtIndex:indexPath.row];
         }
@@ -249,21 +249,21 @@
         
         return cell;
     }
-    else if (collectionView == self.emotionCollection || collectionView == self.legendEmotionCollection)
+    else if (collectionView == self.emotionCollection.collectionView || collectionView == self.legendEmotionCollection.collectionView)
     {
         Problem* problem;
         StatsProblemCell* cell;
 
         //  Get the appropriate problem and cell
-        if (collectionView == self.emotionCollection)
+        if (collectionView == self.emotionCollection.collectionView)
         {
             problem = [self.emotionList objectAtIndex:[indexPath row]];
-            cell = [self.emotionCollection dequeueReusableCellWithReuseIdentifier:@"ProblemCell" forIndexPath:indexPath];
+            cell = [self.emotionCollection.collectionView dequeueReusableCellWithReuseIdentifier:@"ProblemCell" forIndexPath:indexPath];
         }
         else
         {
             problem = [self.legendEmotionList objectAtIndex:[indexPath row]];
-            cell = [self.legendEmotionCollection dequeueReusableCellWithReuseIdentifier:@"ProblemCell" forIndexPath:indexPath];
+            cell = [self.legendEmotionCollection.collectionView dequeueReusableCellWithReuseIdentifier:@"ProblemCell" forIndexPath:indexPath];
         }
         
         // Set the image
@@ -313,13 +313,13 @@
     {
         // If the tile ended somewhere meaningful then handle the tile switch
         CGRect tileRect = self.movingTile.frame;
-        CGRect legendChildFrame = [self.view convertRect:self.legendChildrenCollection.frame fromView:self.legendChildrenCollection];
-        CGRect legendEmotionFrame = [self.view convertRect:self.legendEmotionCollection.frame fromView:self.legendEmotionCollection];
-        CGRect childFrame = [self.view convertRect:self.childrenCollection.frame fromView:self.childrenCollection];
-        CGRect emotionFrame = [self.view convertRect:self.emotionCollection.frame fromView:self.emotionCollection];
+        CGRect legendChildFrame = self.legendChildrenCollection.frame;
+        CGRect legendEmotionFrame = self.legendEmotionCollection.frame;
+        CGRect childFrame = self.childrenCollection.frame;
+        CGRect emotionFrame = self.emotionCollection.frame;
         
         // Child from tray to legend or graph
-        if (pan.startingCollection == self.childrenCollection &&
+        if (pan.startingCollection == self.childrenCollection.collectionView &&
             (CGRectIntersectsRect(tileRect, legendChildFrame) || CGRectIntersectsRect(tileRect, self.graphContainerView.frame)))
         {
             // Check we still have a color available to use in the graph
@@ -344,7 +344,7 @@
 
         }
         // Child from legend to tray
-        else if (CGRectIntersectsRect(tileRect, childFrame) && pan.startingCollection == self.legendChildrenCollection)
+        else if (CGRectIntersectsRect(tileRect, childFrame) && pan.startingCollection == self.legendChildrenCollection.collectionView)
         {
             ChildUser* cUser = [self.legendChildList objectAtIndex:pan.cellIndex];
             [self transferTileFromCollection:self.legendChildrenCollection
@@ -361,7 +361,7 @@
             [self.graphVC reloadGraph];
         }
         // From emotion tray to legend
-        else if (pan.startingCollection == self.emotionCollection &&
+        else if (pan.startingCollection == self.emotionCollection.collectionView &&
                  (CGRectIntersectsRect(tileRect, legendEmotionFrame) ||
                   CGRectIntersectsRect(tileRect, self.graphContainerView.frame)))
         {
@@ -374,7 +374,7 @@
             [self.graphVC reloadGraph];
         }
         // From legend to emotion tray
-        else if (CGRectIntersectsRect(tileRect, emotionFrame) && pan.startingCollection == self.legendEmotionCollection)
+        else if (CGRectIntersectsRect(tileRect, emotionFrame) && pan.startingCollection == self.legendEmotionCollection.collectionView)
         {
             [self transferTileFromCollection:self.legendEmotionCollection
                                 toCollection:self.emotionCollection
@@ -462,7 +462,7 @@
     }
 }
 
-- (void)transferTileFromCollection:(UICollectionView*)fromCollection toCollection:(UICollectionView*)toCollection fromArray:(NSMutableArray*)fromArray toArray:(NSMutableArray*)toArray withIndex:(NSUInteger)index
+- (void)transferTileFromCollection:(StatsTrayCollectionView*)fromCollection toCollection:(StatsTrayCollectionView*)toCollection fromArray:(NSMutableArray*)fromArray toArray:(NSMutableArray*)toArray withIndex:(NSUInteger)index
 {
     // Transfer the object
     id object = [fromArray objectAtIndex:index];
@@ -476,8 +476,8 @@
     self.movingTile = nil;
     self.movingTileHomeCell = nil;
     
-    [fromCollection reloadData];
-    [toCollection reloadData];
+    [fromCollection.collectionView reloadData];
+    [toCollection.collectionView reloadData];
 }
 
 - (void)displayGraphFullErrorMessage
@@ -548,8 +548,8 @@
         self.legendEmotionList = [pm allProblemsForGameMode:self.gameMode];
         [self.emotionList removeAllObjects];
         
-        [self.legendEmotionCollection reloadData];
-        [self.emotionCollection reloadData];
+        [self.legendEmotionCollection.collectionView reloadData];
+        [self.emotionCollection.collectionView reloadData];
         
         self.graphVC.problemIDsToInclude = [self problemIDsToIncludeInDataset];
         [self.graphVC reloadGraph];

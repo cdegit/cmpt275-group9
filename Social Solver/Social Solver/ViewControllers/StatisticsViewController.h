@@ -13,13 +13,14 @@
     the progress of their children by viewing a graph. */
 
 #import <UIKit/UIKit.h>
+#import "StatsTrayCollectionView.h"
 
 @interface StatisticsViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UICollectionView *childrenCollection;
-@property (weak, nonatomic) IBOutlet UICollectionView *emotionCollection;
-@property (weak, nonatomic) IBOutlet UICollectionView *legendEmotionCollection;
-@property (weak, nonatomic) IBOutlet UICollectionView* legendChildrenCollection;
+@property (weak, nonatomic) IBOutlet StatsTrayCollectionView *childrenCollection;
+@property (weak, nonatomic) IBOutlet StatsTrayCollectionView *emotionCollection;
+@property (weak, nonatomic) IBOutlet StatsTrayCollectionView *legendEmotionCollection;
+@property (weak, nonatomic) IBOutlet StatsTrayCollectionView* legendChildrenCollection;
 
 @property (weak, nonatomic) IBOutlet UIView *graphContainerView;
 @property (weak, nonatomic) IBOutlet UIButton *dataButton;

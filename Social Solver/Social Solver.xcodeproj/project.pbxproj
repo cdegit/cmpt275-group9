@@ -124,6 +124,7 @@
 		EAE439B8182F03880026370C /* arrow-up.png in Resources */ = {isa = PBXBuildFile; fileRef = EAE439B3182F03880026370C /* arrow-up.png */; };
 		EAE439B9182F03880026370C /* open arrow down.png in Resources */ = {isa = PBXBuildFile; fileRef = EAE439B4182F03880026370C /* open arrow down.png */; };
 		EAE439BB182F05AB0026370C /* open arrow right.png in Resources */ = {isa = PBXBuildFile; fileRef = EAE439BA182F05AB0026370C /* open arrow right.png */; };
+		EAE439BE182F320B0026370C /* StatsTrayCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = EAE439BD182F320B0026370C /* StatsTrayCollectionView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -370,6 +371,8 @@
 		EAE439B3182F03880026370C /* arrow-up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-up.png"; sourceTree = "<group>"; };
 		EAE439B4182F03880026370C /* open arrow down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "open arrow down.png"; sourceTree = "<group>"; };
 		EAE439BA182F05AB0026370C /* open arrow right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "open arrow right.png"; sourceTree = "<group>"; };
+		EAE439BC182F320B0026370C /* StatsTrayCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StatsTrayCollectionView.h; path = Views/StatsTrayCollectionView.h; sourceTree = "<group>"; };
+		EAE439BD182F320B0026370C /* StatsTrayCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StatsTrayCollectionView.m; path = Views/StatsTrayCollectionView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -669,6 +672,8 @@
 			isa = PBXGroup;
 			children = (
 				EABC93B0182E06CA00E81664 /* GraphViewController.xib */,
+				EAC699431828B3A000342086 /* StatsChildCell.xib */,
+				EAC699461828B3A000342086 /* StatsProblemCell.xib */,
 				EAC6993E1828B39100342086 /* PopoverPickerViewController.xib */,
 				2A67ECE01827F245000695CC /* ViewChildrenViewController.xib */,
 				2A7DB105181B3A24008EF99F /* LoginPromptViewController.xib */,
@@ -753,14 +758,14 @@
 			children = (
 				EAC699411828B3A000342086 /* StatsChildCell.h */,
 				EAC699421828B3A000342086 /* StatsChildCell.m */,
-				EAC699431828B3A000342086 /* StatsChildCell.xib */,
 				EAC699441828B3A000342086 /* StatsProblemCell.h */,
 				EAC699451828B3A000342086 /* StatsProblemCell.m */,
-				EAC699461828B3A000342086 /* StatsProblemCell.xib */,
 				EACC6802180B944E00FEAC76 /* NavigationTableCell.h */,
 				EACC6803180B944E00FEAC76 /* NavigationTableCell.m */,
 				2A730F9E1819A4EA000356DE /* LoginUserSelectionCell.h */,
 				2A730F9F1819A4EA000356DE /* LoginUserSelectionCell.m */,
+				EAE439BC182F320B0026370C /* StatsTrayCollectionView.h */,
+				EAE439BD182F320B0026370C /* StatsTrayCollectionView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -968,6 +973,7 @@
 				2A105F15181E18CF0035232F /* ChildProblemData.m in Sources */,
 				EABC93AF182E06C200E81664 /* GraphViewController.m in Sources */,
 				EACC67CB18037DA300FEAC76 /* MainMenuViewController.m in Sources */,
+				EAE439BE182F320B0026370C /* StatsTrayCollectionView.m in Sources */,
 				EACC67CF1803816800FEAC76 /* RootNavigationViewController.m in Sources */,
 				EACC67D9180733CB00FEAC76 /* User.m in Sources */,
 				EACC67DC1807340700FEAC76 /* GuardianUser.m in Sources */,
