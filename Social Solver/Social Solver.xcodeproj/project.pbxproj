@@ -93,7 +93,6 @@
 		EACC679A18037CFE00FEAC76 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EACC679818037CFE00FEAC76 /* InfoPlist.strings */; };
 		EACC679C18037CFE00FEAC76 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EACC679B18037CFE00FEAC76 /* main.m */; };
 		EACC67A018037CFE00FEAC76 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EACC679F18037CFE00FEAC76 /* AppDelegate.m */; };
-		EACC67A218037CFE00FEAC76 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = EACC67A118037CFE00FEAC76 /* Default.png */; };
 		EACC67A418037CFE00FEAC76 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EACC67A318037CFE00FEAC76 /* Default@2x.png */; };
 		EACC67A618037CFE00FEAC76 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EACC67A518037CFE00FEAC76 /* Default-568h@2x.png */; };
 		EACC67B118037CFE00FEAC76 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACC67B018037CFE00FEAC76 /* SenTestingKit.framework */; };
@@ -367,7 +366,6 @@
 		EACC679D18037CFE00FEAC76 /* Social Solver-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Social Solver-Prefix.pch"; sourceTree = "<group>"; };
 		EACC679E18037CFE00FEAC76 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EACC679F18037CFE00FEAC76 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		EACC67A118037CFE00FEAC76 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		EACC67A318037CFE00FEAC76 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		EACC67A518037CFE00FEAC76 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		EACC67AF18037CFE00FEAC76 /* Social SolverTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Social SolverTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -763,7 +761,6 @@
 				EACC679818037CFE00FEAC76 /* InfoPlist.strings */,
 				EACC679B18037CFE00FEAC76 /* main.m */,
 				EACC679D18037CFE00FEAC76 /* Social Solver-Prefix.pch */,
-				EACC67A118037CFE00FEAC76 /* Default.png */,
 				EACC67A318037CFE00FEAC76 /* Default@2x.png */,
 				EACC67A518037CFE00FEAC76 /* Default-568h@2x.png */,
 			);
@@ -1014,7 +1011,6 @@
 				817F14CC18304AE100D058A8 /* settings-29x29.png in Resources */,
 				EAE439ED18303B890026370C /* PendingSharesTableCell.xib in Resources */,
 				EACC679A18037CFE00FEAC76 /* InfoPlist.strings in Resources */,
-				EACC67A218037CFE00FEAC76 /* Default.png in Resources */,
 				EAE439AD182EE9E50026370C /* scene-ice cream.png in Resources */,
 				EAE439AE182EE9E50026370C /* scene-pulling hair.png in Resources */,
 				EAC69916181DCE3C00342086 /* vert gradient 2.jpg in Resources */,
