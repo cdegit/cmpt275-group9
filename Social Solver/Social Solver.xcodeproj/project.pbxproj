@@ -20,13 +20,13 @@
 		2ACA5DF4182FEF48003CEFEE /* ManageChildPopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACA5DF3182FEF48003CEFEE /* ManageChildPopoverViewController.m */; };
 		817F14B01830463C00D058A8 /* cheering.wav in Resources */ = {isa = PBXBuildFile; fileRef = 817F14AF1830463C00D058A8 /* cheering.wav */; };
 		817F14C218304AE100D058A8 /* launch-768-1004.png in Resources */ = {isa = PBXBuildFile; fileRef = 817F14B118304AE100D058A8 /* launch-768-1004.png */; };
-		817F14C318304AE100D058A8 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 817F14B218304AE100D058A8 /* Default.png */; };
+		817F14C318304AE100D058A8 /* ult.png in Resources */ = {isa = PBXBuildFile; fileRef = 817F14B218304AE100D058A8 /* ult.png */; };
 		817F14C418304AE100D058A8 /* launch-1024x748.png in Resources */ = {isa = PBXBuildFile; fileRef = 817F14B318304AE100D058A8 /* launch-1024x748.png */; };
 		817F14C518304AE100D058A8 /* launch-1024x768.png in Resources */ = {isa = PBXBuildFile; fileRef = 817F14B418304AE100D058A8 /* launch-1024x768.png */; };
 		817F14C618304AE100D058A8 /* launch-1536x2008.png in Resources */ = {isa = PBXBuildFile; fileRef = 817F14B518304AE100D058A8 /* launch-1536x2008.png */; };
 		817F14C718304AE100D058A8 /* launch-1536x2048.png in Resources */ = {isa = PBXBuildFile; fileRef = 817F14B618304AE100D058A8 /* launch-1536x2048.png */; };
 		817F14C818304AE100D058A8 /* launch-2048x1496.png in Resources */ = {isa = PBXBuildFile; fileRef = 817F14B718304AE100D058A8 /* launch-2048x1496.png */; };
-		817F14C918304AE100D058A8 /* launch-2048x1536.png in Resources */ = {isa = PBXBuildFile; fileRef = 817F14B818304AE100D058A8 /* launch-2048x1536.png */; };
+		817F14C918304AE100D058A8 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 817F14B818304AE100D058A8 /* Default.png */; };
 		817F14CA18304AE100D058A8 /* non-retina.png in Resources */ = {isa = PBXBuildFile; fileRef = 817F14B918304AE100D058A8 /* non-retina.png */; };
 		817F14CB18304AE100D058A8 /* retina.png in Resources */ = {isa = PBXBuildFile; fileRef = 817F14BA18304AE100D058A8 /* retina.png */; };
 		817F14CC18304AE100D058A8 /* settings-29x29.png in Resources */ = {isa = PBXBuildFile; fileRef = 817F14BB18304AE100D058A8 /* settings-29x29.png */; };
@@ -202,13 +202,13 @@
 		2AD01A4D18302E11000EEF89 /* LogoutRequestDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LogoutRequestDelegate.h; path = Protocols/LogoutRequestDelegate.h; sourceTree = "<group>"; };
 		817F14AF1830463C00D058A8 /* cheering.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = cheering.wav; sourceTree = "<group>"; };
 		817F14B118304AE100D058A8 /* launch-768-1004.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-768-1004.png"; sourceTree = "<group>"; };
-		817F14B218304AE100D058A8 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		817F14B218304AE100D058A8 /* ult.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ult.png; sourceTree = "<group>"; };
 		817F14B318304AE100D058A8 /* launch-1024x748.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-1024x748.png"; sourceTree = "<group>"; };
 		817F14B418304AE100D058A8 /* launch-1024x768.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-1024x768.png"; sourceTree = "<group>"; };
 		817F14B518304AE100D058A8 /* launch-1536x2008.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-1536x2008.png"; sourceTree = "<group>"; };
 		817F14B618304AE100D058A8 /* launch-1536x2048.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-1536x2048.png"; sourceTree = "<group>"; };
 		817F14B718304AE100D058A8 /* launch-2048x1496.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-2048x1496.png"; sourceTree = "<group>"; };
-		817F14B818304AE100D058A8 /* launch-2048x1536.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-2048x1536.png"; sourceTree = "<group>"; };
+		817F14B818304AE100D058A8 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		817F14B918304AE100D058A8 /* non-retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "non-retina.png"; sourceTree = "<group>"; };
 		817F14BA18304AE100D058A8 /* retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = retina.png; sourceTree = "<group>"; };
 		817F14BB18304AE100D058A8 /* settings-29x29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings-29x29.png"; sourceTree = "<group>"; };
@@ -524,13 +524,13 @@
 				817F14BF18304AE100D058A8 /* spotlight-50x50.png */,
 				817F14C018304AE100D058A8 /* spotlight-80x80.png */,
 				817F14C118304AE100D058A8 /* spotlight-100x100.png */,
-				817F14B218304AE100D058A8 /* Default.png */,
+				817F14B218304AE100D058A8 /* ult.png */,
 				817F14B318304AE100D058A8 /* launch-1024x748.png */,
 				817F14B418304AE100D058A8 /* launch-1024x768.png */,
 				817F14B518304AE100D058A8 /* launch-1536x2008.png */,
 				817F14B618304AE100D058A8 /* launch-1536x2048.png */,
 				817F14B718304AE100D058A8 /* launch-2048x1496.png */,
-				817F14B818304AE100D058A8 /* launch-2048x1536.png */,
+				817F14B818304AE100D058A8 /* Default.png */,
 				817F14B918304AE100D058A8 /* non-retina.png */,
 				817F14BA18304AE100D058A8 /* retina.png */,
 				817F14BB18304AE100D058A8 /* settings-29x29.png */,
@@ -1009,7 +1009,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				817F14C918304AE100D058A8 /* launch-2048x1536.png in Resources */,
+				817F14C918304AE100D058A8 /* Default.png in Resources */,
 				817F14D518304C0200D058A8 /* Images.xcassets in Resources */,
 				817F14CC18304AE100D058A8 /* settings-29x29.png in Resources */,
 				EAE439ED18303B890026370C /* PendingSharesTableCell.xib in Resources */,
@@ -1084,7 +1084,7 @@
 				EAE439E118303B2D0026370C /* ShareProfileSecurityCodeViewController.xib in Resources */,
 				EAC6991B181DF56100342086 /* Billy_scared_by_Spider.mp4 in Resources */,
 				EAC698F0181DB81A00342086 /* pending-50x50.png in Resources */,
-				817F14C318304AE100D058A8 /* Default.png in Resources */,
+				817F14C318304AE100D058A8 /* ult.png in Resources */,
 				EAC698E8181DB81A00342086 /* fear.png in Resources */,
 				EAE439C818303AF40026370C /* button.wav in Resources */,
 				EAE439AC182EE9E50026370C /* scene-Billy surprises Suzy.png in Resources */,
