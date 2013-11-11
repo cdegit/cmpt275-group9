@@ -105,7 +105,7 @@ NSComparator caseInsensitiveComparator = ^(NSString *obj1, NSString *obj2)
             break;
             
         case 1:
-            _confirmDeleteAlertView = [[UIAlertView alloc] initWithTitle:@"Delete Child Account" message:@"" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Okay", nil];
+            _confirmDeleteAlertView = [[UIAlertView alloc] initWithTitle:@"Remove Child Account" message:[NSString stringWithFormat:@"Are you sure you want to remove %@'s account?", [[_childArray objectAtIndex:selectionIndex] name]] delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
             [_confirmDeleteAlertView show];
             break;
             
