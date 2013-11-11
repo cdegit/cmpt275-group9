@@ -11,6 +11,8 @@
 
 @implementation ShareUserSelectionCell
 
+@synthesize shareSwitch;
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -21,10 +23,10 @@
 }
 
 -(void)changeSwitch {
-    if(_shareSwitch.on) {
-        [_shareSwitch setOn:NO animated:YES];
+    if(shareSwitch.on) {
+        [shareSwitch setOn:NO animated:YES];
     } else {
-        [_shareSwitch setOn:YES animated:YES];
+        [shareSwitch setOn:YES animated:YES];
     }
 }
 /*

@@ -128,9 +128,18 @@
     [shareCell changeSwitch];
     
     // add further functionality here
-    // Grab the user object associated to the index
-    User *us = (User*)[userArray objectAtIndex:[indexPath row]];
-    [selectedUsers addObject:us];
+    
+    if(shareCell.shareSwitch.on) {
+        // Grab the user object associated to the index
+        User *us = (User*)[userArray objectAtIndex:[indexPath row]];
+        [selectedUsers addObject:us];
+        
+    } else {
+        User *us = (User*)[userArray objectAtIndex:[indexPath row]];
+        if([selectedUsers indexOfObject:us] != NSIntegerMax) {
+            [selectedUsers removeObject:us];
+        }
+    }
     
     
     return NO;
