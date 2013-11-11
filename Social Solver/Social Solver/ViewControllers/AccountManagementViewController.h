@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Group 9. All rights reserved.
 //
 //  Worked on by: Matthew Glum
+//  Created in Version 1
 
 /* This class is the screen where the user can create a new account
  This screen should also double as the location the user comes to edit a current account 
@@ -20,12 +21,16 @@
 
 @interface AccountManagementViewController : UIViewController <UINavigationControllerDelegate,UIImagePickerControllerDelegate, UITextFieldDelegate>
 
+
+// From Version 1
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil forUserType:(NSString*) type;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil withUser:(User*)user;
 
 
+// Added Version 2
 @property (nonatomic, assign) id<AccountManagementViewControllerDelegate> delegate;
 
+// From Version 1
 @property (weak, nonatomic) IBOutlet UISegmentedControl* userTypeControl;
 @property (weak, nonatomic) IBOutlet UITextField* nameField;
 @property (weak, nonatomic) IBOutlet UITextField* passwordField;
@@ -39,6 +44,8 @@
 -(IBAction)fetchImageFromiPhoto:(id)sender;
 -(IBAction)fetchImageFromCamera:(id)sender;
 -(IBAction)save:(id)sender;
+
+// Added in Version 2
 -(IBAction)cancel:(id)sender;
 
 

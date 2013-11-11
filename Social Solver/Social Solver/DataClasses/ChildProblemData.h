@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Group 9. All rights reserved.
 //
 //  Worked on by: Matthew Glum
+//  Created in Version 1
 
 #import <CoreData/CoreData.h>
 #import "ChildUser.h"
@@ -17,6 +18,8 @@
 
 @property (nonatomic) NSInteger numberCorrect, numberOfAttempts, problemID;
 @property (nonatomic) double totalResponseTime;
+
+// Changed in Version 2
 @property (nonatomic) Session* session;
 
 

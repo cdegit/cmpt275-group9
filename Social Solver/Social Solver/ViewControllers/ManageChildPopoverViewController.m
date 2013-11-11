@@ -5,27 +5,12 @@
 //  Created by Matthew Glum on 11/10/2013.
 //  Copyright (c) 2013 Group 9. All rights reserved.
 //
+//  Worked on by: Matthew Glum
+//  Created in Version 2
 
 #import "ManageChildPopoverViewController.h"
 
-@interface ManageChildPopoverViewController ()
-{
-    NSInteger _index;
-}
-@end
-
 @implementation ManageChildPopoverViewController
-
-- (id)initForIndex:(NSInteger)ind
-{
-    self = [super init];
-    
-    if (self) {
-        _index = ind;
-    }
-    
-    return self;
-}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -65,16 +50,14 @@
 
 #pragma mark - UITableViewDataSource methods
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
-
+// Returns the number of buttons in the menu
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return 2;
 }
 
+
+// Returns the appropriate cell for the given positions
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     const NSArray* menuOptions = @[@"Edit Account", @"Remove Account"];
@@ -87,6 +70,8 @@
 
 # pragma mark - UITableViewDelegate methods
 
+
+// Tells the delegate which button was selected
 - (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [_delegate manageChildPopupSelection:[indexPath row]];

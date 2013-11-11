@@ -5,7 +5,8 @@
 //  Created by David Woods on 13-10-13.
 //  Copyright (c) 2013 Group 9. All rights reserved.
 //
-//  Worked on by: Matthew Glum
+//  Worked on by: Matthew Glum and David Woods
+//  Created in Version 1
 
 #import <Foundation/Foundation.h>
 #import "User.h"
@@ -17,7 +18,12 @@
 
 @interface UserDatabaseManager : NSObject
 
+// From Version 1
 + (UserDatabaseManager*) sharedInstance;
+
+
+
+// Added in Version 2
 
 - (NSArray *) getUserListOfType:(NSString *)userType;
 
@@ -33,7 +39,12 @@
 - (void)logoutActiveUser;
 - (void)requestLogout:(id<LogoutRequestDelegate>)del;
 
+
+
+// From Version 1
 @property (strong, readonly, nonatomic) User* activeUser;
+
+// Added in Version 2
 @property (strong, readonly, nonatomic) NSDate* sessionDate;
 
 @end
