@@ -5,7 +5,8 @@
 //  Created by David Woods on 13-10-10.
 //  Copyright (c) 2013 Group 9. All rights reserved.
 //
-//  Worked on by: Matthew Glum
+//  Worked on by: Matthew Glum and David Woods
+//  Created in Version 1
 
 #import "ChildUser.h"
 #import "Session.h"
@@ -16,6 +17,9 @@
 @dynamic primaryGuardian;
 @dynamic settings;
 @dynamic sessions;
+
+
+// Added in Version 2
 
 - (Session*)sessionWithDate:(NSDate*)date
 {

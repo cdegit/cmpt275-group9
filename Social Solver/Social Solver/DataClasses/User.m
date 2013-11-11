@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Group 9. All rights reserved.
 //
 //  Worked on by: Matthew Glum
+//  Created in Version 1
 
 #import "User.h"
 #import <CommonCrypto/CommonKeyDerivation.h>
@@ -17,6 +18,8 @@
 @dynamic name, passwordHash, passwordSeed;
 @dynamic uid;
 
+
+// Creates a random seed to allow secure hashing of the password
 + (NSData*)generatePasswordSeed
 {
     NSMutableData* seed = [[NSMutableData alloc] initWithCapacity:256];
@@ -32,6 +35,9 @@
     
 }
 
+
+// Hashes the passord using the given seed so that it can be stored securely
+// or be authenticated
 + (NSData*)hashPassword:(NSString*)password withSeed:(NSData*)seed
 {
     const NSString *plainData = @"Apple Sauce";
@@ -53,10 +59,12 @@
 {
     [self willAccessValueForKey:@"name"];
     NSString* n = [self primitiveName];
-    [self didAccessValueForKey:@"nane"];
+    [self didAccessValueForKey:@"name"];
     return n;
 }
 
+
+// Sets name and moves the profile image to the new filename
 - (void)setName:(NSString *)newName
 {
     NSString *oldName = [self name];
@@ -80,6 +88,8 @@
     }
 }
 
+
+// Fetches the users profile image
 - (UIImage *)profileImage
 {
     NSString* imgDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
@@ -89,6 +99,7 @@
     return [UIImage imageWithContentsOfFile:imagePath];
 }
 
+// Set the users profile image
 - (void)setProfileImage:(UIImage *)pimage
 {
     if (pimage!=nil) {
@@ -101,6 +112,8 @@
     }
 }
 
+
+// Generates a seed and hashes the password, storing it to the user
 - (void)setPassword:(NSString*)newPass
 {
     NSData* seed = [User generatePasswordSeed];

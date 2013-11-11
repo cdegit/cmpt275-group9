@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Group 9. All rights reserved.
 //
 //  Worked on by: Matthew Glum
+//  Created in Version 1
 
 #import "AccountManagementViewController.h"
 #import "AppDelegate.h"
@@ -181,28 +182,35 @@
         return;
     }
     
-    // Check that the password fields match each other
-    if (![[_passwordField text] isEqualToString:[_passwordConfirmationField text]]) {
-        [[[UIAlertView alloc] initWithTitle:@"Cannot Save" message:@"Please make sure that you enter the same password in each field" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil] show];
-        return;
+    // If you are creating a user or something has been entered into one of the password fields
+    // Check the passwords
+    if (creatingUser || [[_passwordField text] length]>0 || [[_passwordConfirmationField text] length] > 0) {
+        
+        // Check that the password fields match each other
+        if (![[_passwordField text] isEqualToString:[_passwordConfirmationField text]]) {
+            [[[UIAlertView alloc] initWithTitle:@"Cannot Save" message:@"Please make sure that you enter the same password in each field" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil] show];
+            return;
+        }
+        
+        // Make sure that password reaches the minimum length
+        NSInteger minLength = [_userType isEqualToString:@"Child"] ? 2 : 6;
+        
+        if ([[_passwordField text] length]<minLength) {
+            [[[UIAlertView alloc] initWithTitle:@"Cannot Save" message:[NSString stringWithFormat:@"The password must be at least %i characters long", minLength] delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil] show];
+            return;
+        }
+        
+        
+        // Check that the password is alphanumeric
+        NSPredicate *isAlphaNumeric = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", @"[A-Z0-9a-z]*"];
+        
+        if (![isAlphaNumeric evaluateWithObject:[_passwordField text]]) {
+            [[[UIAlertView alloc] initWithTitle:@"Cannot Save" message:@"The password must only contain numbers and characters" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil] show];
+            return;
+        }
+    
     }
     
-    // Make sure that password reaches the minimum length
-    NSInteger minLength = [_userType isEqualToString:@"Child"] ? 2 : 6;
-    
-    if ([[_passwordField text] length]<minLength) {
-        [[[UIAlertView alloc] initWithTitle:@"Cannot Save" message:[NSString stringWithFormat:@"The password must be at least %i characters long", minLength] delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil] show];
-        return;
-    }
-    
-    
-    // Check that the password is alphanumeric
-    NSPredicate *isAlphaNumeric = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", @"[A-Z0-9a-z]*"];
-    
-    if (![isAlphaNumeric evaluateWithObject:[_passwordField text]]) {
-        [[[UIAlertView alloc] initWithTitle:@"Cannot Save" message:@"The password must only contain numbers and characters" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil] show];
-        return;
-    }
     
     // Check that, if the user is a guardian, that they have an email address
     if ([_userType isEqualToString:@"Guardian"] && [[_emailField text] length]==0) {
@@ -223,8 +231,10 @@
         user = _editedUser;
         
         // Put in values for the user
-        [user setPassword:[_passwordField text]];
-        //[user setPasswordHash:[_passwordField text]];
+        
+        if ([[_passwordField text] length] > 0) {
+            [user setPassword:[_passwordField text]];
+        }
         
         // Save the profile Image if it has been set
         if ([_profileImageView image]!=nil) {

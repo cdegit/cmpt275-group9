@@ -5,6 +5,8 @@
 //  Created by Matthew Glum on 11/4/2013.
 //  Copyright (c) 2013 Group 9. All rights reserved.
 //
+//  Worked on by: Matthew Glum
+//  Created in Version 2
 
 #import "ViewChildrenViewController.h"
 #import "UserDatabaseManager.h"
@@ -45,7 +47,7 @@ NSComparator caseInsensitiveComparator = ^(NSString *obj1, NSString *obj2)
 {
     [super viewDidLoad];
     
-    //Set the title to "Login"
+    //Set the title to "View Children"
     [self setTitle:@"View Children"];
     
     // Register LoginUserSelectionCell to be used for the cells
@@ -78,6 +80,8 @@ NSComparator caseInsensitiveComparator = ^(NSString *obj1, NSString *obj2)
 
 #pragma mark - Internal Methods
 
+
+// Load the users belonging to the logged in guardian
 - (void)loadUsers
 {
     if ([[UserDatabaseManager sharedInstance] activeUser]==nil) {
@@ -85,17 +89,22 @@ NSComparator caseInsensitiveComparator = ^(NSString *obj1, NSString *obj2)
     }
     else
     {
-        _childArray = [NSMutableArray arrayWithArray:[[(GuardianUser*)[[UserDatabaseManager sharedInstance] activeUser] children] sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES comparator:caseInsensitiveComparator]]]];
+        GuardianUser* guard = (GuardianUser*)[[UserDatabaseManager sharedInstance] activeUser];
+        
+        _childArray = [NSMutableArray arrayWithArray:[[guard children] sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES comparator:caseInsensitiveComparator]]]];
     }
     
 }
 
+
+// Respond to the selected option from the manage child popup
 - (void)manageChildPopupSelection:(NSInteger)selectionIndex
 {
     [_manageChildPopover dismissPopoverAnimated:YES];
     AccountManagementViewController *amvc = nil;
     
     switch (selectionIndex) {
+        // Edit User
         case 0:
             amvc = [[AccountManagementViewController alloc] initWithNibName:@"AccountManagementViewController" bundle:[NSBundle mainBundle] withUser:[_childArray objectAtIndex:selectionIndex]];
             [amvc setDelegate:self];
@@ -103,9 +112,10 @@ NSComparator caseInsensitiveComparator = ^(NSString *obj1, NSString *obj2)
             [self presentViewController:amvc animated:YES completion:NULL];
             _activeTile = -1;
             break;
-            
+        
+        // Remove User
         case 1:
-            _confirmDeleteAlertView = [[UIAlertView alloc] initWithTitle:@"Delete Child Account" message:@"" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Okay", nil];
+            _confirmDeleteAlertView = [[UIAlertView alloc] initWithTitle:@"Remove Child Account" message:[NSString stringWithFormat:@"Are you sure you want to remove %@'s account?", [[_childArray objectAtIndex:_activeTile] name]] delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
             [_confirmDeleteAlertView show];
             break;
             
@@ -117,11 +127,14 @@ NSComparator caseInsensitiveComparator = ^(NSString *obj1, NSString *obj2)
 
 #pragma mark - UICollectionViewDataSource Methods
 
+
+// Return number of tiles
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     return [_childArray count] + 1;
 }
 
+// Return the appropriate Tile cell
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     
@@ -165,9 +178,14 @@ NSComparator caseInsensitiveComparator = ^(NSString *obj1, NSString *obj2)
 
 #pragma mark - UICollectionViewDelegate Methods
 
+// If the add user tile is selected, go to the create user screen
+// Otherwise show a popup to choose what to do to the child account
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     if ([indexPath row]>=[_childArray count]) {
+        
+        // Show User Creation Screen
+        
         AccountManagementViewController *amvc = [[AccountManagementViewController alloc] initWithNibName:@"AccountManagementViewController" bundle:[NSBundle mainBundle] forUserType:@"Child"];
         [amvc setDelegate:self];
         [amvc setModalPresentationStyle:UIModalPresentationCurrentContext];
@@ -175,7 +193,10 @@ NSComparator caseInsensitiveComparator = ^(NSString *obj1, NSString *obj2)
     }
     else
     {
+        // Set active tile and show manage user popup
         _activeTile = [indexPath row];
+        
+        
         ManageChildPopoverViewController *mcpvc = [[ManageChildPopoverViewController alloc] init];
         [mcpvc setDelegate:self];
         
@@ -183,21 +204,12 @@ NSComparator caseInsensitiveComparator = ^(NSString *obj1, NSString *obj2)
         UIPopoverController *pc = [[UIPopoverController alloc] initWithContentViewController:mcpvc];
         
         _manageChildPopover = pc;
-        //[pc setDelegate:self];
         
         [_manageChildPopover setPopoverContentSize:CGSizeMake(225, 120)];
-        
-        NSLog(@"Frame: %@", NSStringFromCGRect([[[_childrenView cellForItemAtIndexPath:indexPath] contentView] frame]));
         
         UICollectionViewLayoutAttributes *attribs = [_childrenView layoutAttributesForItemAtIndexPath:indexPath];
         
         [_manageChildPopover presentPopoverFromRect:[attribs frame] inView:_childrenView permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
-        
-        /*
-        AccountManagementViewController *amvc = [[AccountManagementViewController alloc] initWithNibName:@"AccountManagementViewController" bundle:[NSBundle mainBundle] withUser:[childArray objectAtIndex:[indexPath row]]];
-        [amvc setDelegate:self];
-        [amvc setModalPresentationStyle:UIModalPresentationCurrentContext];
-        [self presentViewController:amvc animated:YES completion:NULL];*/
     }
     
     return NO;
@@ -205,6 +217,8 @@ NSComparator caseInsensitiveComparator = ^(NSString *obj1, NSString *obj2)
 
 #pragma mark - AccountManagementViewControllerDelegate Methods
 
+
+// Add the created user to the guardian's children account tiles
 - (void)createdUser:(User *)user
 {
     GuardianUser* guard = (GuardianUser*)[[UserDatabaseManager sharedInstance] activeUser];
@@ -224,6 +238,7 @@ NSComparator caseInsensitiveComparator = ^(NSString *obj1, NSString *obj2)
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
+// Reload the new child tile
 - (void)editedUser:(User *)user
 {
     [_childrenView reloadData];
@@ -232,6 +247,7 @@ NSComparator caseInsensitiveComparator = ^(NSString *obj1, NSString *obj2)
 
 #pragma mark - UIAlertViewDelegate methods
 
+// If the user want to remove the child account do so
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if ([alertView isEqual:_confirmDeleteAlertView] && buttonIndex == 1 && _activeTile>=0) {

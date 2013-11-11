@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Group 9. All rights reserved.
 //
 //  Worked on by: Matthew Glum
+//  Created in Version 1
 
 #import <Foundation/Foundation.h>
 
@@ -14,6 +15,8 @@
 
 @interface User : NSManagedObject
 
+
+// Added in Version 2
 + (NSData*)generatePasswordSeed;
 + (NSData*)hashPassword:(NSString*)password withSeed:(NSData*)seed;
 
@@ -22,12 +25,18 @@
 
 - (void)setPassword:(NSString*)newPass;
 
+
+
+
+// Added in Version 1
 @property (nonatomic) NSString *name;
 @property (nonatomic) NSData *passwordHash, *passwordSeed;
 @property (nonatomic) NSInteger* uid;
 
 @end
 
+
+// Added in Version 2
 @interface User (PrimitiveAccessors)
 
 - (NSString *)primitiveName;
