@@ -97,7 +97,8 @@ const int SHARE_PROFILES_SECURITY_CODE = 1;
 {
     if (navigationCellInfo == nil)
     {
-        navigationCellInfo = @[ @[@"View Children", @"children-50x50.png"], @[@"Statistics",@"stats-50x50.png"], @[@"Share Profiles",@"share-50x50.png"], @[@"Pending Shares",@"pending-50x50.png"], @[@"Games",@"games-50x50.png"], @[@"Settings",@"settings-50x50.png"]];
+//        navigationCellInfo = @[ @[@"View Children", @"children-50x50.png"], @[@"Statistics",@"stats-50x50.png"], @[@"Share Profiles",@"share-50x50.png"], @[@"Pending Shares",@"pending-50x50.png"], @[@"Games",@"games-50x50.png"], @[@"Settings",@"settings-50x50.png"]];
+        navigationCellInfo = @[ @[@"View Children", @"children-50x50.png"], @[@"Statistics",@"stats-50x50.png"], @[@"Share Profiles",@"share-50x50.png"], @[@"Pending Shares",@"pending-50x50.png"], @[@"Games",@"games-50x50.png"]];
     }
     return navigationCellInfo;
 }

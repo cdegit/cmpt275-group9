@@ -130,7 +130,7 @@ static UserDatabaseManager* instance = nil;
 
 - (void)loginUser:(User*)user
 {
-    static int day = 0;
+    static int day = 3;
     _activeUser = user;
     
     double timeInterval = 24*3600*(day++);
