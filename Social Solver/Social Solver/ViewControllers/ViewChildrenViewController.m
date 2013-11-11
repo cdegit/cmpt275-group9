@@ -95,6 +95,8 @@ NSComparator caseInsensitiveComparator = ^(NSString *obj1, NSString *obj2)
     [_manageChildPopover dismissPopoverAnimated:YES];
     AccountManagementViewController *amvc = nil;
     
+    NSLog(@"Yop");
+    
     switch (selectionIndex) {
         case 0:
             amvc = [[AccountManagementViewController alloc] initWithNibName:@"AccountManagementViewController" bundle:[NSBundle mainBundle] withUser:[_childArray objectAtIndex:selectionIndex]];
@@ -105,7 +107,8 @@ NSComparator caseInsensitiveComparator = ^(NSString *obj1, NSString *obj2)
             break;
             
         case 1:
-            _confirmDeleteAlertView = [[UIAlertView alloc] initWithTitle:@"Remove Child Account" message:[NSString stringWithFormat:@"Are you sure you want to remove %@'s account?", [[_childArray objectAtIndex:selectionIndex] name]] delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+            NSLog(@"Yep?");
+            _confirmDeleteAlertView = [[UIAlertView alloc] initWithTitle:@"Remove Child Account" message:[NSString stringWithFormat:@"Are you sure you want to remove %@'s account?", [[_childArray objectAtIndex:_activeTile] name]] delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
             [_confirmDeleteAlertView show];
             break;
             
