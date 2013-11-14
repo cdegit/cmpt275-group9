@@ -10,6 +10,7 @@
 
 #import "UserDatabaseManager.h"
 #import "AppDelegate.h"
+#import "ChildSettings.h"
 
 @interface UserDatabaseManager ()
 {
@@ -66,13 +67,19 @@ static UserDatabaseManager* instance = nil;
 - (ChildUser *) createChildWithName:(NSString *)name password:(NSString *)pass andProfileImage:(UIImage *)img
 {
     NSManagedObjectContext *mc = [(AppDelegate*)[[UIApplication sharedApplication] delegate] managedObjectContext];
-    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Child" inManagedObjectContext:mc];
+    NSEntityDescription *childEntityDescription = [NSEntityDescription entityForName:@"Child" inManagedObjectContext:mc];
+    NSEntityDescription *childSettingsEntityDescription = [NSEntityDescription entityForName:@"ChildSettings" inManagedObjectContext:mc];
     
-    ChildUser *c = [[ChildUser alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:mc];
+    ChildUser *c = [[ChildUser alloc] initWithEntity:childEntityDescription insertIntoManagedObjectContext:mc];
+    ChildSettings *cs = [[ChildSettings alloc] initWithEntity:childSettingsEntityDescription insertIntoManagedObjectContext:mc];
+    
+    [cs setAllowsAutoSync:NO];
+    [cs setAllowsTracking:NO];
     
     [c setName:name];
     [c setPassword:pass];
     [c setProfileImage:img];
+    [c setSettings:cs];
     
     return c;
     
