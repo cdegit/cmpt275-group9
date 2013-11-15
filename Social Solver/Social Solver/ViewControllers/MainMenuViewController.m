@@ -16,11 +16,14 @@
 #import "GuardianMainMenuViewController.h"
 #import "USERDATABASEMANAGER.H"
 
-@interface MainMenuViewController ()
 
+@interface MainMenuViewController ()
+@property (nonatomic, retain) GameViewController *passValue;
 @end
 
 @implementation MainMenuViewController
+BOOL trackingOn = YES;
+@synthesize passValue;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -41,6 +44,9 @@
 //    _guardianMainMenuButton.hidden = YES;
     UIBarButtonItem* back = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:nil action:nil];
     [self.navigationItem setBackBarButtonItem:back];
+    GameViewController* vc = [[GameViewController alloc] initWithNibName:@"GameViewController" bundle:[NSBundle mainBundle]];
+    self.passValue = vc;
+    passValue.passedValue = @"Tracking";
 }
 
 - (void)didReceiveMemoryWarning
@@ -52,6 +58,10 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     if ([[[UserDatabaseManager sharedInstance] activeUser] name] != NULL) {
+        _trackingText.hidden = NO;
+        _trackingSwitch.hidden = NO;
+        _syncingText.hidden = NO;
+        _syncingSwitch.hidden = NO;
         _loginButton.hidden = YES;
         _logoutButton.hidden = NO;
         _someText.text = [[[UserDatabaseManager sharedInstance] activeUser] name];
@@ -60,6 +70,10 @@
     }
     
     else if ([[[UserDatabaseManager sharedInstance] activeUser] name] == NULL){
+        _trackingText.hidden = YES;
+        _trackingSwitch.hidden = YES;
+        _syncingText.hidden = YES;
+        _syncingSwitch.hidden = YES;
         _logoutButton.hidden = YES;
         _loginButton.hidden = NO;
         _someText.text=[[[UserDatabaseManager sharedInstance] activeUser] name];
@@ -126,7 +140,22 @@
 
 - (IBAction)logoutTapped:(UIButton *)sender {
     [[UserDatabaseManager sharedInstance] requestLogout:self];
+}
 
+- (IBAction)toggleEnabledForTrackingSwitch{
+    if(_trackingSwitch.isOn){
+        GameViewController* vc = [[GameViewController alloc] initWithNibName:@"GameViewController" bundle:[NSBundle mainBundle]];
+        self.passValue = vc;
+        passValue.passedValue = @"Tracking";
+        trackingOn = 1;
+    }
+    
+    else{
+        GameViewController* vc = [[GameViewController alloc] initWithNibName:@"GameViewController" bundle:[NSBundle mainBundle]];
+        self.passValue = vc;
+        passValue.passedValue = @"Untracking";
+        trackingOn = 0;
+    }
 }
 
 #pragma mark - LogoutRequestDelegate methods

@@ -9,7 +9,8 @@
 
 #import <UIKit/UIKit.h>
 #import "LogoutRequestDelegate.h"
-
+#import "GameViewController.h"
+extern BOOL trackingOn;
 @interface MainMenuViewController : UIViewController <LogoutRequestDelegate>
 
 - (void)becameBackground:(NSNotification*)notification;
@@ -26,5 +27,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *gameMode3Button2;
 @property (weak, nonatomic) IBOutlet UIButton *logoutButton;
 @property (weak, nonatomic) IBOutlet UILabel *someText;
-
+@property (weak, nonatomic) IBOutlet UILabel *syncingText;
+@property (weak, nonatomic) IBOutlet UILabel *trackingText;
+@property (weak, nonatomic) IBOutlet UISwitch *syncingSwitch;
+@property (weak, nonatomic) IBOutlet UISwitch *trackingSwitch;
 @end

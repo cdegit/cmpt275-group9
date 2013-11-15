@@ -16,6 +16,7 @@
 #import "Session.h"
 #import "AudioManager.h"
 #import <MediaPlayer/MediaPlayer.h>
+#import "MainMenuViewController.h"
 
 #define MAX_LEVEL_TIME 120
 
@@ -28,6 +29,7 @@
 @property (nonatomic, strong) NSMutableArray* answers;
 @property (nonatomic, strong) MPMoviePlayerController* videoPlayer;
 @property (nonatomic, strong) NSDate* startTime;
+
 
 - (void)presentLevelCompleteViewShowingCongratsMessage:(bool)show;
 - (void)setupNextProblem;
@@ -44,7 +46,7 @@
 
 @implementation GameViewController 
 
-@synthesize answerButtons, gameMode, currentProblem, problemManager, answers, videoPlayer, startTime;
+@synthesize answerButtons, gameMode, currentProblem, problemManager, answers, videoPlayer, startTime, passedValue, testlabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -74,6 +76,7 @@
     self.navigationItem.leftBarButtonItem = backButton;
     
     [self setupNextProblem];
+    testlabel.text = passedValue;
 }
 
 - (void)didReceiveMemoryWarning
@@ -206,7 +209,7 @@
 - (void)recordCorrectAnswerWithTime:(double)time
 {
     User* user = [[UserDatabaseManager sharedInstance] activeUser];
-    if (user != nil && [user isKindOfClass:[ChildUser class]])
+    if (user != nil && [user isKindOfClass:[ChildUser class]] && trackingOn)
     {
         ChildUser* cUser = (ChildUser*)user;
         
@@ -262,7 +265,7 @@
 - (void)recordIncorrectAnswer
 {
     User* user = [[UserDatabaseManager sharedInstance] activeUser];
-    if (user != nil && [user isKindOfClass:[ChildUser class]])
+    if (user != nil && [user isKindOfClass:[ChildUser class]] && trackingOn)
     {
         ChildUser* cUser = (ChildUser*)user;
         Session* currentSession = [cUser sessionWithDate:[[UserDatabaseManager sharedInstance] sessionDate]];

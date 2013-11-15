@@ -12,6 +12,7 @@
 
 
 #import <UIKit/UIKit.h>
+#import "MainMenuViewController.h"
 
 enum GameMode {
     GameModeFaceFinder = 0,
@@ -32,6 +33,8 @@ enum GameMode {
 @property (weak, nonatomic) IBOutlet UIView *videoSuperview;
 @property (weak, nonatomic) IBOutlet UIView *videoContainer;
 @property (weak, nonatomic) IBOutlet UITextView *videoDescription;
+@property (weak, nonatomic) IBOutlet UILabel *testlabel;
+@property (weak, nonatomic) IBOutlet NSString *passedValue;
 
 - (id)initWithGameMode:(enum GameMode)mode;
 
