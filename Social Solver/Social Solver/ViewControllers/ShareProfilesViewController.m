@@ -75,9 +75,8 @@
 
 - (void)loadUsers
 {
-    
-    userArray = [[UserDatabaseManager sharedInstance] getUserListOfType:userType];
-    
+    GuardianUser* guardian = (GuardianUser*)[[UserDatabaseManager sharedInstance] activeUser];
+    userArray = [guardian.children allObjects];
 }
 
 
