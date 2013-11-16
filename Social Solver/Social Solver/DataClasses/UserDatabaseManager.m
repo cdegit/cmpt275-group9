@@ -11,6 +11,7 @@
 #import "UserDatabaseManager.h"
 #import "AppDelegate.h"
 #import "ChildSettings.h"
+#import "ServerCommunicationManager.h"
 
 @interface UserDatabaseManager ()
 {
@@ -103,6 +104,23 @@ static UserDatabaseManager* instance = nil;
     return g;
 }
 
+- (NSArray*)unregisteredUsers
+{
+    NSManagedObjectContext *mc = [(AppDelegate*)[[UIApplication sharedApplication] delegate] managedObjectContext];
+    NSEntityDescription* entityDescription = [NSEntityDescription entityForName:@"User"
+                                                         inManagedObjectContext:mc];
+    
+    NSFetchRequest* request = [[NSFetchRequest alloc] init];
+    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"uid == 0"];
+    
+    request.entity = entityDescription;
+    request.predicate = predicate;
+    
+    NSArray* res = [mc executeFetchRequest:request
+                             error:nil];
+    return res;
+}
+
 - (void)deleteUser:(User *)user
 {
     NSManagedObjectContext *mv = [(AppDelegate*)[[UIApplication sharedApplication] delegate] managedObjectContext];
@@ -137,15 +155,22 @@ static UserDatabaseManager* instance = nil;
 
 - (void)loginUser:(User*)user
 {
-    static int day = 3;
+    if ([user isKindOfClass:[ChildUser class]] && ((ChildUser*)user).settings.allowsAutoSync) {
+        [[ServerCommunicationManager sharedInstance] updateChild:(ChildUser*)user];
+    }
+    else if ([user isKindOfClass:[GuardianUser class]]) {
+        [[ServerCommunicationManager sharedInstance] updateChildrenOfGuardian:(GuardianUser*)user];
+    }
     _activeUser = user;
-    
-    double timeInterval = 24*3600*(day++);
-    _sessionDate = [NSDate dateWithTimeIntervalSince1970:timeInterval];
+    _sessionDate = [NSDate date];
 }
 
 - (void)logoutActiveUser
 {
+    // Send the child's updated progress to the server
+    if ([_activeUser isKindOfClass:[ChildUser class]] && ((ChildUser*)_activeUser).settings.allowsAutoSync) {
+        [[ServerCommunicationManager sharedInstance] updateChild:(ChildUser*)_activeUser];
+    }
     _activeUser = nil;
     _sessionDate = nil;
 }
