@@ -275,5 +275,40 @@ static NSString* SCRIPT_SEND_SESSIONS = @"GetUserAndID";
     return [NSURL URLWithString:urlString];
 }
 
+#pragma mark Profile Sharing
+- (void)getChildWithID:(NSInteger)ID completionHandler:(void (^)(ChildUser*, NSError*))completionHandler
+{
+    // Send request to server
+    // Parse result
+    // Call completion handler
+}
+
+- (void)acceptChild:(NSInteger)childID forGuardian:(GuardianUser*)guardian withSecurityCode:(NSInteger)code completionHandler:(void (^)(BOOL success))completionHandler
+{
+    // Send request to server
+    // Parse result
+    // Call completion handler
+}
+
+- (void)rejectChild:(NSInteger)childID forGuardian:(GuardianUser*)guardian completionHandler:(void (^)(BOOL success))completionHandler
+{
+    // Send request to server
+    // Parse result
+    // Call completion handler
+}
+
+- (void)getPendingSharesForGuardian:(GuardianUser*)guardian completionHandler:(void (^)(NSArray* shares, NSError*))completionHandler
+{
+    // Send request to server
+    // Parse result
+    // Call completion handler
+}
+
+- (void)shareChild:(ChildUser*)cUser withGuardianEmail:(NSString*)email transferPrimary:(BOOL)transfer completionHandler:(void (^)(NSError*, NSInteger securityCode))completionHandler
+{
+    // Send request to server
+    // Parse result
+    // Call completion handler
+}
 
 @end
