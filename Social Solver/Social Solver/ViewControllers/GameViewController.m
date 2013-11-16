@@ -59,7 +59,7 @@
 {
     self = [self initWithNibName:@"GameViewController" bundle:[NSBundle mainBundle]];
     self.gameMode = mode;
-    self.problemManager = [[ProblemManager alloc] initWithUser:nil];
+    self.problemManager = [[ProblemManager alloc] initWithUser:[[UserDatabaseManager sharedInstance] activeUser]];
     return self;
 }
 

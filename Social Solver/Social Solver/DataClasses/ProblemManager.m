@@ -10,6 +10,7 @@
 //  Version 2 changes: Added -(NSMutableArray*)allProblemsForGameMode:(enum GameMode)mode;
 
 #import "ProblemManager.h"
+#import "ChildUser.h"
 
 @interface ProblemManager ()
 
@@ -17,11 +18,12 @@
 @property (nonatomic, strong) NSMutableArray* gameMode1Problems;
 @property (nonatomic, strong) NSMutableArray* gameMode2Problems;
 @property (nonatomic, strong) NSMutableArray* gameMode3Problems;
+@property (nonatomic, strong) NSMutableArray* nextProblemArray;
 @property (nonatomic) NSUInteger previousGameMode;
 @property (nonatomic) NSUInteger previousProblemIndex;
 
 - (void)populateProblemArray:(NSMutableArray*)array forProblemMode:(NSString*)mode;
-- (Problem*)nextProblemFromArray:(NSMutableArray*)array forGameMode:(enum GameMode)mode;
+- (Problem*)nextProblemForGameMode:(enum GameMode)mode;
 - (void)shuffleArray:(NSMutableArray*)array;
 
 // A method which iterates through all problems in "problems" and returns a set containing all the anwers
@@ -78,7 +80,7 @@
             break;
     }
     
-    Problem* nextProblem = [self nextProblemFromArray:problemArray forGameMode:mode];
+    Problem* nextProblem = [self nextProblemForGameMode:mode];
     NSUInteger numAnswers = 3; // Hardcoded ATM but this will be dynamic based on capability of the user
     NSMutableArray* incorrectAnswers = [self allAnswersFromProblemsArray:problemArray];
     
@@ -101,24 +103,19 @@
 }
 
 
-- (Problem*)nextProblemFromArray:(NSMutableArray*)array forGameMode:(enum GameMode)mode
+- (Problem*)nextProblemForGameMode:(enum GameMode)mode
 {
-    /* For now this simply returns the next problem in the array (if its the same mode)
-        Eventually, this function will determine the next problem based on which problems the user
-        has previously solved, seen during this session, and difficulty level of the problem */
-    if (array == nil || [array count] == 0) {
-        NSAssert(false, @"Empty array handed into %s", __PRETTY_FUNCTION__);
-    }
-    
     if (mode != self.previousGameMode) {
-        self.previousProblemIndex = 0;
         self.previousGameMode = mode;
+        [self populateNextProblemsArrayForGameMode:mode];
     }
-    else {
-        self.previousProblemIndex = (self.previousProblemIndex + 1) % [array count];
+    else if ([self.nextProblemArray count] == 0) {
+        [self populateNextProblemsArrayForGameMode:mode];
     }
     
-    return [array objectAtIndex:self.previousProblemIndex];
+    Problem* nextProblem = [self.nextProblemArray lastObject];
+    [self.nextProblemArray removeLastObject];
+    return nextProblem;
 }
 
 
@@ -181,6 +178,57 @@
     }
 }
 
+// Added in Version 3
+
+- (void)populateNextProblemsArrayForGameMode:(enum GameMode)gameMode
+{
+    NSMutableArray* allProblems = nil;
+    switch (gameMode) {
+        case GameModeFaceFinder:
+            allProblems = [self.gameMode1Problems mutableCopy];
+            break;
+        case GameModeStorySolver:
+            allProblems = [self.gameMode2Problems mutableCopy];
+            break;
+        case GameModeProblemSolver:
+            allProblems = [self.gameMode3Problems mutableCopy];
+            break;
+        default:
+            break;
+    }
+    
+    [self.nextProblemArray removeAllObjects];
+    if ([self.activeUser isKindOfClass:[ChildUser class]])
+    {
+        ChildUser* cUser = (ChildUser*)self.activeUser;
+        NSMutableArray* unSolvedProblems = [[NSMutableArray alloc] init];
+        self.nextProblemArray = [allProblems mutableCopy];
+        
+        // Remove all unsolved problems from the next problem array
+        for (Problem* p in allProblems)
+        {
+            if (![cUser.completedProblems containsObject:@(p.ID)]) {
+                [self.nextProblemArray removeObject:p];
+                [unSolvedProblems addObject:p];
+            }
+        }
+        
+        // Shuffle the order of the already solved problems
+        [self shuffleArray:self.nextProblemArray];
+        
+        // Shuffle the order of the unsolved problems and add them to the end of the nextProblemArray
+        // We add them to the end since we'll pop the problems off from the end of this array
+        [self shuffleArray:unSolvedProblems];
+        
+        // Add all the solved problems
+        [self.nextProblemArray addObjectsFromArray:unSolvedProblems];
+    }
+    else {
+        // User is a guardian so doesn't have any solved problems
+        self.nextProblemArray = allProblems;
+        [self shuffleArray:self.nextProblemArray];
+    }
+}
 
 // Accessors -----------------------------------------------------------------------------
 
@@ -214,6 +262,15 @@
     return gameMode3Problems;
 }
 
+// Added in version 3
+
+- (NSMutableArray*)nextProblemArray
+{
+    if (_nextProblemArray == nil) {
+        _nextProblemArray = [[NSMutableArray alloc] init];
+    }
+    return _nextProblemArray;
+}
 
 
 @end
