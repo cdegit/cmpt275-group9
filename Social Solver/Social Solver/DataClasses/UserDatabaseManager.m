@@ -177,7 +177,6 @@ static UserDatabaseManager* instance = nil;
 
 - (void)requestLogout:(id<LogoutRequestDelegate>)del
 {
-    
     _requestDelegate = del;
     
     UIAlertView *reqview = [[UIAlertView alloc] initWithTitle:@"Logout?" message:@"Do you wish to logout?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];

@@ -19,6 +19,7 @@ static const NSTimeInterval DEFAULT_TIMEOUT = 60;
 static NSString* SCRIPT_TEST = @"GetUserAndID";
 static NSString* SCRIPT_REG_USER = @"GetUserAndID";
 static NSString* SCRIPT_GET_SESSIONS = @"GetUserAndID";
+static NSString* SCRIPT_GET_SESSION_DATES = @"GetUserAndID";
 static NSString* SCRIPT_SEND_SESSIONS = @"GetUserAndID";
 
 @interface ServerCommunicationManager()
@@ -133,7 +134,10 @@ static NSString* SCRIPT_SEND_SESSIONS = @"GetUserAndID";
 
 - (void)updateChildrenOfGuardian:(GuardianUser*)gUser
 {
-    
+    for (ChildUser* child in gUser.children)
+    {
+        [self updateChild:child];
+    }
 }
 
 - (void)updateChild:(ChildUser*)cUser
@@ -162,6 +166,8 @@ static NSString* SCRIPT_SEND_SESSIONS = @"GetUserAndID";
     }];
 }
 
+
+// Sends Session objects with the specified dates to the server
 - (void)sendServerSessionsWithDates:(NSArray*)dates forChild:(ChildUser*)user
 {
     NSMutableArray* sessionsToUpload = [[NSMutableArray alloc] init];
@@ -196,16 +202,39 @@ static NSString* SCRIPT_SEND_SESSIONS = @"GetUserAndID";
 
 - (void)getServerSessionsWithDates:(NSArray*)dates forChild:(ChildUser*)user
 {
-    // This is called on the background thread
-    // Must dispatch to the main thread if reading from user
+    // Convert the dates into doubles for storage on the database
+    NSMutableArray* convertedDates = [[NSMutableArray alloc] init];
+    for (NSDate* date in dates) {
+        double seconds = [date timeIntervalSinceReferenceDate];
+        [convertedDates addObject:@(seconds)];
+    }
+    
+    NSDictionary* json = @{ @"Dates" : convertedDates };
+    NSURL* url = [self urlForScript:SCRIPT_GET_SESSIONS jsonObject:json];
+    NSURLRequest* req = [[NSURLRequest alloc] initWithURL:url
+                                              cachePolicy:NSURLCacheStorageNotAllowed
+                                          timeoutInterval:DEFAULT_TIMEOUT];
+    [NSURLConnection sendAsynchronousRequest:req
+                                       queue:[NSOperationQueue mainQueue]
+                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+                               if (connectionError == nil) {
+#warning TODO, parse the response
+                                   // Save the new sessions
+                                   [user updateCompletedProblems];
+                                   [[UserDatabaseManager sharedInstance] save];
+                               }
+                               else {
+                                   NSLog(@"Error %@ for request %@", connectionError, [[response URL] absoluteString]);
+                               }
+    }];
 }
 
+// Get the dates of the sessions which are currently on the server's database
 - (void)sessionDatesOnServerForChild:(ChildUser*)user withCompletion:(void (^)(NSArray*))completionHandler
 {
-    
     NSDictionary* jsonObject = @{ @"ChidID" : [NSNumber numberWithInteger:user.uid] };
     
-    NSURL* url = [self urlForScript:SCRIPT_GET_SESSIONS jsonObject:jsonObject];
+    NSURL* url = [self urlForScript:SCRIPT_GET_SESSION_DATES jsonObject:jsonObject];
     
     NSURLRequest* req = [[NSURLRequest alloc] initWithURL:url
                                               cachePolicy:NSURLCacheStorageNotAllowed
@@ -233,6 +262,7 @@ static NSString* SCRIPT_SEND_SESSIONS = @"GetUserAndID";
                                completionCopy(dates);
                            }];
 }
+
 
 - (NSURL*)urlForScript:(NSString*)scriptName jsonObject:(NSDictionary*)dict
 {

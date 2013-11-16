@@ -56,7 +56,8 @@
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     
     // Attempt to register any new users who aren't yet registered
-    [[ServerCommunicationManager sharedInstance] registerAllNewUsers];
+#warning TODO: Uncomment the following line once the server response is of json format
+//    [[ServerCommunicationManager sharedInstance] registerAllNewUsers];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
