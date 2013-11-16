@@ -69,7 +69,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.childList = [NSMutableArray arrayWithArray:[[UserDatabaseManager sharedInstance] getUserListOfType:@"Child"]];
+        self.childList = [NSMutableArray arrayWithArray:[((GuardianUser*)[[UserDatabaseManager sharedInstance] activeUser]).children allObjects]];
         self.gameMode = GameModeFaceFinder;
         self.yDataType = GraphYDataTypeCorrectPercent;
         

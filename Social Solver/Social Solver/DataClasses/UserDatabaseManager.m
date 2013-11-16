@@ -155,12 +155,13 @@ static UserDatabaseManager* instance = nil;
 
 - (void)loginUser:(User*)user
 {
-    if ([user isKindOfClass:[ChildUser class]] && ((ChildUser*)user).settings.allowsAutoSync) {
-        [[ServerCommunicationManager sharedInstance] updateChild:(ChildUser*)user];
-    }
-    else if ([user isKindOfClass:[GuardianUser class]]) {
-        [[ServerCommunicationManager sharedInstance] updateChildrenOfGuardian:(GuardianUser*)user];
-    }
+#warning TODO: Uncomment when server returns a valid json object
+//    if ([user isKindOfClass:[ChildUser class]] && ((ChildUser*)user).settings.allowsAutoSync) {
+//        [[ServerCommunicationManager sharedInstance] updateChild:(ChildUser*)user];
+//    }
+//    else if ([user isKindOfClass:[GuardianUser class]]) {
+//        [[ServerCommunicationManager sharedInstance] updateChildrenOfGuardian:(GuardianUser*)user];
+//    }
     _activeUser = user;
     _sessionDate = [NSDate date];
 }
@@ -168,9 +169,10 @@ static UserDatabaseManager* instance = nil;
 - (void)logoutActiveUser
 {
     // Send the child's updated progress to the server
-    if ([_activeUser isKindOfClass:[ChildUser class]] && ((ChildUser*)_activeUser).settings.allowsAutoSync) {
-        [[ServerCommunicationManager sharedInstance] updateChild:(ChildUser*)_activeUser];
-    }
+#warning TODO: Uncomment when server returns a valid json object
+//    if ([_activeUser isKindOfClass:[ChildUser class]] && ((ChildUser*)_activeUser).settings.allowsAutoSync) {
+//        [[ServerCommunicationManager sharedInstance] updateChild:(ChildUser*)_activeUser];
+//    }
     _activeUser = nil;
     _sessionDate = nil;
 }
