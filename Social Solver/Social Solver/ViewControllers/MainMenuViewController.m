@@ -57,6 +57,8 @@
         _someText.text = [[[UserDatabaseManager sharedInstance] activeUser] name];
         _someText.hidden = NO;
         [_someText setNeedsDisplay];
+        _trackingText.hidden = NO;
+        _trackingSwitch.hidden = NO;
     }
     
     else if ([[[UserDatabaseManager sharedInstance] activeUser] name] == NULL){
@@ -65,6 +67,8 @@
         _someText.text=[[[UserDatabaseManager sharedInstance] activeUser] name];
         _someText.hidden = YES;
         [_someText setNeedsDisplay];
+        _trackingText.hidden = YES;
+        _trackingSwitch.hidden = YES;
     }
 }
 
@@ -126,7 +130,32 @@
 
 - (IBAction)logoutTapped:(UIButton *)sender {
     [[UserDatabaseManager sharedInstance] requestLogout:self];
+    _trackingText.hidden = YES;
+    _trackingSwitch.hidden = YES;
 
+}
+
+- (IBAction)toggleEnabledForTrackingSwitch{
+    if(_trackingSwitch.isOn){
+        User *user = [[UserDatabaseManager sharedInstance] activeUser];
+        if ([[[user entity] name] isEqualToString:@"Child"])
+        {
+            ChildSettings *settings = [(ChildUser*)user settings];
+            [settings setAllowsTracking:YES];
+            [[UserDatabaseManager sharedInstance] save];
+        }
+        [[UserDatabaseManager sharedInstance] save];
+    }
+
+    else if(_trackingSwitch.isOn == 0){
+        User *user = [[UserDatabaseManager sharedInstance] activeUser];
+        if ([[[user entity] name] isEqualToString:@"Child"])
+        {
+            ChildSettings *settings = [(ChildUser*)user settings];
+            [settings setAllowsTracking:NO];
+        }
+        [[UserDatabaseManager sharedInstance] save];
+    }
 }
 
 #pragma mark - LogoutRequestDelegate methods

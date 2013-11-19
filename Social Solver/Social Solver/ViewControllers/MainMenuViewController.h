@@ -26,5 +26,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *gameMode3Button2;
 @property (weak, nonatomic) IBOutlet UIButton *logoutButton;
 @property (weak, nonatomic) IBOutlet UILabel *someText;
-
+@property (weak, nonatomic) IBOutlet UILabel *trackingText;
+@property (weak, nonatomic) IBOutlet UISwitch *trackingSwitch;
 @end
