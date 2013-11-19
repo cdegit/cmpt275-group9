@@ -15,6 +15,7 @@
 #import "RewardsGalleryViewController.h"
 #import "GuardianMainMenuViewController.h"
 #import "USERDATABASEMANAGER.H"
+#import "SettingViewController.h"
 
 
 @interface MainMenuViewController ()
@@ -67,6 +68,28 @@ BOOL trackingOn = YES;
         _someText.text = [[[UserDatabaseManager sharedInstance] activeUser] name];
         _someText.hidden = NO;
         [_someText setNeedsDisplay];
+        
+        User *user = [[UserDatabaseManager sharedInstance] activeUser];
+        ChildSettings *settings = [(ChildUser*)user settings];
+        [settings setAllowsTracking:YES];
+        [[UserDatabaseManager sharedInstance] save];
+
+        //if ([settings allowsTracking] != 1 && [settings allowsTracking] != 0){
+          //  [settings setAllowsTracking:YES];
+            //[[UserDatabaseManager sharedInstance] save];
+            //trackingOn = 1;
+            //_trackingText.text = @"if 1";
+        //}
+        if ([settings allowsTracking] == YES){
+            [_trackingSwitch setOn:YES animated:YES];
+            trackingOn = 1;
+            _syncingText.text = @"if YES";
+        }
+        else if ([settings allowsTracking] == NO){
+            [_trackingSwitch setOn:NO animated:YES];
+            trackingOn = 0;
+            _trackingText.text = @"if NO";
+        }
     }
     
     else if ([[[UserDatabaseManager sharedInstance] activeUser] name] == NULL){
@@ -144,17 +167,36 @@ BOOL trackingOn = YES;
 
 - (IBAction)toggleEnabledForTrackingSwitch{
     if(_trackingSwitch.isOn){
-        GameViewController* vc = [[GameViewController alloc] initWithNibName:@"GameViewController" bundle:[NSBundle mainBundle]];
-        self.passValue = vc;
-        passValue.passedValue = @"Tracking";
-        trackingOn = 1;
+        //GameViewController* vc = [[GameViewController alloc] initWithNibName:@"GameViewController" bundle:[NSBundle mainBundle]];
+        //self.passValue = vc;
+        //passValue.passedValue = @"Tracking";
+        //trackingOn = 1;
+        User *user = [[UserDatabaseManager sharedInstance] activeUser];
+        if ([[[user entity] name] isEqualToString:@"Child"])
+        {
+            ChildSettings *settings = [(ChildUser*)user settings];
+            [settings setAllowsTracking:YES];
+            [[UserDatabaseManager sharedInstance] save];
+            //_trackingText.text = @"YES";
+            trackingOn = 1;
+        }
+        [[UserDatabaseManager sharedInstance] save];
     }
     
-    else{
-        GameViewController* vc = [[GameViewController alloc] initWithNibName:@"GameViewController" bundle:[NSBundle mainBundle]];
-        self.passValue = vc;
-        passValue.passedValue = @"Untracking";
-        trackingOn = 0;
+    else if(_trackingSwitch.isOn == 0){
+        //GameViewController* vc = [[GameViewController alloc] initWithNibName:@"GameViewController" bundle:[NSBundle mainBundle]];
+        //self.passValue = vc;
+        //passValue.passedValue = @"Untracking";
+        //trackingOn = 0;
+        User *user = [[UserDatabaseManager sharedInstance] activeUser];
+        if ([[[user entity] name] isEqualToString:@"Child"])
+        {
+            ChildSettings *settings = [(ChildUser*)user settings];
+            [settings setAllowsTracking:NO];
+            //_trackingText.text = @"NO";
+            trackingOn = 0;
+        }
+        [[UserDatabaseManager sharedInstance] save];
     }
 }
 

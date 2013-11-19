@@ -30,6 +30,7 @@
 @property (nonatomic, strong) MPMoviePlayerController* videoPlayer;
 @property (nonatomic, strong) NSDate* startTime;
 
+@property (nonatomic) BOOL tracingIsOn;
 
 - (void)presentLevelCompleteViewShowingCongratsMessage:(bool)show;
 - (void)setupNextProblem;
