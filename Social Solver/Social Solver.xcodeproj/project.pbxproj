@@ -12,12 +12,13 @@
 		2A475087181DDD73000EBEAB /* UIImagePickerController+ShouldAutorotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A475086181DDD73000EBEAB /* UIImagePickerController+ShouldAutorotate.m */; };
 		2A67ECE11827F245000695CC /* ViewChildrenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A67ECDF1827F245000695CC /* ViewChildrenViewController.m */; };
 		2A67ECE21827F245000695CC /* ViewChildrenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A67ECE01827F245000695CC /* ViewChildrenViewController.xib */; };
+		2A6C6D03183AC5D20018F407 /* ManageChildTileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A6C6D02183AC5D20018F407 /* ManageChildTileCell.xib */; };
+		2A6C6D06183AC6270018F407 /* ManageChildTileCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6C6D05183AC6270018F407 /* ManageChildTileCell.m */; };
 		2A730FA01819A4EA000356DE /* LoginUserSelectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A730F9F1819A4EA000356DE /* LoginUserSelectionCell.m */; };
 		2A730FA21819A541000356DE /* LoginUserSelectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A730FA11819A541000356DE /* LoginUserSelectionCell.xib */; };
 		2A7DB106181B3A24008EF99F /* LoginPromptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7DB104181B3A24008EF99F /* LoginPromptViewController.m */; };
 		2A7DB107181B3A24008EF99F /* LoginPromptViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A7DB105181B3A24008EF99F /* LoginPromptViewController.xib */; };
 		2AAABD98182D506900FBCD60 /* ServerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AAABD97182D506900FBCD60 /* ServerRequest.m */; };
-		2ACA5DF4182FEF48003CEFEE /* ManageChildPopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACA5DF3182FEF48003CEFEE /* ManageChildPopoverViewController.m */; };
 		817F14B01830463C00D058A8 /* cheering.wav in Resources */ = {isa = PBXBuildFile; fileRef = 817F14AF1830463C00D058A8 /* cheering.wav */; };
 		817F14C218304AE100D058A8 /* launch-768-1004.png in Resources */ = {isa = PBXBuildFile; fileRef = 817F14B118304AE100D058A8 /* launch-768-1004.png */; };
 		817F14C318304AE100D058A8 /* ult.png in Resources */ = {isa = PBXBuildFile; fileRef = 817F14B218304AE100D058A8 /* ult.png */; };
@@ -187,6 +188,10 @@
 		2A67ECDF1827F245000695CC /* ViewChildrenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewChildrenViewController.m; sourceTree = "<group>"; };
 		2A67ECE01827F245000695CC /* ViewChildrenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ViewChildrenViewController.xib; path = ViewControllers/ViewChildrenViewController.xib; sourceTree = "<group>"; };
 		2A67ECE31827FCC7000695CC /* AccountManagementViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AccountManagementViewControllerDelegate.h; path = Protocols/AccountManagementViewControllerDelegate.h; sourceTree = "<group>"; };
+		2A6C6D02183AC5D20018F407 /* ManageChildTileCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ManageChildTileCell.xib; path = Views/ManageChildTileCell.xib; sourceTree = "<group>"; };
+		2A6C6D04183AC6270018F407 /* ManageChildTileCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ManageChildTileCell.h; path = Views/ManageChildTileCell.h; sourceTree = "<group>"; };
+		2A6C6D05183AC6270018F407 /* ManageChildTileCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ManageChildTileCell.m; path = Views/ManageChildTileCell.m; sourceTree = "<group>"; };
+		2A6C6D07183AD20F0018F407 /* ManageChildTileCellDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ManageChildTileCellDelegate.h; path = Protocols/ManageChildTileCellDelegate.h; sourceTree = "<group>"; };
 		2A730F9E1819A4EA000356DE /* LoginUserSelectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginUserSelectionCell.h; path = Views/LoginUserSelectionCell.h; sourceTree = "<group>"; };
 		2A730F9F1819A4EA000356DE /* LoginUserSelectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginUserSelectionCell.m; path = Views/LoginUserSelectionCell.m; sourceTree = "<group>"; };
 		2A730FA11819A541000356DE /* LoginUserSelectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginUserSelectionCell.xib; path = Views/LoginUserSelectionCell.xib; sourceTree = "<group>"; };
@@ -196,8 +201,6 @@
 		2A964BE7182D5CDD0016B43F /* ServerRequestDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ServerRequestDelegate.h; path = Protocols/ServerRequestDelegate.h; sourceTree = "<group>"; };
 		2AAABD96182D506900FBCD60 /* ServerRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerRequest.h; sourceTree = "<group>"; };
 		2AAABD97182D506900FBCD60 /* ServerRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerRequest.m; sourceTree = "<group>"; };
-		2ACA5DF2182FEF48003CEFEE /* ManageChildPopoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManageChildPopoverViewController.h; sourceTree = "<group>"; };
-		2ACA5DF3182FEF48003CEFEE /* ManageChildPopoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManageChildPopoverViewController.m; sourceTree = "<group>"; };
 		2AD01A4D18302E11000EEF89 /* LogoutRequestDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LogoutRequestDelegate.h; path = Protocols/LogoutRequestDelegate.h; sourceTree = "<group>"; };
 		817F14AF1830463C00D058A8 /* cheering.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = cheering.wav; sourceTree = "<group>"; };
 		817F14B118304AE100D058A8 /* launch-768-1004.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-768-1004.png"; sourceTree = "<group>"; };
@@ -502,6 +505,7 @@
 				2AD01A4D18302E11000EEF89 /* LogoutRequestDelegate.h */,
 				EAC699381828B37C00342086 /* PopoverPickerViewControllerDelegate.h */,
 				2A964BE7182D5CDD0016B43F /* ServerRequestDelegate.h */,
+				2A6C6D07183AD20F0018F407 /* ManageChildTileCellDelegate.h */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -789,6 +793,7 @@
 		EACC67D41807339500FEAC76 /* Xibs */ = {
 			isa = PBXGroup;
 			children = (
+				2A6C6D02183AC5D20018F407 /* ManageChildTileCell.xib */,
 				EACC67F1180B4BC700FEAC76 /* AccountManagementViewController.xib */,
 				EACC67EC180B4B8D00FEAC76 /* GameViewController.xib */,
 				EABC93B0182E06CA00E81664 /* GraphViewController.xib */,
@@ -837,8 +842,6 @@
 				EACC67E6180B4B6600FEAC76 /* LoginViewController.m */,
 				EACC67C818037DA300FEAC76 /* MainMenuViewController.h */,
 				EACC67C918037DA300FEAC76 /* MainMenuViewController.m */,
-				2ACA5DF2182FEF48003CEFEE /* ManageChildPopoverViewController.h */,
-				2ACA5DF3182FEF48003CEFEE /* ManageChildPopoverViewController.m */,
 				EAE439D218303B2D0026370C /* PendingSharesViewController.h */,
 				EAE439D318303B2D0026370C /* PendingSharesViewController.m */,
 				EAC6993C1828B39100342086 /* PopoverPickerViewController.h */,
@@ -911,6 +914,8 @@
 				EAC699451828B3A000342086 /* StatsProblemCell.m */,
 				EAE439BC182F320B0026370C /* StatsTrayCollectionView.h */,
 				EAE439BD182F320B0026370C /* StatsTrayCollectionView.m */,
+				2A6C6D04183AC6270018F407 /* ManageChildTileCell.h */,
+				2A6C6D05183AC6270018F407 /* ManageChildTileCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1049,6 +1054,7 @@
 				EAE4399D182EE9D90026370C /* angry-75x85.png in Resources */,
 				EAC698E1181DB81A00342086 /* anger.png in Resources */,
 				2A67ECE21827F245000695CC /* ViewChildrenViewController.xib in Resources */,
+				2A6C6D03183AC5D20018F407 /* ManageChildTileCell.xib in Resources */,
 				EAC69918181DD1E700342086 /* test_image.jpg in Resources */,
 				EAE4399F182EE9D90026370C /* happy-75x85.png in Resources */,
 				EAC6991E181DF59500342086 /* Billy_make_Suzy_Angry.mp4 in Resources */,
@@ -1141,7 +1147,7 @@
 				EAC6993F1828B39100342086 /* PopoverPickerViewController.m in Sources */,
 				EAE439C218302BA80026370C /* GuardianGameMenuViewController.m in Sources */,
 				2A67ECE11827F245000695CC /* ViewChildrenViewController.m in Sources */,
-				2ACA5DF4182FEF48003CEFEE /* ManageChildPopoverViewController.m in Sources */,
+				2A6C6D06183AC6270018F407 /* ManageChildTileCell.m in Sources */,
 				EACC679C18037CFE00FEAC76 /* main.m in Sources */,
 				EACC67A018037CFE00FEAC76 /* AppDelegate.m in Sources */,
 				2A105F15181E18CF0035232F /* ChildProblemData.m in Sources */,

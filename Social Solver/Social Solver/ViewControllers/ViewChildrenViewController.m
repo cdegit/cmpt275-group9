@@ -11,14 +11,14 @@
 #import "ViewChildrenViewController.h"
 #import "UserDatabaseManager.h"
 #import "GuardianUser.h"
-#import "LoginUserSelectionCell.h"
+#import "ManageChildTileCell.h"
 #import "AccountManagementViewController.h"
-#import "ManageChildPopoverViewController.h"
 
 @interface ViewChildrenViewController ()
 {
     UIPopoverController *_manageChildPopover;
     NSMutableArray* _childArray;
+    ManageChildTileCell *_selectedCell;
     NSInteger _activeTile;
     UIAlertView* _confirmDeleteAlertView;
 }
@@ -52,7 +52,7 @@ NSComparator caseInsensitiveComparator = ^(NSString *obj1, NSString *obj2)
     
     // Register LoginUserSelectionCell to be used for the cells
     // in the user selection view
-    [_childrenView registerNib:[UINib nibWithNibName:@"LoginUserSelectionCell"
+    [_childrenView registerNib:[UINib nibWithNibName:@"ManageChildTileCell"
                                                    bundle:[NSBundle mainBundle]]
          forCellWithReuseIdentifier:@"UserCell"];
     
@@ -60,11 +60,12 @@ NSComparator caseInsensitiveComparator = ^(NSString *obj1, NSString *obj2)
     
     UICollectionViewFlowLayout* userSelectionLayout = (UICollectionViewFlowLayout *)[_childrenView collectionViewLayout];
     
-    // Item size should be the same size as LoginUserSelectionCell
-    [userSelectionLayout setItemSize:CGSizeMake(250.0, 243.0)];
-    [userSelectionLayout setMinimumInteritemSpacing:50.0];
-    [userSelectionLayout setMinimumLineSpacing:20.0];
-    [userSelectionLayout setSectionInset:UIEdgeInsetsMake(20.0, 20.0, 20.0, 20.0)];
+    // Item size should be the same size as LoginUserSelectionCells
+    [userSelectionLayout setItemSize:CGSizeMake(200.0, 203.0)];
+    [userSelectionLayout setMinimumInteritemSpacing:40.0];
+    [userSelectionLayout setMinimumLineSpacing:30.0];
+    [userSelectionLayout setSectionInset:UIEdgeInsetsMake(40.0, 40.0, 40.0, 40.0)];
+    [_childrenView setAllowsMultipleSelection:NO];
     
     
     [self loadUsers];
@@ -124,6 +125,26 @@ NSComparator caseInsensitiveComparator = ^(NSString *obj1, NSString *obj2)
     }
 }
 
+- (void)userTile:(id)cell wantsEditAccount:(User*)user
+{
+    NSLog(@"Calling This");
+    AccountManagementViewController *amvc = [[AccountManagementViewController alloc] initWithNibName:@"AccountManagementViewController" bundle:[NSBundle mainBundle] withUser:user];
+    [amvc setDelegate:self];
+    [amvc setModalPresentationStyle:UIModalPresentationCurrentContext];
+    [self presentViewController:amvc animated:YES completion:NULL];
+    
+    [[cell manageView] setHidden:YES];
+
+}
+
+- (void)userTile:(id)cell wantsDeleteAccount:(User*)user
+{
+    _confirmDeleteAlertView = [[UIAlertView alloc] initWithTitle:@"Remove Child Account" message:[NSString stringWithFormat:@"Are you sure you want to remove %@'s account?", [[_childArray objectAtIndex:_activeTile] name]] delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+    [_confirmDeleteAlertView show];
+    [[cell manageView] setHidden:YES];
+    
+}
+
 
 #pragma mark - UICollectionViewDataSource Methods
 
@@ -139,7 +160,7 @@ NSComparator caseInsensitiveComparator = ^(NSString *obj1, NSString *obj2)
 {
     
     // Get Reusable login cell
-    LoginUserSelectionCell* cell = [_childrenView
+    ManageChildTileCell* cell = [_childrenView
                                     dequeueReusableCellWithReuseIdentifier:@"UserCell"
                                     forIndexPath:indexPath];
     
@@ -170,6 +191,8 @@ NSComparator caseInsensitiveComparator = ^(NSString *obj1, NSString *obj2)
         }
     
         [[cell imageView] setImage:img];
+        [cell setChild:us];
+        [cell setDelegate:self];
     }
     
     
@@ -182,6 +205,8 @@ NSComparator caseInsensitiveComparator = ^(NSString *obj1, NSString *obj2)
 // Otherwise show a popup to choose what to do to the child account
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    [[_selectedCell manageView] setHidden:YES];
+    
     if ([indexPath row]>=[_childArray count]) {
         
         // Show User Creation Screen
@@ -196,22 +221,17 @@ NSComparator caseInsensitiveComparator = ^(NSString *obj1, NSString *obj2)
         // Set active tile and show manage user popup
         _activeTile = [indexPath row];
         
+        _selectedCell = (ManageChildTileCell*)[_childrenView cellForItemAtIndexPath:indexPath];
         
-        ManageChildPopoverViewController *mcpvc = [[ManageChildPopoverViewController alloc] init];
-        [mcpvc setDelegate:self];
-        
-        
-        UIPopoverController *pc = [[UIPopoverController alloc] initWithContentViewController:mcpvc];
-        
-        _manageChildPopover = pc;
-        
-        [_manageChildPopover setPopoverContentSize:CGSizeMake(225, 120)];
-        
-        UICollectionViewLayoutAttributes *attribs = [_childrenView layoutAttributesForItemAtIndexPath:indexPath];
-        
-        [_manageChildPopover presentPopoverFromRect:[attribs frame] inView:_childrenView permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+        [[_selectedCell manageView] setHidden:NO];
     }
     
+    return NO;
+    
+}
+
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldDeselectItemAtIndexPath:(NSIndexPath *)indexPath
+{
     return NO;
 }
 
