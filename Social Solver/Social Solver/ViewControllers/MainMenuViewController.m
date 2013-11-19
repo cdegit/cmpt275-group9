@@ -59,6 +59,19 @@
         [_someText setNeedsDisplay];
         _trackingText.hidden = NO;
         _trackingSwitch.hidden = NO;
+        
+        User *user = [[UserDatabaseManager sharedInstance] activeUser];
+        if ([[[user entity] name] isEqualToString:@"Child"])
+        {
+            ChildSettings *settings = [(ChildUser*)user settings];
+            if([settings allowsTracking]){
+                [_trackingSwitch setOn:YES animated:YES];
+            }
+            else{
+                [_trackingSwitch setOn:NO animated:YES];
+            }
+            
+        }
     }
     
     else if ([[[UserDatabaseManager sharedInstance] activeUser] name] == NULL){

@@ -67,6 +67,10 @@
     [self loadUsers];
 }
 
+- (void) viewWillAppear:(BOOL)animated
+{
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -131,11 +135,11 @@
     
     // add further functionality here
     
+    
     if(trackingCell.trackingSwitch.isOn == 1) {
         // Grab the user object associated to the index
         User *us = (User*)[userArray objectAtIndex:[indexPath row]];
         [selectedUsers addObject:us];
-        
         if ([[[us entity] name] isEqualToString:@"Child"])
         {
             ChildSettings *settings = [(ChildUser*)us settings];
