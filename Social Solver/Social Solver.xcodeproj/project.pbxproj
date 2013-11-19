@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		049E1240183BEDE600083303 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049E123F183BEDE600083303 /* SettingViewController.m */; };
+		049E1242183BEDFF00083303 /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 049E1241183BEDFF00083303 /* SettingViewController.xib */; };
+		049E1245183BEE1A00083303 /* TrackingUserSelectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 049E1244183BEE1A00083303 /* TrackingUserSelectionCell.m */; };
+		049E1247183BEE2500083303 /* TrackingUserSelectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 049E1246183BEE2500083303 /* TrackingUserSelectionCell.xib */; };
 		2A105F12181E16970035232F /* ChildSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A105F11181E16970035232F /* ChildSettings.m */; };
 		2A105F15181E18CF0035232F /* ChildProblemData.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A105F14181E18CF0035232F /* ChildProblemData.m */; };
 		2A475087181DDD73000EBEAB /* UIImagePickerController+ShouldAutorotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A475086181DDD73000EBEAB /* UIImagePickerController+ShouldAutorotate.m */; };
@@ -177,6 +181,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		049E123E183BEDD100083303 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		049E123F183BEDE600083303 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		049E1241183BEDFF00083303 /* SettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SettingViewController.xib; path = ViewControllers/SettingViewController.xib; sourceTree = "<group>"; };
+		049E1243183BEE1200083303 /* TrackingUserSelectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TrackingUserSelectionCell.h; path = Views/TrackingUserSelectionCell.h; sourceTree = "<group>"; };
+		049E1244183BEE1A00083303 /* TrackingUserSelectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TrackingUserSelectionCell.m; path = Views/TrackingUserSelectionCell.m; sourceTree = "<group>"; };
+		049E1246183BEE2500083303 /* TrackingUserSelectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TrackingUserSelectionCell.xib; path = Views/TrackingUserSelectionCell.xib; sourceTree = "<group>"; };
 		2A105F10181E16970035232F /* ChildSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildSettings.h; sourceTree = "<group>"; };
 		2A105F11181E16970035232F /* ChildSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildSettings.m; sourceTree = "<group>"; };
 		2A105F13181E18CF0035232F /* ChildProblemData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildProblemData.h; sourceTree = "<group>"; };
@@ -817,6 +827,8 @@
 				EAC699431828B3A000342086 /* StatsChildCell.xib */,
 				EAC699461828B3A000342086 /* StatsProblemCell.xib */,
 				2A67ECE01827F245000695CC /* ViewChildrenViewController.xib */,
+				049E1241183BEDFF00083303 /* SettingViewController.xib */,
+				049E1246183BEE2500083303 /* TrackingUserSelectionCell.xib */,
 			);
 			name = Xibs;
 			sourceTree = "<group>";
@@ -860,6 +872,8 @@
 				EACC6808180B9CE900FEAC76 /* StatisticsViewController.m */,
 				2A67ECDE1827F245000695CC /* ViewChildrenViewController.h */,
 				2A67ECDF1827F245000695CC /* ViewChildrenViewController.m */,
+				049E123E183BEDD100083303 /* SettingViewController.h */,
+				049E123F183BEDE600083303 /* SettingViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -916,6 +930,8 @@
 				EAE439BD182F320B0026370C /* StatsTrayCollectionView.m */,
 				2A6C6D04183AC6270018F407 /* ManageChildTileCell.h */,
 				2A6C6D05183AC6270018F407 /* ManageChildTileCell.m */,
+				049E1243183BEE1200083303 /* TrackingUserSelectionCell.h */,
+				049E1244183BEE1A00083303 /* TrackingUserSelectionCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1029,6 +1045,7 @@
 				817F14CB18304AE100D058A8 /* retina.png in Resources */,
 				2A730FA21819A541000356DE /* LoginUserSelectionCell.xib in Resources */,
 				EAC6994A1828B3A000342086 /* StatsProblemCell.xib in Resources */,
+				049E1247183BEE2500083303 /* TrackingUserSelectionCell.xib in Resources */,
 				EAE439A9182EE9E50026370C /* problem-asking for bear.png in Resources */,
 				EAE439A0182EE9D90026370C /* sad-75x85.png in Resources */,
 				817F14D218304AE100D058A8 /* spotlight-100x100.png in Resources */,
@@ -1082,6 +1099,7 @@
 				EAE439B5182F03880026370C /* arrow-down.png in Resources */,
 				EAC69905181DC20D00342086 /* Rewards Gallery Icon brighter.png in Resources */,
 				EAE439C918303AF40026370C /* button2.wav in Resources */,
+				049E1242183BEDFF00083303 /* SettingViewController.xib in Resources */,
 				EAC698F1181DB81A00342086 /* settings-50x50.png in Resources */,
 				EAE439E118303B2D0026370C /* ShareProfileSecurityCodeViewController.xib in Resources */,
 				EAC6991B181DF56100342086 /* Billy_scared_by_Spider.mp4 in Resources */,
@@ -1170,11 +1188,13 @@
 				EACC67ED180B4B8D00FEAC76 /* GameViewController.m in Sources */,
 				EAC699491828B3A000342086 /* StatsProblemCell.m in Sources */,
 				EACC67F2180B4BC700FEAC76 /* AccountManagementViewController.m in Sources */,
+				049E1245183BEE1A00083303 /* TrackingUserSelectionCell.m in Sources */,
 				EACC67F7180B4C4800FEAC76 /* RewardsGalleryViewController.m in Sources */,
 				2A475087181DDD73000EBEAB /* UIImagePickerController+ShouldAutorotate.m in Sources */,
 				EACC67FC180B4C7400FEAC76 /* GuardianMainMenuViewController.m in Sources */,
 				EACC6800180B4ECD00FEAC76 /* UserDatabaseManager.m in Sources */,
 				EACC6804180B944E00FEAC76 /* NavigationTableCell.m in Sources */,
+				049E1240183BEDE600083303 /* SettingViewController.m in Sources */,
 				2A730FA01819A4EA000356DE /* LoginUserSelectionCell.m in Sources */,
 				EAE439E018303B2D0026370C /* ShareProfileSecurityCodeViewController.m in Sources */,
 				EACC680A180B9CE900FEAC76 /* StatisticsViewController.m in Sources */,
