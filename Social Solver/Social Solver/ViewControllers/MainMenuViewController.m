@@ -51,6 +51,8 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
+    
     if ([[[UserDatabaseManager sharedInstance] activeUser] name] != NULL) {
         _loginButton.hidden = YES;
         _logoutButton.hidden = NO;
@@ -143,9 +145,6 @@
 
 - (IBAction)logoutTapped:(UIButton *)sender {
     [[UserDatabaseManager sharedInstance] requestLogout:self];
-    _trackingText.hidden = YES;
-    _trackingSwitch.hidden = YES;
-
 }
 
 - (IBAction)toggleEnabledForTrackingSwitch{
@@ -181,6 +180,8 @@
     self.loginButton.hidden = false;
     self.logoutButton.hidden = true;
     self.someText.hidden = true;
+    _trackingText.hidden = YES;
+    _trackingSwitch.hidden = YES;
 }
 - (void)logoutRequestDenied
 {
