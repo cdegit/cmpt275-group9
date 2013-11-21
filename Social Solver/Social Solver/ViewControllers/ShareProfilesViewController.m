@@ -21,6 +21,7 @@
     NSString* userType;
     NSArray* userArray;
     NSMutableArray* selectedUsers;
+    ShareRequest* shareReq;
 }
 
 @end
@@ -151,7 +152,14 @@
         
         [alert show];
     } else {
-        [self.delegate changeView:SHARE_PROFILES_WITH_GUARDIAN];
+        // for children in selectedChildren
+        NSMutableArray* shareReqs = [[NSMutableArray alloc] init];
+        for (int i = 0; i < selectedUsers.count; i++) {
+            User *us = [selectedUsers objectAtIndex:i];
+            [shareReqs addObject:us.name];
+        }
+        
+        [self.delegate changeView:SHARE_PROFILES_WITH_GUARDIAN withChildren:(shareReqs) andEmail:@"email@domain.com"]; // TODO: change to current guardian's email
     }
 }
 

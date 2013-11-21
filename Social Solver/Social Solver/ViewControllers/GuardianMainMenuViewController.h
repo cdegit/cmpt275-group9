@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ShareRequest.h"
 
 @protocol GuardianMainMenuViewControllerDelegate <NSObject>
 
-- (void) changeView:(int)view;
+- (void) changeView:(int)view withChildren:(NSMutableArray*)children andEmail:(NSString*)email;
 
 @end
 

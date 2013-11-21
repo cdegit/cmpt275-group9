@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ShareProfileSecurityCodeViewController">
             <connections>
+                <outlet property="activityIndicator" destination="cZX-XD-jhs" id="OnP-qe-RMp"/>
                 <outlet property="guardianEmail" destination="7he-AY-ZqD" id="L7W-Bw-yVP"/>
                 <outlet property="securityCode" destination="cLe-Ya-EKi" id="aKI-o3-7aO"/>
                 <outlet property="view" destination="2" id="3"/>
@@ -59,6 +60,10 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="cZX-XD-jhs">
+                    <rect key="frame" x="423" y="99" width="37" height="37"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
