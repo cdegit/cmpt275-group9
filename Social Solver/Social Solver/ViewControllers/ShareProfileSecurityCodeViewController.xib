@@ -40,7 +40,7 @@
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" text="This code had also been emailed to you." translatesAutoresizingMaskIntoConstraints="NO" id="Ddh-oh-Wfe">
-                    <rect key="frame" x="68" y="202" width="240" height="51"/>
+                    <rect key="frame" x="68" y="172" width="240" height="51"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>

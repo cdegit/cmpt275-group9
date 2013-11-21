@@ -208,7 +208,7 @@ const int SHARE_PROFILES_SECURITY_CODE = 1;
         [self.detailViewContainer addSubview:self.detailViewController.view];
     }
 }
-
+ 
 // Added Version 2, Updated Version 3
 - (void) changeView:(int) view withChildren:(NSMutableArray*)children andEmail:(NSString*)email {
     switch(view) {

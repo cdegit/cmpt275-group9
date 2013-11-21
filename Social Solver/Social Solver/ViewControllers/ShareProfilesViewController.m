@@ -141,7 +141,7 @@
         if([selectedUsers indexOfObject:us] != NSIntegerMax) {
             [selectedUsers removeObject:us];
         }
-    }
+    } 
     
     
     return NO;

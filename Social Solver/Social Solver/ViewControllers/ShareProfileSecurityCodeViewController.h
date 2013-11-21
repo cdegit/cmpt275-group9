@@ -19,7 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView* activityIndicator;
 
 -(void)setShareRequests:(NSMutableArray*)shareRequests;
-
+ 
 -(void)setEmail:(NSString*)email;
 
 @end

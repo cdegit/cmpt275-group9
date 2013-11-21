@@ -60,7 +60,7 @@
     // Display email of guardian being transferred to
     _guardianEmail.text = gEmail;
 }
-
+ 
 -(void)setShareRequests:(NSMutableArray*)shareRequests
 {
     shareReqs = shareRequests;

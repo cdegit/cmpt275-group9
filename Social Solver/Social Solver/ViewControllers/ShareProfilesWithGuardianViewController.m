@@ -54,7 +54,7 @@
         [alert show];
     } else {
         [self.delegate changeView:SHARE_PROFILES_SECURITY_CODE withChildren:(shareReqs) andEmail:_guardianEmail.text];
-    }
+    } 
 }
 
 -(void)setShareRequests:(NSMutableArray*)shareRequests
