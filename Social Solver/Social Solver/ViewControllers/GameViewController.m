@@ -206,8 +206,7 @@
 - (void)recordCorrectAnswerWithTime:(double)time
 {
     User* user = [[UserDatabaseManager sharedInstance] activeUser];
-    ChildSettings *settings = [(ChildUser*)user settings];
-    if (user != nil && [user isKindOfClass:[ChildUser class]] && [settings allowsTracking])
+    if (user != nil && [user isKindOfClass:[ChildUser class]] && ((ChildUser*)user).settings.allowsTracking)
     {
         ChildUser* cUser = (ChildUser*)user;
         
@@ -263,8 +262,7 @@
 - (void)recordIncorrectAnswer
 {
     User* user = [[UserDatabaseManager sharedInstance] activeUser];
-    ChildSettings *settings = [(ChildUser*)user settings];
-    if (user != nil && [user isKindOfClass:[ChildUser class]] && [settings allowsTracking])
+    if (user != nil && [user isKindOfClass:[ChildUser class]] && ((ChildUser*)user).settings.allowsTracking)
     {
         ChildUser* cUser = (ChildUser*)user;
         Session* currentSession = [cUser sessionWithDate:[[UserDatabaseManager sharedInstance] sessionDate]];

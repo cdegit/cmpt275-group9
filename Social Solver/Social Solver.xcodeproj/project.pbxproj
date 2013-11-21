@@ -45,6 +45,7 @@
 		EA16940F18162B2B00C40069 /* ProblemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EA16940E18162B2B00C40069 /* ProblemManager.m */; };
 		EA16941B18163C5C00C40069 /* LevelCompleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA16941918163C5C00C40069 /* LevelCompleteViewController.m */; };
 		EA16941C18163C5C00C40069 /* LevelCompleteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA16941A18163C5C00C40069 /* LevelCompleteViewController.xib */; };
+		EA2097C41835BD7A00D1A214 /* ServerCommunicationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EA2097C31835BD7A00D1A214 /* ServerCommunicationManager.m */; };
 		EABC93AF182E06C200E81664 /* GraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EABC93AE182E06C200E81664 /* GraphViewController.m */; };
 		EABC93B1182E06CA00E81664 /* GraphViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EABC93B0182E06CA00E81664 /* GraphViewController.xib */; };
 		EABC9403182E06E600E81664 /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EABC9402182E06E600E81664 /* libCorePlot-CocoaTouch.a */; };
@@ -237,6 +238,8 @@
 		EA16941818163C5C00C40069 /* LevelCompleteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelCompleteViewController.h; sourceTree = "<group>"; };
 		EA16941918163C5C00C40069 /* LevelCompleteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelCompleteViewController.m; sourceTree = "<group>"; };
 		EA16941A18163C5C00C40069 /* LevelCompleteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LevelCompleteViewController.xib; path = ViewControllers/LevelCompleteViewController.xib; sourceTree = "<group>"; };
+		EA2097C21835BD7A00D1A214 /* ServerCommunicationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerCommunicationManager.h; sourceTree = "<group>"; };
+		EA2097C31835BD7A00D1A214 /* ServerCommunicationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerCommunicationManager.m; sourceTree = "<group>"; };
 		EABC93A9182E06AE00E81664 /* GraphViewControllerDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GraphViewControllerDataSource.h; path = Protocols/GraphViewControllerDataSource.h; sourceTree = "<group>"; };
 		EABC93AD182E06C200E81664 /* GraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphViewController.h; sourceTree = "<group>"; };
 		EABC93AE182E06C200E81664 /* GraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphViewController.m; sourceTree = "<group>"; };
@@ -897,6 +900,8 @@
 				EA16940E18162B2B00C40069 /* ProblemManager.m */,
 				2AAABD96182D506900FBCD60 /* ServerRequest.h */,
 				2AAABD97182D506900FBCD60 /* ServerRequest.m */,
+				EA2097C21835BD7A00D1A214 /* ServerCommunicationManager.h */,
+				EA2097C31835BD7A00D1A214 /* ServerCommunicationManager.m */,
 				EAE43992182EC8510026370C /* Session.h */,
 				EAE43993182EC8510026370C /* Session.m */,
 				EAE439CE18303B080026370C /* ShareRequest.h */,
@@ -1177,6 +1182,7 @@
 				EACC67CF1803816800FEAC76 /* RootNavigationViewController.m in Sources */,
 				EACC67D9180733CB00FEAC76 /* User.m in Sources */,
 				EAE439E418303B2D0026370C /* ShareProfilesWithGuardianViewController.m in Sources */,
+				EA2097C41835BD7A00D1A214 /* ServerCommunicationManager.m in Sources */,
 				EACC67DC1807340700FEAC76 /* GuardianUser.m in Sources */,
 				EAE439DE18303B2D0026370C /* PendingSharesViewController.m in Sources */,
 				2AAABD98182D506900FBCD60 /* ServerRequest.m in Sources */,

@@ -67,6 +67,10 @@
     [self loadUsers];
 }
 
+- (void) viewWillAppear:(BOOL)animated
+{
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -77,9 +81,7 @@
 
 - (void)loadUsers
 {
-    
-    userArray = [[UserDatabaseManager sharedInstance] getUserListOfType:userType];
-    
+    userArray = [((GuardianUser*)[[UserDatabaseManager sharedInstance] activeUser]).children allObjects];
 }
 
 #pragma mark - UICollectionViewDataSource Methods
@@ -101,7 +103,8 @@
     
     // Set the cell's user's name
     [[cell nameLabel] setText:[us valueForKey:@"name"]];
-    
+    cell.nameLabel.adjustsFontSizeToFitWidth = YES;
+    cell.nameLabel.minimumScaleFactor = 0.5;
     
     // Set the cell's Image to the appropriate Profile Image
     // If they do not have their own profile image use the default
@@ -131,11 +134,11 @@
     
     // add further functionality here
     
+    
     if(trackingCell.trackingSwitch.isOn == 1) {
         // Grab the user object associated to the index
         User *us = (User*)[userArray objectAtIndex:[indexPath row]];
         [selectedUsers addObject:us];
-        
         if ([[[us entity] name] isEqualToString:@"Child"])
         {
             ChildSettings *settings = [(ChildUser*)us settings];

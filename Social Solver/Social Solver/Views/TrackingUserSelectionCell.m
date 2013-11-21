@@ -22,7 +22,6 @@
 }
 
 
-
 -(void)changeSwitch {
     if(trackingSwitch.on) {
         [trackingSwitch setOn:NO animated:YES];

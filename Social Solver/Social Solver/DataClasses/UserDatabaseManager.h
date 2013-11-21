@@ -25,6 +25,7 @@
 
 // Added in Version 2
 
+- (NSArray*)unregisteredUsers;
 - (NSArray *) getUserListOfType:(NSString *)userType;
 
 - (ChildUser *) createChildWithName:(NSString *)name password:(NSString *)pass andProfileImage:(UIImage *)img;
