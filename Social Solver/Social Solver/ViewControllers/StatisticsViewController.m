@@ -235,6 +235,7 @@
 
         cell.nameLabel.text = user.name;
         cell.nameLabel.adjustsFontSizeToFitWidth = true;
+        cell.nameLabel.minimumScaleFactor = 0.5f;
         cell.profilePicture.image = img;
         
         // Remove any previous gestures to ensure the meta data is correct

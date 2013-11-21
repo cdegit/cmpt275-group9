@@ -179,7 +179,8 @@ NSComparator caseInsensitiveComparator = ^(NSString *obj1, NSString *obj2)
     
         // Set the cell's user's name
         [[cell nameLabel] setText:[us valueForKey:@"name"]];
-    
+        cell.nameLabel.adjustsFontSizeToFitWidth = YES;
+        cell.nameLabel.minimumScaleFactor = 0.5;
     
         // Set the cell's Image to the appropriate Profile Image
         // If they do not have their own profile image use the default
