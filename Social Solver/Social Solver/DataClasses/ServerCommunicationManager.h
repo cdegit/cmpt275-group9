@@ -18,9 +18,11 @@
 
 - (void)registerAllNewUsers;
 - (void)registerNewUser:(User*)user withCompletionHandler:(void (^)(NSError*))completionHandler;
+- (void)updateUserProfile:(User*)user withCompletionHandler:(void (^)(NSError*))completionHandler;
+- (void)updateAllUserProfiles;
 
 - (void)updateChildrenOfGuardian:(GuardianUser*)gUser;
-- (void)updateChild:(ChildUser*)cUser;
+- (void)updateChildSessions:(ChildUser*)cUser;
 
 // Profile sharing methods
 - (void)getChildWithID:(NSInteger)ID completionHandler:(void (^)(ChildUser*, NSError*))completionHandler;

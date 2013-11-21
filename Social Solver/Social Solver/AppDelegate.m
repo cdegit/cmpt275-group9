@@ -57,7 +57,8 @@
     
     // Attempt to register any new users who aren't yet registered
 #warning TODO: Uncomment the following line once the server response is of json format
-//    [[ServerCommunicationManager sharedInstance] registerAllNewUsers];
+//    [[ServerCommunicationManager sharedInstance] updateAllUserProfiles];
+    [[ServerCommunicationManager sharedInstance] registerAllNewUsers];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

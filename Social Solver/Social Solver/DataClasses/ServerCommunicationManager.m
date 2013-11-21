@@ -16,11 +16,12 @@
 
 static const NSString* BASE_URL = @"http://kaijubluesg9.site90.com/";
 static const NSTimeInterval DEFAULT_TIMEOUT = 60;
-static NSString* SCRIPT_TEST = @"GetUserAndID";
-static NSString* SCRIPT_REG_USER = @"GetUserAndID";
-static NSString* SCRIPT_GET_SESSIONS = @"GetUserAndID";
-static NSString* SCRIPT_GET_SESSION_DATES = @"GetUserAndID";
-static NSString* SCRIPT_SEND_SESSIONS = @"GetUserAndID";
+
+static NSString* SCRIPT_REG_USER = @"RegisterUser";
+static NSString* SCRIPT_UPDATE_USER = @"Dummy";
+static NSString* SCRIPT_GET_SESSIONS = @"Dummy";
+static NSString* SCRIPT_GET_SESSION_DATES = @"GetSession";
+static NSString* SCRIPT_SEND_SESSIONS = @"addSession";
 
 @interface ServerCommunicationManager()
 
@@ -39,29 +40,22 @@ static NSString* SCRIPT_SEND_SESSIONS = @"GetUserAndID";
     return scm;
 }
 
-- (void)testRequestWithCompletion:(void (^)(NSData *))completionBlock error:(void (^)(NSError *))error
+- (NSDictionary*)checkErrorInResponse:(NSURLResponse*)response withData:(NSData*)data error:(NSError**)err
 {
-    NSDictionary* jsonObject = [NSDictionary dictionaryWithObjectsAndKeys:@"Billy", @"UserName", @"123abc", @"Password", nil];
+    NSDictionary* result = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:err];
+    if (*err == nil)
+    {
+        NSString* error = [result objectForKey:@"Error"];
+        if (error != nil) {
+            *err = [[NSError alloc] initWithDomain:error code:0 userInfo:nil];
+            NSLog(@"Error response: %@ for request %@", error, [response.URL absoluteString]);
+        }
+    }
+    else {
+        NSLog(@"Error parsing response for %@ in %s", [response.URL absoluteString],  __PRETTY_FUNCTION__);
+    }
 
-    NSURL* url = [self urlForScript:SCRIPT_TEST jsonObject:jsonObject];
-    
-    NSURLRequest* req = [[NSURLRequest alloc] initWithURL:url
-                                              cachePolicy:NSURLCacheStorageNotAllowed
-                                          timeoutInterval:DEFAULT_TIMEOUT];
-    
-    void (^completionCopy)(NSData*) = [completionBlock copy];
-    void (^errorCopy)(NSError*) = [error copy];
-    
-    [NSURLConnection sendAsynchronousRequest:req
-                                       queue:[NSOperationQueue mainQueue]
-                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-        if (connectionError == nil) {
-            completionCopy(data);
-        }
-        else {
-            errorCopy(connectionError);
-        }
-    }];
+    return result;
 }
 
 - (void)registerAllNewUsers
@@ -73,9 +67,10 @@ static NSString* SCRIPT_SEND_SESSIONS = @"GetUserAndID";
         if ([user isKindOfClass:[ChildUser class]])
         {
             ChildUser* cUser = (ChildUser*)user;
-            if (cUser.settings.allowsAutoSync) {
+#warning TODO: Uncomment below once testing is completed
+//            if (cUser.settings.allowsAutoSync) {
                 [self registerNewUser:cUser withCompletionHandler:nil];
-            }
+//            }
         }
         else
         {
@@ -87,8 +82,9 @@ static NSString* SCRIPT_SEND_SESSIONS = @"GetUserAndID";
 
 - (void)registerNewUser:(User*)user withCompletionHandler:(void (^)(NSError*))completionHandler
 {
+#warning UNTESTED
     NSString* userType = ([user isKindOfClass:[ChildUser class]] ? @"Child" : @"Guardian");
-    NSMutableDictionary* jsonObject = [NSMutableDictionary dictionaryWithObjectsAndKeys: user.name, @"UserName" , userType, @"UserType", nil];
+    NSMutableDictionary* jsonObject = [NSMutableDictionary dictionaryWithObjectsAndKeys: user.name, @"UserName" , userType, @"UserType", [user.passwordHash description], @"PasswordHash", [user.passwordSeed description], @"PasswordSeed", nil];
     
     if ([user isKindOfClass:[GuardianUser class]]) {
         [jsonObject setObject:((GuardianUser*)user).email forKey:@"Email"];
@@ -105,14 +101,13 @@ static NSString* SCRIPT_SEND_SESSIONS = @"GetUserAndID";
     [NSURLConnection sendAsynchronousRequest:req
                                        queue:[NSOperationQueue mainQueue]
                            completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-#warning TODO: Read ID from the result
                                if (connectionError == nil)
                                {
                                    NSError* err = nil;
-                                   NSDictionary* result = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&err];
+                                   NSDictionary* result = [self checkErrorInResponse:response withData:data error:&err];
                                    if (err == nil)
                                    {
-                                       NSString* ID = [result objectForKey:@"ID"];
+                                       NSString* ID = [result objectForKey:@"Id"];
                                        if (ID == nil) {
                                            NSLog(@"Failed to retrieve userID for %@ in %s", [response.URL absoluteString], __PRETTY_FUNCTION__);
                                        }
@@ -121,26 +116,90 @@ static NSString* SCRIPT_SEND_SESSIONS = @"GetUserAndID";
                                            [[UserDatabaseManager sharedInstance] save];
                                        }
                                    }
-                                   else {
-                                       NSLog(@"Error parsing response for %@ in %s", [response.URL absoluteString],  __PRETTY_FUNCTION__);
+                                   if (completionCopy != nil) {
+                                       completionCopy(err);
                                    }
-                                   completionCopy(err);
                                }
-                               else {
+                               else if (completionCopy != nil) {
+                                   NSLog(@"Error %@ for request %@", connectionError, [[response URL] absoluteString]);
                                    completionCopy(connectionError);
                                }
         }];
+}
+
+- (void)updateAllUserProfiles
+{
+    NSArray* unregisteredUsers = [[UserDatabaseManager sharedInstance] unregisteredUsers];
+    for (User* user in unregisteredUsers)
+    {
+        // If the user is registered then see if we should update the profile
+        if (user.uid != 0)
+        {
+            if ([user isKindOfClass:[ChildUser class]] && ((ChildUser*)user).settings.allowsAutoSync) {
+                [self updateUserProfile:user withCompletionHandler:nil];
+            }
+            else if ([user isKindOfClass:[GuardianUser class]]) {
+                [self updateUserProfile:user withCompletionHandler:nil];
+            }
+        }
+    }
+}
+
+- (void)updateUserProfile:(User*)user withCompletionHandler:(void (^)(NSError*))completionHandler
+{
+#warning TODO: UNTESTED
+    // If the user hasn't been registered... register them instead
+    if (user.uid == 0) {
+        [self registerNewUser:user withCompletionHandler:completionHandler];
+        return;
+    }
+    
+    NSMutableDictionary* jsonObject = [NSMutableDictionary dictionaryWithObjectsAndKeys: @(user.uid), @"ID", user.name, @"UserName", [user.passwordHash description], @"PasswordHash", [user.passwordSeed description], @"PasswordSeed", nil];
+    
+    if ([user isKindOfClass:[GuardianUser class]]) {
+        [jsonObject setObject:((GuardianUser*)user).email forKey:@"Email"];
+    }
+    
+    NSURL* url = [self urlForScript:SCRIPT_UPDATE_USER jsonObject:jsonObject];
+    
+    NSURLRequest* req = [[NSURLRequest alloc] initWithURL:url
+                                              cachePolicy:NSURLCacheStorageNotAllowed
+                                          timeoutInterval:DEFAULT_TIMEOUT];
+    
+    void (^completionCopy)(NSError*) = [completionHandler copy];
+    
+    [NSURLConnection sendAsynchronousRequest:req
+                                       queue:[NSOperationQueue mainQueue]
+                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+                               if (connectionError == nil)
+                               {
+                                   NSError* err = nil;
+                                   NSDictionary* result = [self checkErrorInResponse:response withData:data error:&err];
+                                   if (err == nil)
+                                   {
+#warning TODO : Parse response
+                                       [[UserDatabaseManager sharedInstance] save];
+                                   }
+                                   if (completionCopy != nil) {
+                                       completionCopy(err);
+                                   }
+                               }
+                               else if (completionCopy != nil) {
+                                   NSLog(@"Error %@ for request %@", connectionError, [[response URL] absoluteString]);
+                                   completionCopy(connectionError);
+                               }
+                           }];
 }
 
 - (void)updateChildrenOfGuardian:(GuardianUser*)gUser
 {
     for (ChildUser* child in gUser.children)
     {
-        [self updateChild:child];
+        [self updateChildSessions:child];
     }
 }
 
-- (void)updateChild:(ChildUser*)cUser
+- (void)updateChildSessions:(ChildUser*)cUser
 {
     [self sessionDatesOnServerForChild:cUser withCompletion:^(NSArray* array) {
         // Get the users information that's stored on the iPad.
@@ -170,6 +229,7 @@ static NSString* SCRIPT_SEND_SESSIONS = @"GetUserAndID";
 // Sends Session objects with the specified dates to the server
 - (void)sendServerSessionsWithDates:(NSArray*)dates forChild:(ChildUser*)user
 {
+#warning UNTESTED
     NSMutableArray* sessionsToUpload = [[NSMutableArray alloc] init];
     for (Session* s in user.sessions)
     {
@@ -202,6 +262,7 @@ static NSString* SCRIPT_SEND_SESSIONS = @"GetUserAndID";
 
 - (void)getServerSessionsWithDates:(NSArray*)dates forChild:(ChildUser*)user
 {
+#warning UNTESTED
     // Convert the dates into doubles for storage on the database
     NSMutableArray* convertedDates = [[NSMutableArray alloc] init];
     for (NSDate* date in dates) {
@@ -209,7 +270,7 @@ static NSString* SCRIPT_SEND_SESSIONS = @"GetUserAndID";
         [convertedDates addObject:@(seconds)];
     }
     
-    NSDictionary* json = @{ @"Dates" : convertedDates };
+    NSDictionary* json = @{ @"ChildID" : @(user.uid), @"Dates" : convertedDates };
     NSURL* url = [self urlForScript:SCRIPT_GET_SESSIONS jsonObject:json];
     NSURLRequest* req = [[NSURLRequest alloc] initWithURL:url
                                               cachePolicy:NSURLCacheStorageNotAllowed
@@ -232,6 +293,7 @@ static NSString* SCRIPT_SEND_SESSIONS = @"GetUserAndID";
 // Get the dates of the sessions which are currently on the server's database
 - (void)sessionDatesOnServerForChild:(ChildUser*)user withCompletion:(void (^)(NSArray*))completionHandler
 {
+#warning UNTESTED
     NSDictionary* jsonObject = @{ @"ChidID" : [NSNumber numberWithInteger:user.uid] };
     
     NSURL* url = [self urlForScript:SCRIPT_GET_SESSION_DATES jsonObject:jsonObject];
@@ -245,10 +307,10 @@ static NSString* SCRIPT_SEND_SESSIONS = @"GetUserAndID";
                                        queue:[NSOperationQueue mainQueue]
                            completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
                                NSMutableArray* dates = [[NSMutableArray alloc] init];
-
+#warning TODO: Parse response
                                if (connectionError == nil) {
                                    NSError* err = nil;
-                                   NSDictionary* json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&err];
+                                   NSDictionary* json = [self checkErrorInResponse:response withData:data error:&err];
                                    if (err == nil) {
                                        for (NSString* dateString in [json allValues]) {
                                            // Convert the string into an NSDate
@@ -257,6 +319,9 @@ static NSString* SCRIPT_SEND_SESSIONS = @"GetUserAndID";
                                            [dates addObject:date];
                                        }
                                    }
+                               }
+                               else {
+                                   NSLog(@"Error %@ for request %@", connectionError, [[response URL] absoluteString]);
                                }
 
                                completionCopy(dates);
