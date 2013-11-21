@@ -10,7 +10,6 @@
 
 
 #import "ServerCommunicationManager.h"
-#import "ServerRequest.h"
 #import "UserDatabaseManager.h"
 #import "Session.h"
 
@@ -333,6 +332,9 @@ static NSString* SCRIPT_SEND_SESSIONS = @"addSession";
 {
     NSData* jsonData = [NSJSONSerialization dataWithJSONObject:dict options:NSJSONWritingPrettyPrinted error:nil];
     NSString* jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    // Remove all whitespace from the string
+    NSArray* array = [jsonString componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    jsonString = [array componentsJoinedByString:@""];
     jsonString = [jsonString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     NSString* urlString = [NSString stringWithFormat:@"%@%@.php?json=%@", BASE_URL, scriptName, jsonString];
