@@ -52,7 +52,7 @@
     [_rewardsGallerySelectionView registerNib:[UINib nibWithNibName:@"RewardsGalleryCell"
                                                              bundle:[NSBundle mainBundle]]
                    forCellWithReuseIdentifier:@"RewardCell"];
-    
+     
     //Set up the layout
     
     UICollectionViewFlowLayout* userSelectionLayout = (UICollectionViewFlowLayout *)[_rewardsGallerySelectionView collectionViewLayout];

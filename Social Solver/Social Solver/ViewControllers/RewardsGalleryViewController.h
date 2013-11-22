@@ -12,4 +12,4 @@
 
 @property (weak, nonatomic) IBOutlet UICollectionView* rewardsGallerySelectionView;
 
-@end
+@end 

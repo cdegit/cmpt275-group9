@@ -128,7 +128,7 @@
     UICollectionViewCell* cell = [_shareProfileSelectionView cellForItemAtIndexPath:indexPath];
     ShareUserSelectionCell* shareCell = (ShareUserSelectionCell*) cell;
     [shareCell changeSwitch];
-    
+     
     // add further functionality here
     
     if(shareCell.shareSwitch.on) {

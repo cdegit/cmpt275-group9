@@ -840,6 +840,7 @@
 			isa = PBXGroup;
 			children = (
 				81D71E7F183ED22E00D1E63D /* RewardsGalleryCell.xib */,
+				2A4D173D183FB64A00352A42 /* AddExistingChildViewController.xib */,
 				2A6C6D02183AC5D20018F407 /* ManageChildTileCell.xib */,
 				EACC67F1180B4BC700FEAC76 /* AccountManagementViewController.xib */,
 				EACC67EC180B4B8D00FEAC76 /* GameViewController.xib */,
