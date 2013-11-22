@@ -153,14 +153,7 @@
         
         [alert show];
     } else {
-        // for children in selectedChildren
-        NSMutableArray* shareReqs = [[NSMutableArray alloc] init];
-        for (int i = 0; i < selectedUsers.count; i++) {
-            User *us = [selectedUsers objectAtIndex:i];
-            [shareReqs addObject:us.name];
-        }
-        
-        [self.delegate changeView:SHARE_PROFILES_WITH_GUARDIAN withChildren:(shareReqs) andEmail:@"email@domain.com"]; // TODO: change to current guardian's email
+        [self.delegate changeView:SHARE_PROFILES_WITH_GUARDIAN withChildren:(selectedUsers) andEmail:@"email@domain.com"]; // TODO: change to current guardian's email
     }
 }
 

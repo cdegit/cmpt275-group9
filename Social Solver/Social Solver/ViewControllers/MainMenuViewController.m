@@ -65,6 +65,7 @@
         User *user = [[UserDatabaseManager sharedInstance] activeUser];
         if ([[[user entity] name] isEqualToString:@"Child"])
         {
+            _rewardsGalleryButton.hidden = NO;
             ChildSettings *settings = [(ChildUser*)user settings];
             if([settings allowsTracking]){
                 [_trackingSwitch setOn:YES animated:YES];
