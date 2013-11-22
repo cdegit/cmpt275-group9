@@ -41,6 +41,10 @@
 - (void)requestLogout:(id<LogoutRequestDelegate>)del;
 
 
+// Added in Version 3
+- (NSArray*)guardianlessUsers;
+
+
 
 // From Version 1
 @property (strong, readonly, nonatomic) User* activeUser;
