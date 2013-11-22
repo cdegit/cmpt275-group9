@@ -60,6 +60,8 @@
             </view>
             <color key="backgroundColor" red="0.0039215688589999999" green="0.75294125079999996" blue="0.84313732389999996" alpha="1" colorSpace="deviceRGB"/>
             <connections>
+                <outlet property="button1" destination="pc4-4m-eaT" id="u83-Pb-aB1"/>
+                <outlet property="button2" destination="Mta-eS-aGA" id="mz8-bF-HJW"/>
                 <outlet property="imageView" destination="38Y-cP-tej" id="x0X-fd-VLw"/>
                 <outlet property="manageView" destination="u7D-cB-Yt1" id="7lq-bW-6Mh"/>
                 <outlet property="nameLabel" destination="Sxj-OQ-hif" id="wWx-ti-55m"/>

@@ -12,8 +12,9 @@
 #import "AccountManagementViewControllerDelegate.h"
 #import "ManageChildTileCell.h"
 #import "ManageChildTileCellDelegate.h"
+#import "AddExistingChildViewControllerDelegate.h"
 
-@interface ViewChildrenViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UIAlertViewDelegate, AccountManagementViewControllerDelegate, ManageChildTileCellDelegate>
+@interface ViewChildrenViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UIAlertViewDelegate, AccountManagementViewControllerDelegate, ManageChildTileCellDelegate, AddExistingChildViewControllerDelegate>
 
 
 - (void)manageChildPopupSelection:(NSInteger)selectionIndex;
