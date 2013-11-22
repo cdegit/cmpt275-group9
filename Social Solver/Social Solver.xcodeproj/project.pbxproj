@@ -14,6 +14,8 @@
 		2A105F12181E16970035232F /* ChildSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A105F11181E16970035232F /* ChildSettings.m */; };
 		2A105F15181E18CF0035232F /* ChildProblemData.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A105F14181E18CF0035232F /* ChildProblemData.m */; };
 		2A475087181DDD73000EBEAB /* UIImagePickerController+ShouldAutorotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A475086181DDD73000EBEAB /* UIImagePickerController+ShouldAutorotate.m */; };
+		2A4D173E183FB64A00352A42 /* AddExistingChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A4D173C183FB64A00352A42 /* AddExistingChildViewController.m */; };
+		2A4D173F183FB64A00352A42 /* AddExistingChildViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A4D173D183FB64A00352A42 /* AddExistingChildViewController.xib */; };
 		2A67ECE11827F245000695CC /* ViewChildrenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A67ECDF1827F245000695CC /* ViewChildrenViewController.m */; };
 		2A67ECE21827F245000695CC /* ViewChildrenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A67ECE01827F245000695CC /* ViewChildrenViewController.xib */; };
 		2A6C6D03183AC5D20018F407 /* ManageChildTileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A6C6D02183AC5D20018F407 /* ManageChildTileCell.xib */; };
@@ -192,9 +194,13 @@
 		2A105F11181E16970035232F /* ChildSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildSettings.m; sourceTree = "<group>"; };
 		2A105F13181E18CF0035232F /* ChildProblemData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildProblemData.h; sourceTree = "<group>"; };
 		2A105F14181E18CF0035232F /* ChildProblemData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildProblemData.m; sourceTree = "<group>"; };
+		2A347C81183FD060008278B6 /* AddExistingChildViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AddExistingChildViewControllerDelegate.h; path = Protocols/AddExistingChildViewControllerDelegate.h; sourceTree = "<group>"; };
 		2A3CDB82181EC83900A04D62 /* LoginPromptViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LoginPromptViewControllerDelegate.h; path = Protocols/LoginPromptViewControllerDelegate.h; sourceTree = "<group>"; };
 		2A475085181DDD73000EBEAB /* UIImagePickerController+ShouldAutorotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImagePickerController+ShouldAutorotate.h"; path = "Categories/UIImagePickerController+ShouldAutorotate.h"; sourceTree = "<group>"; };
 		2A475086181DDD73000EBEAB /* UIImagePickerController+ShouldAutorotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImagePickerController+ShouldAutorotate.m"; path = "Categories/UIImagePickerController+ShouldAutorotate.m"; sourceTree = "<group>"; };
+		2A4D173B183FB64A00352A42 /* AddExistingChildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddExistingChildViewController.h; sourceTree = "<group>"; };
+		2A4D173C183FB64A00352A42 /* AddExistingChildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddExistingChildViewController.m; sourceTree = "<group>"; };
+		2A4D173D183FB64A00352A42 /* AddExistingChildViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AddExistingChildViewController.xib; path = ViewControllers/AddExistingChildViewController.xib; sourceTree = "<group>"; };
 		2A67ECDE1827F245000695CC /* ViewChildrenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewChildrenViewController.h; sourceTree = "<group>"; };
 		2A67ECDF1827F245000695CC /* ViewChildrenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewChildrenViewController.m; sourceTree = "<group>"; };
 		2A67ECE01827F245000695CC /* ViewChildrenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ViewChildrenViewController.xib; path = ViewControllers/ViewChildrenViewController.xib; sourceTree = "<group>"; };
@@ -519,6 +525,7 @@
 				EAC699381828B37C00342086 /* PopoverPickerViewControllerDelegate.h */,
 				2A964BE7182D5CDD0016B43F /* ServerRequestDelegate.h */,
 				2A6C6D07183AD20F0018F407 /* ManageChildTileCellDelegate.h */,
+				2A347C81183FD060008278B6 /* AddExistingChildViewControllerDelegate.h */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -806,6 +813,7 @@
 		EACC67D41807339500FEAC76 /* Xibs */ = {
 			isa = PBXGroup;
 			children = (
+				2A4D173D183FB64A00352A42 /* AddExistingChildViewController.xib */,
 				2A6C6D02183AC5D20018F407 /* ManageChildTileCell.xib */,
 				EACC67F1180B4BC700FEAC76 /* AccountManagementViewController.xib */,
 				EACC67EC180B4B8D00FEAC76 /* GameViewController.xib */,
@@ -877,6 +885,8 @@
 				2A67ECDF1827F245000695CC /* ViewChildrenViewController.m */,
 				049E123E183BEDD100083303 /* SettingViewController.h */,
 				049E123F183BEDE600083303 /* SettingViewController.m */,
+				2A4D173B183FB64A00352A42 /* AddExistingChildViewController.h */,
+				2A4D173C183FB64A00352A42 /* AddExistingChildViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1126,6 +1136,7 @@
 				817F14CD18304AE100D058A8 /* settings-58x58.png in Resources */,
 				EAE439E518303B2D0026370C /* ShareProfilesWithGuardianViewController.xib in Resources */,
 				EAC698F7181DB84900342086 /* Problems.plist in Resources */,
+				2A4D173F183FB64A00352A42 /* AddExistingChildViewController.xib in Resources */,
 				EAE439CB18303AF40026370C /* tryagain.wav in Resources */,
 				EA16941C18163C5C00C40069 /* LevelCompleteViewController.xib in Resources */,
 				817F14CA18304AE100D058A8 /* non-retina.png in Resources */,
@@ -1212,6 +1223,7 @@
 				EA16940F18162B2B00C40069 /* ProblemManager.m in Sources */,
 				EA16941B18163C5C00C40069 /* LevelCompleteViewController.m in Sources */,
 				EAE439E218303B2D0026370C /* ShareProfilesViewController.m in Sources */,
+				2A4D173E183FB64A00352A42 /* AddExistingChildViewController.m in Sources */,
 				2A105F12181E16970035232F /* ChildSettings.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

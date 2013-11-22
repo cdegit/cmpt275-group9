@@ -13,6 +13,7 @@
 #import "GuardianUser.h"
 #import "ManageChildTileCell.h"
 #import "AccountManagementViewController.h"
+#import "AddExistingChildViewController.h"
 
 @interface ViewChildrenViewController ()
 {
@@ -54,7 +55,10 @@ NSComparator caseInsensitiveComparator = ^(NSString *obj1, NSString *obj2)
     // in the user selection view
     [_childrenView registerNib:[UINib nibWithNibName:@"ManageChildTileCell"
                                                    bundle:[NSBundle mainBundle]]
-         forCellWithReuseIdentifier:@"UserCell"];
+    forCellWithReuseIdentifier:@"UserCell"];
+    [_childrenView registerNib:[UINib nibWithNibName:@"ManageChildTileCell"
+                                              bundle:[NSBundle mainBundle]]
+    forCellWithReuseIdentifier:@"AddUserCell"];
     
     //Set up the layout
     
@@ -145,6 +149,24 @@ NSComparator caseInsensitiveComparator = ^(NSString *obj1, NSString *obj2)
     
 }
 
+- (void)wantsCreateUserByCell:(id)cell
+{
+    AccountManagementViewController *amvc = [[AccountManagementViewController alloc] initWithNibName:@"AccountManagementViewController" bundle:[NSBundle mainBundle] forUserType:@"Child"];
+    [amvc setDelegate:self];
+    [amvc setModalPresentationStyle:UIModalPresentationCurrentContext];
+    [self presentViewController:amvc animated:YES completion:NULL];
+    [[cell manageView] setHidden:YES];
+}
+
+- (void)wantsAddExistingUserByCell:(id)cell
+{
+    AddExistingChildViewController *aecvc = [[AddExistingChildViewController alloc] initWithNibName:@"AddExistingChildViewController" bundle:[NSBundle mainBundle]];
+    [aecvc setModalPresentationStyle:UIModalPresentationCurrentContext];
+    [aecvc setDelegate:self];
+    [self presentViewController:aecvc animated:YES completion:NULL];
+    [[cell manageView] setHidden:YES];
+}
+
 
 #pragma mark - UICollectionViewDataSource Methods
 
@@ -160,25 +182,40 @@ NSComparator caseInsensitiveComparator = ^(NSString *obj1, NSString *obj2)
 {
     
     // Get Reusable login cell
-    ManageChildTileCell* cell = [_childrenView
-                                    dequeueReusableCellWithReuseIdentifier:@"UserCell"
-                                    forIndexPath:indexPath];
+    ManageChildTileCell* cell = nil;
     
     if ([indexPath row]==[_childArray count]) {
+        
+        cell = [_childrenView dequeueReusableCellWithReuseIdentifier:@"AddUserCell"
+                                                        forIndexPath:indexPath];
+        
         [[cell nameLabel] setText:@"Add Child"];
+        [[cell button1] setTitle:@"Create New Child" forState:UIControlStateNormal];
+        [[cell button1] removeTarget:cell action:@selector(editUserPressed:) forControlEvents:UIControlEventTouchUpInside];
+        [[cell button1] addTarget:cell action:@selector(createUserPressed:) forControlEvents:UIControlEventTouchUpInside];
+        [[cell button2] setTitle:@"Add Existing Child" forState:UIControlStateNormal];
+        [[cell button2] removeTarget:cell action:@selector(deleteUserPressed:) forControlEvents:UIControlEventTouchUpInside];
+        [[cell button2] addTarget:cell action:@selector(addExistingUserPressed:) forControlEvents:UIControlEventTouchUpInside];
         
         UIImage* img = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"children-50x50" ofType:@"png"]];
         
         [[cell imageView] setImage:img];
+        
+        [cell setDelegate:self];
     }
     else
     {
+        cell = [_childrenView dequeueReusableCellWithReuseIdentifier:@"UserCell"
+                                                        forIndexPath:indexPath];
+        
+        [[cell button1] setTitle:@"Edit Account" forState:UIControlStateNormal];
+        [[cell button2] setTitle:@"Remove Account" forState:UIControlStateNormal];
         
         // Grab the user object associated to the index
         ChildUser *us = [_childArray objectAtIndex:[indexPath row]];
     
         // Set the cell's user's name
-        [[cell nameLabel] setText:[us valueForKey:@"name"]];
+        [[cell nameLabel] setText:[us name]];
         cell.nameLabel.adjustsFontSizeToFitWidth = YES;
         cell.nameLabel.minimumScaleFactor = 0.5;
     
@@ -208,24 +245,11 @@ NSComparator caseInsensitiveComparator = ^(NSString *obj1, NSString *obj2)
 {
     [[_selectedCell manageView] setHidden:YES];
     
-    if ([indexPath row]>=[_childArray count]) {
-        
-        // Show User Creation Screen
-        
-        AccountManagementViewController *amvc = [[AccountManagementViewController alloc] initWithNibName:@"AccountManagementViewController" bundle:[NSBundle mainBundle] forUserType:@"Child"];
-        [amvc setDelegate:self];
-        [amvc setModalPresentationStyle:UIModalPresentationCurrentContext];
-        [self presentViewController:amvc animated:YES completion:NULL];
-    }
-    else
-    {
-        // Set active tile and show manage user popup
-        _activeTile = [indexPath row];
-        
-        _selectedCell = (ManageChildTileCell*)[_childrenView cellForItemAtIndexPath:indexPath];
-        
-        [[_selectedCell manageView] setHidden:NO];
-    }
+    _activeTile = [indexPath row];
+    
+    _selectedCell = (ManageChildTileCell*)[_childrenView cellForItemAtIndexPath:indexPath];
+    
+    [[_selectedCell manageView] setHidden:NO];
     
     return NO;
     
@@ -283,6 +307,29 @@ NSComparator caseInsensitiveComparator = ^(NSString *obj1, NSString *obj2)
         _activeTile = -1;
         
     }
+}
+
+#pragma mark - AddExistingChildViewControllerDelegate Methods
+
+- (void)addExistingChild:(ChildUser *)child
+{
+    [self dismissViewControllerAnimated:YES completion:NULL];
+    
+    if (child) {
+        GuardianUser *gu = (GuardianUser *)[[UserDatabaseManager sharedInstance] activeUser];
+        [child addGuardiansObject:gu];
+        [child setPrimaryGuardian:gu];
+        
+        NSUInteger index = [_childArray indexOfObject:child inSortedRange:(NSRange){0, [_childArray count]} options:NSBinarySearchingInsertionIndex usingComparator:^(ChildUser* c1, ChildUser* c2)
+                            {
+                                return [[c1 name] caseInsensitiveCompare:[c2 name]];
+                            }];
+        [_childArray insertObject:child atIndex:index];
+        [_childrenView reloadData];
+        
+    }
+    
+    
 }
 
 @end

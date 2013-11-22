@@ -121,6 +121,37 @@ static UserDatabaseManager* instance = nil;
     return res;
 }
 
+- (NSArray*)guardianlessUsers
+{
+    NSManagedObjectContext *mc = [(AppDelegate*)[[UIApplication sharedApplication] delegate] managedObjectContext];
+    NSEntityDescription* entityDescription = [NSEntityDescription entityForName:@"Child"
+                                                         inManagedObjectContext:mc];
+    NSFetchRequest* request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+    NSError *err = nil;
+    
+    NSSortDescriptor* sort = [[NSSortDescriptor alloc] initWithKey:@"name"
+                                                         ascending:YES];
+    
+    [request setSortDescriptors:@[sort]];
+    
+    NSArray *result = [mc executeFetchRequest:request error:&err];
+    
+    if (err) {
+        NSLog(@"Fetch Error: %@", err);
+    }
+    
+    NSMutableArray *filteredResults = [[NSMutableArray alloc] initWithCapacity:20];
+    
+    for (ChildUser *child in result) {
+        if ([[child guardians] count]==0) {
+            [filteredResults addObject:child];
+        }
+    }
+    
+    return filteredResults;
+}
+
 - (void)deleteUser:(User *)user
 {
     NSManagedObjectContext *mv = [(AppDelegate*)[[UIApplication sharedApplication] delegate] managedObjectContext];

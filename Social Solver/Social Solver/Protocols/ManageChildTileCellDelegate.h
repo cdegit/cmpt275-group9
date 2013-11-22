@@ -16,4 +16,8 @@
 
 - (void)userTile:(id)cell wantsDeleteAccount:(User*)user;
 
+- (void)wantsCreateUserByCell:(id)cell;
+
+- (void)wantsAddExistingUserByCell:(id) cell;
+
 @end
