@@ -296,13 +296,22 @@ NSComparator caseInsensitiveComparator = ^(NSString *obj1, NSString *obj2)
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if ([alertView isEqual:_confirmDeleteAlertView] && buttonIndex == 1 && _activeTile>=0) {
+        GuardianUser *guardian = (GuardianUser*)[[UserDatabaseManager sharedInstance] activeUser];
         ChildUser *child = [_childArray objectAtIndex:_activeTile];
         
-        [[UserDatabaseManager sharedInstance] deleteUser:child];
-        
-        [_childArray removeObjectAtIndex:_activeTile];
-        
-        [_childrenView reloadData];
+        if ([[child primaryGuardian] isEqual:guardian]) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Could Not Remove Child" message:@"As you are the primary guardian of this child account, you may not remove the child account." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil];
+            [alert show];
+        }
+        else
+        {
+            [guardian removeChildrenObject:child];
+            if ([[child guardians] count]==0) {
+                [[UserDatabaseManager sharedInstance] deleteUser:child];
+            }
+            [_childArray removeObjectAtIndex:_activeTile];
+            [_childrenView reloadData];
+        }
         
         _activeTile = -1;
         
