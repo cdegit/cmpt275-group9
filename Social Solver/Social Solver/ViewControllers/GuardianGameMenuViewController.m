@@ -8,6 +8,7 @@
 
 #import "GuardianGameMenuViewController.h"
 #import "GameViewController.h"
+#import "AudioManager.h"
 
 @interface GuardianGameMenuViewController ()
 
@@ -32,15 +33,18 @@
 
 - (IBAction)faceFinderPressed:(id)sender
 {
+    [[AudioManager sharedInstance] playButtonPress];
     [self startGameMode:GameModeFaceFinder];
 }
 - (IBAction)storySolverPressed:(id)sender
 {
+    [[AudioManager sharedInstance] playButtonPress];
     [self startGameMode:GameModeStorySolver];
 }
 
 - (IBAction)problemSolverPressed:(id)sender
 {
+    [[AudioManager sharedInstance] playButtonPress];
     [self startGameMode:GameModeProblemSolver];
 }
 

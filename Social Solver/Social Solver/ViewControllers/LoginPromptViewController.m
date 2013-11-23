@@ -11,6 +11,7 @@
 #import "LoginPromptViewController.h"
 #import "LoginViewController.h"
 #import "UserDatabaseManager.h"
+#import "AudioManager.h"
 
 @interface LoginPromptViewController ()
 
@@ -68,12 +69,16 @@
 
 -(IBAction) cancelTapped:(UIButton *)sender
 {
+    [[AudioManager sharedInstance] playButtonPress];
+
     // Tell the presenting view that this view is to be dismissed
     [_delegate dismissPrompt];
 }
 
 -(IBAction) submitTapped:(UIButton *)sender
 {
+    [[AudioManager sharedInstance] playButtonPress];
+
     // Check that user is authentic
     if ([[UserDatabaseManager sharedInstance] isAuthenticUser:_user forPassword:[_passwordField text]]) {
         

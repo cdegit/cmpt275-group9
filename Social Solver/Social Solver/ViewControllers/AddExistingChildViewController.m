@@ -10,6 +10,7 @@
 #import "UserDatabaseManager.h"
 #import "ManageChildTileCell.h"
 #import "LoginPromptViewController.h"
+#import "AudioManager.h"
 
 @interface AddExistingChildViewController ()
 {
@@ -90,6 +91,8 @@
 
 -(IBAction)cancel:(id)sender
 {
+    [[AudioManager sharedInstance] playButtonPress];
+
     [_delegate addExistingChild:nil];
 }
 

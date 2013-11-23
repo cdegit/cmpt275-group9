@@ -16,6 +16,7 @@
 #import "GuardianMainMenuViewController.h"
 #import "User.h"
 #import "ServerRequest.h"
+#import "AudioManager.h"
 
 @interface LoginViewController ()
 {
@@ -203,7 +204,7 @@
 
     [[[lpvc view] superview] setBounds:lpvcFrame];
     
-    
+    [[AudioManager sharedInstance] playButtonPress];
     
     return NO;
 }

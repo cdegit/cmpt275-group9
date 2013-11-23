@@ -28,7 +28,7 @@
     self = [super init];
     if (self)
     {
-        NSURL *buttonURL = [[NSBundle mainBundle] URLForResource:@"button" withExtension:@"wav"];
+        NSURL *buttonURL = [[NSBundle mainBundle] URLForResource:@"click2" withExtension:@"wav"];
         AudioServicesCreateSystemSoundID((__bridge CFURLRef)buttonURL, &buttonPress);
         
         NSURL *cheeringURL = [[NSBundle mainBundle] URLForResource:@"cheering" withExtension:@"wav"];
@@ -68,8 +68,10 @@
 
 - (BOOL)soundEnabled
 {
-	if (![[[[NSUserDefaults standardUserDefaults] dictionaryRepresentation] allKeys] containsObject:@"soundEnabled"])
+	if (![[[[NSUserDefaults standardUserDefaults] dictionaryRepresentation] allKeys] containsObject:@"soundEnabled"]) {
 		[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"soundEnabled"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
 	return [[NSUserDefaults standardUserDefaults] boolForKey:@"soundEnabled"];
 }
 

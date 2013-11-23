@@ -21,6 +21,7 @@
 #import "ShareRequest.h"
 #import "SyncingViewController.h"
 #import "SyncingUserSelectionCell.h"
+#import "AudioManager.h"
 
 @interface GuardianMainMenuViewController () <LogoutRequestDelegate>
 
@@ -82,6 +83,7 @@ const int SETTING_SYNCING = 3;
 
 - (void)handleLogoutTapped
 {
+    [[AudioManager sharedInstance] playButtonPress];
     [[UserDatabaseManager sharedInstance] requestLogout:self];
 }
 

@@ -7,6 +7,7 @@
 //
 
 #import "LevelCompleteViewController.h"
+#import "AudioManager.h"
 
 @interface LevelCompleteViewController ()
 
@@ -39,14 +40,17 @@
 
 
 - (IBAction)nextLevelPressed:(id)sender {
+    [[AudioManager sharedInstance] playButtonPress];
     [self.delegate levelCompleteViewController:self didFinishWithOption:FinishOptionNextLevel];
 }
 
 - (IBAction)replayLevelPressed:(id)sender {
+    [[AudioManager sharedInstance] playButtonPress];
     [self.delegate levelCompleteViewController:self didFinishWithOption:FinishOptionReplayLevel];
 }
 
 - (IBAction)mainMenuPressed:(id)sender {
+    [[AudioManager sharedInstance] playButtonPress];
     [self.delegate levelCompleteViewController:self didFinishWithOption:FinishOptionMainMenu];
 }
 
