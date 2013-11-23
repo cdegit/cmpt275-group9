@@ -10,4 +10,6 @@
 
 @interface RewardsGalleryViewController : UIViewController
 
-@end
+@property (weak, nonatomic) IBOutlet UICollectionView* rewardsGallerySelectionView;
+
+@end 
