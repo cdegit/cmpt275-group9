@@ -15,6 +15,7 @@
 #import "RewardsGalleryViewController.h"
 #import "GuardianMainMenuViewController.h"
 #import "USERDATABASEMANAGER.H"
+#import "CreditsViewController.h"
 
 @interface MainMenuViewController ()
 
@@ -147,6 +148,12 @@
 - (IBAction)logoutTapped:(UIButton *)sender {
     [[UserDatabaseManager sharedInstance] requestLogout:self];
 }
+
+- (IBAction)creditsTapped:(UIButton *)sender {
+    CreditsViewController* vc = [[CreditsViewController alloc] initWithNibName:@"CreditsViewController" bundle:[NSBundle mainBundle]];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 
 - (IBAction)toggleEnabledForTrackingSwitch{
     if(_trackingSwitch.isOn){

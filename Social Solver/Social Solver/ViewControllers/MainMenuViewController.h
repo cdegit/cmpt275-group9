@@ -28,4 +28,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *someText;
 @property (weak, nonatomic) IBOutlet UILabel *trackingText;
 @property (weak, nonatomic) IBOutlet UISwitch *trackingSwitch;
+@property (weak, nonatomic) IBOutlet UIButton *credits;
 @end

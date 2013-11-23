@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04950EB01840B11E00030FB6 /* CreditsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04950EAE1840B11E00030FB6 /* CreditsViewController.m */; };
+		04950EB11840B11E00030FB6 /* CreditsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04950EAF1840B11E00030FB6 /* CreditsViewController.xib */; };
 		049E1240183BEDE600083303 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049E123F183BEDE600083303 /* SettingViewController.m */; };
 		049E1242183BEDFF00083303 /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 049E1241183BEDFF00083303 /* SettingViewController.xib */; };
 		049E1245183BEE1A00083303 /* TrackingUserSelectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 049E1244183BEE1A00083303 /* TrackingUserSelectionCell.m */; };
@@ -197,6 +199,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04950EAD1840B11E00030FB6 /* CreditsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditsViewController.h; sourceTree = "<group>"; };
+		04950EAE1840B11E00030FB6 /* CreditsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditsViewController.m; sourceTree = "<group>"; };
+		04950EAF1840B11E00030FB6 /* CreditsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CreditsViewController.xib; path = ViewControllers/CreditsViewController.xib; sourceTree = "<group>"; };
 		049E123E183BEDD100083303 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
 		049E123F183BEDE600083303 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		049E1241183BEDFF00083303 /* SettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SettingViewController.xib; path = ViewControllers/SettingViewController.xib; sourceTree = "<group>"; };
@@ -879,6 +884,7 @@
 				049E1246183BEE2500083303 /* TrackingUserSelectionCell.xib */,
 				04D59252184097B9009764A9 /* SyncingUserSelectionCell.xib */,
 				04D59250184097A0009764A9 /* SyncingViewController.xib */,
+				04950EAF1840B11E00030FB6 /* CreditsViewController.xib */,
 			);
 			name = Xibs;
 			sourceTree = "<group>";
@@ -928,6 +934,8 @@
 				2A4D173C183FB64A00352A42 /* AddExistingChildViewController.m */,
 				04D5924D18409785009764A9 /* SyncingViewController.h */,
 				04D5924E18409797009764A9 /* SyncingViewController.m */,
+				04950EAD1840B11E00030FB6 /* CreditsViewController.h */,
+				04950EAE1840B11E00030FB6 /* CreditsViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1146,6 +1154,7 @@
 				EACC67F3180B4BC700FEAC76 /* AccountManagementViewController.xib in Resources */,
 				EAC698EF181DB81A00342086 /* games-50x50.png in Resources */,
 				EAE439A1182EE9D90026370C /* surprised-75x85.png in Resources */,
+				04950EB11840B11E00030FB6 /* CreditsViewController.xib in Resources */,
 				EAC698E4181DB81A00342086 /* billy_drop_icecream.mp4 in Resources */,
 				EACC67F8180B4C4800FEAC76 /* RewardsGalleryViewController.xib in Resources */,
 				EAE439B7182F03880026370C /* arrow-right.png in Resources */,
@@ -1239,6 +1248,7 @@
 				2A6C6D06183AC6270018F407 /* ManageChildTileCell.m in Sources */,
 				EACC679C18037CFE00FEAC76 /* main.m in Sources */,
 				EACC67A018037CFE00FEAC76 /* AppDelegate.m in Sources */,
+				04950EB01840B11E00030FB6 /* CreditsViewController.m in Sources */,
 				2A105F15181E18CF0035232F /* ChildProblemData.m in Sources */,
 				EAE439D118303B080026370C /* ShareRequest.m in Sources */,
 				EABC93AF182E06C200E81664 /* GraphViewController.m in Sources */,
