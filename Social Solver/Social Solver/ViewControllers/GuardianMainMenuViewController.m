@@ -17,6 +17,7 @@
 #import "PendingSharesViewController.h"
 #include "UserDatabaseManager.h"
 #include "SettingViewController.h"
+#include "SyncingViewController.h"
 
 @interface GuardianMainMenuViewController () <LogoutRequestDelegate>
 
@@ -33,6 +34,8 @@
 
 const int SHARE_PROFILES_WITH_GUARDIAN = 0;
 const int SHARE_PROFILES_SECURITY_CODE = 1;
+const int SETTING_TRACKING = 2;
+const int SETTING_SYNCING = 3;
 
 @synthesize navigationCellInfo, cellHeight, statsVC;
 
@@ -222,6 +225,21 @@ const int SHARE_PROFILES_SECURITY_CODE = 1;
             self.detailViewController = [[ShareProfileSecurityCodeViewController alloc]  initWithNibName:@"ShareProfileSecurityCodeViewController" bundle:[NSBundle mainBundle]];
             break;
         }
+        case SETTING_TRACKING: // load tracking profile
+        {
+            SettingViewController *trackingProfiles = [[SettingViewController alloc]  initWithNibName:@"SettingViewController" bundle:[NSBundle mainBundle]];
+            trackingProfiles.delegate = self;
+            self.detailViewController = trackingProfiles;
+            break;
+        }
+        case SETTING_SYNCING: // load syncing profile
+        {
+            SyncingViewController *syncingProfiles = [[SyncingViewController alloc]  initWithNibName:@"SyncingViewController" bundle:[NSBundle mainBundle]];
+            syncingProfiles.delegate = self;
+            self.detailViewController = syncingProfiles;
+            break;
+        }
+            
         default:
         {
             NSAssert(false, @"Unkown cell selected");

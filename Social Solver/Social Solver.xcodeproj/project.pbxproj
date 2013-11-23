@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		049A5E06183DBF9500EC8590 /* SyncingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049A5E05183DBF9500EC8590 /* SyncingViewController.m */; };
+		049A5E09183DC31C00EC8590 /* SyncingUserSelectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 049A5E08183DC31C00EC8590 /* SyncingUserSelectionCell.m */; };
+		049A5E0B183DC49800EC8590 /* SyncingUserSelectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 049A5E0A183DC49800EC8590 /* SyncingUserSelectionCell.xib */; };
+		049A5E0D183DC5DA00EC8590 /* SyncingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 049A5E0C183DC5DA00EC8590 /* SyncingViewController.xib */; };
 		049E1240183BEDE600083303 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049E123F183BEDE600083303 /* SettingViewController.m */; };
 		049E1242183BEDFF00083303 /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 049E1241183BEDFF00083303 /* SettingViewController.xib */; };
 		049E1245183BEE1A00083303 /* TrackingUserSelectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 049E1244183BEE1A00083303 /* TrackingUserSelectionCell.m */; };
@@ -181,6 +185,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		049A5E04183DBF9500EC8590 /* SyncingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncingViewController.h; sourceTree = "<group>"; };
+		049A5E05183DBF9500EC8590 /* SyncingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncingViewController.m; sourceTree = "<group>"; };
+		049A5E07183DC31C00EC8590 /* SyncingUserSelectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncingUserSelectionCell.h; sourceTree = "<group>"; };
+		049A5E08183DC31C00EC8590 /* SyncingUserSelectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncingUserSelectionCell.m; sourceTree = "<group>"; };
+		049A5E0A183DC49800EC8590 /* SyncingUserSelectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SyncingUserSelectionCell.xib; path = Views/SyncingUserSelectionCell.xib; sourceTree = "<group>"; };
+		049A5E0C183DC5DA00EC8590 /* SyncingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SyncingViewController.xib; path = ViewControllers/SyncingViewController.xib; sourceTree = "<group>"; };
 		049E123E183BEDD100083303 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
 		049E123F183BEDE600083303 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		049E1241183BEDFF00083303 /* SettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SettingViewController.xib; path = ViewControllers/SettingViewController.xib; sourceTree = "<group>"; };
@@ -829,6 +839,8 @@
 				2A67ECE01827F245000695CC /* ViewChildrenViewController.xib */,
 				049E1241183BEDFF00083303 /* SettingViewController.xib */,
 				049E1246183BEE2500083303 /* TrackingUserSelectionCell.xib */,
+				049A5E0C183DC5DA00EC8590 /* SyncingViewController.xib */,
+				049A5E0A183DC49800EC8590 /* SyncingUserSelectionCell.xib */,
 			);
 			name = Xibs;
 			sourceTree = "<group>";
@@ -874,6 +886,8 @@
 				2A67ECDF1827F245000695CC /* ViewChildrenViewController.m */,
 				049E123E183BEDD100083303 /* SettingViewController.h */,
 				049E123F183BEDE600083303 /* SettingViewController.m */,
+				049A5E04183DBF9500EC8590 /* SyncingViewController.h */,
+				049A5E05183DBF9500EC8590 /* SyncingViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -932,6 +946,8 @@
 				2A6C6D05183AC6270018F407 /* ManageChildTileCell.m */,
 				049E1243183BEE1200083303 /* TrackingUserSelectionCell.h */,
 				049E1244183BEE1A00083303 /* TrackingUserSelectionCell.m */,
+				049A5E07183DC31C00EC8590 /* SyncingUserSelectionCell.h */,
+				049A5E08183DC31C00EC8590 /* SyncingUserSelectionCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1056,6 +1072,7 @@
 				EACC67E9180B4B6600FEAC76 /* LoginViewController.xib in Resources */,
 				EAE439B9182F03880026370C /* open arrow down.png in Resources */,
 				817F14B01830463C00D058A8 /* cheering.wav in Resources */,
+				049A5E0B183DC49800EC8590 /* SyncingUserSelectionCell.xib in Resources */,
 				EABC93B1182E06CA00E81664 /* GraphViewController.xib in Resources */,
 				EAE439C318302BA80026370C /* GuardianGameMenuViewController.xib in Resources */,
 				EAC698FE181DC15800342086 /* Button 300x50 brighter.png in Resources */,
@@ -1097,6 +1114,7 @@
 				EAE439BB182F05AB0026370C /* open arrow right.png in Resources */,
 				2A7DB107181B3A24008EF99F /* LoginPromptViewController.xib in Resources */,
 				EAE439B5182F03880026370C /* arrow-down.png in Resources */,
+				049A5E0D183DC5DA00EC8590 /* SyncingViewController.xib in Resources */,
 				EAC69905181DC20D00342086 /* Rewards Gallery Icon brighter.png in Resources */,
 				EAE439C918303AF40026370C /* button2.wav in Resources */,
 				049E1242183BEDFF00083303 /* SettingViewController.xib in Resources */,
@@ -1182,8 +1200,10 @@
 				2AAABD98182D506900FBCD60 /* ServerRequest.m in Sources */,
 				EACC67DF1807343200FEAC76 /* ChildUser.m in Sources */,
 				2A7DB106181B3A24008EF99F /* LoginPromptViewController.m in Sources */,
+				049A5E06183DBF9500EC8590 /* SyncingViewController.m in Sources */,
 				EAC698FA181DB86300342086 /* Social_Solver.xcdatamodeld in Sources */,
 				EACC67E8180B4B6600FEAC76 /* LoginViewController.m in Sources */,
+				049A5E09183DC31C00EC8590 /* SyncingUserSelectionCell.m in Sources */,
 				EAE439D018303B080026370C /* AudioManager.m in Sources */,
 				EACC67ED180B4B8D00FEAC76 /* GameViewController.m in Sources */,
 				EAC699491828B3A000342086 /* StatsProblemCell.m in Sources */,

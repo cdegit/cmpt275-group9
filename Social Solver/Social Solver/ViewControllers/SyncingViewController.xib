@@ -5,12 +5,12 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SyncingViewController">
             <connections>
                 <outlet property="buttonName" destination="I4p-hk-nuA" id="I7z-1a-Hpp"/>
                 <outlet property="switchButton" destination="88b-S4-AbS" id="uJf-1W-GzB"/>
+                <outlet property="syncingProfileSelectionView" destination="rU0-dL-d63" id="RqD-og-kKZ"/>
                 <outlet property="titleName" destination="E69-SF-FbV" id="FfY-Uf-OiX"/>
-                <outlet property="trackingProfileSelectionView" destination="rU0-dL-d63" id="eRl-Uq-Rg9"/>
                 <outlet property="view" destination="1" id="Eep-tV-rpB"/>
             </connections>
         </placeholder>
@@ -20,7 +20,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="rU0-dL-d63">
-                    <rect key="frame" x="0.0" y="64" width="768" height="834"/>
+                    <rect key="frame" x="0.0" y="64" width="768" height="854"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="P7M-wE-4J4">
@@ -31,11 +31,11 @@
                     </collectionViewFlowLayout>
                     <cells/>
                     <connections>
-                        <outlet property="dataSource" destination="-1" id="1te-EL-HaV"/>
-                        <outlet property="delegate" destination="-1" id="ZnY-CJ-WWJ"/>
+                        <outlet property="dataSource" destination="-1" id="urj-bW-fsq"/>
+                        <outlet property="delegate" destination="-1" id="ljQ-3l-F81"/>
                     </connections>
                 </collectionView>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tracking" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E69-SF-FbV">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Syncing" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E69-SF-FbV">
                     <rect key="frame" x="328" y="20" width="112" height="36"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="28"/>

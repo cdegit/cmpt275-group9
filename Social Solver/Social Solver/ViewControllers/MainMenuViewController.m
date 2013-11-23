@@ -57,9 +57,10 @@
         _someText.text = [[[UserDatabaseManager sharedInstance] activeUser] name];
         _someText.hidden = NO;
         [_someText setNeedsDisplay];
-        _trackingText.hidden = NO;
-        _trackingSwitch.hidden = NO;
-        
+        _trackingText.hidden = YES;
+        _trackingSwitch.hidden = YES;
+        _syncingText.hidden = YES;
+        _syncingSwitch.hidden = YES;
         User *user = [[UserDatabaseManager sharedInstance] activeUser];
         if ([[[user entity] name] isEqualToString:@"Child"])
         {
@@ -67,8 +68,15 @@
             if([settings allowsTracking]){
                 [_trackingSwitch setOn:YES animated:YES];
             }
-            else{
+            else if([settings allowsTracking] == 0){
                 [_trackingSwitch setOn:NO animated:YES];
+            }
+            
+            if([settings allowsAutoSync]){
+                [_syncingSwitch setOn:YES animated:YES];
+            }
+            else if ([settings allowsAutoSync] == 0){
+                [_syncingSwitch setOn:NO animated:YES];
             }
             
         }
@@ -82,6 +90,8 @@
         [_someText setNeedsDisplay];
         _trackingText.hidden = YES;
         _trackingSwitch.hidden = YES;
+        _syncingText.hidden = YES;
+        _syncingSwitch.hidden = YES;
     }
 }
 
@@ -145,6 +155,8 @@
     [[UserDatabaseManager sharedInstance] requestLogout:self];
     _trackingText.hidden = YES;
     _trackingSwitch.hidden = YES;
+    _syncingText.hidden = YES;
+    _syncingSwitch.hidden = YES;
 
 }
 
@@ -166,6 +178,29 @@
         {
             ChildSettings *settings = [(ChildUser*)user settings];
             [settings setAllowsTracking:NO];
+        }
+        [[UserDatabaseManager sharedInstance] save];
+    }
+}
+
+- (IBAction)toggleEnabledForSyncingSwitch{
+    if(_syncingSwitch.isOn){
+        User *user = [[UserDatabaseManager sharedInstance] activeUser];
+        if ([[[user entity] name] isEqualToString:@"Child"])
+        {
+            ChildSettings *settings = [(ChildUser*)user settings];
+            [settings setAllowsAutoSync:YES];
+            [[UserDatabaseManager sharedInstance] save];
+        }
+        [[UserDatabaseManager sharedInstance] save];
+    }
+    
+    else if(_syncingSwitch.isOn == 0){
+        User *user = [[UserDatabaseManager sharedInstance] activeUser];
+        if ([[[user entity] name] isEqualToString:@"Child"])
+        {
+            ChildSettings *settings = [(ChildUser*)user settings];
+            [settings setAllowsAutoSync:NO];
         }
         [[UserDatabaseManager sharedInstance] save];
     }

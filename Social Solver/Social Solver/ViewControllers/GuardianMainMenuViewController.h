@@ -21,5 +21,7 @@
 
 extern const int SHARE_PROFILES_WITH_GUARDIAN;
 extern const int SHARE_PROFILES_SECURITY_CODE;
+extern const int SETTING_TRACKING;
+extern const int SETTING_SYNCING;
 
 @end
