@@ -1,25 +1,26 @@
 //
-//  SettingViewController.m
+//  SyncingViewController.m
 //  Social Solver
 //
-//  Created by Dennis Huang on 2013/11/16.
-//  Copyright (c) 2013 Group 9. All rights reserved.
-//  Created in Version 3
+//  Created by Mac on 2013/11/21.
+//  Copyright (c) 2013年 Group 9. All rights reserved.
+//
 
+#import "SyncingViewController.h"
 #import "SettingViewController.h"
 #import "ShareProfilesViewController.h"
-#import "TrackingUserSelectionCell.h"
+#import "SyncingUserSelectionCell.h"
 #import "AppDelegate.h"
 #import "ShareUserSelectionCell.h"
 #import "LoginPromptViewController.h"
 #import "UserDatabaseManager.h"
-#import "GuardianMainMenuViewController.h"
 #import "User.h"
 #import "ChildSettings.h"
 #import "MainMenuViewController.h"
-#import "SyncingViewController.h"
+#import "GuardianMainMenuViewController.h"
 
-@interface SettingViewController () {
+
+@interface SyncingViewController (){
     
     NSString* userType;
     NSArray* userArray;
@@ -29,7 +30,7 @@
 @end
 
 
-@implementation SettingViewController
+@implementation SyncingViewController
 @synthesize delegate = _delegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -49,13 +50,13 @@
     
     // Register LoginUserSelectionCell to be used for the cells
     // in the user selection view
-    [_trackingProfileSelectionView registerNib:[UINib nibWithNibName:@"TrackingUserSelectionCell"
+    [_syncingProfileSelectionView registerNib:[UINib nibWithNibName:@"SyncingUserSelectionCell"
                                                               bundle:[NSBundle mainBundle]]
                     forCellWithReuseIdentifier:@"UserCell"];
     
     //Set up the layout
     
-    UICollectionViewFlowLayout* userSelectionLayout = (UICollectionViewFlowLayout *)[_trackingProfileSelectionView collectionViewLayout];
+    UICollectionViewFlowLayout* userSelectionLayout = (UICollectionViewFlowLayout *)[_syncingProfileSelectionView collectionViewLayout];
     
     // Item size should be the same size as LoginUserSelectionCell
     [userSelectionLayout setItemSize:CGSizeMake(200.0, 195.0)];
@@ -67,8 +68,8 @@
     userType = @"Child";
     [self loadUsers];
     
-    _titleName.text = @"Tracking";
-    _buttonName.text = @"Switch to Syncing page";
+    _titleName.text = @"Syncing";
+    _buttonName.text = @"Switch to Tracking page";
 }
 
 - (void) viewWillAppear:(BOOL)animated
@@ -86,7 +87,9 @@
 
 - (void)loadUsers
 {
-    userArray = [((GuardianUser*)[[UserDatabaseManager sharedInstance] activeUser]).children allObjects];
+    
+    userArray = [[UserDatabaseManager sharedInstance] getUserListOfType:userType];
+    
 }
 
 #pragma mark - UICollectionViewDataSource Methods
@@ -99,7 +102,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     // Get Reusable login cell
-    TrackingUserSelectionCell* cell = [_trackingProfileSelectionView
+    SyncingUserSelectionCell* cell = [_syncingProfileSelectionView
                                        dequeueReusableCellWithReuseIdentifier:@"UserCell"
                                        forIndexPath:indexPath];
     
@@ -108,8 +111,7 @@
     
     // Set the cell's user's name
     [[cell nameLabel] setText:[us valueForKey:@"name"]];
-    cell.nameLabel.adjustsFontSizeToFitWidth = YES;
-    cell.nameLabel.minimumScaleFactor = 0.5;
+    
     
     // Set the cell's Image to the appropriate Profile Image
     // If they do not have their own profile image use the default
@@ -132,24 +134,25 @@
 {
     // Toggle the switch for the selected object
     
-    UICollectionViewCell* cell = [_trackingProfileSelectionView cellForItemAtIndexPath:indexPath];
-    TrackingUserSelectionCell* trackingCell = (TrackingUserSelectionCell*) cell;
-    [trackingCell changeSwitch];
+    UICollectionViewCell* cell = [_syncingProfileSelectionView cellForItemAtIndexPath:indexPath];
+    SyncingUserSelectionCell* syncingCell = (SyncingUserSelectionCell*) cell;
+    [syncingCell changeSwitch];
     
     
+
     
-    if(trackingCell.trackingSwitch.isOn == 1) {
+    if(syncingCell.syncingSwitch.isOn == 1) {
         // Grab the user object associated to the index
         User *us = (User*)[userArray objectAtIndex:[indexPath row]];
         [selectedUsers addObject:us];
         if ([[[us entity] name] isEqualToString:@"Child"])
         {
             ChildSettings *settings = [(ChildUser*)us settings];
-            [settings setAllowsTracking:YES];
+            [settings setAllowsAutoSync:YES];
         }
         [[UserDatabaseManager sharedInstance] save];
         
-    } else if(trackingCell.trackingSwitch.isOn == 0){
+    } else if(syncingCell.syncingSwitch.isOn == 0){
         User *us = (User*)[userArray objectAtIndex:[indexPath row]];
         if([selectedUsers indexOfObject:us] != NSIntegerMax) {
             [selectedUsers removeObject:us];
@@ -158,19 +161,17 @@
         if ([[[us entity] name] isEqualToString:@"Child"])
         {
             ChildSettings *settings = [(ChildUser*)us settings];
-            [settings setAllowsTracking:NO];
+            [settings setAllowsAutoSync:NO];
         }
         [[UserDatabaseManager sharedInstance] save];
     }
-    
     
     return NO;
 }
 
 #pragma mark - Switch tracking or syncing Methods
 -(IBAction) switchTrackingSyncingTapped:(id) sender{
-    //[self.delegate changeView:SETTING_SYNCING];
-    [self.delegate changeView:SETTING_SYNCING withChildren:(selectedUsers) andEmail:@"email@domain.com"];
+    //[self.delegate changeView:SETTING_TRACKING];
     //if ([_titleName.text isEqual: @"Tracking"]){
     //  _titleName.text = @"Syncing";
     //_buttonName.text = @"Switch to Tracking page";
@@ -179,8 +180,9 @@
     //  _titleName.text = @"Tracking";
     //_buttonName.text = @"Switch to Syncing page";
     //}
+    [self.delegate changeView:SETTING_TRACKING withChildren:(selectedUsers) andEmail:@"email@domain.com"];
 }
 
+
+
 @end
-
-

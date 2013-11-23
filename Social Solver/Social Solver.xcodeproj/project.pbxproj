@@ -11,6 +11,10 @@
 		049E1242183BEDFF00083303 /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 049E1241183BEDFF00083303 /* SettingViewController.xib */; };
 		049E1245183BEE1A00083303 /* TrackingUserSelectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 049E1244183BEE1A00083303 /* TrackingUserSelectionCell.m */; };
 		049E1247183BEE2500083303 /* TrackingUserSelectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 049E1246183BEE2500083303 /* TrackingUserSelectionCell.xib */; };
+		04D5924F18409797009764A9 /* SyncingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D5924E18409797009764A9 /* SyncingViewController.m */; };
+		04D59251184097A0009764A9 /* SyncingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04D59250184097A0009764A9 /* SyncingViewController.xib */; };
+		04D59253184097B9009764A9 /* SyncingUserSelectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04D59252184097B9009764A9 /* SyncingUserSelectionCell.xib */; };
+		04D59256184097E1009764A9 /* SyncingUserSelectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D59255184097E1009764A9 /* SyncingUserSelectionCell.m */; };
 		2A105F12181E16970035232F /* ChildSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A105F11181E16970035232F /* ChildSettings.m */; };
 		2A105F15181E18CF0035232F /* ChildProblemData.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A105F14181E18CF0035232F /* ChildProblemData.m */; };
 		2A475087181DDD73000EBEAB /* UIImagePickerController+ShouldAutorotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A475086181DDD73000EBEAB /* UIImagePickerController+ShouldAutorotate.m */; };
@@ -199,6 +203,12 @@
 		049E1243183BEE1200083303 /* TrackingUserSelectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TrackingUserSelectionCell.h; path = Views/TrackingUserSelectionCell.h; sourceTree = "<group>"; };
 		049E1244183BEE1A00083303 /* TrackingUserSelectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TrackingUserSelectionCell.m; path = Views/TrackingUserSelectionCell.m; sourceTree = "<group>"; };
 		049E1246183BEE2500083303 /* TrackingUserSelectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TrackingUserSelectionCell.xib; path = Views/TrackingUserSelectionCell.xib; sourceTree = "<group>"; };
+		04D5924D18409785009764A9 /* SyncingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncingViewController.h; sourceTree = "<group>"; };
+		04D5924E18409797009764A9 /* SyncingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncingViewController.m; sourceTree = "<group>"; };
+		04D59250184097A0009764A9 /* SyncingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SyncingViewController.xib; path = ViewControllers/SyncingViewController.xib; sourceTree = "<group>"; };
+		04D59252184097B9009764A9 /* SyncingUserSelectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SyncingUserSelectionCell.xib; path = Views/SyncingUserSelectionCell.xib; sourceTree = "<group>"; };
+		04D59254184097CF009764A9 /* SyncingUserSelectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SyncingUserSelectionCell.h; path = Views/SyncingUserSelectionCell.h; sourceTree = "<group>"; };
+		04D59255184097E1009764A9 /* SyncingUserSelectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SyncingUserSelectionCell.m; path = Views/SyncingUserSelectionCell.m; sourceTree = "<group>"; };
 		2A105F10181E16970035232F /* ChildSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildSettings.h; sourceTree = "<group>"; };
 		2A105F11181E16970035232F /* ChildSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildSettings.m; sourceTree = "<group>"; };
 		2A105F13181E18CF0035232F /* ChildProblemData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildProblemData.h; sourceTree = "<group>"; };
@@ -867,6 +877,8 @@
 				2A67ECE01827F245000695CC /* ViewChildrenViewController.xib */,
 				049E1241183BEDFF00083303 /* SettingViewController.xib */,
 				049E1246183BEE2500083303 /* TrackingUserSelectionCell.xib */,
+				04D59252184097B9009764A9 /* SyncingUserSelectionCell.xib */,
+				04D59250184097A0009764A9 /* SyncingViewController.xib */,
 			);
 			name = Xibs;
 			sourceTree = "<group>";
@@ -914,6 +926,8 @@
 				049E123F183BEDE600083303 /* SettingViewController.m */,
 				2A4D173B183FB64A00352A42 /* AddExistingChildViewController.h */,
 				2A4D173C183FB64A00352A42 /* AddExistingChildViewController.m */,
+				04D5924D18409785009764A9 /* SyncingViewController.h */,
+				04D5924E18409797009764A9 /* SyncingViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -976,6 +990,8 @@
 				049E1244183BEE1A00083303 /* TrackingUserSelectionCell.m */,
 				81D71E81183ED26800D1E63D /* RewardsGalleryCell.h */,
 				81D71E82183ED26800D1E63D /* RewardsGalleryCell.m */,
+				04D59254184097CF009764A9 /* SyncingUserSelectionCell.h */,
+				04D59255184097E1009764A9 /* SyncingUserSelectionCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1077,6 +1093,7 @@
 				817F14CC18304AE100D058A8 /* settings-29x29.png in Resources */,
 				EAE439ED18303B890026370C /* PendingSharesTableCell.xib in Resources */,
 				EACC679A18037CFE00FEAC76 /* InfoPlist.strings in Resources */,
+				04D59251184097A0009764A9 /* SyncingViewController.xib in Resources */,
 				EAE439AD182EE9E50026370C /* scene-ice cream.png in Resources */,
 				EAE439AE182EE9E50026370C /* scene-pulling hair.png in Resources */,
 				EAC69916181DCE3C00342086 /* vert gradient 2.jpg in Resources */,
@@ -1163,6 +1180,7 @@
 				817F14CF18304AE100D058A8 /* spotlight-40x40.png in Resources */,
 				EACC680B180B9CE900FEAC76 /* StatisticsViewController.xib in Resources */,
 				EAC69903181DC20D00342086 /* Face Finder Icon brighter.png in Resources */,
+				04D59253184097B9009764A9 /* SyncingUserSelectionCell.xib in Resources */,
 				EAE439B6182F03880026370C /* arrow-left.png in Resources */,
 				EAC6990E181DCAC100342086 /* stressed_linen_@2X.png in Resources */,
 				EAE439AA182EE9E50026370C /* problem-broken bear toy.png in Resources */,
@@ -1232,6 +1250,7 @@
 				EAE439E418303B2D0026370C /* ShareProfilesWithGuardianViewController.m in Sources */,
 				EA2097C41835BD7A00D1A214 /* ServerCommunicationManager.m in Sources */,
 				EACC67DC1807340700FEAC76 /* GuardianUser.m in Sources */,
+				04D5924F18409797009764A9 /* SyncingViewController.m in Sources */,
 				EAE439DE18303B2D0026370C /* PendingSharesViewController.m in Sources */,
 				2AAABD98182D506900FBCD60 /* ServerRequest.m in Sources */,
 				EACC67DF1807343200FEAC76 /* ChildUser.m in Sources */,
@@ -1263,6 +1282,7 @@
 				EAE439E218303B2D0026370C /* ShareProfilesViewController.m in Sources */,
 				2A4D173E183FB64A00352A42 /* AddExistingChildViewController.m in Sources */,
 				2A105F12181E16970035232F /* ChildSettings.m in Sources */,
+				04D59256184097E1009764A9 /* SyncingUserSelectionCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

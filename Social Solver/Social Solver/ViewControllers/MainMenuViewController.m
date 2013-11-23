@@ -59,8 +59,8 @@
         _someText.text = [[[UserDatabaseManager sharedInstance] activeUser] name];
         _someText.hidden = NO;
         [_someText setNeedsDisplay];
-        _trackingText.hidden = NO;
-        _trackingSwitch.hidden = NO;
+        _trackingText.hidden = YES;
+        _trackingSwitch.hidden = YES;
         
         User *user = [[UserDatabaseManager sharedInstance] activeUser];
         if ([[[user entity] name] isEqualToString:@"Child"])

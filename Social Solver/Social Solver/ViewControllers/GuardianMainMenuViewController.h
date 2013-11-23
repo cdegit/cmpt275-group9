@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ShareRequest.h"
 
+
 @protocol GuardianMainMenuViewControllerDelegate <NSObject>
 
 - (void) changeView:(int)view withChildren:(NSMutableArray*)children andEmail:(NSString*)email;
@@ -22,5 +23,7 @@
 
 extern const int SHARE_PROFILES_WITH_GUARDIAN;
 extern const int SHARE_PROFILES_SECURITY_CODE;
+extern const int SETTING_SYNCING;
+extern const int SETTING_TRACKING;
 
 @end
