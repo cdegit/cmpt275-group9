@@ -28,6 +28,4 @@
 @property (weak, nonatomic) IBOutlet UILabel *someText;
 @property (weak, nonatomic) IBOutlet UILabel *trackingText;
 @property (weak, nonatomic) IBOutlet UISwitch *trackingSwitch;
-@property (weak, nonatomic) IBOutlet UILabel *syncingText;
-@property (weak, nonatomic) IBOutlet UISwitch *syncingSwitch;
 @end

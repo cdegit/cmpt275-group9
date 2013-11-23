@@ -17,7 +17,6 @@
 #import "User.h"
 #import "ChildSettings.h"
 #import "MainMenuViewController.h"
-#import "SyncingViewController.h"
 
 @interface SettingViewController () {
     
@@ -66,14 +65,10 @@
     //Set initial userType to Child
     userType = @"Child";
     [self loadUsers];
-    
-    _titleName.text = @"Tracking";
-    _buttonName.text = @"Switch to Syncing page";
 }
 
 - (void) viewWillAppear:(BOOL)animated
 {
-
 }
 
 - (void)didReceiveMemoryWarning
@@ -136,7 +131,9 @@
     TrackingUserSelectionCell* trackingCell = (TrackingUserSelectionCell*) cell;
     [trackingCell changeSwitch];
     
-
+    
+    // add further functionality here
+    
     
     if(trackingCell.trackingSwitch.isOn == 1) {
         // Grab the user object associated to the index
@@ -146,6 +143,7 @@
         {
             ChildSettings *settings = [(ChildUser*)us settings];
             [settings setAllowsTracking:YES];
+            _test.text = @"Ysuccess";
         }
         [[UserDatabaseManager sharedInstance] save];
         
@@ -159,26 +157,13 @@
         {
             ChildSettings *settings = [(ChildUser*)us settings];
             [settings setAllowsTracking:NO];
+            _test.text = @"Nsuccess";
         }
         [[UserDatabaseManager sharedInstance] save];
     }
     
     
     return NO;
-}
-
-#pragma mark - Switch tracking or syncing Methods
--(IBAction) switchTrackingSyncingTapped:(id) sender{
-    [self.delegate changeView:SETTING_SYNCING];
-    
-    //if ([_titleName.text isEqual: @"Tracking"]){
-      //  _titleName.text = @"Syncing";
-        //_buttonName.text = @"Switch to Tracking page";
-    //}
-    //else{
-      //  _titleName.text = @"Tracking";
-        //_buttonName.text = @"Switch to Syncing page";
-    //}
 }
 
 @end

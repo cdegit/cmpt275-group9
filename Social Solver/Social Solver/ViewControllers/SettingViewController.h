@@ -16,9 +16,8 @@
 //@class GuardianMainMenuViewController;
 
 @property (weak, nonatomic) id<GuardianMainMenuViewControllerDelegate> delegate;
-@property (weak, nonatomic) IBOutlet UIButton *switchButton;
+@property (weak, nonatomic) IBOutlet UIButton *logoutButton;
 @property (weak, nonatomic) IBOutlet UILabel *test;
-@property (weak, nonatomic) IBOutlet UILabel *titleName;
-@property (weak, nonatomic) IBOutlet UILabel *buttonName;
+-(IBAction) shareWithButtonPressed:(id) sender;
 
 @end
