@@ -17,7 +17,11 @@
 #import "PendingSharesViewController.h"
 #include "UserDatabaseManager.h"
 #include "SettingViewController.h"
+<<<<<<< HEAD
 #include "SyncingViewController.h"
+=======
+#import "ShareRequest.h"
+>>>>>>> 641f2e1bc203238345533f75af36937efec21807
 
 @interface GuardianMainMenuViewController () <LogoutRequestDelegate>
 
@@ -210,19 +214,25 @@ const int SETTING_SYNCING = 3;
         [self.detailViewContainer addSubview:self.detailViewController.view];
     }
 }
-
-- (void) changeView:(int) view {
+ 
+// Added Version 2, Updated Version 3
+- (void) changeView:(int) view withChildren:(NSMutableArray*)children andEmail:(NSString*)email {
     switch(view) {
         case SHARE_PROFILES_WITH_GUARDIAN: // load share profile guardian input
         {
             ShareProfilesWithGuardianViewController *shareProfiles = [[ShareProfilesWithGuardianViewController alloc]  initWithNibName:@"ShareProfilesWithGuardianViewController" bundle:[NSBundle mainBundle]];
             shareProfiles.delegate = self;
+            [shareProfiles setShareRequests:children];
+            
             self.detailViewController = shareProfiles;
             break;
         }
         case SHARE_PROFILES_SECURITY_CODE: // load share profile confirmation/security code
         {
-            self.detailViewController = [[ShareProfileSecurityCodeViewController alloc]  initWithNibName:@"ShareProfileSecurityCodeViewController" bundle:[NSBundle mainBundle]];
+            ShareProfileSecurityCodeViewController* shareSecurity = [[ShareProfileSecurityCodeViewController alloc] initWithNibName:@"ShareProfileSecurityCodeViewController" bundle:[NSBundle mainBundle]];
+            [shareSecurity setShareRequests:(children)];
+            [shareSecurity setEmail:email];
+            self.detailViewController = shareSecurity;
             break;
         }
         case SETTING_TRACKING: // load tracking profile

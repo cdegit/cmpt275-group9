@@ -25,6 +25,9 @@
 - (ChildProblemData*)problemDataWithID:(NSUInteger)ID;
 + (Session*)sessionWithChild:(ChildUser*)user date:(NSDate*)date;
 
+// Added in Version 3
+- (NSDictionary*)dictionaryRepresentation;
+
 @end
 
 

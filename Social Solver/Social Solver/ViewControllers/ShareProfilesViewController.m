@@ -21,6 +21,7 @@
     NSString* userType;
     NSArray* userArray;
     NSMutableArray* selectedUsers;
+    ShareRequest* shareReq;
 }
 
 @end
@@ -75,9 +76,8 @@
 
 - (void)loadUsers
 {
-    
-    userArray = [[UserDatabaseManager sharedInstance] getUserListOfType:userType];
-    
+    GuardianUser* guardian = (GuardianUser*)[[UserDatabaseManager sharedInstance] activeUser];
+    userArray = [guardian.children allObjects];
 }
 
 
@@ -100,6 +100,8 @@
     
     // Set the cell's user's name
     [[cell nameLabel] setText:[us valueForKey:@"name"]];
+    cell.nameLabel.adjustsFontSizeToFitWidth = YES;
+    cell.nameLabel.minimumScaleFactor = 0.5;
     
     
     // Set the cell's Image to the appropriate Profile Image
@@ -126,7 +128,7 @@
     UICollectionViewCell* cell = [_shareProfileSelectionView cellForItemAtIndexPath:indexPath];
     ShareUserSelectionCell* shareCell = (ShareUserSelectionCell*) cell;
     [shareCell changeSwitch];
-    
+     
     // add further functionality here
     
     if(shareCell.shareSwitch.on) {
@@ -139,7 +141,7 @@
         if([selectedUsers indexOfObject:us] != NSIntegerMax) {
             [selectedUsers removeObject:us];
         }
-    }
+    } 
     
     
     return NO;
@@ -151,7 +153,7 @@
         
         [alert show];
     } else {
-        [self.delegate changeView:SHARE_PROFILES_WITH_GUARDIAN];
+        [self.delegate changeView:SHARE_PROFILES_WITH_GUARDIAN withChildren:(selectedUsers) andEmail:@"email@domain.com"]; // TODO: change to current guardian's email
     }
 }
 

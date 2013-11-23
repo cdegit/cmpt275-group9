@@ -32,6 +32,9 @@
 // Added in Version 2
 - (Session*)sessionWithDate:(NSDate*)date;
 
+// Added in version 3
+- (void)updateCompletedProblems;
+
 @end
 
 @interface ChildUser(CoreDataGeneratedAccessors)

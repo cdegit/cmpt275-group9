@@ -69,7 +69,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.childList = [NSMutableArray arrayWithArray:[[UserDatabaseManager sharedInstance] getUserListOfType:@"Child"]];
+        self.childList = [NSMutableArray arrayWithArray:[((GuardianUser*)[[UserDatabaseManager sharedInstance] activeUser]).children allObjects]];
         self.gameMode = GameModeFaceFinder;
         self.yDataType = GraphYDataTypeCorrectPercent;
         
@@ -235,6 +235,7 @@
 
         cell.nameLabel.text = user.name;
         cell.nameLabel.adjustsFontSizeToFitWidth = true;
+        cell.nameLabel.minimumScaleFactor = 0.5f;
         cell.profilePicture.image = img;
         
         // Remove any previous gestures to ensure the meta data is correct

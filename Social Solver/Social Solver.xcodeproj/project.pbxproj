@@ -18,6 +18,8 @@
 		2A105F12181E16970035232F /* ChildSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A105F11181E16970035232F /* ChildSettings.m */; };
 		2A105F15181E18CF0035232F /* ChildProblemData.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A105F14181E18CF0035232F /* ChildProblemData.m */; };
 		2A475087181DDD73000EBEAB /* UIImagePickerController+ShouldAutorotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A475086181DDD73000EBEAB /* UIImagePickerController+ShouldAutorotate.m */; };
+		2A4D173E183FB64A00352A42 /* AddExistingChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A4D173C183FB64A00352A42 /* AddExistingChildViewController.m */; };
+		2A4D173F183FB64A00352A42 /* AddExistingChildViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A4D173D183FB64A00352A42 /* AddExistingChildViewController.xib */; };
 		2A67ECE11827F245000695CC /* ViewChildrenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A67ECDF1827F245000695CC /* ViewChildrenViewController.m */; };
 		2A67ECE21827F245000695CC /* ViewChildrenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A67ECE01827F245000695CC /* ViewChildrenViewController.xib */; };
 		2A6C6D03183AC5D20018F407 /* ManageChildTileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A6C6D02183AC5D20018F407 /* ManageChildTileCell.xib */; };
@@ -45,10 +47,20 @@
 		817F14D118304AE100D058A8 /* spotlight-80x80.png in Resources */ = {isa = PBXBuildFile; fileRef = 817F14C018304AE100D058A8 /* spotlight-80x80.png */; };
 		817F14D218304AE100D058A8 /* spotlight-100x100.png in Resources */ = {isa = PBXBuildFile; fileRef = 817F14C118304AE100D058A8 /* spotlight-100x100.png */; };
 		817F14D518304C0200D058A8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 817F14D418304C0200D058A8 /* Images.xcassets */; };
+		81D71E80183ED22E00D1E63D /* RewardsGalleryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81D71E7F183ED22E00D1E63D /* RewardsGalleryCell.xib */; };
+		81D71E83183ED26800D1E63D /* RewardsGalleryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 81D71E82183ED26800D1E63D /* RewardsGalleryCell.m */; };
+		81DFCCAF18402C520067E5F3 /* happy-75x85-disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 81DFCCA818402C520067E5F3 /* happy-75x85-disabled.png */; };
+		81DFCCB018402C520067E5F3 /* surprised-75x85-disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 81DFCCA918402C520067E5F3 /* surprised-75x85-disabled.png */; };
+		81DFCCB118402C520067E5F3 /* sad-75x85-disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 81DFCCAA18402C520067E5F3 /* sad-75x85-disabled.png */; };
+		81DFCCB218402C520067E5F3 /* disgusted-75x85-disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 81DFCCAB18402C520067E5F3 /* disgusted-75x85-disabled.png */; };
+		81DFCCB318402C520067E5F3 /* angry-75x85-disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 81DFCCAC18402C520067E5F3 /* angry-75x85-disabled.png */; };
+		81DFCCB418402C520067E5F3 /* afraid-75x85-disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 81DFCCAD18402C520067E5F3 /* afraid-75x85-disabled.png */; };
+		81DFCCB518402C520067E5F3 /* frame.png in Resources */ = {isa = PBXBuildFile; fileRef = 81DFCCAE18402C520067E5F3 /* frame.png */; };
 		EA16940C18162A7700C40069 /* Problem.m in Sources */ = {isa = PBXBuildFile; fileRef = EA16940B18162A7700C40069 /* Problem.m */; };
 		EA16940F18162B2B00C40069 /* ProblemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EA16940E18162B2B00C40069 /* ProblemManager.m */; };
 		EA16941B18163C5C00C40069 /* LevelCompleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA16941918163C5C00C40069 /* LevelCompleteViewController.m */; };
 		EA16941C18163C5C00C40069 /* LevelCompleteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA16941A18163C5C00C40069 /* LevelCompleteViewController.xib */; };
+		EA2097C41835BD7A00D1A214 /* ServerCommunicationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EA2097C31835BD7A00D1A214 /* ServerCommunicationManager.m */; };
 		EABC93AF182E06C200E81664 /* GraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EABC93AE182E06C200E81664 /* GraphViewController.m */; };
 		EABC93B1182E06CA00E81664 /* GraphViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EABC93B0182E06CA00E81664 /* GraphViewController.xib */; };
 		EABC9403182E06E600E81664 /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EABC9402182E06E600E81664 /* libCorePlot-CocoaTouch.a */; };
@@ -201,9 +213,13 @@
 		2A105F11181E16970035232F /* ChildSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildSettings.m; sourceTree = "<group>"; };
 		2A105F13181E18CF0035232F /* ChildProblemData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildProblemData.h; sourceTree = "<group>"; };
 		2A105F14181E18CF0035232F /* ChildProblemData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildProblemData.m; sourceTree = "<group>"; };
+		2A347C81183FD060008278B6 /* AddExistingChildViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AddExistingChildViewControllerDelegate.h; path = Protocols/AddExistingChildViewControllerDelegate.h; sourceTree = "<group>"; };
 		2A3CDB82181EC83900A04D62 /* LoginPromptViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LoginPromptViewControllerDelegate.h; path = Protocols/LoginPromptViewControllerDelegate.h; sourceTree = "<group>"; };
 		2A475085181DDD73000EBEAB /* UIImagePickerController+ShouldAutorotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImagePickerController+ShouldAutorotate.h"; path = "Categories/UIImagePickerController+ShouldAutorotate.h"; sourceTree = "<group>"; };
 		2A475086181DDD73000EBEAB /* UIImagePickerController+ShouldAutorotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImagePickerController+ShouldAutorotate.m"; path = "Categories/UIImagePickerController+ShouldAutorotate.m"; sourceTree = "<group>"; };
+		2A4D173B183FB64A00352A42 /* AddExistingChildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddExistingChildViewController.h; sourceTree = "<group>"; };
+		2A4D173C183FB64A00352A42 /* AddExistingChildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddExistingChildViewController.m; sourceTree = "<group>"; };
+		2A4D173D183FB64A00352A42 /* AddExistingChildViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AddExistingChildViewController.xib; path = ViewControllers/AddExistingChildViewController.xib; sourceTree = "<group>"; };
 		2A67ECDE1827F245000695CC /* ViewChildrenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewChildrenViewController.h; sourceTree = "<group>"; };
 		2A67ECDF1827F245000695CC /* ViewChildrenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewChildrenViewController.m; sourceTree = "<group>"; };
 		2A67ECE01827F245000695CC /* ViewChildrenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ViewChildrenViewController.xib; path = ViewControllers/ViewChildrenViewController.xib; sourceTree = "<group>"; };
@@ -240,6 +256,16 @@
 		817F14C018304AE100D058A8 /* spotlight-80x80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spotlight-80x80.png"; sourceTree = "<group>"; };
 		817F14C118304AE100D058A8 /* spotlight-100x100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spotlight-100x100.png"; sourceTree = "<group>"; };
 		817F14D418304C0200D058A8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		81D71E7F183ED22E00D1E63D /* RewardsGalleryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RewardsGalleryCell.xib; sourceTree = "<group>"; };
+		81D71E81183ED26800D1E63D /* RewardsGalleryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RewardsGalleryCell.h; sourceTree = "<group>"; };
+		81D71E82183ED26800D1E63D /* RewardsGalleryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RewardsGalleryCell.m; sourceTree = "<group>"; };
+		81DFCCA818402C520067E5F3 /* happy-75x85-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "happy-75x85-disabled.png"; sourceTree = "<group>"; };
+		81DFCCA918402C520067E5F3 /* surprised-75x85-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "surprised-75x85-disabled.png"; sourceTree = "<group>"; };
+		81DFCCAA18402C520067E5F3 /* sad-75x85-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sad-75x85-disabled.png"; sourceTree = "<group>"; };
+		81DFCCAB18402C520067E5F3 /* disgusted-75x85-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "disgusted-75x85-disabled.png"; sourceTree = "<group>"; };
+		81DFCCAC18402C520067E5F3 /* angry-75x85-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "angry-75x85-disabled.png"; sourceTree = "<group>"; };
+		81DFCCAD18402C520067E5F3 /* afraid-75x85-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "afraid-75x85-disabled.png"; sourceTree = "<group>"; };
+		81DFCCAE18402C520067E5F3 /* frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = frame.png; sourceTree = "<group>"; };
 		EA16940A18162A7700C40069 /* Problem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Problem.h; sourceTree = "<group>"; };
 		EA16940B18162A7700C40069 /* Problem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Problem.m; sourceTree = "<group>"; };
 		EA16940D18162B2B00C40069 /* ProblemManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProblemManager.h; sourceTree = "<group>"; };
@@ -247,6 +273,8 @@
 		EA16941818163C5C00C40069 /* LevelCompleteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelCompleteViewController.h; sourceTree = "<group>"; };
 		EA16941918163C5C00C40069 /* LevelCompleteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelCompleteViewController.m; sourceTree = "<group>"; };
 		EA16941A18163C5C00C40069 /* LevelCompleteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LevelCompleteViewController.xib; path = ViewControllers/LevelCompleteViewController.xib; sourceTree = "<group>"; };
+		EA2097C21835BD7A00D1A214 /* ServerCommunicationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerCommunicationManager.h; sourceTree = "<group>"; };
+		EA2097C31835BD7A00D1A214 /* ServerCommunicationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerCommunicationManager.m; sourceTree = "<group>"; };
 		EABC93A9182E06AE00E81664 /* GraphViewControllerDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GraphViewControllerDataSource.h; path = Protocols/GraphViewControllerDataSource.h; sourceTree = "<group>"; };
 		EABC93AD182E06C200E81664 /* GraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphViewController.h; sourceTree = "<group>"; };
 		EABC93AE182E06C200E81664 /* GraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphViewController.m; sourceTree = "<group>"; };
@@ -526,6 +554,7 @@
 				EAC699381828B37C00342086 /* PopoverPickerViewControllerDelegate.h */,
 				2A964BE7182D5CDD0016B43F /* ServerRequestDelegate.h */,
 				2A6C6D07183AD20F0018F407 /* ManageChildTileCellDelegate.h */,
+				2A347C81183FD060008278B6 /* AddExistingChildViewControllerDelegate.h */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -659,6 +688,13 @@
 		EAC698CD181DB7F000342086 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				81DFCCA818402C520067E5F3 /* happy-75x85-disabled.png */,
+				81DFCCA918402C520067E5F3 /* surprised-75x85-disabled.png */,
+				81DFCCAA18402C520067E5F3 /* sad-75x85-disabled.png */,
+				81DFCCAB18402C520067E5F3 /* disgusted-75x85-disabled.png */,
+				81DFCCAC18402C520067E5F3 /* angry-75x85-disabled.png */,
+				81DFCCAD18402C520067E5F3 /* afraid-75x85-disabled.png */,
+				81DFCCAE18402C520067E5F3 /* frame.png */,
 				817F14D318304AE800D058A8 /* Icons */,
 				EAC698D0181DB81A00342086 /* App Icon 144x144.png */,
 				817F14AF1830463C00D058A8 /* cheering.wav */,
@@ -813,6 +849,8 @@
 		EACC67D41807339500FEAC76 /* Xibs */ = {
 			isa = PBXGroup;
 			children = (
+				81D71E7F183ED22E00D1E63D /* RewardsGalleryCell.xib */,
+				2A4D173D183FB64A00352A42 /* AddExistingChildViewController.xib */,
 				2A6C6D02183AC5D20018F407 /* ManageChildTileCell.xib */,
 				EACC67F1180B4BC700FEAC76 /* AccountManagementViewController.xib */,
 				EACC67EC180B4B8D00FEAC76 /* GameViewController.xib */,
@@ -886,8 +924,13 @@
 				2A67ECDF1827F245000695CC /* ViewChildrenViewController.m */,
 				049E123E183BEDD100083303 /* SettingViewController.h */,
 				049E123F183BEDE600083303 /* SettingViewController.m */,
+<<<<<<< HEAD
 				049A5E04183DBF9500EC8590 /* SyncingViewController.h */,
 				049A5E05183DBF9500EC8590 /* SyncingViewController.m */,
+=======
+				2A4D173B183FB64A00352A42 /* AddExistingChildViewController.h */,
+				2A4D173C183FB64A00352A42 /* AddExistingChildViewController.m */,
+>>>>>>> 641f2e1bc203238345533f75af36937efec21807
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -911,6 +954,8 @@
 				EA16940E18162B2B00C40069 /* ProblemManager.m */,
 				2AAABD96182D506900FBCD60 /* ServerRequest.h */,
 				2AAABD97182D506900FBCD60 /* ServerRequest.m */,
+				EA2097C21835BD7A00D1A214 /* ServerCommunicationManager.h */,
+				EA2097C31835BD7A00D1A214 /* ServerCommunicationManager.m */,
 				EAE43992182EC8510026370C /* Session.h */,
 				EAE43993182EC8510026370C /* Session.m */,
 				EAE439CE18303B080026370C /* ShareRequest.h */,
@@ -946,8 +991,13 @@
 				2A6C6D05183AC6270018F407 /* ManageChildTileCell.m */,
 				049E1243183BEE1200083303 /* TrackingUserSelectionCell.h */,
 				049E1244183BEE1A00083303 /* TrackingUserSelectionCell.m */,
+<<<<<<< HEAD
 				049A5E07183DC31C00EC8590 /* SyncingUserSelectionCell.h */,
 				049A5E08183DC31C00EC8590 /* SyncingUserSelectionCell.m */,
+=======
+				81D71E81183ED26800D1E63D /* RewardsGalleryCell.h */,
+				81D71E82183ED26800D1E63D /* RewardsGalleryCell.m */,
+>>>>>>> 641f2e1bc203238345533f75af36937efec21807
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1043,6 +1093,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81DFCCB118402C520067E5F3 /* sad-75x85-disabled.png in Resources */,
 				817F14C918304AE100D058A8 /* Default.png in Resources */,
 				817F14D518304C0200D058A8 /* Images.xcassets in Resources */,
 				817F14CC18304AE100D058A8 /* settings-29x29.png in Resources */,
@@ -1065,6 +1116,7 @@
 				EAE439A9182EE9E50026370C /* problem-asking for bear.png in Resources */,
 				EAE439A0182EE9D90026370C /* sad-75x85.png in Resources */,
 				817F14D218304AE100D058A8 /* spotlight-100x100.png in Resources */,
+				81DFCCB018402C520067E5F3 /* surprised-75x85-disabled.png in Resources */,
 				817F14C818304AE100D058A8 /* launch-2048x1496.png in Resources */,
 				EAE439E318303B2D0026370C /* ShareProfilesViewController.xib in Resources */,
 				EAC699401828B39100342086 /* PopoverPickerViewController.xib in Resources */,
@@ -1085,14 +1137,17 @@
 				EAC698E9181DB81A00342086 /* happy.png in Resources */,
 				EAE439AB182EE9E50026370C /* scene-bear toy.png in Resources */,
 				817F14C418304AE100D058A8 /* launch-1024x748.png in Resources */,
+				81DFCCB318402C520067E5F3 /* angry-75x85-disabled.png in Resources */,
 				EAE4399D182EE9D90026370C /* angry-75x85.png in Resources */,
 				EAC698E1181DB81A00342086 /* anger.png in Resources */,
+				81D71E80183ED22E00D1E63D /* RewardsGalleryCell.xib in Resources */,
 				2A67ECE21827F245000695CC /* ViewChildrenViewController.xib in Resources */,
 				2A6C6D03183AC5D20018F407 /* ManageChildTileCell.xib in Resources */,
 				EAC69918181DD1E700342086 /* test_image.jpg in Resources */,
 				EAE4399F182EE9D90026370C /* happy-75x85.png in Resources */,
 				EAC6991E181DF59500342086 /* Billy_make_Suzy_Angry.mp4 in Resources */,
 				EACC67EE180B4B8D00FEAC76 /* GameViewController.xib in Resources */,
+				81DFCCB518402C520067E5F3 /* frame.png in Resources */,
 				EAE4399C182EE9D90026370C /* afraid-75x85.png in Resources */,
 				EACC67F3180B4BC700FEAC76 /* AccountManagementViewController.xib in Resources */,
 				EAC698EF181DB81A00342086 /* games-50x50.png in Resources */,
@@ -1107,7 +1162,9 @@
 				EACC67FD180B4C7400FEAC76 /* GuardianMainMenuViewController.xib in Resources */,
 				EAE439AF182EE9E50026370C /* scene-spider.png in Resources */,
 				EACC6806180B954C00FEAC76 /* NavigationTableCell.xib in Resources */,
+				81DFCCAF18402C520067E5F3 /* happy-75x85-disabled.png in Resources */,
 				EAC698F2181DB81A00342086 /* share-50x50.png in Resources */,
+				81DFCCB218402C520067E5F3 /* disgusted-75x85-disabled.png in Resources */,
 				817F14C218304AE100D058A8 /* launch-768-1004.png in Resources */,
 				EAC698E7181DB81A00342086 /* Face Finder Icon.png in Resources */,
 				817F14C518304AE100D058A8 /* launch-1024x768.png in Resources */,
@@ -1118,6 +1175,7 @@
 				EAC69905181DC20D00342086 /* Rewards Gallery Icon brighter.png in Resources */,
 				EAE439C918303AF40026370C /* button2.wav in Resources */,
 				049E1242183BEDFF00083303 /* SettingViewController.xib in Resources */,
+				81DFCCB418402C520067E5F3 /* afraid-75x85-disabled.png in Resources */,
 				EAC698F1181DB81A00342086 /* settings-50x50.png in Resources */,
 				EAE439E118303B2D0026370C /* ShareProfileSecurityCodeViewController.xib in Resources */,
 				EAC6991B181DF56100342086 /* Billy_scared_by_Spider.mp4 in Resources */,
@@ -1139,6 +1197,7 @@
 				817F14CD18304AE100D058A8 /* settings-58x58.png in Resources */,
 				EAE439E518303B2D0026370C /* ShareProfilesWithGuardianViewController.xib in Resources */,
 				EAC698F7181DB84900342086 /* Problems.plist in Resources */,
+				2A4D173F183FB64A00352A42 /* AddExistingChildViewController.xib in Resources */,
 				EAE439CB18303AF40026370C /* tryagain.wav in Resources */,
 				EA16941C18163C5C00C40069 /* LevelCompleteViewController.xib in Resources */,
 				817F14CA18304AE100D058A8 /* non-retina.png in Resources */,
@@ -1195,6 +1254,7 @@
 				EACC67CF1803816800FEAC76 /* RootNavigationViewController.m in Sources */,
 				EACC67D9180733CB00FEAC76 /* User.m in Sources */,
 				EAE439E418303B2D0026370C /* ShareProfilesWithGuardianViewController.m in Sources */,
+				EA2097C41835BD7A00D1A214 /* ServerCommunicationManager.m in Sources */,
 				EACC67DC1807340700FEAC76 /* GuardianUser.m in Sources */,
 				EAE439DE18303B2D0026370C /* PendingSharesViewController.m in Sources */,
 				2AAABD98182D506900FBCD60 /* ServerRequest.m in Sources */,
@@ -1211,6 +1271,7 @@
 				049E1245183BEE1A00083303 /* TrackingUserSelectionCell.m in Sources */,
 				EACC67F7180B4C4800FEAC76 /* RewardsGalleryViewController.m in Sources */,
 				2A475087181DDD73000EBEAB /* UIImagePickerController+ShouldAutorotate.m in Sources */,
+				81D71E83183ED26800D1E63D /* RewardsGalleryCell.m in Sources */,
 				EACC67FC180B4C7400FEAC76 /* GuardianMainMenuViewController.m in Sources */,
 				EACC6800180B4ECD00FEAC76 /* UserDatabaseManager.m in Sources */,
 				EACC6804180B944E00FEAC76 /* NavigationTableCell.m in Sources */,
@@ -1226,6 +1287,7 @@
 				EA16940F18162B2B00C40069 /* ProblemManager.m in Sources */,
 				EA16941B18163C5C00C40069 /* LevelCompleteViewController.m in Sources */,
 				EAE439E218303B2D0026370C /* ShareProfilesViewController.m in Sources */,
+				2A4D173E183FB64A00352A42 /* AddExistingChildViewController.m in Sources */,
 				2A105F12181E16970035232F /* ChildSettings.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
