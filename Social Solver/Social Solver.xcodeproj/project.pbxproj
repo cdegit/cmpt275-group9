@@ -45,13 +45,13 @@
 		817F14D518304C0200D058A8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 817F14D418304C0200D058A8 /* Images.xcassets */; };
 		81D71E80183ED22E00D1E63D /* RewardsGalleryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81D71E7F183ED22E00D1E63D /* RewardsGalleryCell.xib */; };
 		81D71E83183ED26800D1E63D /* RewardsGalleryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 81D71E82183ED26800D1E63D /* RewardsGalleryCell.m */; };
-		81D71E85183ED5E000D1E63D /* frame.png in Resources */ = {isa = PBXBuildFile; fileRef = 81D71E84183ED5E000D1E63D /* frame.png */; };
-		81D71E8E183F048E00D1E63D /* afraid-75x85-disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 81D71E89183F048E00D1E63D /* afraid-75x85-disabled.png */; };
-		81D71E8F183F048E00D1E63D /* angry-75x85-disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 81D71E8A183F048E00D1E63D /* angry-75x85-disabled.png */; };
-		81D71E90183F048E00D1E63D /* disgusted-75x85-disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 81D71E8B183F048E00D1E63D /* disgusted-75x85-disabled.png */; };
-		81D71E91183F048E00D1E63D /* sad-75x85-disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 81D71E8C183F048E00D1E63D /* sad-75x85-disabled.png */; };
-		81D71E92183F048E00D1E63D /* surprised-75x85-disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 81D71E8D183F048E00D1E63D /* surprised-75x85-disabled.png */; };
-		81D71E94183F538400D1E63D /* happy-75x85-disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 81D71E93183F538400D1E63D /* happy-75x85-disabled.png */; };
+		81DFCCAF18402C520067E5F3 /* happy-75x85-disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 81DFCCA818402C520067E5F3 /* happy-75x85-disabled.png */; };
+		81DFCCB018402C520067E5F3 /* surprised-75x85-disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 81DFCCA918402C520067E5F3 /* surprised-75x85-disabled.png */; };
+		81DFCCB118402C520067E5F3 /* sad-75x85-disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 81DFCCAA18402C520067E5F3 /* sad-75x85-disabled.png */; };
+		81DFCCB218402C520067E5F3 /* disgusted-75x85-disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 81DFCCAB18402C520067E5F3 /* disgusted-75x85-disabled.png */; };
+		81DFCCB318402C520067E5F3 /* angry-75x85-disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 81DFCCAC18402C520067E5F3 /* angry-75x85-disabled.png */; };
+		81DFCCB418402C520067E5F3 /* afraid-75x85-disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 81DFCCAD18402C520067E5F3 /* afraid-75x85-disabled.png */; };
+		81DFCCB518402C520067E5F3 /* frame.png in Resources */ = {isa = PBXBuildFile; fileRef = 81DFCCAE18402C520067E5F3 /* frame.png */; };
 		EA16940C18162A7700C40069 /* Problem.m in Sources */ = {isa = PBXBuildFile; fileRef = EA16940B18162A7700C40069 /* Problem.m */; };
 		EA16940F18162B2B00C40069 /* ProblemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EA16940E18162B2B00C40069 /* ProblemManager.m */; };
 		EA16941B18163C5C00C40069 /* LevelCompleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA16941918163C5C00C40069 /* LevelCompleteViewController.m */; };
@@ -249,13 +249,13 @@
 		81D71E7F183ED22E00D1E63D /* RewardsGalleryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RewardsGalleryCell.xib; sourceTree = "<group>"; };
 		81D71E81183ED26800D1E63D /* RewardsGalleryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RewardsGalleryCell.h; sourceTree = "<group>"; };
 		81D71E82183ED26800D1E63D /* RewardsGalleryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RewardsGalleryCell.m; sourceTree = "<group>"; };
-		81D71E84183ED5E000D1E63D /* frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = frame.png; sourceTree = "<group>"; };
-		81D71E89183F048E00D1E63D /* afraid-75x85-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "afraid-75x85-disabled.png"; sourceTree = "<group>"; };
-		81D71E8A183F048E00D1E63D /* angry-75x85-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "angry-75x85-disabled.png"; sourceTree = "<group>"; };
-		81D71E8B183F048E00D1E63D /* disgusted-75x85-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "disgusted-75x85-disabled.png"; sourceTree = "<group>"; };
-		81D71E8C183F048E00D1E63D /* sad-75x85-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sad-75x85-disabled.png"; sourceTree = "<group>"; };
-		81D71E8D183F048E00D1E63D /* surprised-75x85-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "surprised-75x85-disabled.png"; sourceTree = "<group>"; };
-		81D71E93183F538400D1E63D /* happy-75x85-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "happy-75x85-disabled.png"; sourceTree = "<group>"; };
+		81DFCCA818402C520067E5F3 /* happy-75x85-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "happy-75x85-disabled.png"; sourceTree = "<group>"; };
+		81DFCCA918402C520067E5F3 /* surprised-75x85-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "surprised-75x85-disabled.png"; sourceTree = "<group>"; };
+		81DFCCAA18402C520067E5F3 /* sad-75x85-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sad-75x85-disabled.png"; sourceTree = "<group>"; };
+		81DFCCAB18402C520067E5F3 /* disgusted-75x85-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "disgusted-75x85-disabled.png"; sourceTree = "<group>"; };
+		81DFCCAC18402C520067E5F3 /* angry-75x85-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "angry-75x85-disabled.png"; sourceTree = "<group>"; };
+		81DFCCAD18402C520067E5F3 /* afraid-75x85-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "afraid-75x85-disabled.png"; sourceTree = "<group>"; };
+		81DFCCAE18402C520067E5F3 /* frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = frame.png; sourceTree = "<group>"; };
 		EA16940A18162A7700C40069 /* Problem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Problem.h; sourceTree = "<group>"; };
 		EA16940B18162A7700C40069 /* Problem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Problem.m; sourceTree = "<group>"; };
 		EA16940D18162B2B00C40069 /* ProblemManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProblemManager.h; sourceTree = "<group>"; };
@@ -678,13 +678,13 @@
 		EAC698CD181DB7F000342086 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				81D71E93183F538400D1E63D /* happy-75x85-disabled.png */,
-				81D71E89183F048E00D1E63D /* afraid-75x85-disabled.png */,
-				81D71E8A183F048E00D1E63D /* angry-75x85-disabled.png */,
-				81D71E8B183F048E00D1E63D /* disgusted-75x85-disabled.png */,
-				81D71E8C183F048E00D1E63D /* sad-75x85-disabled.png */,
-				81D71E8D183F048E00D1E63D /* surprised-75x85-disabled.png */,
-				81D71E84183ED5E000D1E63D /* frame.png */,
+				81DFCCA818402C520067E5F3 /* happy-75x85-disabled.png */,
+				81DFCCA918402C520067E5F3 /* surprised-75x85-disabled.png */,
+				81DFCCAA18402C520067E5F3 /* sad-75x85-disabled.png */,
+				81DFCCAB18402C520067E5F3 /* disgusted-75x85-disabled.png */,
+				81DFCCAC18402C520067E5F3 /* angry-75x85-disabled.png */,
+				81DFCCAD18402C520067E5F3 /* afraid-75x85-disabled.png */,
+				81DFCCAE18402C520067E5F3 /* frame.png */,
 				817F14D318304AE800D058A8 /* Icons */,
 				EAC698D0181DB81A00342086 /* App Icon 144x144.png */,
 				817F14AF1830463C00D058A8 /* cheering.wav */,
@@ -1071,7 +1071,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				81D71E91183F048E00D1E63D /* sad-75x85-disabled.png in Resources */,
+				81DFCCB118402C520067E5F3 /* sad-75x85-disabled.png in Resources */,
 				817F14C918304AE100D058A8 /* Default.png in Resources */,
 				817F14D518304C0200D058A8 /* Images.xcassets in Resources */,
 				817F14CC18304AE100D058A8 /* settings-29x29.png in Resources */,
@@ -1088,14 +1088,13 @@
 				EACC67A618037CFE00FEAC76 /* Default-568h@2x.png in Resources */,
 				EACC67CC18037DA300FEAC76 /* MainMenuViewController.xib in Resources */,
 				817F14CB18304AE100D058A8 /* retina.png in Resources */,
-				81D71E85183ED5E000D1E63D /* frame.png in Resources */,
 				2A730FA21819A541000356DE /* LoginUserSelectionCell.xib in Resources */,
 				EAC6994A1828B3A000342086 /* StatsProblemCell.xib in Resources */,
 				049E1247183BEE2500083303 /* TrackingUserSelectionCell.xib in Resources */,
 				EAE439A9182EE9E50026370C /* problem-asking for bear.png in Resources */,
 				EAE439A0182EE9D90026370C /* sad-75x85.png in Resources */,
-				81D71E8E183F048E00D1E63D /* afraid-75x85-disabled.png in Resources */,
 				817F14D218304AE100D058A8 /* spotlight-100x100.png in Resources */,
+				81DFCCB018402C520067E5F3 /* surprised-75x85-disabled.png in Resources */,
 				817F14C818304AE100D058A8 /* launch-2048x1496.png in Resources */,
 				EAE439E318303B2D0026370C /* ShareProfilesViewController.xib in Resources */,
 				EAC699401828B39100342086 /* PopoverPickerViewController.xib in Resources */,
@@ -1114,19 +1113,18 @@
 				EAC698EB181DB81A00342086 /* sad.png in Resources */,
 				EAC698E9181DB81A00342086 /* happy.png in Resources */,
 				EAE439AB182EE9E50026370C /* scene-bear toy.png in Resources */,
-				81D71E92183F048E00D1E63D /* surprised-75x85-disabled.png in Resources */,
 				817F14C418304AE100D058A8 /* launch-1024x748.png in Resources */,
-				81D71E8F183F048E00D1E63D /* angry-75x85-disabled.png in Resources */,
+				81DFCCB318402C520067E5F3 /* angry-75x85-disabled.png in Resources */,
 				EAE4399D182EE9D90026370C /* angry-75x85.png in Resources */,
 				EAC698E1181DB81A00342086 /* anger.png in Resources */,
 				81D71E80183ED22E00D1E63D /* RewardsGalleryCell.xib in Resources */,
 				2A67ECE21827F245000695CC /* ViewChildrenViewController.xib in Resources */,
-				81D71E94183F538400D1E63D /* happy-75x85-disabled.png in Resources */,
 				2A6C6D03183AC5D20018F407 /* ManageChildTileCell.xib in Resources */,
 				EAC69918181DD1E700342086 /* test_image.jpg in Resources */,
 				EAE4399F182EE9D90026370C /* happy-75x85.png in Resources */,
 				EAC6991E181DF59500342086 /* Billy_make_Suzy_Angry.mp4 in Resources */,
 				EACC67EE180B4B8D00FEAC76 /* GameViewController.xib in Resources */,
+				81DFCCB518402C520067E5F3 /* frame.png in Resources */,
 				EAE4399C182EE9D90026370C /* afraid-75x85.png in Resources */,
 				EACC67F3180B4BC700FEAC76 /* AccountManagementViewController.xib in Resources */,
 				EAC698EF181DB81A00342086 /* games-50x50.png in Resources */,
@@ -1141,7 +1139,9 @@
 				EACC67FD180B4C7400FEAC76 /* GuardianMainMenuViewController.xib in Resources */,
 				EAE439AF182EE9E50026370C /* scene-spider.png in Resources */,
 				EACC6806180B954C00FEAC76 /* NavigationTableCell.xib in Resources */,
+				81DFCCAF18402C520067E5F3 /* happy-75x85-disabled.png in Resources */,
 				EAC698F2181DB81A00342086 /* share-50x50.png in Resources */,
+				81DFCCB218402C520067E5F3 /* disgusted-75x85-disabled.png in Resources */,
 				817F14C218304AE100D058A8 /* launch-768-1004.png in Resources */,
 				EAC698E7181DB81A00342086 /* Face Finder Icon.png in Resources */,
 				817F14C518304AE100D058A8 /* launch-1024x768.png in Resources */,
@@ -1151,6 +1151,7 @@
 				EAC69905181DC20D00342086 /* Rewards Gallery Icon brighter.png in Resources */,
 				EAE439C918303AF40026370C /* button2.wav in Resources */,
 				049E1242183BEDFF00083303 /* SettingViewController.xib in Resources */,
+				81DFCCB418402C520067E5F3 /* afraid-75x85-disabled.png in Resources */,
 				EAC698F1181DB81A00342086 /* settings-50x50.png in Resources */,
 				EAE439E118303B2D0026370C /* ShareProfileSecurityCodeViewController.xib in Resources */,
 				EAC6991B181DF56100342086 /* Billy_scared_by_Spider.mp4 in Resources */,
@@ -1177,7 +1178,6 @@
 				EA16941C18163C5C00C40069 /* LevelCompleteViewController.xib in Resources */,
 				817F14CA18304AE100D058A8 /* non-retina.png in Resources */,
 				EAC69912181DCBC600342086 /* circle_gradient.jpg in Resources */,
-				81D71E90183F048E00D1E63D /* disgusted-75x85-disabled.png in Resources */,
 				817F14D018304AE100D058A8 /* spotlight-50x50.png in Resources */,
 				EAC698E2181DB81A00342086 /* App Icon 72x72.png in Resources */,
 				EAE439B8182F03880026370C /* arrow-up.png in Resources */,
