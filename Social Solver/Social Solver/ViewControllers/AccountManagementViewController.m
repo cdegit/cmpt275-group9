@@ -13,7 +13,6 @@
 #import "UIImagePickerController+ShouldAutorotate.h"
 #import "GuardianUser.h"
 #import "UserDatabaseManager.h"
-#import "ServerCommunicationManager.h"
 
 @interface AccountManagementViewController ()
 {
@@ -248,28 +247,16 @@
         if ([_userType isEqualToString:@"Guardian"]) {
             [(GuardianUser*)user setEmail:[_emailLabel text]];
         }
-        
-        // If the user isn't a child who doesn't allow syncing, then update the profile on the server
-        if (!([user isKindOfClass:[ChildUser class]] && ((ChildUser*)user).settings.allowsAutoSync == NO)) {
-            [[ServerCommunicationManager sharedInstance] updateUserProfile:user withCompletionHandler:nil];
-        }
     }
     else
     {
         if ([_userType isEqualToString:@"Child"]) {
             user = [[UserDatabaseManager sharedInstance] createChildWithName:[_nameField text] password:[_passwordField text] andProfileImage:[_profileImageView image]];
-            
-            if (((ChildUser*)user).settings.allowsAutoSync) {
-                [[ServerCommunicationManager sharedInstance] registerNewUser:user withCompletionHandler:nil];
-            }
         }
         else
         {
             user = [[UserDatabaseManager sharedInstance] createGuardianWithName:[_nameField text] password:[_passwordField text] profileImage:[_profileImageView image] andEmail:[_emailField text]];
-            // Register the Guardian profile with the server
-            [[ServerCommunicationManager sharedInstance] registerNewUser:user withCompletionHandler:nil];
         }
-        
     }
     
     NSError* err;

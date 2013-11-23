@@ -10,7 +10,6 @@
 #import "MainMenuViewController.h"
 #import "RootNavigationViewController.h"
 #import "UserDatabaseManager.h"
-#import "ServerCommunicationManager.h"
 
 @implementation AppDelegate
 
@@ -54,11 +53,6 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    
-    // Attempt to register any new users who aren't yet registered
-#warning TODO: Uncomment the following line once the server response is of json format
-//    [[ServerCommunicationManager sharedInstance] updateAllUserProfiles];
-    [[ServerCommunicationManager sharedInstance] registerAllNewUsers];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

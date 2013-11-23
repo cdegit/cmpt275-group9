@@ -8,18 +8,11 @@
 // Version 2 
 
 #import <UIKit/UIKit.h>
-#import "ShareRequest.h"
 
 @interface ShareProfileSecurityCodeViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UILabel* guardianEmail;
 
 @property (weak, nonatomic) IBOutlet UILabel* securityCode;
-
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView* activityIndicator;
-
--(void)setShareRequests:(NSMutableArray*)shareRequests;
- 
--(void)setEmail:(NSString*)email;
 
 @end

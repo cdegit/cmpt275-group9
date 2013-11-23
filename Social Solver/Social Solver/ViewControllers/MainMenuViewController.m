@@ -51,8 +51,6 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [super viewWillAppear:animated];
-    
     if ([[[UserDatabaseManager sharedInstance] activeUser] name] != NULL) {
         _loginButton.hidden = YES;
         _logoutButton.hidden = NO;
@@ -66,7 +64,6 @@
         User *user = [[UserDatabaseManager sharedInstance] activeUser];
         if ([[[user entity] name] isEqualToString:@"Child"])
         {
-            _rewardsGalleryButton.hidden = NO;
             ChildSettings *settings = [(ChildUser*)user settings];
             if([settings allowsTracking]){
                 [_trackingSwitch setOn:YES animated:YES];
@@ -156,14 +153,11 @@
 
 - (IBAction)logoutTapped:(UIButton *)sender {
     [[UserDatabaseManager sharedInstance] requestLogout:self];
-<<<<<<< HEAD
     _trackingText.hidden = YES;
     _trackingSwitch.hidden = YES;
     _syncingText.hidden = YES;
     _syncingSwitch.hidden = YES;
 
-=======
->>>>>>> 641f2e1bc203238345533f75af36937efec21807
 }
 
 - (IBAction)toggleEnabledForTrackingSwitch{
@@ -222,8 +216,6 @@
     self.loginButton.hidden = false;
     self.logoutButton.hidden = true;
     self.someText.hidden = true;
-    _trackingText.hidden = YES;
-    _trackingSwitch.hidden = YES;
 }
 - (void)logoutRequestDenied
 {

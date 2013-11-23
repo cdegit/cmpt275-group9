@@ -9,9 +9,7 @@
 
 #import "ShareProfilesWithGuardianViewController.h"
 
-@interface ShareProfilesWithGuardianViewController () {
-    NSMutableArray* shareReqs;
-}
+@interface ShareProfilesWithGuardianViewController ()
 
 @end
 
@@ -53,13 +51,9 @@
         
         [alert show];
     } else {
-        [self.delegate changeView:SHARE_PROFILES_SECURITY_CODE withChildren:(shareReqs) andEmail:_guardianEmail.text];
-    } 
+        [self.delegate changeView:SHARE_PROFILES_SECURITY_CODE];
+    }
 }
 
--(void)setShareRequests:(NSMutableArray*)shareRequests
-{
-    shareReqs = shareRequests;
-}
 
 @end

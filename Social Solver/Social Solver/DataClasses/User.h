@@ -31,7 +31,7 @@
 // Added in Version 1
 @property (nonatomic) NSString *name;
 @property (nonatomic) NSData *passwordHash, *passwordSeed;
-@property (nonatomic) NSInteger uid;
+@property (nonatomic) NSInteger* uid;
 
 @end
 

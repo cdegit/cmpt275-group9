@@ -20,8 +20,6 @@
 
 @property (weak, nonatomic) id<GuardianMainMenuViewControllerDelegate> delegate;
 
--(void)setShareRequests:(NSMutableArray*)shareRequests;
-
 -(IBAction) shareButtonPressed:(id) sender;
- 
+
 @end

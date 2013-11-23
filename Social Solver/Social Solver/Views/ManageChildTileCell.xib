@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch.iPad" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch.iPad" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -60,8 +60,6 @@
             </view>
             <color key="backgroundColor" red="0.0039215688589999999" green="0.75294125079999996" blue="0.84313732389999996" alpha="1" colorSpace="deviceRGB"/>
             <connections>
-                <outlet property="button1" destination="pc4-4m-eaT" id="u83-Pb-aB1"/>
-                <outlet property="button2" destination="Mta-eS-aGA" id="mz8-bF-HJW"/>
                 <outlet property="imageView" destination="38Y-cP-tej" id="x0X-fd-VLw"/>
                 <outlet property="manageView" destination="u7D-cB-Yt1" id="7lq-bW-6Mh"/>
                 <outlet property="nameLabel" destination="Sxj-OQ-hif" id="wWx-ti-55m"/>

@@ -34,18 +34,4 @@
     return [result anyObject];
 }
 
-// Added in version 3
-- (void)updateCompletedProblems
-{
-    NSMutableSet* solved = [[NSMutableSet alloc] initWithArray:self.completedProblems];
-    for (Session* session in self.sessions)
-    {
-        for (ChildProblemData* cpd in session.problemData) {
-            [solved addObject:@(cpd.problemID)];
-        }
-    }
-    
-    self.completedProblems = [solved allObjects];
-}
-
 @end

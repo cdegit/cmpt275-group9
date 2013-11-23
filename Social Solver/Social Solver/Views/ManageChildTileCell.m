@@ -40,15 +40,5 @@
     [_delegate userTile:self wantsDeleteAccount:_child];
 }
 
-- (IBAction)createUserPressed:(id)sender
-{
-    [_delegate wantsCreateUserByCell:self];
-}
-
-- (IBAction)addExistingUserPressed:(id)sender
-{
-    [_delegate wantsAddExistingUserByCell:self];
-}
-
 
 @end

@@ -11,7 +11,6 @@
 #import "UserDatabaseManager.h"
 #import "AppDelegate.h"
 #import "ChildSettings.h"
-#import "ServerCommunicationManager.h"
 
 @interface UserDatabaseManager ()
 {
@@ -104,54 +103,6 @@ static UserDatabaseManager* instance = nil;
     return g;
 }
 
-- (NSArray*)unregisteredUsers
-{
-    NSManagedObjectContext *mc = [(AppDelegate*)[[UIApplication sharedApplication] delegate] managedObjectContext];
-    NSEntityDescription* entityDescription = [NSEntityDescription entityForName:@"User"
-                                                         inManagedObjectContext:mc];
-    
-    NSFetchRequest* request = [[NSFetchRequest alloc] init];
-    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"uid == 0"];
-    
-    request.entity = entityDescription;
-    request.predicate = predicate;
-    
-    NSArray* res = [mc executeFetchRequest:request
-                             error:nil];
-    return res;
-}
-
-- (NSArray*)guardianlessUsers
-{
-    NSManagedObjectContext *mc = [(AppDelegate*)[[UIApplication sharedApplication] delegate] managedObjectContext];
-    NSEntityDescription* entityDescription = [NSEntityDescription entityForName:@"Child"
-                                                         inManagedObjectContext:mc];
-    NSFetchRequest* request = [[NSFetchRequest alloc] init];
-    [request setEntity:entityDescription];
-    NSError *err = nil;
-    
-    NSSortDescriptor* sort = [[NSSortDescriptor alloc] initWithKey:@"name"
-                                                         ascending:YES];
-    
-    [request setSortDescriptors:@[sort]];
-    
-    NSArray *result = [mc executeFetchRequest:request error:&err];
-    
-    if (err) {
-        NSLog(@"Fetch Error: %@", err);
-    }
-    
-    NSMutableArray *filteredResults = [[NSMutableArray alloc] initWithCapacity:20];
-    
-    for (ChildUser *child in result) {
-        if ([[child guardians] count]==0) {
-            [filteredResults addObject:child];
-        }
-    }
-    
-    return filteredResults;
-}
-
 - (void)deleteUser:(User *)user
 {
     NSManagedObjectContext *mv = [(AppDelegate*)[[UIApplication sharedApplication] delegate] managedObjectContext];
@@ -186,28 +137,22 @@ static UserDatabaseManager* instance = nil;
 
 - (void)loginUser:(User*)user
 {
-    if ([user isKindOfClass:[ChildUser class]] && ((ChildUser*)user).settings.allowsAutoSync) {
-        [[ServerCommunicationManager sharedInstance] updateChildSessions:(ChildUser*)user];
-    }
-    else if ([user isKindOfClass:[GuardianUser class]]) {
-        [[ServerCommunicationManager sharedInstance] updateChildrenOfGuardian:(GuardianUser*)user];
-    }
+    static int day = 3;
     _activeUser = user;
-    _sessionDate = [NSDate date];
+    
+    double timeInterval = 24*3600*(day++);
+    _sessionDate = [NSDate dateWithTimeIntervalSince1970:timeInterval];
 }
 
 - (void)logoutActiveUser
 {
-    // Send the child's updated progress to the server
-    if ([_activeUser isKindOfClass:[ChildUser class]] && ((ChildUser*)_activeUser).settings.allowsAutoSync) {
-        [[ServerCommunicationManager sharedInstance] updateChildSessions:(ChildUser*)_activeUser];
-    }
     _activeUser = nil;
     _sessionDate = nil;
 }
 
 - (void)requestLogout:(id<LogoutRequestDelegate>)del
 {
+    
     _requestDelegate = del;
     
     UIAlertView *reqview = [[UIAlertView alloc] initWithTitle:@"Logout?" message:@"Do you wish to logout?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];

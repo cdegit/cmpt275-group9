@@ -25,7 +25,6 @@
 
 // Added in Version 2
 
-- (NSArray*)unregisteredUsers;
 - (NSArray *) getUserListOfType:(NSString *)userType;
 
 - (ChildUser *) createChildWithName:(NSString *)name password:(NSString *)pass andProfileImage:(UIImage *)img;
@@ -39,10 +38,6 @@
 - (void)loginUser:(User*)user;
 - (void)logoutActiveUser;
 - (void)requestLogout:(id<LogoutRequestDelegate>)del;
-
-
-// Added in Version 3
-- (NSArray*)guardianlessUsers;
 
 
 

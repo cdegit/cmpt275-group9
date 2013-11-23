@@ -43,19 +43,4 @@
     return [result anyObject];
 }
 
-- (NSDictionary*)dictionaryRepresentation
-{
-    NSMutableDictionary* dict = [[NSMutableDictionary alloc] init];
-    [dict setObject:[NSNumber numberWithDouble:[self.date timeIntervalSinceReferenceDate]] forKey:@"Date"];
-    NSMutableArray* problems = [[NSMutableArray alloc] init];
-    
-    for (ChildProblemData* cpd in self.problemData)
-    {
-        [problems addObject:[cpd dictionaryRepresentation]];
-    }
-    [dict setObject:problems forKey:@"Problems"];
-
-    return dict;
-}
-
 @end
