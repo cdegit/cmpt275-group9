@@ -43,7 +43,7 @@
     // If the Profile Image cannot be load (likely because it does not exist)
     // Load the default Profile Image
     if (img==nil) {
-        img = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"test_image" ofType:@"jpg"]];
+        img = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"profile-placeholder" ofType:@"png"]];
     }
     
     

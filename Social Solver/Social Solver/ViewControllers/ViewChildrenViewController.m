@@ -225,7 +225,7 @@ NSComparator caseInsensitiveComparator = ^(NSString *obj1, NSString *obj2)
         UIImage *img = [us profileImage];
     
         if (img==nil) {
-            img = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"test_image" ofType:@"jpg"]];
+            img = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"profile-placeholder" ofType:@"png"]];
         }
     
         [[cell imageView] setImage:img];

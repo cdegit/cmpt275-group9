@@ -228,9 +228,8 @@
         // Setup the cell
         UIImage* img = user.profileImage;
         if (img == nil) {
-#warning TODO: replace this with a placeholder image
-            img = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"test_image"
-                                                                                   ofType:@"jpg"]];
+            img = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"profile-placeholder"
+                                                                                   ofType:@"png"]];
         }
 
         cell.nameLabel.text = user.name;

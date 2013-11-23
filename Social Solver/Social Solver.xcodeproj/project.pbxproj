@@ -186,6 +186,7 @@
 		EAE439EE18303B890026370C /* ShareUserSelectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EAE439EA18303B890026370C /* ShareUserSelectionCell.m */; };
 		EAE439EF18303B890026370C /* ShareUserSelectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAE439EB18303B890026370C /* ShareUserSelectionCell.xib */; };
 		EAE439F118303CFF0026370C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAE439F018303CFF0026370C /* AudioToolbox.framework */; };
+		EAF1099318404567002A0F61 /* profile-placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = EAF1099218404567002A0F61 /* profile-placeholder.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -516,6 +517,7 @@
 		EAE439EA18303B890026370C /* ShareUserSelectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShareUserSelectionCell.m; path = Views/ShareUserSelectionCell.m; sourceTree = "<group>"; };
 		EAE439EB18303B890026370C /* ShareUserSelectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ShareUserSelectionCell.xib; path = Views/ShareUserSelectionCell.xib; sourceTree = "<group>"; };
 		EAE439F018303CFF0026370C /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		EAF1099218404567002A0F61 /* profile-placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile-placeholder.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -693,6 +695,7 @@
 		EAC698CD181DB7F000342086 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				EAF1099218404567002A0F61 /* profile-placeholder.png */,
 				81DFCCA818402C520067E5F3 /* happy-75x85-disabled.png */,
 				81DFCCA918402C520067E5F3 /* surprised-75x85-disabled.png */,
 				81DFCCAA18402C520067E5F3 /* sad-75x85-disabled.png */,
@@ -1152,6 +1155,7 @@
 				81DFCCB518402C520067E5F3 /* frame.png in Resources */,
 				EAE4399C182EE9D90026370C /* afraid-75x85.png in Resources */,
 				EACC67F3180B4BC700FEAC76 /* AccountManagementViewController.xib in Resources */,
+				EAF1099318404567002A0F61 /* profile-placeholder.png in Resources */,
 				EAC698EF181DB81A00342086 /* games-50x50.png in Resources */,
 				EAE439A1182EE9D90026370C /* surprised-75x85.png in Resources */,
 				04950EB11840B11E00030FB6 /* CreditsViewController.xib in Resources */,
