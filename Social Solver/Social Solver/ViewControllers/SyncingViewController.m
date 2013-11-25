@@ -54,16 +54,6 @@
                                                               bundle:[NSBundle mainBundle]]
                     forCellWithReuseIdentifier:@"UserCell"];
     
-    //Set up the layout
-    
-    UICollectionViewFlowLayout* userSelectionLayout = (UICollectionViewFlowLayout *)[_syncingProfileSelectionView collectionViewLayout];
-    
-    // Item size should be the same size as LoginUserSelectionCell
-    [userSelectionLayout setItemSize:CGSizeMake(200.0, 195.0)];
-    [userSelectionLayout setMinimumInteritemSpacing:35.0];
-    [userSelectionLayout setMinimumLineSpacing:20.0];
-    [userSelectionLayout setSectionInset:UIEdgeInsetsMake(20.0, 20.0, 20.0, 20.0)];
-    
     //Set initial userType to Child
     userType = @"Child";
     [self loadUsers];

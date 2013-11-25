@@ -37,16 +37,6 @@
                                                    bundle:[NSBundle mainBundle]]
          forCellWithReuseIdentifier:@"UserCell"];
     
-    //Set up the layout
-    
-    UICollectionViewFlowLayout* userSelectionLayout = (UICollectionViewFlowLayout *)[_userSelectionView collectionViewLayout];
-    
-    // Item size should be the same size as LoginUserSelectionCell
-    [userSelectionLayout setItemSize:CGSizeMake(200.0, 203.0)];
-    [userSelectionLayout setMinimumInteritemSpacing:40.0];
-    [userSelectionLayout setMinimumLineSpacing:30.0];
-    [userSelectionLayout setSectionInset:UIEdgeInsetsMake(40.0, 40.0, 40.0, 40.0)];
-    
     
     [self loadUsers];
     [_userSelectionView reloadData];

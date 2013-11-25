@@ -59,16 +59,6 @@ NSComparator caseInsensitiveComparator = ^(NSString *obj1, NSString *obj2)
     [_childrenView registerNib:[UINib nibWithNibName:@"ManageChildTileCell"
                                               bundle:[NSBundle mainBundle]]
     forCellWithReuseIdentifier:@"AddUserCell"];
-    
-    //Set up the layout
-    
-    UICollectionViewFlowLayout* userSelectionLayout = (UICollectionViewFlowLayout *)[_childrenView collectionViewLayout];
-    
-    // Item size should be the same size as LoginUserSelectionCells
-    [userSelectionLayout setItemSize:CGSizeMake(200.0, 203.0)];
-    [userSelectionLayout setMinimumInteritemSpacing:40.0];
-    [userSelectionLayout setMinimumLineSpacing:30.0];
-    [userSelectionLayout setSectionInset:UIEdgeInsetsMake(40.0, 40.0, 40.0, 40.0)];
     [_childrenView setAllowsMultipleSelection:NO];
     
     
@@ -94,9 +84,9 @@ NSComparator caseInsensitiveComparator = ^(NSString *obj1, NSString *obj2)
     }
     else
     {
-        GuardianUser* guard = (GuardianUser*)[[UserDatabaseManager sharedInstance] activeUser];
+        GuardianUser* guardian = (GuardianUser*)[[UserDatabaseManager sharedInstance] activeUser];
         
-        _childArray = [NSMutableArray arrayWithArray:[[guard children] sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES comparator:caseInsensitiveComparator]]]];
+        _childArray = [NSMutableArray arrayWithArray:[[guardian children] sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES comparator:caseInsensitiveComparator]]]];
     }
     
 }
