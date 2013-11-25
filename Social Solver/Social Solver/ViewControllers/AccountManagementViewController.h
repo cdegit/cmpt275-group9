@@ -40,6 +40,14 @@
 @property (weak, nonatomic) IBOutlet UIImageView* profileImageView;
 @property (weak, nonatomic) IBOutlet UIButton* cameraButton;
 
+// Added Version 3
+
+@property (weak, nonatomic) IBOutlet UILabel *showEmail;
+
+
+
+// From Version 1
+
 -(IBAction)userTypeChange:(UISegmentedControl*)sender;
 -(IBAction)fetchImageFromiPhoto:(id)sender;
 -(IBAction)fetchImageFromCamera:(id)sender;

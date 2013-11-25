@@ -63,18 +63,6 @@
     }
     
     
-    // If editing a user load Fields
-    if (_editedUser!=nil) {
-        [_nameField setText:[_editedUser name]];
-        
-        [_profileImageView setImage:[_editedUser profileImage]];
-        
-        if ([_userType isEqualToString:@"Guardian"]) {
-            [_emailField setText:[(GuardianUser *)_editedUser email]];
-        }
-        
-    }
-    
     // Hide email field if the current usertype is Child
     if ([_userType isEqualToString:@"Child"]) {
         [_emailLabel setHidden:YES];
@@ -84,6 +72,23 @@
     {
         [_emailLabel setHidden:NO];
         [_emailField setHidden:NO];
+    }
+    
+    
+    // If editing a user load Fields
+    if (_editedUser!=nil) {
+        [_nameField setText:[_editedUser name]];
+        
+        [_profileImageView setImage:[_editedUser profileImage]];
+        
+        if ([_userType isEqualToString:@"Guardian"]) {
+            [_emailField setHidden:YES];
+            [_emailField setEnabled:NO];
+            [_showEmail setHidden:NO];
+            [_showEmail setText:[(GuardianUser *)_editedUser email]];
+            [_emailField setText:[(GuardianUser *)_editedUser email]];
+        }
+        
     }
     
 }
@@ -246,7 +251,7 @@
         [user setName:[_nameField text]];
         
         if ([_userType isEqualToString:@"Guardian"]) {
-            [(GuardianUser*)user setEmail:[_emailLabel text]];
+            [(GuardianUser*)user setEmail:[_emailField text]];
         }
         
         // If the user isn't a child who doesn't allow syncing, then update the profile on the server

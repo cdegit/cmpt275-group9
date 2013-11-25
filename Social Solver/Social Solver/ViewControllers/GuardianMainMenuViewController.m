@@ -21,6 +21,7 @@
 #import "ShareRequest.h"
 #import "SyncingViewController.h"
 #import "SyncingUserSelectionCell.h"
+#import "AccountManagementViewController.h"
 
 @interface GuardianMainMenuViewController () <LogoutRequestDelegate>
 
@@ -105,7 +106,7 @@ const int SETTING_SYNCING = 3;
     if (navigationCellInfo == nil)
     {
 //        navigationCellInfo = @[ @[@"View Children", @"children-50x50.png"], @[@"Statistics",@"stats-50x50.png"], @[@"Share Profiles",@"share-50x50.png"], @[@"Pending Shares",@"pending-50x50.png"], @[@"Games",@"games-50x50.png"], @[@"Settings",@"settings-50x50.png"]];
-        navigationCellInfo = @[ @[@"View Children", @"children-50x50.png"], @[@"Statistics",@"stats-50x50.png"], @[@"Share Profiles",@"share-50x50.png"], @[@"Pending Shares",@"pending-50x50.png"], @[@"Games",@"games-50x50.png"], @[@"Settings",@"settings-50x50.png"]];
+        navigationCellInfo = @[ @[@"View Children", @"children-50x50.png"], @[@"Statistics",@"stats-50x50.png"], @[@"Share Profiles",@"share-50x50.png"], @[@"Pending Shares",@"pending-50x50.png"], @[@"Games",@"games-50x50.png"], @[@"Settings",@"settings-50x50.png"], @[@"Edit Account",@""]];
     }
     return navigationCellInfo;
 }
@@ -198,6 +199,14 @@ const int SETTING_SYNCING = 3;
             SettingViewController *trackingProfiles = [[SettingViewController alloc]  initWithNibName:@"SettingViewController" bundle:[NSBundle mainBundle]];
             trackingProfiles.delegate = self;
             self.detailViewController = trackingProfiles;
+            
+            break;
+        }
+        case 6:
+        {
+            // Load Edit Account
+            AccountManagementViewController *editAccount = [[AccountManagementViewController alloc] initWithNibName:@"AccountManagementViewController" bundle:[NSBundle mainBundle] withUser:[[UserDatabaseManager sharedInstance] activeUser]];
+            [self setDetailViewController:editAccount];
             
             break;
         }
