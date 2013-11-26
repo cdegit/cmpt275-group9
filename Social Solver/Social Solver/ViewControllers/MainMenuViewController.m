@@ -43,6 +43,8 @@
 //    _guardianMainMenuButton.hidden = YES;
     UIBarButtonItem* back = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:nil action:nil];
     [self.navigationItem setBackBarButtonItem:back];
+    
+    self.soundButton.selected = [[AudioManager sharedInstance] soundEnabled];
 }
 
 - (void)didReceiveMemoryWarning
@@ -186,6 +188,14 @@
     }
 }
 
+- (IBAction)soundButtonPressed:(id)sender
+{
+    UIButton* soundButton = (UIButton*)sender;
+    bool selected = soundButton.selected;
+    soundButton.selected = !selected;
+    
+    [AudioManager sharedInstance].soundEnabled = soundButton.selected;
+}
 #pragma mark - LogoutRequestDelegate methods
 
 - (void)logoutRequestGranted

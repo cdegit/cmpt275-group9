@@ -863,10 +863,9 @@
 		EACC67D41807339500FEAC76 /* Xibs */ = {
 			isa = PBXGroup;
 			children = (
-				81D71E7F183ED22E00D1E63D /* RewardsGalleryCell.xib */,
-				2A4D173D183FB64A00352A42 /* AddExistingChildViewController.xib */,
-				2A6C6D02183AC5D20018F407 /* ManageChildTileCell.xib */,
 				EACC67F1180B4BC700FEAC76 /* AccountManagementViewController.xib */,
+				2A4D173D183FB64A00352A42 /* AddExistingChildViewController.xib */,
+				04950EAF1840B11E00030FB6 /* CreditsViewController.xib */,
 				EACC67EC180B4B8D00FEAC76 /* GameViewController.xib */,
 				EABC93B0182E06CA00E81664 /* GraphViewController.xib */,
 				EAE439C118302BA80026370C /* GuardianGameMenuViewController.xib */,
@@ -876,11 +875,14 @@
 				2A730FA11819A541000356DE /* LoginUserSelectionCell.xib */,
 				EACC67E7180B4B6600FEAC76 /* LoginViewController.xib */,
 				EACC67CA18037DA300FEAC76 /* MainMenuViewController.xib */,
+				2A6C6D02183AC5D20018F407 /* ManageChildTileCell.xib */,
 				EACC6805180B954C00FEAC76 /* NavigationTableCell.xib */,
 				EAE439E818303B890026370C /* PendingSharesTableCell.xib */,
 				EAE439D418303B2D0026370C /* PendingSharesViewController.xib */,
 				EAC6993E1828B39100342086 /* PopoverPickerViewController.xib */,
+				81D71E7F183ED22E00D1E63D /* RewardsGalleryCell.xib */,
 				EACC67F6180B4C4800FEAC76 /* RewardsGalleryViewController.xib */,
+				049E1241183BEDFF00083303 /* SettingViewController.xib */,
 				EAE439D718303B2D0026370C /* ShareProfileSecurityCodeViewController.xib */,
 				EAE439DA18303B2D0026370C /* ShareProfilesViewController.xib */,
 				EAE439DD18303B2D0026370C /* ShareProfilesWithGuardianViewController.xib */,
@@ -888,12 +890,10 @@
 				EACC6809180B9CE900FEAC76 /* StatisticsViewController.xib */,
 				EAC699431828B3A000342086 /* StatsChildCell.xib */,
 				EAC699461828B3A000342086 /* StatsProblemCell.xib */,
-				2A67ECE01827F245000695CC /* ViewChildrenViewController.xib */,
-				049E1241183BEDFF00083303 /* SettingViewController.xib */,
-				049E1246183BEE2500083303 /* TrackingUserSelectionCell.xib */,
 				04D59252184097B9009764A9 /* SyncingUserSelectionCell.xib */,
 				04D59250184097A0009764A9 /* SyncingViewController.xib */,
-				04950EAF1840B11E00030FB6 /* CreditsViewController.xib */,
+				049E1246183BEE2500083303 /* TrackingUserSelectionCell.xib */,
+				2A67ECE01827F245000695CC /* ViewChildrenViewController.xib */,
 			);
 			name = Xibs;
 			sourceTree = "<group>";
@@ -903,6 +903,10 @@
 			children = (
 				EACC67EF180B4BC600FEAC76 /* AccountManagementViewController.h */,
 				EACC67F0180B4BC700FEAC76 /* AccountManagementViewController.m */,
+				2A4D173B183FB64A00352A42 /* AddExistingChildViewController.h */,
+				2A4D173C183FB64A00352A42 /* AddExistingChildViewController.m */,
+				04950EAD1840B11E00030FB6 /* CreditsViewController.h */,
+				04950EAE1840B11E00030FB6 /* CreditsViewController.m */,
 				EACC67EA180B4B8D00FEAC76 /* GameViewController.h */,
 				EACC67EB180B4B8D00FEAC76 /* GameViewController.m */,
 				EABC93AD182E06C200E81664 /* GraphViewController.h */,
@@ -927,6 +931,8 @@
 				EACC67F5180B4C4800FEAC76 /* RewardsGalleryViewController.m */,
 				EACC67CD1803816800FEAC76 /* RootNavigationViewController.h */,
 				EACC67CE1803816800FEAC76 /* RootNavigationViewController.m */,
+				049E123E183BEDD100083303 /* SettingViewController.h */,
+				049E123F183BEDE600083303 /* SettingViewController.m */,
 				EAE439D518303B2D0026370C /* ShareProfileSecurityCodeViewController.h */,
 				EAE439D618303B2D0026370C /* ShareProfileSecurityCodeViewController.m */,
 				EAE439D818303B2D0026370C /* ShareProfilesViewController.h */,
@@ -935,16 +941,10 @@
 				EAE439DC18303B2D0026370C /* ShareProfilesWithGuardianViewController.m */,
 				EACC6807180B9CE900FEAC76 /* StatisticsViewController.h */,
 				EACC6808180B9CE900FEAC76 /* StatisticsViewController.m */,
-				2A67ECDE1827F245000695CC /* ViewChildrenViewController.h */,
-				2A67ECDF1827F245000695CC /* ViewChildrenViewController.m */,
-				049E123E183BEDD100083303 /* SettingViewController.h */,
-				049E123F183BEDE600083303 /* SettingViewController.m */,
-				2A4D173B183FB64A00352A42 /* AddExistingChildViewController.h */,
-				2A4D173C183FB64A00352A42 /* AddExistingChildViewController.m */,
 				04D5924D18409785009764A9 /* SyncingViewController.h */,
 				04D5924E18409797009764A9 /* SyncingViewController.m */,
-				04950EAD1840B11E00030FB6 /* CreditsViewController.h */,
-				04950EAE1840B11E00030FB6 /* CreditsViewController.m */,
+				2A67ECDE1827F245000695CC /* ViewChildrenViewController.h */,
+				2A67ECDF1827F245000695CC /* ViewChildrenViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";

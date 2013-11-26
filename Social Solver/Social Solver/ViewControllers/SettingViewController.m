@@ -18,6 +18,7 @@
 #import "ChildSettings.h"
 #import "MainMenuViewController.h"
 #import "SyncingViewController.h"
+#import "AudioManager.h"
 
 @interface SettingViewController () {
     
@@ -68,12 +69,13 @@
     [self loadUsers];
     
     _titleName.text = @"Tracking";
-    _buttonName.text = @"Switch to Syncing page";
+//    _buttonName.text = @"Switch to Syncing page";
 }
 
 - (void) viewWillAppear:(BOOL)animated
 {
-    
+    [super viewWillAppear:animated];
+    self.soundButton.selected = [AudioManager sharedInstance].soundEnabled;
 }
 
 - (void)didReceiveMemoryWarning
@@ -179,6 +181,14 @@
     //  _titleName.text = @"Tracking";
     //_buttonName.text = @"Switch to Syncing page";
     //}
+}
+
+- (IBAction)soundButtonPressed:(UIButton*)sender
+{
+    bool selected = sender.selected;
+    self.soundButton.selected = !selected;
+    
+    [AudioManager sharedInstance].soundEnabled = self.soundButton.selected;
 }
 
 @end
