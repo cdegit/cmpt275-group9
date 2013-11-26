@@ -328,6 +328,7 @@
 
 - (IBAction)skipButtonPressed:(UIButton*)sender
 {
+    [[AudioManager sharedInstance] playButtonPress];
     [self presentLevelCompleteViewShowingCongratsMessage:NO];
 }
 

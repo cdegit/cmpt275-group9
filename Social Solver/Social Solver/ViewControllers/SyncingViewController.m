@@ -18,7 +18,7 @@
 #import "ChildSettings.h"
 #import "MainMenuViewController.h"
 #import "GuardianMainMenuViewController.h"
-
+#import "AudioManager.h"
 
 @interface SyncingViewController (){
     
@@ -59,12 +59,12 @@
     [self loadUsers];
     
     _titleName.text = @"Syncing";
-    _buttonName.text = @"Switch to Tracking page";
 }
 
 - (void) viewWillAppear:(BOOL)animated
 {
-    
+    [super viewWillAppear:animated];
+    self.soundButton.selected = [AudioManager sharedInstance].soundEnabled;
 }
 
 - (void)didReceiveMemoryWarning
@@ -77,9 +77,7 @@
 
 - (void)loadUsers
 {
-    
-    userArray = [[UserDatabaseManager sharedInstance] getUserListOfType:userType];
-    
+    userArray = [((GuardianUser*)[[UserDatabaseManager sharedInstance] activeUser]).children allObjects];
 }
 
 #pragma mark - UICollectionViewDataSource Methods
@@ -173,6 +171,13 @@
     [self.delegate changeView:SETTING_TRACKING withChildren:(selectedUsers) andEmail:@"email@domain.com"];
 }
 
+- (IBAction)soundButtonPressed:(UIButton*)sender
+{
+    bool selected = sender.selected;
+    self.soundButton.selected = !selected;
+    
+    [AudioManager sharedInstance].soundEnabled = self.soundButton.selected;
+}
 
 
 @end

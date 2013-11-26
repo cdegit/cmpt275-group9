@@ -8,7 +8,7 @@
 		<string key="IBDocument.HIToolboxVersion">695.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-			<string key="NS.object.0">3746</string>
+			<string key="NS.object.0">3747</string>
 		</object>
 		<array key="IBDocument.IntegratedClassDependencies">
 			<string>IBProxyObject</string>
@@ -292,6 +292,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{794, 583}, {94, 27}}</string>
 						<reference key="NSSuperview" ref="215707306"/>
+						<reference key="NSNextKeyView" ref="537607528"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<string key="NSHuggingPriority">{750, 750}</string>
 						<bool key="IBUIOpaque">NO</bool>
@@ -343,6 +344,28 @@
 						<string key="IBUINormalTitle">About / Credits</string>
 						<reference key="IBUINormalTitleShadowColor" ref="326530209"/>
 						<reference key="IBUINormalBackgroundImage" ref="587443833"/>
+						<nil key="IBUIFontDescription"/>
+						<nil key="IBUIFont"/>
+					</object>
+					<object class="IBUIButton" id="537607528">
+						<reference key="NSNextResponder" ref="215707306"/>
+						<int key="NSvFlags">265</int>
+						<string key="NSFrame">{{923, 667}, {50, 50}}</string>
+						<reference key="NSSuperview" ref="215707306"/>
+						<string key="NSReuseIdentifierKey">_NS:9</string>
+						<bool key="IBUIOpaque">NO</bool>
+						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+						<int key="IBUIContentHorizontalAlignment">0</int>
+						<int key="IBUIContentVerticalAlignment">0</int>
+						<reference key="IBUINormalTitleShadowColor" ref="326530209"/>
+						<object class="NSCustomResource" key="IBUISelectedImage">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">sound-on.png</string>
+						</object>
+						<object class="NSCustomResource" key="IBUINormalImage">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">sound-off.png</string>
+						</object>
 						<nil key="IBUIFontDescription"/>
 						<nil key="IBUIFont"/>
 					</object>
@@ -4882,6 +4905,14 @@ AAgAAgAAAAIAAAAAAAgAAgAIAAEAAQABAAE</bytes>
 					<int key="connectionID">194</int>
 				</object>
 				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">soundButton</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="537607528"/>
+					</object>
+					<int key="connectionID">197</int>
+				</object>
+				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">loginTapped:</string>
 						<reference key="source" ref="615566231"/>
@@ -4998,6 +5029,15 @@ AAgAAgAAAAIAAAAAAAgAAgAIAAEAAQABAAE</bytes>
 					</object>
 					<int key="connectionID">195</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">soundButtonPressed:</string>
+						<reference key="source" ref="537607528"/>
+						<reference key="destination" ref="841351856"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">198</int>
+				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<array key="orderedObjects">
@@ -5038,6 +5078,7 @@ AAgAAgAAAAIAAAAAAAgAAgAIAAEAAQABAAE</bytes>
 							<reference ref="761223247"/>
 							<reference ref="756010765"/>
 							<reference ref="710035665"/>
+							<reference ref="537607528"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -5121,6 +5162,12 @@ AAgAAgAAAAIAAAAAAAgAAgAIAAEAAQABAAE</bytes>
 						<reference key="object" ref="710035665"/>
 						<reference key="parent" ref="215707306"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">196</int>
+						<reference key="object" ref="537607528"/>
+						<reference key="parent" ref="215707306"/>
+						<string key="objectName">Sound Button</string>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -5138,6 +5185,8 @@ AAgAAgAAAAIAAAAAAAgAAgAIAAEAAQABAAE</bytes>
 				<string key="188.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="189.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="193.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="196.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<real value="2" key="196.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
 				<string key="56.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="57.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="63.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -5150,7 +5199,7 @@ AAgAAgAAAAIAAAAAAAgAAgAIAAEAAQABAAE</bytes>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">195</int>
+			<int key="maxID">198</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>
@@ -5171,8 +5220,10 @@ AAgAAgAAAAIAAAAAAAgAAgAIAAEAAQABAAE</bytes>
 			<string key="Face Finder Icon brighter.png">{302, 143}</string>
 			<string key="Problem Solver Icon brighter.png">{302, 143}</string>
 			<string key="Scene Solver Icon brighter.png">{302, 143}</string>
+			<string key="sound-off.png">{50, 50}</string>
+			<string key="sound-on.png">{50, 50}</string>
 			<string key="vert gradient 2.jpg">{827, 564}</string>
 		</dictionary>
-		<string key="IBCocoaTouchPluginVersion">3746</string>
+		<string key="IBCocoaTouchPluginVersion">3747</string>
 	</data>
 </archive>

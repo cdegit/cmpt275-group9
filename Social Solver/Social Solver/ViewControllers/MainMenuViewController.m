@@ -16,6 +16,7 @@
 #import "GuardianMainMenuViewController.h"
 #import "USERDATABASEMANAGER.H"
 #import "CreditsViewController.h"
+#import "AudioManager.h"
 
 @interface MainMenuViewController ()
 
@@ -42,6 +43,8 @@
 //    _guardianMainMenuButton.hidden = YES;
     UIBarButtonItem* back = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:nil action:nil];
     [self.navigationItem setBackBarButtonItem:back];
+    
+    self.soundButton.selected = [[AudioManager sharedInstance] soundEnabled];
 }
 
 - (void)didReceiveMemoryWarning
@@ -120,6 +123,7 @@
     }
     
     GameViewController* vc = [[GameViewController alloc] initWithGameMode:gameMode];
+    [[AudioManager sharedInstance] playButtonPress];
     
     // Testing out different navigation animations
     // Interestingly enough, this is flipping from the bottom because we're in landscape...
@@ -132,11 +136,13 @@
 }
 
 - (IBAction)guardianMenuTapped:(UIButton* )sender {
+    [[AudioManager sharedInstance] playButtonPress];
     GuardianMainMenuViewController* vc = [[GuardianMainMenuViewController alloc] initWithNibName:@"GuardianMainMenuViewController" bundle:[NSBundle mainBundle]];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (IBAction)rewardsGalleryTapped:(UIButton *)sender {
+    [[AudioManager sharedInstance] playButtonPress];
     RewardsGalleryViewController* vc = [[RewardsGalleryViewController alloc] initWithNibName:@"RewardsGalleryViewController" bundle:[NSBundle mainBundle]];
     [self.navigationController pushViewController:vc animated:YES];
 }
@@ -150,19 +156,25 @@
     {
         vc = [[AccountManagementViewController alloc] initWithNibName:@"AccountManagementViewController" bundle:[NSBundle mainBundle]];
     }
+
+    [[AudioManager sharedInstance] playButtonPress];
+
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (IBAction)loginTapped:(UIButton *)sender {
+    [[AudioManager sharedInstance] playButtonPress];
     LoginViewController* vc = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:[NSBundle mainBundle]];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (IBAction)logoutTapped:(UIButton *)sender {
+    [[AudioManager sharedInstance] playButtonPress];
     [[UserDatabaseManager sharedInstance] requestLogout:self];
 }
 
 - (IBAction)creditsTapped:(UIButton *)sender {
+    [[AudioManager sharedInstance] playButtonPress];
     CreditsViewController* vc = [[CreditsViewController alloc] initWithNibName:@"CreditsViewController" bundle:[NSBundle mainBundle]];
     [self.navigationController pushViewController:vc animated:YES];
 }
@@ -191,6 +203,14 @@
     }
 }
 
+- (IBAction)soundButtonPressed:(id)sender
+{
+    UIButton* soundButton = (UIButton*)sender;
+    bool selected = soundButton.selected;
+    soundButton.selected = !selected;
+    
+    [AudioManager sharedInstance].soundEnabled = soundButton.selected;
+}
 #pragma mark - LogoutRequestDelegate methods
 
 - (void)logoutRequestGranted

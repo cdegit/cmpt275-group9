@@ -19,6 +19,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *switchButton;
 @property (weak, nonatomic) IBOutlet UILabel *test;
 @property (weak, nonatomic) IBOutlet UILabel *titleName;
-@property (weak, nonatomic) IBOutlet UILabel *buttonName;
+@property (nonatomic, weak) IBOutlet UIButton* soundButton;
 
 @end

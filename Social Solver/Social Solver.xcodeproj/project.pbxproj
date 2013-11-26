@@ -168,8 +168,6 @@
 		EAE439BE182F320B0026370C /* StatsTrayCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = EAE439BD182F320B0026370C /* StatsTrayCollectionView.m */; };
 		EAE439C218302BA80026370C /* GuardianGameMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAE439C018302BA80026370C /* GuardianGameMenuViewController.m */; };
 		EAE439C318302BA80026370C /* GuardianGameMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAE439C118302BA80026370C /* GuardianGameMenuViewController.xib */; };
-		EAE439C818303AF40026370C /* button.wav in Resources */ = {isa = PBXBuildFile; fileRef = EAE439C418303AF40026370C /* button.wav */; };
-		EAE439C918303AF40026370C /* button2.wav in Resources */ = {isa = PBXBuildFile; fileRef = EAE439C518303AF40026370C /* button2.wav */; };
 		EAE439CB18303AF40026370C /* tryagain.wav in Resources */ = {isa = PBXBuildFile; fileRef = EAE439C718303AF40026370C /* tryagain.wav */; };
 		EAE439D018303B080026370C /* AudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EAE439CD18303B080026370C /* AudioManager.m */; };
 		EAE439D118303B080026370C /* ShareRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = EAE439CF18303B080026370C /* ShareRequest.m */; };
@@ -187,6 +185,10 @@
 		EAE439EF18303B890026370C /* ShareUserSelectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAE439EB18303B890026370C /* ShareUserSelectionCell.xib */; };
 		EAE439F118303CFF0026370C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAE439F018303CFF0026370C /* AudioToolbox.framework */; };
 		EAF1099318404567002A0F61 /* profile-placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = EAF1099218404567002A0F61 /* profile-placeholder.png */; };
+		EAF1099818414149002A0F61 /* sound-off.png in Resources */ = {isa = PBXBuildFile; fileRef = EAF1099618414149002A0F61 /* sound-off.png */; };
+		EAF1099918414149002A0F61 /* sound-on.png in Resources */ = {isa = PBXBuildFile; fileRef = EAF1099718414149002A0F61 /* sound-on.png */; };
+		EAF1099B184151FD002A0F61 /* click.wav in Resources */ = {isa = PBXBuildFile; fileRef = EAF1099A184151FD002A0F61 /* click.wav */; };
+		EAF1099D184154FF002A0F61 /* click2.wav in Resources */ = {isa = PBXBuildFile; fileRef = EAF1099C184154FF002A0F61 /* click2.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -491,8 +493,6 @@
 		EAE439BF18302BA80026370C /* GuardianGameMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuardianGameMenuViewController.h; sourceTree = "<group>"; };
 		EAE439C018302BA80026370C /* GuardianGameMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuardianGameMenuViewController.m; sourceTree = "<group>"; };
 		EAE439C118302BA80026370C /* GuardianGameMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GuardianGameMenuViewController.xib; path = ViewControllers/GuardianGameMenuViewController.xib; sourceTree = "<group>"; };
-		EAE439C418303AF40026370C /* button.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = button.wav; sourceTree = "<group>"; };
-		EAE439C518303AF40026370C /* button2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = button2.wav; sourceTree = "<group>"; };
 		EAE439C718303AF40026370C /* tryagain.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = tryagain.wav; sourceTree = "<group>"; };
 		EAE439CC18303B080026370C /* AudioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioManager.h; sourceTree = "<group>"; };
 		EAE439CD18303B080026370C /* AudioManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioManager.m; sourceTree = "<group>"; };
@@ -518,6 +518,10 @@
 		EAE439EB18303B890026370C /* ShareUserSelectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ShareUserSelectionCell.xib; path = Views/ShareUserSelectionCell.xib; sourceTree = "<group>"; };
 		EAE439F018303CFF0026370C /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		EAF1099218404567002A0F61 /* profile-placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile-placeholder.png"; sourceTree = "<group>"; };
+		EAF1099618414149002A0F61 /* sound-off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sound-off.png"; sourceTree = "<group>"; };
+		EAF1099718414149002A0F61 /* sound-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sound-on.png"; sourceTree = "<group>"; };
+		EAF1099A184151FD002A0F61 /* click.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = click.wav; sourceTree = "<group>"; };
+		EAF1099C184154FF002A0F61 /* click2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = click2.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -695,17 +699,16 @@
 		EAC698CD181DB7F000342086 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				EAF1099218404567002A0F61 /* profile-placeholder.png */,
-				81DFCCA818402C520067E5F3 /* happy-75x85-disabled.png */,
-				81DFCCA918402C520067E5F3 /* surprised-75x85-disabled.png */,
-				81DFCCAA18402C520067E5F3 /* sad-75x85-disabled.png */,
-				81DFCCAB18402C520067E5F3 /* disgusted-75x85-disabled.png */,
-				81DFCCAC18402C520067E5F3 /* angry-75x85-disabled.png */,
+				EAF1099C184154FF002A0F61 /* click2.wav */,
+				EAF1099A184151FD002A0F61 /* click.wav */,
+				EAF1099618414149002A0F61 /* sound-off.png */,
+				EAF1099718414149002A0F61 /* sound-on.png */,
+				EAC69911181DCBC600342086 /* circle_gradient.jpg */,
+				EAC69917181DD1E700342086 /* test_image.jpg */,
+				EAC69914181DCE3C00342086 /* vert gradient 2.jpg */,
 				81DFCCAD18402C520067E5F3 /* afraid-75x85-disabled.png */,
-				81DFCCAE18402C520067E5F3 /* frame.png */,
-				817F14D318304AE800D058A8 /* Icons */,
+				81DFCCAC18402C520067E5F3 /* angry-75x85-disabled.png */,
 				EAC698D0181DB81A00342086 /* App Icon 144x144.png */,
-				817F14AF1830463C00D058A8 /* cheering.wav */,
 				EAC698CF181DB81A00342086 /* App Icon 72x72.png */,
 				EAE439B0182F03880026370C /* arrow-down.png */,
 				EAE439B1182F03880026370C /* arrow-left.png */,
@@ -713,31 +716,34 @@
 				EAE439B3182F03880026370C /* arrow-up.png */,
 				EAC698FD181DC15800342086 /* Button 300x50 brighter.png */,
 				EAC698D2181DB81A00342086 /* Button 300x50.png */,
-				EAE439C418303AF40026370C /* button.wav */,
-				EAE439C518303AF40026370C /* button2.wav */,
 				EAC698DB181DB81A00342086 /* children-50x50.png */,
-				EAC69911181DCBC600342086 /* circle_gradient.jpg */,
+				81DFCCAB18402C520067E5F3 /* disgusted-75x85-disabled.png */,
 				EAC698FF181DC20D00342086 /* Face Finder Icon brighter.png */,
 				EAC698D4181DB81A00342086 /* Face Finder Icon.png */,
-				EAC698F4181DB81E00342086 /* FaceFinder images */,
+				81DFCCAE18402C520067E5F3 /* frame.png */,
 				EAC698DC181DB81A00342086 /* games-50x50.png */,
+				81DFCCA818402C520067E5F3 /* happy-75x85-disabled.png */,
 				EAE439B4182F03880026370C /* open arrow down.png */,
 				EAE439BA182F05AB0026370C /* open arrow right.png */,
 				EAC698DD181DB81A00342086 /* pending-50x50.png */,
 				EAC69900181DC20D00342086 /* Problem Solver Icon brighter.png */,
 				EAC698D7181DB81A00342086 /* Problem Solver Icon.png */,
+				EAF1099218404567002A0F61 /* profile-placeholder.png */,
 				EAC69901181DC20D00342086 /* Rewards Gallery Icon brighter.png */,
+				81DFCCAA18402C520067E5F3 /* sad-75x85-disabled.png */,
 				EAC69902181DC20D00342086 /* Scene Solver Icon brighter.png */,
 				EAC698D9181DB81A00342086 /* Scene Solver Icon.png */,
 				EAC698DE181DB81A00342086 /* settings-50x50.png */,
 				EAC698DF181DB81A00342086 /* share-50x50.png */,
-				EAE43995182EE9C80026370C /* Stats Problem Icons */,
 				EAC698E0181DB81A00342086 /* stats-50x50.png */,
-				EAC698F5181DB83400342086 /* StorySolver videos */,
 				EAC6990D181DCAC100342086 /* stressed_linen_@2X.png */,
-				EAC69917181DD1E700342086 /* test_image.jpg */,
+				81DFCCA918402C520067E5F3 /* surprised-75x85-disabled.png */,
+				817F14AF1830463C00D058A8 /* cheering.wav */,
 				EAE439C718303AF40026370C /* tryagain.wav */,
-				EAC69914181DCE3C00342086 /* vert gradient 2.jpg */,
+				EAC698F4181DB81E00342086 /* FaceFinder images */,
+				817F14D318304AE800D058A8 /* Icons */,
+				EAE43995182EE9C80026370C /* Stats Problem Icons */,
+				EAC698F5181DB83400342086 /* StorySolver videos */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -857,10 +863,9 @@
 		EACC67D41807339500FEAC76 /* Xibs */ = {
 			isa = PBXGroup;
 			children = (
-				81D71E7F183ED22E00D1E63D /* RewardsGalleryCell.xib */,
-				2A4D173D183FB64A00352A42 /* AddExistingChildViewController.xib */,
-				2A6C6D02183AC5D20018F407 /* ManageChildTileCell.xib */,
 				EACC67F1180B4BC700FEAC76 /* AccountManagementViewController.xib */,
+				2A4D173D183FB64A00352A42 /* AddExistingChildViewController.xib */,
+				04950EAF1840B11E00030FB6 /* CreditsViewController.xib */,
 				EACC67EC180B4B8D00FEAC76 /* GameViewController.xib */,
 				EABC93B0182E06CA00E81664 /* GraphViewController.xib */,
 				EAE439C118302BA80026370C /* GuardianGameMenuViewController.xib */,
@@ -870,11 +875,14 @@
 				2A730FA11819A541000356DE /* LoginUserSelectionCell.xib */,
 				EACC67E7180B4B6600FEAC76 /* LoginViewController.xib */,
 				EACC67CA18037DA300FEAC76 /* MainMenuViewController.xib */,
+				2A6C6D02183AC5D20018F407 /* ManageChildTileCell.xib */,
 				EACC6805180B954C00FEAC76 /* NavigationTableCell.xib */,
 				EAE439E818303B890026370C /* PendingSharesTableCell.xib */,
 				EAE439D418303B2D0026370C /* PendingSharesViewController.xib */,
 				EAC6993E1828B39100342086 /* PopoverPickerViewController.xib */,
+				81D71E7F183ED22E00D1E63D /* RewardsGalleryCell.xib */,
 				EACC67F6180B4C4800FEAC76 /* RewardsGalleryViewController.xib */,
+				049E1241183BEDFF00083303 /* SettingViewController.xib */,
 				EAE439D718303B2D0026370C /* ShareProfileSecurityCodeViewController.xib */,
 				EAE439DA18303B2D0026370C /* ShareProfilesViewController.xib */,
 				EAE439DD18303B2D0026370C /* ShareProfilesWithGuardianViewController.xib */,
@@ -882,12 +890,10 @@
 				EACC6809180B9CE900FEAC76 /* StatisticsViewController.xib */,
 				EAC699431828B3A000342086 /* StatsChildCell.xib */,
 				EAC699461828B3A000342086 /* StatsProblemCell.xib */,
-				2A67ECE01827F245000695CC /* ViewChildrenViewController.xib */,
-				049E1241183BEDFF00083303 /* SettingViewController.xib */,
-				049E1246183BEE2500083303 /* TrackingUserSelectionCell.xib */,
 				04D59252184097B9009764A9 /* SyncingUserSelectionCell.xib */,
 				04D59250184097A0009764A9 /* SyncingViewController.xib */,
-				04950EAF1840B11E00030FB6 /* CreditsViewController.xib */,
+				049E1246183BEE2500083303 /* TrackingUserSelectionCell.xib */,
+				2A67ECE01827F245000695CC /* ViewChildrenViewController.xib */,
 			);
 			name = Xibs;
 			sourceTree = "<group>";
@@ -897,6 +903,10 @@
 			children = (
 				EACC67EF180B4BC600FEAC76 /* AccountManagementViewController.h */,
 				EACC67F0180B4BC700FEAC76 /* AccountManagementViewController.m */,
+				2A4D173B183FB64A00352A42 /* AddExistingChildViewController.h */,
+				2A4D173C183FB64A00352A42 /* AddExistingChildViewController.m */,
+				04950EAD1840B11E00030FB6 /* CreditsViewController.h */,
+				04950EAE1840B11E00030FB6 /* CreditsViewController.m */,
 				EACC67EA180B4B8D00FEAC76 /* GameViewController.h */,
 				EACC67EB180B4B8D00FEAC76 /* GameViewController.m */,
 				EABC93AD182E06C200E81664 /* GraphViewController.h */,
@@ -921,6 +931,8 @@
 				EACC67F5180B4C4800FEAC76 /* RewardsGalleryViewController.m */,
 				EACC67CD1803816800FEAC76 /* RootNavigationViewController.h */,
 				EACC67CE1803816800FEAC76 /* RootNavigationViewController.m */,
+				049E123E183BEDD100083303 /* SettingViewController.h */,
+				049E123F183BEDE600083303 /* SettingViewController.m */,
 				EAE439D518303B2D0026370C /* ShareProfileSecurityCodeViewController.h */,
 				EAE439D618303B2D0026370C /* ShareProfileSecurityCodeViewController.m */,
 				EAE439D818303B2D0026370C /* ShareProfilesViewController.h */,
@@ -929,16 +941,10 @@
 				EAE439DC18303B2D0026370C /* ShareProfilesWithGuardianViewController.m */,
 				EACC6807180B9CE900FEAC76 /* StatisticsViewController.h */,
 				EACC6808180B9CE900FEAC76 /* StatisticsViewController.m */,
-				2A67ECDE1827F245000695CC /* ViewChildrenViewController.h */,
-				2A67ECDF1827F245000695CC /* ViewChildrenViewController.m */,
-				049E123E183BEDD100083303 /* SettingViewController.h */,
-				049E123F183BEDE600083303 /* SettingViewController.m */,
-				2A4D173B183FB64A00352A42 /* AddExistingChildViewController.h */,
-				2A4D173C183FB64A00352A42 /* AddExistingChildViewController.m */,
 				04D5924D18409785009764A9 /* SyncingViewController.h */,
 				04D5924E18409797009764A9 /* SyncingViewController.m */,
-				04950EAD1840B11E00030FB6 /* CreditsViewController.h */,
-				04950EAE1840B11E00030FB6 /* CreditsViewController.m */,
+				2A67ECDE1827F245000695CC /* ViewChildrenViewController.h */,
+				2A67ECDF1827F245000695CC /* ViewChildrenViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1130,6 +1136,7 @@
 				EACC67E9180B4B6600FEAC76 /* LoginViewController.xib in Resources */,
 				EAE439B9182F03880026370C /* open arrow down.png in Resources */,
 				817F14B01830463C00D058A8 /* cheering.wav in Resources */,
+				EAF1099918414149002A0F61 /* sound-on.png in Resources */,
 				EABC93B1182E06CA00E81664 /* GraphViewController.xib in Resources */,
 				EAE439C318302BA80026370C /* GuardianGameMenuViewController.xib in Resources */,
 				EAC698FE181DC15800342086 /* Button 300x50 brighter.png in Resources */,
@@ -1139,11 +1146,13 @@
 				EAC698E6181DB81A00342086 /* disgust.png in Resources */,
 				EAC699481828B3A000342086 /* StatsChildCell.xib in Resources */,
 				EAC698EB181DB81A00342086 /* sad.png in Resources */,
+				EAF1099D184154FF002A0F61 /* click2.wav in Resources */,
 				EAC698E9181DB81A00342086 /* happy.png in Resources */,
 				EAE439AB182EE9E50026370C /* scene-bear toy.png in Resources */,
 				817F14C418304AE100D058A8 /* launch-1024x748.png in Resources */,
 				81DFCCB318402C520067E5F3 /* angry-75x85-disabled.png in Resources */,
 				EAE4399D182EE9D90026370C /* angry-75x85.png in Resources */,
+				EAF1099B184151FD002A0F61 /* click.wav in Resources */,
 				EAC698E1181DB81A00342086 /* anger.png in Resources */,
 				81D71E80183ED22E00D1E63D /* RewardsGalleryCell.xib in Resources */,
 				2A67ECE21827F245000695CC /* ViewChildrenViewController.xib in Resources */,
@@ -1179,7 +1188,6 @@
 				2A7DB107181B3A24008EF99F /* LoginPromptViewController.xib in Resources */,
 				EAE439B5182F03880026370C /* arrow-down.png in Resources */,
 				EAC69905181DC20D00342086 /* Rewards Gallery Icon brighter.png in Resources */,
-				EAE439C918303AF40026370C /* button2.wav in Resources */,
 				049E1242183BEDFF00083303 /* SettingViewController.xib in Resources */,
 				81DFCCB418402C520067E5F3 /* afraid-75x85-disabled.png in Resources */,
 				EAC698F1181DB81A00342086 /* settings-50x50.png in Resources */,
@@ -1188,7 +1196,6 @@
 				EAC698F0181DB81A00342086 /* pending-50x50.png in Resources */,
 				817F14C318304AE100D058A8 /* ult.png in Resources */,
 				EAC698E8181DB81A00342086 /* fear.png in Resources */,
-				EAE439C818303AF40026370C /* button.wav in Resources */,
 				EAE439AC182EE9E50026370C /* scene-Billy surprises Suzy.png in Resources */,
 				817F14CF18304AE100D058A8 /* spotlight-40x40.png in Resources */,
 				EACC680B180B9CE900FEAC76 /* StatisticsViewController.xib in Resources */,
@@ -1210,6 +1217,7 @@
 				817F14CA18304AE100D058A8 /* non-retina.png in Resources */,
 				EAC69912181DCBC600342086 /* circle_gradient.jpg in Resources */,
 				817F14D018304AE100D058A8 /* spotlight-50x50.png in Resources */,
+				EAF1099818414149002A0F61 /* sound-off.png in Resources */,
 				EAC698E2181DB81A00342086 /* App Icon 72x72.png in Resources */,
 				EAE439B8182F03880026370C /* arrow-up.png in Resources */,
 			);
