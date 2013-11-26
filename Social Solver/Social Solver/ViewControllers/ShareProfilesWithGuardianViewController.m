@@ -8,7 +8,6 @@
 // Version 2 
 
 #import "ShareProfilesWithGuardianViewController.h"
-#import "AudioManager.h"
 
 @interface ShareProfilesWithGuardianViewController () {
     NSMutableArray* shareReqs;
@@ -42,8 +41,6 @@
 }
 
 -(IBAction) shareButtonPressed:(id) sender {
-    [[AudioManager sharedInstance] playButtonPress];
-
     // Check that, if the user is a guardian, that the email address is valid
     NSPredicate *isEmail = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", @"[a-z0-9][a-z0-9\\._]*[a-z0-9]@[a-z0-9][a-z0-9\\.]*[a-z0-9]"];
     

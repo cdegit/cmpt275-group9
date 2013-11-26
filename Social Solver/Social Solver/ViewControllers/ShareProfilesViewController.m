@@ -15,7 +15,6 @@
 #import "UserDatabaseManager.h"
 #import "GuardianMainMenuViewController.h"
 #import "User.h"
-#import "AudioManager.h"
 
 @interface ShareProfilesViewController () {
 
@@ -149,8 +148,6 @@
 }
 
 -(IBAction) shareWithButtonPressed:(id) sender {
-    [[AudioManager sharedInstance] playButtonPress];
-
     if ([selectedUsers count] == 0) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Select a Child" message:@"Please select at least one child to share." delegate:self cancelButtonTitle:@"Continue" otherButtonTitles:nil];
         

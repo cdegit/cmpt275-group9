@@ -14,7 +14,6 @@
 #import "GuardianUser.h"
 #import "UserDatabaseManager.h"
 #import "ServerCommunicationManager.h"
-#import "AudioManager.h"
 
 @interface AccountManagementViewController ()
 {
@@ -143,8 +142,7 @@
 -(IBAction)fetchImageFromiPhoto:(id)sender
 {
     // Launch the UIImagePickerController to get an image from the iPhoto Library
-    [[AudioManager sharedInstance] playButtonPress];
-
+    
     UIImagePickerController* ipc = [[UIImagePickerController alloc] init];
     [ipc setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
     [ipc setDelegate:self];
@@ -157,8 +155,7 @@
 -(IBAction)fetchImageFromCamera:(id)sender
 {
     // Launch the UIImagePickerController to get an image from the Camera
-    [[AudioManager sharedInstance] playButtonPress];
-
+    
     UIImagePickerController* ipc = [[UIImagePickerController alloc] init];
     [ipc setSourceType:UIImagePickerControllerSourceTypeCamera];
     [ipc setDelegate:self];
@@ -170,7 +167,6 @@
 -(IBAction)save:(id)sender
 {
     // Load the Apps Managed Object Context
-    [[AudioManager sharedInstance] playButtonPress];
     
     NSManagedObjectContext *mc = [(AppDelegate*)[[UIApplication sharedApplication] delegate] managedObjectContext];
     User* user;
@@ -302,7 +298,6 @@
 {
     [[self navigationController] popViewControllerAnimated:YES];
     [_delegate editedUser:nil];
-    [[AudioManager sharedInstance] playButtonPress];
 }
 
 #pragma mark - Internal Methods

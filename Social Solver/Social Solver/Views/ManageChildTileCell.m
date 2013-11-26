@@ -7,7 +7,6 @@
 //
 
 #import "ManageChildTileCell.h"
-#import "AudioManager.h"
 
 @implementation ManageChildTileCell
 
@@ -31,8 +30,6 @@
 
 - (IBAction)editUserPressed:(id)sender
 {
-    [[AudioManager sharedInstance] playButtonPress];
-
     NSLog(@"Pressing edit");
     [_delegate userTile:self wantsEditAccount:_child];
 }
@@ -40,22 +37,16 @@
 
 - (IBAction)deleteUserPressed:(id)sender
 {
-    [[AudioManager sharedInstance] playButtonPress];
-
     [_delegate userTile:self wantsDeleteAccount:_child];
 }
 
 - (IBAction)createUserPressed:(id)sender
 {
-    [[AudioManager sharedInstance] playButtonPress];
-
     [_delegate wantsCreateUserByCell:self];
 }
 
 - (IBAction)addExistingUserPressed:(id)sender
 {
-    [[AudioManager sharedInstance] playButtonPress];
-
     [_delegate wantsAddExistingUserByCell:self];
 }
 
