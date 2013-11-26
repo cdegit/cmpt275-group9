@@ -21,6 +21,7 @@
     User* _editedUser;
     UIPopoverController* _imageLibraryPopover;
     BOOL creatingUser;
+    UIAlertView *_deleteConfirm;
 }
 
 -(BOOL)checkNameUnique:(NSString*)name;
@@ -35,6 +36,8 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         creatingUser = YES;
+        _editedUser = nil;
+        _deleteConfirm = nil;
     }
     return self;
 }
@@ -76,8 +79,10 @@
     
     
     // If editing a user load Fields
-    if (_editedUser!=nil) {
+    if (_editedUser) {
         [_nameField setText:[_editedUser name]];
+        [_deleteAccountButton setHidden:NO];
+        [_deleteAccountButton setEnabled:YES];
         
         [_profileImageView setImage:[_editedUser profileImage]];
         
@@ -109,6 +114,7 @@
         _userType = type;
         _editedUser = nil;
         creatingUser = YES;
+        _deleteConfirm = nil;
     }
     return self;
 }
@@ -121,6 +127,7 @@
         _editedUser = user;
         _userType = [[_editedUser entity] name];
         creatingUser = NO;
+        _deleteConfirm = nil;
     }
     return self;
 }
@@ -305,6 +312,12 @@
     [_delegate editedUser:nil];
 }
 
+-(IBAction)deleteAccount:(id)sender
+{
+    _deleteConfirm = [[UIAlertView alloc] initWithTitle:@"Delete Account" message:@"Are you sure you want to delete this account? This cannot be undone" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+    [_deleteConfirm show];
+}
+
 #pragma mark - Internal Methods
 
 -(BOOL)checkNameUnique:(NSString*)name
@@ -366,6 +379,25 @@
     [textField resignFirstResponder];
     
     return NO;
+}
+
+#pragma mark - UIAlertViewDelegate methods
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    switch (buttonIndex) {
+        case 1:
+            if ([_editedUser isEqual:[[UserDatabaseManager sharedInstance] activeUser]]) {
+                [[UserDatabaseManager sharedInstance] logoutActiveUser];
+            }
+            [_delegate willDeleteUser:_editedUser];
+            [[UserDatabaseManager sharedInstance] deleteUser:_editedUser];
+            [_delegate didDeleteUser];
+            break;
+            
+        default:
+            break;
+    }
 }
 
 

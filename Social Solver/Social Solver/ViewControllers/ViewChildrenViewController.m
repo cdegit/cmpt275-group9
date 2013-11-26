@@ -21,7 +21,8 @@
     NSMutableArray* _childArray;
     ManageChildTileCell *_selectedCell;
     NSInteger _activeTile;
-    UIAlertView* _confirmDeleteAlertView;
+    UIAlertView* _confirmUnlinkAlertView;
+    UIAlertView *_confirmDeleteAlertView;
 }
 
 @end
@@ -39,7 +40,8 @@ NSComparator caseInsensitiveComparator = ^(NSString *obj1, NSString *obj2)
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        _confirmUnlinkAlertView = nil;
+        _confirmDeleteAlertView = nil;
     }
     return self;
 }
@@ -91,33 +93,7 @@ NSComparator caseInsensitiveComparator = ^(NSString *obj1, NSString *obj2)
     
 }
 
-
-// Respond to the selected option from the manage child popup
-- (void)manageChildPopupSelection:(NSInteger)selectionIndex
-{
-    [_manageChildPopover dismissPopoverAnimated:YES];
-    AccountManagementViewController *amvc = nil;
-    
-    switch (selectionIndex) {
-        // Edit User
-        case 0:
-            amvc = [[AccountManagementViewController alloc] initWithNibName:@"AccountManagementViewController" bundle:[NSBundle mainBundle] withUser:[_childArray objectAtIndex:selectionIndex]];
-            [amvc setDelegate:self];
-            [amvc setModalPresentationStyle:UIModalPresentationCurrentContext];
-            [self presentViewController:amvc animated:YES completion:NULL];
-            _activeTile = -1;
-            break;
-        
-        // Remove User
-        case 1:
-            _confirmDeleteAlertView = [[UIAlertView alloc] initWithTitle:@"Remove Child Account" message:[NSString stringWithFormat:@"Are you sure you want to remove %@'s account?", [[_childArray objectAtIndex:_activeTile] name]] delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
-            [_confirmDeleteAlertView show];
-            break;
-            
-        default:
-            break;
-    }
-}
+#pragma mark - ManageChildUserCell methods
 
 - (void)userTile:(id)cell wantsEditAccount:(User*)user
 {
@@ -131,12 +107,19 @@ NSComparator caseInsensitiveComparator = ^(NSString *obj1, NSString *obj2)
 
 }
 
-- (void)userTile:(id)cell wantsDeleteAccount:(User*)user
+- (void)userTile:(id)cell wantsUnlinkAccount:(User*)user
 {
-    _confirmDeleteAlertView = [[UIAlertView alloc] initWithTitle:@"Remove Child Account" message:[NSString stringWithFormat:@"Are you sure you want to remove %@'s account?", [[_childArray objectAtIndex:_activeTile] name]] delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
-    [_confirmDeleteAlertView show];
+    _confirmUnlinkAlertView = [[UIAlertView alloc] initWithTitle:@"Unlink Child Account" message:[NSString stringWithFormat:@"Are you sure you want to unlink %@'s account?", [[_childArray objectAtIndex:_activeTile] name]] delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+    [_confirmUnlinkAlertView show];
     [[cell manageView] setHidden:YES];
     
+}
+
+- (void)userTile:(id)cell wantsDeleteAccount:(User *)user
+{
+    _confirmDeleteAlertView = [[UIAlertView alloc] initWithTitle:@"Delete Child Account" message:[NSString stringWithFormat:@"Are you sure you want to delete %@'s account? This cannot be undone.", [user name]] delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+    [_confirmDeleteAlertView show];
+    [[cell manageView] setHidden:YES];
 }
 
 - (void)wantsCreateUserByCell:(id)cell
@@ -186,6 +169,9 @@ NSComparator caseInsensitiveComparator = ^(NSString *obj1, NSString *obj2)
         [[cell button2] setTitle:@"Add Existing Child" forState:UIControlStateNormal];
         [[cell button2] removeTarget:cell action:@selector(deleteUserPressed:) forControlEvents:UIControlEventTouchUpInside];
         [[cell button2] addTarget:cell action:@selector(addExistingUserPressed:) forControlEvents:UIControlEventTouchUpInside];
+        
+        [[cell button3] setHidden:YES];
+        [[cell button3] setEnabled:NO];
         
         UIImage* img = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"children-50x50" ofType:@"png"]];
         
@@ -280,31 +266,57 @@ NSComparator caseInsensitiveComparator = ^(NSString *obj1, NSString *obj2)
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
+- (void)willDeleteUser:(User *)user
+{
+    NSLog(@"Deleting User of Guardian Account");
+    if ([_childArray containsObject:user]) {
+        NSLog(@"In array to be removed");
+    }
+    else
+    {
+        NSLog(@"Not in array :(");
+    }
+    [_childArray removeObject:user];
+}
+
+- (void)didDeleteUser
+{
+    [self dismissViewControllerAnimated:YES completion:NULL];
+    [_childrenView reloadData];
+}
+
 #pragma mark - UIAlertViewDelegate methods
 
 // If the user want to remove the child account do so
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if ([alertView isEqual:_confirmDeleteAlertView] && buttonIndex == 1 && _activeTile>=0) {
+    if ([alertView isEqual:_confirmUnlinkAlertView] && buttonIndex == 1 && _activeTile>=0) {
         GuardianUser *guardian = (GuardianUser*)[[UserDatabaseManager sharedInstance] activeUser];
         ChildUser *child = [_childArray objectAtIndex:_activeTile];
         
         if ([[child primaryGuardian] isEqual:guardian]) {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Could Not Remove Child" message:@"As you are the primary guardian of this child account, you may not remove the child account." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Could Not Unlink Child" message:@"As you are the primary guardian of this child account, you may not unlink from this child account." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil];
             [alert show];
         }
         else
         {
             [guardian removeChildrenObject:child];
-            if ([[child guardians] count]==0) {
-                [[UserDatabaseManager sharedInstance] deleteUser:child];
-            }
             [_childArray removeObjectAtIndex:_activeTile];
             [_childrenView reloadData];
         }
         
         _activeTile = -1;
+        _confirmUnlinkAlertView = nil;
         
+    }
+    else if([alertView isEqual:_confirmDeleteAlertView] && buttonIndex==1 && _activeTile>=0)
+    {
+        ChildUser *child = [_childArray objectAtIndex:_activeTile];
+        [_childArray removeObjectAtIndex:_activeTile];
+        [_childrenView reloadData];
+        [[UserDatabaseManager sharedInstance] deleteUser:child];
+        
+        _confirmDeleteAlertView = nil;
     }
 }
 

@@ -17,8 +17,6 @@
 @interface ViewChildrenViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UIAlertViewDelegate, AccountManagementViewControllerDelegate, ManageChildTileCellDelegate, AddExistingChildViewControllerDelegate>
 
 
-- (void)manageChildPopupSelection:(NSInteger)selectionIndex;
-
 @property (weak, nonatomic) IBOutlet UICollectionView *childrenView;
 
 @end

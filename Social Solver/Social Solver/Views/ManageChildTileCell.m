@@ -35,6 +35,11 @@
 }
 
 
+- (IBAction)unlinkUserPressed:(id)sender
+{
+    [_delegate userTile:self wantsUnlinkAccount:_child];
+}
+
 - (IBAction)deleteUserPressed:(id)sender
 {
     [_delegate userTile:self wantsDeleteAccount:_child];

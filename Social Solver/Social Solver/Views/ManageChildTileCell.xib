@@ -31,14 +31,14 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mta-eS-aGA">
-                                <rect key="frame" x="20" y="72" width="185" height="44"/>
+                                <rect key="frame" x="20" y="71" width="185" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Remove Account" backgroundImage="Button 300x50.png">
+                                <state key="normal" title="Unlink Account" backgroundImage="Button 300x50.png">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="deleteUserPressed:" destination="1hK-1S-2lc" eventType="touchUpInside" id="Qcm-7t-igb"/>
+                                    <action selector="unlinkUserPressed:" destination="1hK-1S-2lc" eventType="touchUpInside" id="Y3I-st-1PH"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pc4-4m-eaT">
@@ -52,6 +52,17 @@
                                     <action selector="editUserPressed:" destination="1hK-1S-2lc" eventType="touchUpInside" id="Fnm-sD-oPF"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5jY-F2-jJL">
+                                <rect key="frame" x="20" y="121" width="185" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Delete Account" backgroundImage="Button 300x50.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteUserPressed:" destination="1hK-1S-2lc" eventType="touchUpInside" id="dyt-YP-CIK"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.75" colorSpace="calibratedWhite"/>
                     </view>
@@ -62,6 +73,7 @@
             <connections>
                 <outlet property="button1" destination="pc4-4m-eaT" id="u83-Pb-aB1"/>
                 <outlet property="button2" destination="Mta-eS-aGA" id="mz8-bF-HJW"/>
+                <outlet property="button3" destination="5jY-F2-jJL" id="bDK-cL-1eE"/>
                 <outlet property="imageView" destination="38Y-cP-tej" id="x0X-fd-VLw"/>
                 <outlet property="manageView" destination="u7D-cB-Yt1" id="7lq-bW-6Mh"/>
                 <outlet property="nameLabel" destination="Sxj-OQ-hif" id="wWx-ti-55m"/>

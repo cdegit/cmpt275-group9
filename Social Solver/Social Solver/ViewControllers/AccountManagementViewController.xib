@@ -348,6 +348,7 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{295, 363}, {200, 44}}</string>
 								<reference key="NSSuperview" ref="601110436"/>
+								<reference key="NSNextKeyView" ref="744274173"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -434,6 +435,26 @@
 								<reference key="IBUIFontDescription" ref="762312373"/>
 								<reference key="IBUIFont" ref="493328346"/>
 								<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
+							</object>
+							<object class="IBUIButton" id="744274173">
+								<reference key="NSNextResponder" ref="601110436"/>
+								<int key="NSvFlags">-2147483356</int>
+								<string key="NSFrame">{{191, 415}, {200, 44}}</string>
+								<reference key="NSSuperview" ref="601110436"/>
+								<string key="NSReuseIdentifierKey">_NS:9</string>
+								<bool key="IBUIOpaque">NO</bool>
+								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+								<bool key="IBUIEnabled">NO</bool>
+								<int key="IBUIContentHorizontalAlignment">0</int>
+								<int key="IBUIContentVerticalAlignment">0</int>
+								<int key="IBUIButtonType">1</int>
+								<reference key="IBUINormalTitleColor" ref="279352171"/>
+								<reference key="IBUIHighlightedTitleColor" ref="279352171"/>
+								<string key="IBUINormalTitle">Delete Account</string>
+								<reference key="IBUINormalTitleShadowColor" ref="107269792"/>
+								<reference key="IBUINormalBackgroundImage" ref="1023442622"/>
+								<reference key="IBUIFontDescription" ref="408370817"/>
+								<reference key="IBUIFont" ref="665870334"/>
 							</object>
 						</array>
 						<string key="NSFrame">{{221, 20}, {583, 496}}</string>
@@ -4939,6 +4960,14 @@ AAgAAgAAAAIAAAAAAAgAAgAIAAEAAQABAAE</bytes>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">deleteAccountButton</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="744274173"/>
+					</object>
+					<string key="id">tXU-Ap-CTY</string>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">delegate</string>
 						<reference key="source" ref="204894413"/>
 						<reference key="destination" ref="841351856"/>
@@ -4996,6 +5025,15 @@ AAgAAgAAAAIAAAAAAAgAAgAIAAEAAQABAAE</bytes>
 						<int key="IBEventType">7</int>
 					</object>
 					<string key="id">vyv-Xk-dmb</string>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">deleteAccount:</string>
+						<reference key="source" ref="744274173"/>
+						<reference key="destination" ref="841351856"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<string key="id">jrZ-gG-lZd</string>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
@@ -5062,6 +5100,7 @@ AAgAAgAAAAIAAAAAAAgAAgAIAAEAAQABAAE</bytes>
 							<reference ref="100664130"/>
 							<reference ref="132483814"/>
 							<reference ref="637122237"/>
+							<reference ref="744274173"/>
 						</array>
 						<reference key="parent" ref="766721923"/>
 					</object>
@@ -5145,6 +5184,11 @@ AAgAAgAAAAIAAAAAAAgAAgAIAAEAAQABAAE</bytes>
 						<reference key="object" ref="637122237"/>
 						<reference key="parent" ref="601110436"/>
 					</object>
+					<object class="IBObjectRecord">
+						<string key="id">nOs-oM-xgy</string>
+						<reference key="object" ref="744274173"/>
+						<reference key="parent" ref="601110436"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -5164,6 +5208,7 @@ AAgAAgAAAAIAAAAAAAgAAgAIAAEAAQABAAE</bytes>
 				<string key="fro-Yb-M0w.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="j90-NB-9aq.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="mWd-Nb-MKd.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="nOs-oM-xgy.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="pMO-un-aLI.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="pOw-rd-Axd.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="qlf-2N-lTp.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>

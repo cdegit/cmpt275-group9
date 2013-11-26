@@ -14,6 +14,8 @@
 
 - (void)userTile:(id)cell wantsEditAccount:(User*)user;
 
+- (void)userTile:(id)cell wantsUnlinkAccount:(User*)user;
+
 - (void)userTile:(id)cell wantsDeleteAccount:(User*)user;
 
 - (void)wantsCreateUserByCell:(id)cell;

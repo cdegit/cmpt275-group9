@@ -19,7 +19,7 @@
 #import "AccountManagementViewControllerDelegate.h"
 
 
-@interface AccountManagementViewController : UIViewController <UINavigationControllerDelegate,UIImagePickerControllerDelegate, UITextFieldDelegate>
+@interface AccountManagementViewController : UIViewController <UINavigationControllerDelegate,UIImagePickerControllerDelegate, UITextFieldDelegate, UIAlertViewDelegate>
 
 
 // From Version 1
@@ -43,6 +43,7 @@
 // Added Version 3
 
 @property (weak, nonatomic) IBOutlet UILabel *showEmail;
+@property (weak, nonatomic) IBOutlet UIButton *deleteAccountButton;
 
 
 
@@ -55,6 +56,9 @@
 
 // Added in Version 2
 -(IBAction)cancel:(id)sender;
+
+// Added in Version 3
+-(IBAction)deleteAccount:(id)sender;
 
 
 @end

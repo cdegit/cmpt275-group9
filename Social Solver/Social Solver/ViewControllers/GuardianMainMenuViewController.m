@@ -206,6 +206,7 @@ const int SETTING_SYNCING = 3;
         {
             // Load Edit Account
             AccountManagementViewController *editAccount = [[AccountManagementViewController alloc] initWithNibName:@"AccountManagementViewController" bundle:[NSBundle mainBundle] withUser:[[UserDatabaseManager sharedInstance] activeUser]];
+            [editAccount setDelegate:self];
             [self setDetailViewController:editAccount];
             
             break;
@@ -276,6 +277,30 @@ const int SETTING_SYNCING = 3;
 - (void) switchView:(int) view withChildren:(NSMutableArray*)children andEmail:(NSString*)email {
     switch(view) {
     }
+}
+
+#pragma mark - AccountManagementViewControllerDelegate methods
+
+- (void)createdUser:(User*)user
+{
+    // Shouldn't happen
+}
+
+
+- (void)editedUser:(User*)user
+{
+    // Do nothing, or maybe confirm that it is saved in someway
+}
+
+- (void)willDeleteUser:(User *)user
+{
+    // Nothing to do
+}
+
+
+- (void)didDeleteUser
+{
+    [[self navigationController] popToRootViewControllerAnimated:YES];
 }
 
 

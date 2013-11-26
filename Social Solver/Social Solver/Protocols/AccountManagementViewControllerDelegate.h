@@ -13,7 +13,9 @@
 
 @protocol AccountManagementViewControllerDelegate <NSObject>
 
-- (void) createdUser:(User*)user;
-- (void) editedUser:(User*)user;
+- (void)createdUser:(User*)user;
+- (void)editedUser:(User*)user;
+- (void)willDeleteUser:(User*)user;
+- (void)didDeleteUser;
 
 @end

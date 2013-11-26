@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ShareRequest.h"
+#import "AccountManagementViewControllerDelegate.h"
 
 
 @protocol GuardianMainMenuViewControllerDelegate <NSObject>
@@ -16,7 +17,7 @@
 
 @end 
 
-@interface GuardianMainMenuViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, GuardianMainMenuViewControllerDelegate>
+@interface GuardianMainMenuViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, GuardianMainMenuViewControllerDelegate, AccountManagementViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *navigationTable;
 @property (weak, nonatomic) IBOutlet UIView* detailViewContainer;

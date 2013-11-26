@@ -16,10 +16,12 @@
 @property (weak, nonatomic) IBOutlet UIView *manageView;
 @property (weak, nonatomic) IBOutlet UIButton *button1;
 @property (weak, nonatomic) IBOutlet UIButton *button2;
+@property (weak, nonatomic) IBOutlet UIButton *button3;
 @property (strong, nonatomic) ChildUser *child;
 @property (assign) id<ManageChildTileCellDelegate> delegate;
 
 - (IBAction)editUserPressed:(id)sender;
+- (IBAction)unlinkUserPressed:(id)sender;
 - (IBAction)deleteUserPressed:(id)sender;
 - (IBAction)createUserPressed:(id)sender;
 - (IBAction)addExistingUserPressed:(id)sender;

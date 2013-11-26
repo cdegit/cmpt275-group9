@@ -75,7 +75,10 @@
                 [_trackingSwitch setOn:NO animated:YES];
             }
             
+            [_createAccountButton setTitle:@"Edit Account" forState:UIControlStateNormal];
+            
         }
+        
     }
     
     else if ([[[UserDatabaseManager sharedInstance] activeUser] name] == NULL){
@@ -86,6 +89,8 @@
         [_someText setNeedsDisplay];
         _trackingText.hidden = YES;
         _trackingSwitch.hidden = YES;
+        
+        [_createAccountButton setTitle:@"Create Account" forState:UIControlStateNormal];
     }
 }
 
@@ -95,6 +100,7 @@
     _loginButton.hidden = NO;
     _someText.text=[[[UserDatabaseManager sharedInstance] activeUser] name];
     _someText.hidden = YES;
+    [_createAccountButton setTitle:@"Create Account" forState:UIControlStateNormal];
 }
 
 - (IBAction)gameModeTapped:(UIButton* )sender {
@@ -136,7 +142,14 @@
 }
 
 - (IBAction)createAccountTapped:(UIButton *)sender {
-    AccountManagementViewController* vc = [[AccountManagementViewController alloc] initWithNibName:@"AccountManagementViewController" bundle:[NSBundle mainBundle]];
+    AccountManagementViewController* vc;
+    if ([[UserDatabaseManager sharedInstance] activeUser]) {
+        vc = [[AccountManagementViewController alloc] initWithNibName:@"AccountManagementViewController" bundle:[NSBundle mainBundle] withUser:[[UserDatabaseManager sharedInstance] activeUser]];
+    }
+    else
+    {
+        vc = [[AccountManagementViewController alloc] initWithNibName:@"AccountManagementViewController" bundle:[NSBundle mainBundle]];
+    }
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -190,11 +203,41 @@
     self.someText.hidden = true;
     _trackingText.hidden = YES;
     _trackingSwitch.hidden = YES;
+    [_createAccountButton setTitle:@"Create Account" forState:UIControlStateNormal];
 }
+
 - (void)logoutRequestDenied
 {
     // Do nothing
 }
+
+#pragma mark - AccountManagementViewControllerDelegate
+
+- (void)createdUser:(User*)user
+{
+    GuardianMainMenuViewController *gmmvc = [[GuardianMainMenuViewController alloc] initWithNibName:@"GuardianMainMenuViewController" bundle:[NSBundle mainBundle]];
+    
+    [[UserDatabaseManager sharedInstance] loginUser:user];
+    [[self navigationController] popViewControllerAnimated:NO];
+    [[self navigationController] pushViewController:gmmvc animated:YES];
+}
+
+
+- (void)editedUser:(User*)user
+{
+    [[self navigationController] popViewControllerAnimated:YES];
+}
+
+- (void)willDeleteUser:(User *)user
+{
+    // Nothing to do here.
+}
+
+- (void)didDeleteUser
+{
+    [[self navigationController] popToRootViewControllerAnimated:YES];
+}
+
 
 
 @end
