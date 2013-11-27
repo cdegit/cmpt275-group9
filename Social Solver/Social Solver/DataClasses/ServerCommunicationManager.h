@@ -31,6 +31,8 @@
 - (void)getPendingSharesForGuardian:(GuardianUser*)guardian completionHandler:(void (^)(NSArray* shares, NSError*))completionHandler;
 - (void)shareChild:(ChildUser*)cUser withGuardianEmail:(NSString*)email transferPrimary:(BOOL)transfer completionHandler:(void (^)(NSError*, NSInteger securityCode))completionHandler;
 
+- (void)requestAccountDeletion:(NSInteger)uid;
+
 
 #warning TODO: Handle deletion and removal of guardian profiles
 

@@ -21,6 +21,7 @@ static NSString* SCRIPT_UPDATE_USER = @"Dummy";
 static NSString* SCRIPT_GET_SESSIONS = @"Dummy";
 static NSString* SCRIPT_GET_SESSION_DATES = @"GetSession";
 static NSString* SCRIPT_SEND_SESSIONS = @"addSession";
+static NSString* SCRIPT_DELETE_ACCOUNT = @"deleteAccount";
 
 @interface ServerCommunicationManager()
 
@@ -373,6 +374,42 @@ static NSString* SCRIPT_SEND_SESSIONS = @"addSession";
 
 - (void)shareChild:(ChildUser*)cUser withGuardianEmail:(NSString*)email transferPrimary:(BOOL)transfer completionHandler:(void (^)(NSError*, NSInteger securityCode))completionHandler
 {
+    // Send request to server
+    // Parse result
+    // Call completion handler
+}
+
+- (void)requestAccountDeletion:(NSInteger)uid
+{
+    NSURL *reqURL = [self urlForScript:SCRIPT_DELETE_ACCOUNT jsonObject:@{ @"ID" : [NSNumber numberWithInt:uid] }];
+    
+    NSURLRequest *req = [[NSURLRequest alloc] initWithURL:reqURL cachePolicy:NSURLCacheStorageNotAllowed timeoutInterval:DEFAULT_TIMEOUT];
+    
+    [NSURLConnection sendAsynchronousRequest:req
+                                       queue:[NSOperationQueue mainQueue]
+                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+                               
+                               if (connectionError == nil)
+                               {
+                                   
+                                   NSError* err = nil;
+                                   NSDictionary* json = [self checkErrorInResponse:response withData:data error:&err];
+                                   if (err == nil) {
+#warning TODO - Check Success
+                                       NSLog(@"Received reply: %@", json);
+                                   }
+                                   else
+                                   {
+                                       NSLog(@"Error parsing json: %@ for request %@", data, req);
+                                   }
+                                   
+                                   
+                               }
+                               
+                           }];
+    
+    
+    
     // Send request to server
     // Parse result
     // Call completion handler
