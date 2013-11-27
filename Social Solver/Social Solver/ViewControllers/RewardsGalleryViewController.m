@@ -13,7 +13,9 @@
 
 @interface RewardsGalleryViewController ()
 {
-    NSMutableArray* problems;
+    NSMutableArray* faceFinderProblems;
+    NSMutableArray* sceneSolverProblems;
+    NSMutableArray* problemSolverProblems;
     User* currentUser;
 }
 
@@ -28,17 +30,17 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        //UserDatabaseManager* udm = [UserDatabaseManager sharedInstance];
         currentUser = [[UserDatabaseManager sharedInstance] activeUser];
         
-        problems = [[NSMutableArray alloc] init];
+        faceFinderProblems = [[NSMutableArray alloc] init];
+        sceneSolverProblems = [[NSMutableArray alloc] init];
+        problemSolverProblems = [[NSMutableArray alloc] init];
         
         ProblemManager *pm = [[ProblemManager alloc] init];
-        _gameMode = GameModeFaceFinder;
-        problems = [pm allProblemsForGameMode:_gameMode];
         
-        //NSLog(problems);
-        //[pm allProblemsForGameMode:()];
+        faceFinderProblems = [pm allProblemsForGameMode:GameModeFaceFinder];
+        sceneSolverProblems = [pm allProblemsForGameMode:GameModeStorySolver];
+        problemSolverProblems = [pm allProblemsForGameMode:GameModeProblemSolver];
         
     }
     return self;
@@ -49,19 +51,44 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    [_rewardsGallerySelectionView registerNib:[UINib nibWithNibName:@"RewardsGalleryCell"
+    [_faceFinderCollectionView registerNib:[UINib nibWithNibName:@"RewardsGalleryCell"
                                                              bundle:[NSBundle mainBundle]]
                    forCellWithReuseIdentifier:@"RewardCell"];
-     
-    //Set up the layout
     
-    UICollectionViewFlowLayout* userSelectionLayout = (UICollectionViewFlowLayout *)[_rewardsGallerySelectionView collectionViewLayout];
+    [_sceneSolverCollectionView registerNib:[UINib nibWithNibName:@"RewardsGalleryCell"
+                                                          bundle:[NSBundle mainBundle]]
+                forCellWithReuseIdentifier:@"RewardCell"];
+    
+    [_problemSolverCollectionView registerNib:[UINib nibWithNibName:@"RewardsGalleryCell"
+                                                          bundle:[NSBundle mainBundle]]
+                forCellWithReuseIdentifier:@"RewardCell"];
+    
+    //Set up the layout
+    UICollectionViewFlowLayout* FaceFinderCollectionLayout = (UICollectionViewFlowLayout *)[_faceFinderCollectionView collectionViewLayout];
     
     // Item size should be the same size as LoginUserSelectionCell
-    [userSelectionLayout setItemSize:CGSizeMake(115.0, 120.0)];
-    [userSelectionLayout setMinimumInteritemSpacing:35.0];
-    [userSelectionLayout setMinimumLineSpacing:20.0];
-    [userSelectionLayout setSectionInset:UIEdgeInsetsMake(20.0, 20.0, 20.0, 20.0)];
+    [FaceFinderCollectionLayout setItemSize:CGSizeMake(115.0, 120.0)];
+    [FaceFinderCollectionLayout setMinimumInteritemSpacing:35.0];
+    [FaceFinderCollectionLayout setMinimumLineSpacing:20.0];
+    [FaceFinderCollectionLayout setSectionInset:UIEdgeInsetsMake(20.0, 20.0, 20.0, 20.0)];
+    
+    //Set up the layout
+    UICollectionViewFlowLayout* sceneSolverCollectionLayout = (UICollectionViewFlowLayout *)[_sceneSolverCollectionView collectionViewLayout];
+    
+    // Item size should be the same size as LoginUserSelectionCell
+    [sceneSolverCollectionLayout setItemSize:CGSizeMake(115.0, 120.0)];
+    [sceneSolverCollectionLayout setMinimumInteritemSpacing:35.0];
+    [sceneSolverCollectionLayout setMinimumLineSpacing:20.0];
+    [sceneSolverCollectionLayout setSectionInset:UIEdgeInsetsMake(20.0, 20.0, 20.0, 20.0)];
+    
+    //Set up the layout
+    UICollectionViewFlowLayout* problemSolverCollectionLayout = (UICollectionViewFlowLayout *)[_problemSolverCollectionView collectionViewLayout];
+    
+    // Item size should be the same size as LoginUserSelectionCell
+    [problemSolverCollectionLayout setItemSize:CGSizeMake(115.0, 120.0)];
+    [problemSolverCollectionLayout setMinimumInteritemSpacing:35.0];
+    [problemSolverCollectionLayout setMinimumLineSpacing:20.0];
+    [problemSolverCollectionLayout setSectionInset:UIEdgeInsetsMake(20.0, 20.0, 20.0, 20.0)];
 }
 
 - (void)didReceiveMemoryWarning
@@ -74,16 +101,33 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return [problems count];
+    if (collectionView == _faceFinderCollectionView) {
+        return [faceFinderProblems count];
+    } else if (collectionView == _sceneSolverCollectionView) { // if it is the collection for game 2
+        return [sceneSolverProblems count];
+    } else if (collectionView == _problemSolverCollectionView) { // if it is the collection for game 3
+        return [problemSolverProblems count];
+    }
+    return 0;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    Problem *problem;
+    
     // Get Reusable login cell
+    if (collectionView == _faceFinderCollectionView) {
+        problem = (Problem*)[faceFinderProblems objectAtIndex:[indexPath row]];
+    } else if (collectionView == _sceneSolverCollectionView) { // if it is the collection for game 2
+        NSLog(@"scene solver!");
+        problem = (Problem*)[sceneSolverProblems objectAtIndex:[indexPath row]];
+    } else if (collectionView == _problemSolverCollectionView) { // if it is the collection for game 3
+        problem = (Problem*)[problemSolverProblems objectAtIndex:[indexPath row]];
+    }
     
-    RewardsGalleryCell* cell = [_rewardsGallerySelectionView dequeueReusableCellWithReuseIdentifier:@"RewardCell" forIndexPath:indexPath];
+    RewardsGalleryCell* cell = [_faceFinderCollectionView dequeueReusableCellWithReuseIdentifier:@"RewardCell" forIndexPath:indexPath];
     
-    Problem *problem = (Problem*)[problems objectAtIndex:[indexPath row]];
+    //problem = (Problem*)[problems objectAtIndex:[indexPath row]];
     [[cell nameLabel] setText:@""];
     
     ChildUser* child = (ChildUser*) currentUser;
@@ -114,14 +158,6 @@
 
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    UICollectionViewCell* cell = [_rewardsGallerySelectionView cellForItemAtIndexPath:indexPath];
-    RewardsGalleryCell* rewardCell = (RewardsGalleryCell*) cell;
-    
-    
-    // add further functionality here
-    
-    
     return NO;
 }
 
