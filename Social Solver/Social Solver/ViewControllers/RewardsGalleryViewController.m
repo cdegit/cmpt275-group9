@@ -119,7 +119,6 @@
     if (collectionView == _faceFinderCollectionView) {
         problem = (Problem*)[faceFinderProblems objectAtIndex:[indexPath row]];
     } else if (collectionView == _sceneSolverCollectionView) { // if it is the collection for game 2
-        NSLog(@"scene solver!");
         problem = (Problem*)[sceneSolverProblems objectAtIndex:[indexPath row]];
     } else if (collectionView == _problemSolverCollectionView) { // if it is the collection for game 3
         problem = (Problem*)[problemSolverProblems objectAtIndex:[indexPath row]];
@@ -127,7 +126,6 @@
     
     RewardsGalleryCell* cell = [_faceFinderCollectionView dequeueReusableCellWithReuseIdentifier:@"RewardCell" forIndexPath:indexPath];
     
-    //problem = (Problem*)[problems objectAtIndex:[indexPath row]];
     [[cell nameLabel] setText:@""];
     
     ChildUser* child = (ChildUser*) currentUser;
@@ -148,8 +146,6 @@
     }
     
     [[cell icon] setImage:image];
-    
-    
     
     return cell;
 }
