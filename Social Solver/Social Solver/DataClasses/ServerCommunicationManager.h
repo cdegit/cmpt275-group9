@@ -18,8 +18,11 @@
 
 - (void)registerAllNewUsers;
 - (void)registerNewUser:(User*)user withCompletionHandler:(void (^)(NSError*))completionHandler;
-- (void)updateUserProfile:(User*)user withCompletionHandler:(void (^)(NSError*))completionHandler;
-- (void)updateAllUserProfiles;
+//
+- (void)fetchUpdatedPasswordForUser:(User*)user withCompletionHandler:(void (^)(NSError*))completionHandler;
+- (void)fetchAllUpdatedUserPasswords;
+- (void)sendUpdatedUserProfile:(User*)user withCompletionHandler:(void (^)(NSError*))completionHandler;
+- (void)sendAllUpdatedUserProfiles;
 
 - (void)updateChildrenOfGuardian:(GuardianUser*)gUser;
 - (void)updateChildSessions:(ChildUser*)cUser;

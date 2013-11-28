@@ -43,6 +43,8 @@
 
 // Added in Version 3
 - (NSArray*)guardianlessUsers;
+- (NSArray*)registeredUsers;
+- (BOOL)userExistsWithName:(NSString*)name;
 
 
 

@@ -17,10 +17,16 @@ static const NSString* BASE_URL = @"http://kaijubluesg9.site90.com/";
 static const NSTimeInterval DEFAULT_TIMEOUT = 60;
 
 static NSString* SCRIPT_REG_USER = @"RegisterUser";
-static NSString* SCRIPT_UPDATE_USER = @"Dummy";
-static NSString* SCRIPT_GET_SESSIONS = @"Dummy";
-static NSString* SCRIPT_GET_SESSION_DATES = @"GetSession";
+static NSString* SCRIPT_UPDATE_USER_SEND = @"EditUser";
+static NSString* SCRIPT_UPDATE_USER_FETCH = @"dummy";
+static NSString* SCRIPT_GET_SESSIONS = @"getNewSessions";
+static NSString* SCRIPT_GET_SESSION_DATES = @"getSessionDates";
 static NSString* SCRIPT_SEND_SESSIONS = @"addSession";
+static NSString* SCRIPT_ADD_PENDING_SHARE = @"AddPendingShare";
+static NSString* SCRIPT_ACCEPT_CHILD = @"AcceptChild";
+static NSString* SCRIPT_REJECT_CHILD = @"rejectChild";
+static NSString* SCRIPT_GET_PENDING_SHARES = @"PendingShareGuar";
+
 
 @interface ServerCommunicationManager()
 
@@ -57,6 +63,8 @@ static NSString* SCRIPT_SEND_SESSIONS = @"addSession";
     return result;
 }
 
+#pragma mark - Registration
+
 - (void)registerAllNewUsers
 {
     NSArray* unregisteredUsers = [[UserDatabaseManager sharedInstance] unregisteredUsers];
@@ -66,10 +74,9 @@ static NSString* SCRIPT_SEND_SESSIONS = @"addSession";
         if ([user isKindOfClass:[ChildUser class]])
         {
             ChildUser* cUser = (ChildUser*)user;
-#warning TODO: Uncomment below once testing is completed
-//            if (cUser.settings.allowsAutoSync) {
+            if (cUser.settings.allowsAutoSync) {
                 [self registerNewUser:cUser withCompletionHandler:nil];
-//            }
+            }
         }
         else
         {
@@ -81,8 +88,7 @@ static NSString* SCRIPT_SEND_SESSIONS = @"addSession";
 
 - (void)registerNewUser:(User*)user withCompletionHandler:(void (^)(NSError*))completionHandler
 {
-#warning UNTESTED
-    NSString* userType = ([user isKindOfClass:[ChildUser class]] ? @"Child" : @"Guardian");
+    NSString* userType = ([user isKindOfClass:[ChildUser class]] ? @"C" : @"G");
     NSMutableDictionary* jsonObject = [NSMutableDictionary dictionaryWithObjectsAndKeys: user.name, @"UserName" , userType, @"UserType", [user.passwordHash description], @"PasswordHash", [user.passwordSeed description], @"PasswordSeed", nil];
     
     if ([user isKindOfClass:[GuardianUser class]]) {
@@ -119,32 +125,105 @@ static NSString* SCRIPT_SEND_SESSIONS = @"addSession";
                                        completionCopy(err);
                                    }
                                }
-                               else if (completionCopy != nil) {
+                               else
+                               {
+                                   if (completionCopy != nil) {
+                                       completionCopy(connectionError);
+                                   }
                                    NSLog(@"Error %@ for request %@", connectionError, [[response URL] absoluteString]);
-                                   completionCopy(connectionError);
                                }
         }];
 }
 
-- (void)updateAllUserProfiles
+#pragma mark - updating personal information
+
+- (void)fetchUpdatedPasswordForUser:(User*)user withCompletionHandler:(void (^)(NSError*))completionHandler
 {
-    NSArray* unregisteredUsers = [[UserDatabaseManager sharedInstance] unregisteredUsers];
-    for (User* user in unregisteredUsers)
+#warning untested
+    // Check if the user is registered. If they aren't return an error
+    if (user.uid != 0)
     {
-        // If the user is registered then see if we should update the profile
-        if (user.uid != 0)
-        {
-            if ([user isKindOfClass:[ChildUser class]] && ((ChildUser*)user).settings.allowsAutoSync) {
-                [self updateUserProfile:user withCompletionHandler:nil];
-            }
-            else if ([user isKindOfClass:[GuardianUser class]]) {
-                [self updateUserProfile:user withCompletionHandler:nil];
-            }
+        NSDictionary* jsonObject = @{ @"Id" : @(user.uid) };
+        NSURL* url = [self urlForScript:SCRIPT_UPDATE_USER_FETCH jsonObject:jsonObject];
+        NSURLRequest* req = [[NSURLRequest alloc] initWithURL:url
+                                                  cachePolicy:NSURLCacheStorageNotAllowed
+                                              timeoutInterval:DEFAULT_TIMEOUT];
+        
+        void (^completionCopy)(NSError*) = [completionHandler copy];
+        
+        [NSURLConnection sendAsynchronousRequest:req
+                                           queue:[NSOperationQueue mainQueue]
+                               completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+                                   if (connectionError == nil)
+                                   {
+                                       NSError* err = nil;
+                                       NSDictionary* result = [self checkErrorInResponse:response withData:data error:&err];
+                                       if (err == nil)
+                                       {
+                                           NSString* passwordHash = [result objectForKey:@"passwordHash"];
+                                           NSString* passwordSeed = [result objectForKey:@"passwordSeed"];
+                                           NSString* userName = [result objectForKey:@"userName"];
+                                           
+                                           if (passwordHash == nil) {
+                                               NSLog(@"Failed to retrieve passwordHash for %@ in %s", [response.URL absoluteString], __PRETTY_FUNCTION__);
+                                           }
+                                           else if (passwordSeed == nil) {
+                                               NSLog(@"Failed to retrieve passwordSeed for %@ in %s", [response.URL absoluteString], __PRETTY_FUNCTION__);
+                                           }
+                                           else {
+                                               user.passwordHash = [passwordHash dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:NO];
+                                               user.passwordSeed = [passwordSeed dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:NO];
+                                           }
+                                           // If the updated username is unique on the device then update to it. If not, don't
+                                           if (userName != nil && ![[UserDatabaseManager sharedInstance] userExistsWithName:userName])
+                                           {
+                                               user.name = userName;
+                                           }
+                                           
+                                           // Save the changes
+                                           [[UserDatabaseManager sharedInstance] save];
+                                       }
+                                       if (completionCopy != nil) {
+                                           completionCopy(err);
+                                       }
+                                   }
+                                   else if (completionCopy != nil) {
+                                       NSLog(@"Error %@ for request %@", connectionError, [[response URL] absoluteString]);
+                                       completionCopy(connectionError);
+                                   }
+                               }];
+
+    }
+    else
+    {
+        NSError* err = [NSError errorWithDomain:@"Can't fetch profile of an unregistered user" code:1001 userInfo:nil];
+        if (completionHandler != nil) {
+            completionHandler(err);
         }
     }
 }
 
-- (void)updateUserProfile:(User*)user withCompletionHandler:(void (^)(NSError*))completionHandler
+- (void)fetchAllUpdatedUserPasswords
+{
+    NSArray* users = [[UserDatabaseManager sharedInstance] registeredUsers];
+    for (User* user in users) {
+        [self fetchUpdatedPasswordForUser:user withCompletionHandler:nil];
+    }
+}
+
+- (void)sendAllUpdatedUserProfiles
+{
+    NSArray* users = [[UserDatabaseManager sharedInstance] getUserListOfType:@"User"];
+    for (User* user in users)
+    {
+        // Update the profile unless it's a child profile with autoSync turned off
+        if (!([user isKindOfClass:[ChildUser class]] && ((ChildUser*)user).settings.allowsAutoSync == NO)) {
+            [self sendUpdatedUserProfile:user withCompletionHandler:nil];
+        }
+    }
+}
+
+- (void)sendUpdatedUserProfile:(User*)user withCompletionHandler:(void (^)(NSError*))completionHandler
 {
 #warning TODO: UNTESTED
     // If the user hasn't been registered... register them instead
@@ -153,13 +232,13 @@ static NSString* SCRIPT_SEND_SESSIONS = @"addSession";
         return;
     }
     
-    NSMutableDictionary* jsonObject = [NSMutableDictionary dictionaryWithObjectsAndKeys: @(user.uid), @"ID", user.name, @"UserName", [user.passwordHash description], @"PasswordHash", [user.passwordSeed description], @"PasswordSeed", nil];
+    NSMutableDictionary* jsonObject = [NSMutableDictionary dictionaryWithObjectsAndKeys: @(user.uid), @"Id", user.name, @"UserName", [user.passwordHash description], @"PasswordHash", [user.passwordSeed description], @"PasswordSeed", nil];
     
     if ([user isKindOfClass:[GuardianUser class]]) {
         [jsonObject setObject:((GuardianUser*)user).email forKey:@"Email"];
     }
     
-    NSURL* url = [self urlForScript:SCRIPT_UPDATE_USER jsonObject:jsonObject];
+    NSURL* url = [self urlForScript:SCRIPT_UPDATE_USER_SEND jsonObject:jsonObject];
     
     NSURLRequest* req = [[NSURLRequest alloc] initWithURL:url
                                               cachePolicy:NSURLCacheStorageNotAllowed
@@ -170,25 +249,18 @@ static NSString* SCRIPT_SEND_SESSIONS = @"addSession";
     [NSURLConnection sendAsynchronousRequest:req
                                        queue:[NSOperationQueue mainQueue]
                            completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-                               if (connectionError == nil)
-                               {
-                                   NSError* err = nil;
-                                   NSDictionary* result = [self checkErrorInResponse:response withData:data error:&err];
-                                   if (err == nil)
-                                   {
-#warning TODO : Parse response
-                                       [[UserDatabaseManager sharedInstance] save];
-                                   }
-                                   if (completionCopy != nil) {
-                                       completionCopy(err);
-                                   }
-                               }
-                               else if (completionCopy != nil) {
+                               // Output a connection error if one occured.
+                               // Don't care about the response
+                               if (completionCopy != nil) {
                                    NSLog(@"Error %@ for request %@", connectionError, [[response URL] absoluteString]);
-                                   completionCopy(connectionError);
+                                   if (completionCopy != nil) {
+                                       completionCopy(connectionError);
+                                   }
                                }
                            }];
 }
+
+#pragma mark - Updating child progress
 
 - (void)updateChildrenOfGuardian:(GuardianUser*)gUser
 {
@@ -222,6 +294,8 @@ static NSString* SCRIPT_SEND_SESSIONS = @"addSession";
             [self getServerSessionsWithDates:[toReceive allObjects] forChild:cUser];
         }
     }];
+//    NSArray* arr = [NSArray arrayWithObjects:[NSDate dateWithTimeIntervalSinceReferenceDate:407361935.737], [NSDate dateWithTimeIntervalSinceReferenceDate:407361999], nil];
+//    [self getServerSessionsWithDates:arr forChild:cUser];
 }
 
 
@@ -295,7 +369,8 @@ static NSString* SCRIPT_SEND_SESSIONS = @"addSession";
 #warning UNTESTED
     NSDictionary* jsonObject = @{ @"ChidID" : [NSNumber numberWithInteger:user.uid] };
     
-    NSURL* url = [self urlForScript:SCRIPT_GET_SESSION_DATES jsonObject:jsonObject];
+//    NSURL* url = [self urlForScript:SCRIPT_GET_SESSION_DATES jsonObject:jsonObject];
+    NSURL* url = [NSURL URLWithString:@"http://kaijubluesg9.site90.com/getSessionDates.php?json=%7B%22ChildID%22:1000000%7B"];
     
     NSURLRequest* req = [[NSURLRequest alloc] initWithURL:url
                                               cachePolicy:NSURLCacheStorageNotAllowed
@@ -322,8 +397,9 @@ static NSString* SCRIPT_SEND_SESSIONS = @"addSession";
                                else {
                                    NSLog(@"Error %@ for request %@", connectionError, [[response URL] absoluteString]);
                                }
-
-                               completionCopy(dates);
+                               if (completionCopy != nil) {
+                                   completionCopy(dates);
+                               }
                            }];
 }
 

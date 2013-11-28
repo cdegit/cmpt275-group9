@@ -263,7 +263,8 @@
         
         // If the user isn't a child who doesn't allow syncing, then update the profile on the server
         if (!([user isKindOfClass:[ChildUser class]] && ((ChildUser*)user).settings.allowsAutoSync == NO)) {
-            [[ServerCommunicationManager sharedInstance] updateUserProfile:user withCompletionHandler:nil];
+            [[ServerCommunicationManager sharedInstance] sendUpdatedUserProfile:user
+                                                          withCompletionHandler:nil];
         }
     }
     else
