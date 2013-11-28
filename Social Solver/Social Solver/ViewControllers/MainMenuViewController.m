@@ -158,7 +158,8 @@
     }
 
     [[AudioManager sharedInstance] playButtonPress];
-
+    
+    [vc setDelegate:self];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -235,11 +236,17 @@
 
 - (void)createdUser:(User*)user
 {
-    GuardianMainMenuViewController *gmmvc = [[GuardianMainMenuViewController alloc] initWithNibName:@"GuardianMainMenuViewController" bundle:[NSBundle mainBundle]];
-    
     [[UserDatabaseManager sharedInstance] loginUser:user];
-    [[self navigationController] popViewControllerAnimated:NO];
-    [[self navigationController] pushViewController:gmmvc animated:YES];
+    if ([[[user entity] name] isEqualToString:@"Guardian"]) {
+        GuardianMainMenuViewController *gmmvc = [[GuardianMainMenuViewController alloc] initWithNibName:@"GuardianMainMenuViewController" bundle:[NSBundle mainBundle]];
+        
+        [[self navigationController] popViewControllerAnimated:NO];
+        [[self navigationController] pushViewController:gmmvc animated:YES];
+    }
+    else
+    {
+        [[self navigationController] popViewControllerAnimated:YES];
+    }
 }
 
 

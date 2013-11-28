@@ -302,10 +302,6 @@
     
     [mc save:&err];
     
-    // Go back to the previous view
-    
-    [[self navigationController] popViewControllerAnimated:YES];
-    
     if (_delegate)
     {
         if (creatingUser && [_delegate respondsToSelector:@selector(createdUser:)]) {
