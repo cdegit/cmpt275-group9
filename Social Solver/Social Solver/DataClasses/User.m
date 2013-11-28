@@ -89,7 +89,6 @@
     [self willAccessValueForKey:@"name"];
     NSString* n = [self primitiveName];
     [self didAccessValueForKey:@"name"];
-    NSLog(@"%@ hashes to %@", n, [self namehex:n]);
     return n;
 }
 

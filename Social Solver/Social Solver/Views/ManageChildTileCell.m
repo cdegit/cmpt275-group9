@@ -30,7 +30,6 @@
 
 - (IBAction)editUserPressed:(id)sender
 {
-    NSLog(@"Pressing edit");
     [_delegate userTile:self wantsEditAccount:_child];
 }
 
