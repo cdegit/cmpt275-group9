@@ -20,6 +20,8 @@
 
 @implementation ShareProfileSecurityCodeViewController
 
+@synthesize delegate = _delegate;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -45,6 +47,7 @@
     // Set security code
     _securityCode.text = [NSString stringWithFormat:@"%d", randomValue];
     
+    #warning TODO: Add server request to share profiles (David)
     // Send share request to server
     // Share a request for each share request in shareReqs
     [ServerRequest test];
@@ -91,6 +94,11 @@
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Share Failed" message:@"Unable to connect to the server. Please try again." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
     
     [alert show];
+}
+
+-(IBAction) backButtonPressed:(id)sender
+{
+    [self.delegate changeView:SHARE_PROFILES withChildren:(shareReqs) andEmail:_guardianEmail.text];
 }
 
 @end

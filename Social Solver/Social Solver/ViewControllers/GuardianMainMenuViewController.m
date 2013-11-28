@@ -40,6 +40,7 @@ const int SHARE_PROFILES_WITH_GUARDIAN = 0;
 const int SHARE_PROFILES_SECURITY_CODE = 1;
 const int SETTING_TRACKING = 2;
 const int SETTING_SYNCING = 3;
+const int SHARE_PROFILES = 4;
 
 @synthesize navigationCellInfo, cellHeight, statsVC;
 
@@ -227,6 +228,14 @@ const int SETTING_SYNCING = 3;
 // Added Version 2, Updated Version 3
 - (void) changeView:(int) view withChildren:(NSMutableArray*)children andEmail:(NSString*)email {
     switch(view) {
+        case SHARE_PROFILES:
+        {
+            ShareProfilesViewController *shareProfiles = [[ShareProfilesViewController alloc] initWithNibName:@"ShareProfilesViewController" bundle:[NSBundle mainBundle]];
+            shareProfiles.delegate = self;
+            self.detailViewController = shareProfiles;
+            break;
+        }
+            
         case SHARE_PROFILES_WITH_GUARDIAN: // load share profile guardian input
         {
             ShareProfilesWithGuardianViewController *shareProfiles = [[ShareProfilesWithGuardianViewController alloc]  initWithNibName:@"ShareProfilesWithGuardianViewController" bundle:[NSBundle mainBundle]];
@@ -241,6 +250,7 @@ const int SETTING_SYNCING = 3;
             ShareProfileSecurityCodeViewController* shareSecurity = [[ShareProfileSecurityCodeViewController alloc] initWithNibName:@"ShareProfileSecurityCodeViewController" bundle:[NSBundle mainBundle]];
             [shareSecurity setShareRequests:(children)];
             [shareSecurity setEmail:email];
+            shareSecurity.delegate = self;
             self.detailViewController = shareSecurity;
             break;
         }

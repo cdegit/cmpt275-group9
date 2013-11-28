@@ -53,8 +53,15 @@
         
         [alert show];
     } else {
+        [_guardianEmail resignFirstResponder];
         [self.delegate changeView:SHARE_PROFILES_SECURITY_CODE withChildren:(shareReqs) andEmail:_guardianEmail.text];
     } 
+}
+
+-(IBAction) backButtonPressed:(id)sender
+{
+    [_guardianEmail resignFirstResponder];
+    [self.delegate changeView:SHARE_PROFILES withChildren:(shareReqs) andEmail:_guardianEmail.text];
 }
 
 -(void)setShareRequests:(NSMutableArray*)shareRequests
