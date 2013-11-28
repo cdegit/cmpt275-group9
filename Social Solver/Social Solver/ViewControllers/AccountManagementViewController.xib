@@ -225,7 +225,7 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{87, 176}, {200, 30}}</string>
 								<reference key="NSSuperview" ref="601110436"/>
-								<reference key="NSNextKeyView" ref="14997361"/>
+								<reference key="NSNextKeyView" ref="325948307"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -451,6 +451,26 @@
 								<reference key="IBUINormalTitleColor" ref="279352171"/>
 								<reference key="IBUIHighlightedTitleColor" ref="279352171"/>
 								<string key="IBUINormalTitle">Delete Account</string>
+								<reference key="IBUINormalTitleShadowColor" ref="107269792"/>
+								<reference key="IBUINormalBackgroundImage" ref="1023442622"/>
+								<reference key="IBUIFontDescription" ref="408370817"/>
+								<reference key="IBUIFont" ref="665870334"/>
+							</object>
+							<object class="IBUIButton" id="325948307">
+								<reference key="NSNextResponder" ref="601110436"/>
+								<int key="NSvFlags">-2147483356</int>
+								<string key="NSFrame">{{87, 176}, {200, 44}}</string>
+								<reference key="NSSuperview" ref="601110436"/>
+								<reference key="NSNextKeyView" ref="14997361"/>
+								<string key="NSReuseIdentifierKey">_NS:9</string>
+								<bool key="IBUIOpaque">NO</bool>
+								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+								<int key="IBUIContentHorizontalAlignment">0</int>
+								<int key="IBUIContentVerticalAlignment">0</int>
+								<int key="IBUIButtonType">1</int>
+								<reference key="IBUINormalTitleColor" ref="279352171"/>
+								<reference key="IBUIHighlightedTitleColor" ref="279352171"/>
+								<string key="IBUINormalTitle">Change Password</string>
 								<reference key="IBUINormalTitleShadowColor" ref="107269792"/>
 								<reference key="IBUINormalBackgroundImage" ref="1023442622"/>
 								<reference key="IBUIFontDescription" ref="408370817"/>
@@ -4968,6 +4988,22 @@ AAgAAgAAAAIAAAAAAAgAAgAIAAEAAQABAAE</bytes>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">reenterPasswordLabel</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="14997361"/>
+					</object>
+					<string key="id">uru-oe-XEE</string>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">changePasswordButton</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="325948307"/>
+					</object>
+					<string key="id">5VP-Kn-GkH</string>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">delegate</string>
 						<reference key="source" ref="204894413"/>
 						<reference key="destination" ref="841351856"/>
@@ -4999,6 +5035,15 @@ AAgAAgAAAAIAAAAAAAgAAgAIAAEAAQABAAE</bytes>
 						<reference key="destination" ref="841351856"/>
 					</object>
 					<string key="id">YF3-hC-23w</string>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">changePassword:</string>
+						<reference key="source" ref="325948307"/>
+						<reference key="destination" ref="841351856"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<string key="id">a2Y-yU-2mt</string>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
@@ -5101,6 +5146,7 @@ AAgAAgAAAAIAAAAAAAgAAgAIAAEAAQABAAE</bytes>
 							<reference ref="132483814"/>
 							<reference ref="637122237"/>
 							<reference ref="744274173"/>
+							<reference ref="325948307"/>
 						</array>
 						<reference key="parent" ref="766721923"/>
 					</object>
@@ -5189,6 +5235,11 @@ AAgAAgAAAAIAAAAAAAgAAgAIAAEAAQABAAE</bytes>
 						<reference key="object" ref="744274173"/>
 						<reference key="parent" ref="601110436"/>
 					</object>
+					<object class="IBObjectRecord">
+						<string key="id">fMC-LW-wg3</string>
+						<reference key="object" ref="325948307"/>
+						<reference key="parent" ref="601110436"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -5205,6 +5256,7 @@ AAgAAgAAAAIAAAAAAAgAAgAIAAEAAQABAAE</bytes>
 				<string key="Eht-qk-KBc.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="H8a-WI-Pel.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="b2O-3W-V05.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="fMC-LW-wg3.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="fro-Yb-M0w.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="j90-NB-9aq.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="mWd-Nb-MKd.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>

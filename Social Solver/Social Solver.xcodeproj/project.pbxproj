@@ -28,6 +28,8 @@
 		2A6C6D06183AC6270018F407 /* ManageChildTileCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6C6D05183AC6270018F407 /* ManageChildTileCell.m */; };
 		2A730FA01819A4EA000356DE /* LoginUserSelectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A730F9F1819A4EA000356DE /* LoginUserSelectionCell.m */; };
 		2A730FA21819A541000356DE /* LoginUserSelectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A730FA11819A541000356DE /* LoginUserSelectionCell.xib */; };
+		2A7AF7471847D07000D9EA81 /* ChangePasswordFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7AF7451847D06F00D9EA81 /* ChangePasswordFormViewController.m */; };
+		2A7AF7481847D07000D9EA81 /* ChangePasswordFormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A7AF7461847D06F00D9EA81 /* ChangePasswordFormViewController.xib */; };
 		2A7DB106181B3A24008EF99F /* LoginPromptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7DB104181B3A24008EF99F /* LoginPromptViewController.m */; };
 		2A7DB107181B3A24008EF99F /* LoginPromptViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A7DB105181B3A24008EF99F /* LoginPromptViewController.xib */; };
 		2AAABD98182D506900FBCD60 /* ServerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AAABD97182D506900FBCD60 /* ServerRequest.m */; };
@@ -58,6 +60,7 @@
 		81DFCCB318402C520067E5F3 /* angry-75x85-disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 81DFCCAC18402C520067E5F3 /* angry-75x85-disabled.png */; };
 		81DFCCB418402C520067E5F3 /* afraid-75x85-disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 81DFCCAD18402C520067E5F3 /* afraid-75x85-disabled.png */; };
 		81DFCCB518402C520067E5F3 /* frame.png in Resources */ = {isa = PBXBuildFile; fileRef = 81DFCCAE18402C520067E5F3 /* frame.png */; };
+		81DFCCB71846E04D0067E5F3 /* edit-account-50x50.png in Resources */ = {isa = PBXBuildFile; fileRef = 81DFCCB61846E04D0067E5F3 /* edit-account-50x50.png */; };
 		EA16940C18162A7700C40069 /* Problem.m in Sources */ = {isa = PBXBuildFile; fileRef = EA16940B18162A7700C40069 /* Problem.m */; };
 		EA16940F18162B2B00C40069 /* ProblemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EA16940E18162B2B00C40069 /* ProblemManager.m */; };
 		EA16941B18163C5C00C40069 /* LevelCompleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA16941918163C5C00C40069 /* LevelCompleteViewController.m */; };
@@ -239,6 +242,10 @@
 		2A730F9E1819A4EA000356DE /* LoginUserSelectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginUserSelectionCell.h; path = Views/LoginUserSelectionCell.h; sourceTree = "<group>"; };
 		2A730F9F1819A4EA000356DE /* LoginUserSelectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginUserSelectionCell.m; path = Views/LoginUserSelectionCell.m; sourceTree = "<group>"; };
 		2A730FA11819A541000356DE /* LoginUserSelectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginUserSelectionCell.xib; path = Views/LoginUserSelectionCell.xib; sourceTree = "<group>"; };
+		2A7AF7441847D06F00D9EA81 /* ChangePasswordFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangePasswordFormViewController.h; sourceTree = "<group>"; };
+		2A7AF7451847D06F00D9EA81 /* ChangePasswordFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangePasswordFormViewController.m; sourceTree = "<group>"; };
+		2A7AF7461847D06F00D9EA81 /* ChangePasswordFormViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ChangePasswordFormViewController.xib; path = ViewControllers/ChangePasswordFormViewController.xib; sourceTree = "<group>"; };
+		2A7AF7491847D7D500D9EA81 /* ChangePasswordFormViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ChangePasswordFormViewControllerDelegate.h; path = Protocols/ChangePasswordFormViewControllerDelegate.h; sourceTree = "<group>"; };
 		2A7DB103181B3A24008EF99F /* LoginPromptViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginPromptViewController.h; sourceTree = "<group>"; };
 		2A7DB104181B3A24008EF99F /* LoginPromptViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginPromptViewController.m; sourceTree = "<group>"; };
 		2A7DB105181B3A24008EF99F /* LoginPromptViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginPromptViewController.xib; path = ViewControllers/LoginPromptViewController.xib; sourceTree = "<group>"; };
@@ -274,6 +281,7 @@
 		81DFCCAC18402C520067E5F3 /* angry-75x85-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "angry-75x85-disabled.png"; sourceTree = "<group>"; };
 		81DFCCAD18402C520067E5F3 /* afraid-75x85-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "afraid-75x85-disabled.png"; sourceTree = "<group>"; };
 		81DFCCAE18402C520067E5F3 /* frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = frame.png; sourceTree = "<group>"; };
+		81DFCCB61846E04D0067E5F3 /* edit-account-50x50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "edit-account-50x50.png"; sourceTree = "<group>"; };
 		EA16940A18162A7700C40069 /* Problem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Problem.h; sourceTree = "<group>"; };
 		EA16940B18162A7700C40069 /* Problem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Problem.m; sourceTree = "<group>"; };
 		EA16940D18162B2B00C40069 /* ProblemManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProblemManager.h; sourceTree = "<group>"; };
@@ -566,6 +574,7 @@
 				2A964BE7182D5CDD0016B43F /* ServerRequestDelegate.h */,
 				2A6C6D07183AD20F0018F407 /* ManageChildTileCellDelegate.h */,
 				2A347C81183FD060008278B6 /* AddExistingChildViewControllerDelegate.h */,
+				2A7AF7491847D7D500D9EA81 /* ChangePasswordFormViewControllerDelegate.h */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -699,6 +708,7 @@
 		EAC698CD181DB7F000342086 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				81DFCCB61846E04D0067E5F3 /* edit-account-50x50.png */,
 				EAF1099C184154FF002A0F61 /* click2.wav */,
 				EAF1099A184151FD002A0F61 /* click.wav */,
 				EAF1099618414149002A0F61 /* sound-off.png */,
@@ -863,6 +873,7 @@
 		EACC67D41807339500FEAC76 /* Xibs */ = {
 			isa = PBXGroup;
 			children = (
+				2A7AF7461847D06F00D9EA81 /* ChangePasswordFormViewController.xib */,
 				EACC67F1180B4BC700FEAC76 /* AccountManagementViewController.xib */,
 				2A4D173D183FB64A00352A42 /* AddExistingChildViewController.xib */,
 				04950EAF1840B11E00030FB6 /* CreditsViewController.xib */,
@@ -945,6 +956,8 @@
 				04D5924E18409797009764A9 /* SyncingViewController.m */,
 				2A67ECDE1827F245000695CC /* ViewChildrenViewController.h */,
 				2A67ECDF1827F245000695CC /* ViewChildrenViewController.m */,
+				2A7AF7441847D06F00D9EA81 /* ChangePasswordFormViewController.h */,
+				2A7AF7451847D06F00D9EA81 /* ChangePasswordFormViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1115,11 +1128,13 @@
 				EAE439AE182EE9E50026370C /* scene-pulling hair.png in Resources */,
 				EAC69916181DCE3C00342086 /* vert gradient 2.jpg in Resources */,
 				EAC69904181DC20D00342086 /* Problem Solver Icon brighter.png in Resources */,
+				81DFCCB71846E04D0067E5F3 /* edit-account-50x50.png in Resources */,
 				EACC67A418037CFE00FEAC76 /* Default@2x.png in Resources */,
 				817F14C618304AE100D058A8 /* launch-1536x2008.png in Resources */,
 				EAC698EE181DB81A00342086 /* children-50x50.png in Resources */,
 				EAE4399E182EE9D90026370C /* disgusted-75x85.png in Resources */,
 				EACC67A618037CFE00FEAC76 /* Default-568h@2x.png in Resources */,
+				2A7AF7481847D07000D9EA81 /* ChangePasswordFormViewController.xib in Resources */,
 				EACC67CC18037DA300FEAC76 /* MainMenuViewController.xib in Resources */,
 				817F14CB18304AE100D058A8 /* retina.png in Resources */,
 				2A730FA21819A541000356DE /* LoginUserSelectionCell.xib in Resources */,
@@ -1263,6 +1278,7 @@
 				04950EB01840B11E00030FB6 /* CreditsViewController.m in Sources */,
 				2A105F15181E18CF0035232F /* ChildProblemData.m in Sources */,
 				EAE439D118303B080026370C /* ShareRequest.m in Sources */,
+				2A7AF7471847D07000D9EA81 /* ChangePasswordFormViewController.m in Sources */,
 				EABC93AF182E06C200E81664 /* GraphViewController.m in Sources */,
 				EACC67CB18037DA300FEAC76 /* MainMenuViewController.m in Sources */,
 				EAE439BE182F320B0026370C /* StatsTrayCollectionView.m in Sources */,

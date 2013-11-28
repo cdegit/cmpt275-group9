@@ -17,9 +17,10 @@
 #import <UIKit/UIKit.h>
 #import "User.h"
 #import "AccountManagementViewControllerDelegate.h"
+#import "ChangePasswordFormViewControllerDelegate.h"
 
 
-@interface AccountManagementViewController : UIViewController <UINavigationControllerDelegate,UIImagePickerControllerDelegate, UITextFieldDelegate, UIAlertViewDelegate>
+@interface AccountManagementViewController : UIViewController <UINavigationControllerDelegate,UIImagePickerControllerDelegate, UITextFieldDelegate, UIAlertViewDelegate, ChangePasswordFormViewControllerDelegate>
 
 
 // From Version 1
@@ -44,21 +45,24 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *showEmail;
 @property (weak, nonatomic) IBOutlet UIButton *deleteAccountButton;
+@property (weak, nonatomic) IBOutlet UILabel *reenterPasswordLabel;
+@property (weak, nonatomic) IBOutlet UIButton *changePasswordButton;
 
 
 
 // From Version 1
 
--(IBAction)userTypeChange:(UISegmentedControl*)sender;
--(IBAction)fetchImageFromiPhoto:(id)sender;
--(IBAction)fetchImageFromCamera:(id)sender;
--(IBAction)save:(id)sender;
+- (IBAction)userTypeChange:(UISegmentedControl*)sender;
+- (IBAction)fetchImageFromiPhoto:(id)sender;
+- (IBAction)fetchImageFromCamera:(id)sender;
+- (IBAction)save:(id)sender;
 
 // Added in Version 2
--(IBAction)cancel:(id)sender;
+- (IBAction)cancel:(id)sender;
 
 // Added in Version 3
--(IBAction)deleteAccount:(id)sender;
+- (IBAction)deleteAccount:(id)sender;
+- (IBAction)changePassword:(id)sender;
 
 
 @end

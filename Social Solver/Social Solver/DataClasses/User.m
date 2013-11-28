@@ -13,6 +13,12 @@
 #import <CommonCrypto/CommonCrypto.h>
 
 
+@interface User (NameHash)
+
+-(NSString*)namehex:(NSString*)name;
+
+@end
+
 @implementation User
 
 @dynamic name, passwordHash, passwordSeed;
@@ -55,6 +61,29 @@
     
 }
 
+-(NSString*)namehex:(NSString*)name
+{
+    NSData *nameData = [name dataUsingEncoding:NSUTF8StringEncoding];
+    //NSMutableData *shaData = [NSMutableData dataWithLength:CC_SHA256_DIGEST_LENGTH];
+    
+    //CC_SHA256([nameData bytes], [nameData length], [shaData mutableBytes]);
+    
+    //NSMutableString *hexString = [NSMutableString stringWithCapacity:([shaData length] * 2)];
+    
+    NSMutableString *hexString = [NSMutableString stringWithCapacity:([nameData length] * 2)];
+    
+    const unsigned char *dataBuffer = [nameData bytes];
+    
+    for (int i = 0; i < [nameData length]; ++i)
+    {
+        [hexString appendFormat:@"%02lx", (unsigned long)dataBuffer[i]];
+    }
+    
+    return hexString;
+    
+}
+
+
 - (NSString *)name
 {
     [self willAccessValueForKey:@"name"];
@@ -75,12 +104,21 @@
         
         NSString* imgDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
         
-        NSString* oldImagePath = [NSString stringWithFormat:@"%@/%@.png", imgDir, oldName];
-        NSString* newImagePath = [NSString stringWithFormat:@"%@/%@.png", imgDir, newName];
+        NSString* oldImagePath = [NSString stringWithFormat:@"%@/%@.png",
+                                  imgDir,
+                                  [self namehex:oldName]];
         
         NSError *err;
         
-        [fm moveItemAtPath:oldImagePath toPath:newImagePath error:&err];
+        if ([fm fileExistsAtPath:oldImagePath])
+        {
+            NSString* newImagePath = [NSString stringWithFormat:@"%@/%@.png",
+                                      imgDir,
+                                      [self namehex:newName]];
+            
+            [fm moveItemAtPath:oldImagePath toPath:newImagePath error:&err];
+        }
+        
         
         [self willChangeValueForKey:@"name"];
         [self setPrimitiveName:newName];
@@ -94,7 +132,9 @@
 {
     NSString* imgDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     
-    NSString* imagePath = [NSString stringWithFormat:@"%@/%@.png", imgDir, [self name]];
+    NSString* imagePath = [NSString stringWithFormat:@"%@/%@.png",
+                           imgDir,
+                           [self namehex:[self name]]];
     
     return [UIImage imageWithContentsOfFile:imagePath];
 }
@@ -105,7 +145,9 @@
     if (pimage!=nil) {
         NSString* imgDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
         NSString *n = [NSString stringWithString:[self name]];
-        NSString* imagePath = [NSString stringWithFormat:@"%@/%@.png", imgDir, n];
+        NSString* imagePath = [NSString stringWithFormat:@"%@/%@.png",
+                               imgDir,
+                               [self namehex:n]];
         
         [UIImagePNGRepresentation(pimage) writeToFile:imagePath atomically:YES];
         

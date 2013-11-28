@@ -9,6 +9,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ShareRequest.h"
+#import "GuardianMainMenuViewController.h"
 
 @interface ShareProfileSecurityCodeViewController : UIViewController
 
@@ -18,8 +19,14 @@
 
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView* activityIndicator;
 
+@property (weak, nonatomic) IBOutlet UIButton* backButton;
+
+@property (weak, nonatomic) id<GuardianMainMenuViewControllerDelegate> delegate;
+
 -(void)setShareRequests:(NSMutableArray*)shareRequests;
  
 -(void)setEmail:(NSString*)email;
+
+-(IBAction) backButtonPressed:(id)sender;
 
 @end

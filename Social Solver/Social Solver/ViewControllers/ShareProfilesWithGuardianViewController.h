@@ -16,12 +16,14 @@
 
 @property (weak, nonatomic) IBOutlet UITextField* guardianEmail;
 
-@property (weak, nonatomic) IBOutlet UISwitch* primaryOwnershipSwitch;
+@property (weak, nonatomic) IBOutlet UIButton* backButton;
 
 @property (weak, nonatomic) id<GuardianMainMenuViewControllerDelegate> delegate;
 
 -(void)setShareRequests:(NSMutableArray*)shareRequests;
 
 -(IBAction) shareButtonPressed:(id) sender;
- 
+
+-(IBAction) backButtonPressed:(id)sender;
+
 @end
