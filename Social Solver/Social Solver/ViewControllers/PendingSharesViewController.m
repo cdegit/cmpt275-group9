@@ -41,16 +41,48 @@ UITableView* table;
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    // Send request to server for profiles
+    #warning TODO: Add server request for pending shares (David)
+    
+    // When waiting for the server to respond, display activity indicator
+    _activityIndicator.hidden = NO;
+    [_activityIndicator startAnimating];
+    _numberOfShares.hidden = YES;
+    
+    // Original Placeholder data for testing
+    /*
     ShareRequest* child = [[ShareRequest alloc] initWithChild:@"Timmy" AndGuardianEmail:@"bob@example.com" AndSecurityCode:@"1111" AndPassword:@"pass"];
     
     ShareRequest* child2 = [[ShareRequest alloc] initWithChild:@"Sally" AndGuardianEmail:@"jane@gmail.com" AndSecurityCode:@"1321" AndPassword:@"pass"];
     
     ShareRequest* child3 = [[ShareRequest alloc] initWithChild:@"Billy" AndGuardianEmail:@"jane@gmail.com" AndSecurityCode:@"1010" AndPassword:@"pass"];
     
-    tableData = [NSMutableArray arrayWithObjects:child, child2, child3, nil];
+    tableData = [[NSMutableArray alloc] init];//[NSMutableArray arrayWithObjects:child, child2, child3, nil];
+     */
     
+    tableData = [[NSMutableArray alloc] init];
+    
+    
+}
+
+// Use to update after recieving response from server
+- (void) updateTableWithRequests:(NSMutableArray*)shareRequests
+{
+    _activityIndicator.hidden = YES;
+    _numberOfShares.hidden = NO;
+    tableData = shareRequests;
     _numberOfShares.text = [NSString stringWithFormat:@"%d", [tableData count]];
     
+    [table reloadData];
+}
+
+// Use if cannot connect to server
+- (void) serverConnectionFailure
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Could not Connect" message:@"Could not connect to the server. Please try again." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+    
+    [alert setTag:4];
+    [alert show];
 }
 
 - (void)didReceiveMemoryWarning
@@ -143,11 +175,6 @@ UITableView* table;
     [table reloadData];
     _numberOfShares.text = [NSString stringWithFormat:@"%d", [tableData count]];
     
-    // Hide the table if it is empty
-    if ([tableData count] == 0)
-    {
-        table.hidden = YES;
-    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -162,9 +189,12 @@ UITableView* table;
         cell = [nib objectAtIndex:0];
     }
     
-    ShareRequest* currentChild = [tableData objectAtIndex:indexPath.row];
-    cell.nameLabel.text = currentChild.childName;
-    cell.emailLabel.text = currentChild.guardianEmail;
+    if (tableData.count > 0) {
+        ShareRequest* currentChild = [tableData objectAtIndex:indexPath.row];
+        cell.nameLabel.text = currentChild.childName;
+        cell.emailLabel.text = currentChild.guardianEmail;
+    }
+    
     return cell;
 }
 

@@ -13,6 +13,7 @@
 @interface PendingSharesViewController : UIViewController <UIAlertViewDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel* numberOfShares;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView* activityIndicator; 
 
 -(BOOL)checkNameUnique:(NSString*)name;
 -(void)shareSuccess:(ShareRequest*)child;
