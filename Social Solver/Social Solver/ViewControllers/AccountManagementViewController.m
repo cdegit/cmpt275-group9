@@ -14,6 +14,8 @@
 #import "GuardianUser.h"
 #import "UserDatabaseManager.h"
 #import "ServerCommunicationManager.h"
+#import "ChangePasswordFormViewController.h"
+
 
 @interface AccountManagementViewController ()
 {
@@ -83,6 +85,14 @@
         [_nameField setText:[_editedUser name]];
         [_deleteAccountButton setHidden:NO];
         [_deleteAccountButton setEnabled:YES];
+        
+        [_passwordField setEnabled:NO];
+        [_passwordField setHidden:YES];
+        [_reenterPasswordLabel setHidden:YES];
+        [_passwordConfirmationField setHidden:YES];
+        [_passwordConfirmationField setEnabled:NO];
+        [_changePasswordButton setHidden:NO];
+        
         
         [_profileImageView setImage:[_editedUser profileImage]];
         
@@ -320,6 +330,18 @@
     [_deleteConfirm show];
 }
 
+- (IBAction)changePassword:(id)sender
+{
+    ChangePasswordFormViewController *cpfvc = [[ChangePasswordFormViewController alloc] initWithNibName:@"ChangePasswordFormViewController" bundle:[NSBundle mainBundle] user:_editedUser];
+    [cpfvc setModalPresentationStyle:UIModalPresentationFormSheet];
+    [cpfvc setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+    [cpfvc setDelegate:self];
+    
+    [self presentViewController:cpfvc animated:YES completion:NULL];
+    
+    
+}
+
 #pragma mark - Internal Methods
 
 -(BOOL)checkNameUnique:(NSString*)name
@@ -347,7 +369,14 @@
     return YES;
 }
 
-#pragma mark - UIImagePickerControllerDelegate
+#pragma mark - ChangePasswordFormViewController methods
+
+- (void)passwordChangeFinished
+{
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+#pragma mark - UIImagePickerControllerDelegate methods
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
