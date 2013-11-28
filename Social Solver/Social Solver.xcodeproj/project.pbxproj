@@ -58,6 +58,7 @@
 		81DFCCB318402C520067E5F3 /* angry-75x85-disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 81DFCCAC18402C520067E5F3 /* angry-75x85-disabled.png */; };
 		81DFCCB418402C520067E5F3 /* afraid-75x85-disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 81DFCCAD18402C520067E5F3 /* afraid-75x85-disabled.png */; };
 		81DFCCB518402C520067E5F3 /* frame.png in Resources */ = {isa = PBXBuildFile; fileRef = 81DFCCAE18402C520067E5F3 /* frame.png */; };
+		81DFCCB71846E04D0067E5F3 /* edit-account-50x50.png in Resources */ = {isa = PBXBuildFile; fileRef = 81DFCCB61846E04D0067E5F3 /* edit-account-50x50.png */; };
 		EA16940C18162A7700C40069 /* Problem.m in Sources */ = {isa = PBXBuildFile; fileRef = EA16940B18162A7700C40069 /* Problem.m */; };
 		EA16940F18162B2B00C40069 /* ProblemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EA16940E18162B2B00C40069 /* ProblemManager.m */; };
 		EA16941B18163C5C00C40069 /* LevelCompleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA16941918163C5C00C40069 /* LevelCompleteViewController.m */; };
@@ -274,6 +275,7 @@
 		81DFCCAC18402C520067E5F3 /* angry-75x85-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "angry-75x85-disabled.png"; sourceTree = "<group>"; };
 		81DFCCAD18402C520067E5F3 /* afraid-75x85-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "afraid-75x85-disabled.png"; sourceTree = "<group>"; };
 		81DFCCAE18402C520067E5F3 /* frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = frame.png; sourceTree = "<group>"; };
+		81DFCCB61846E04D0067E5F3 /* edit-account-50x50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "edit-account-50x50.png"; sourceTree = "<group>"; };
 		EA16940A18162A7700C40069 /* Problem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Problem.h; sourceTree = "<group>"; };
 		EA16940B18162A7700C40069 /* Problem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Problem.m; sourceTree = "<group>"; };
 		EA16940D18162B2B00C40069 /* ProblemManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProblemManager.h; sourceTree = "<group>"; };
@@ -699,6 +701,7 @@
 		EAC698CD181DB7F000342086 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				81DFCCB61846E04D0067E5F3 /* edit-account-50x50.png */,
 				EAF1099C184154FF002A0F61 /* click2.wav */,
 				EAF1099A184151FD002A0F61 /* click.wav */,
 				EAF1099618414149002A0F61 /* sound-off.png */,
@@ -1115,6 +1118,7 @@
 				EAE439AE182EE9E50026370C /* scene-pulling hair.png in Resources */,
 				EAC69916181DCE3C00342086 /* vert gradient 2.jpg in Resources */,
 				EAC69904181DC20D00342086 /* Problem Solver Icon brighter.png in Resources */,
+				81DFCCB71846E04D0067E5F3 /* edit-account-50x50.png in Resources */,
 				EACC67A418037CFE00FEAC76 /* Default@2x.png in Resources */,
 				817F14C618304AE100D058A8 /* launch-1536x2008.png in Resources */,
 				EAC698EE181DB81A00342086 /* children-50x50.png in Resources */,
