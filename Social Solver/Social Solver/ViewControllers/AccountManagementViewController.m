@@ -183,14 +183,16 @@
     NSManagedObjectContext *mc = [(AppDelegate*)[[UIApplication sharedApplication] delegate] managedObjectContext];
     User* user;
     
+    NSString *trimmedName = [[_nameField text] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    
     // Check that the user's name has a non-zero length
-    if ([[_nameField text] length]==0) {
+    if ([trimmedName length]==0) {
         [[[UIAlertView alloc] initWithTitle:@"Cannot Save" message:@"A user must have a name" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil] show];
         return;
     }
     
     // Check that the user's name is unique
-    if (![self checkNameUnique:[_nameField text]]) {
+    if (![self checkNameUnique:trimmedName]) {
         [[[UIAlertView alloc] initWithTitle:@"Cannot Save" message:@"A user already has the same name" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil] show];
         return;
     }
@@ -255,7 +257,7 @@
             
         }
         
-        [user setName:[_nameField text]];
+        [user setName:trimmedName];
         
         if ([_userType isEqualToString:@"Guardian"]) {
             [(GuardianUser*)user setEmail:[_emailField text]];
@@ -269,7 +271,7 @@
     else
     {
         if ([_userType isEqualToString:@"Child"]) {
-            user = [[UserDatabaseManager sharedInstance] createChildWithName:[_nameField text] password:[_passwordField text] andProfileImage:[_profileImageView image]];
+            user = [[UserDatabaseManager sharedInstance] createChildWithName:trimmedName password:[_passwordField text] andProfileImage:[_profileImageView image]];
             
             if (((ChildUser*)user).settings.allowsAutoSync) {
                 [[ServerCommunicationManager sharedInstance] registerNewUser:user withCompletionHandler:nil];
@@ -277,7 +279,7 @@
         }
         else
         {
-            user = [[UserDatabaseManager sharedInstance] createGuardianWithName:[_nameField text] password:[_passwordField text] profileImage:[_profileImageView image] andEmail:[_emailField text]];
+            user = [[UserDatabaseManager sharedInstance] createGuardianWithName:trimmedName password:[_passwordField text] profileImage:[_profileImageView image] andEmail:[_emailField text]];
             // Register the Guardian profile with the server
             [[ServerCommunicationManager sharedInstance] registerNewUser:user withCompletionHandler:nil];
         }
