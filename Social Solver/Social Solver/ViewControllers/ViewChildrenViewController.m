@@ -294,16 +294,20 @@ NSComparator caseInsensitiveComparator = ^(NSString *obj1, NSString *obj2)
         GuardianUser *guardian = (GuardianUser*)[[UserDatabaseManager sharedInstance] activeUser];
         ChildUser *child = [_childArray objectAtIndex:_activeTile];
         
-        if ([[child primaryGuardian] isEqual:guardian]) {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Could Not Unlink Child" message:@"As you are the primary guardian of this child account, you may not unlink from this child account." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil];
-            [alert show];
-        }
-        else
-        {
+        //if ([[child primaryGuardian] isEqual:guardian]) {
+        //    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Could Not Unlink Child"
+        //                                                    message:@"As you are the primary guardian of this child account, you may not unlink from this child account."
+        //                                                   delegate:nil
+        //                                          cancelButtonTitle:@"Okay"
+        //                                          otherButtonTitles: nil];
+        //    [alert show];
+        //}
+        //else
+        //{
             [guardian removeChildrenObject:child];
             [_childArray removeObjectAtIndex:_activeTile];
             [_childrenView reloadData];
-        }
+        //}
         
         _activeTile = -1;
         _confirmUnlinkAlertView = nil;
