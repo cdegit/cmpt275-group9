@@ -185,7 +185,7 @@ NSComparator caseInsensitiveComparator = ^(NSString *obj1, NSString *obj2)
                                                         forIndexPath:indexPath];
         
         [[cell button1] setTitle:@"Edit Account" forState:UIControlStateNormal];
-        [[cell button2] setTitle:@"Remove Account" forState:UIControlStateNormal];
+        [[cell button2] setTitle:@"Unlink Account" forState:UIControlStateNormal];
         
         // Grab the user object associated to the index
         ChildUser *us = [_childArray objectAtIndex:[indexPath row]];
