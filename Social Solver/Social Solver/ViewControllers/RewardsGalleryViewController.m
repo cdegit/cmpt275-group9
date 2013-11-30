@@ -125,7 +125,7 @@
     }
     
     RewardsGalleryCell* cell = [_faceFinderCollectionView dequeueReusableCellWithReuseIdentifier:@"RewardCell" forIndexPath:indexPath];
-    
+     
     [[cell nameLabel] setText:@""];
     
     ChildUser* child = (ChildUser*) currentUser;
