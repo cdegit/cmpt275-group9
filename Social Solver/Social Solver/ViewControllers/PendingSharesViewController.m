@@ -7,8 +7,11 @@
 //
 // Version 2
 
+//  Worked on by: Cassandra de Git, David Woods
+
 #import "PendingSharesViewController.h"
 #import "ShareRequest.h"
+#import "ServerCommunicationManager.h"
 #import "PendingSharesTableCell.h"
 #import "User.h"
 #import "UserDatabaseManager.h"
@@ -41,26 +44,26 @@ UITableView* table;
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    // Send request to server for profiles
-    #warning TODO: Add server request for pending shares (David)
-    
     // When waiting for the server to respond, display activity indicator
     _activityIndicator.hidden = NO;
     [_activityIndicator startAnimating];
     _numberOfShares.hidden = YES;
     
-    // Original Placeholder data for testing
-    /*
-    ShareRequest* child = [[ShareRequest alloc] initWithChild:@"Timmy" AndGuardianEmail:@"bob@example.com" AndSecurityCode:@"1111" AndPassword:@"pass"];
-    
-    ShareRequest* child2 = [[ShareRequest alloc] initWithChild:@"Sally" AndGuardianEmail:@"jane@gmail.com" AndSecurityCode:@"1321" AndPassword:@"pass"];
-    
-    ShareRequest* child3 = [[ShareRequest alloc] initWithChild:@"Billy" AndGuardianEmail:@"jane@gmail.com" AndSecurityCode:@"1010" AndPassword:@"pass"];
-    
-    tableData = [[NSMutableArray alloc] init];//[NSMutableArray arrayWithObjects:child, child2, child3, nil];
-     */
-    
     tableData = [[NSMutableArray alloc] init];
+    
+    // Send request to server for pending shares
+    [[ServerCommunicationManager sharedInstance] getPendingSharesForGuardian:(GuardianUser*)[[UserDatabaseManager sharedInstance] activeUser]
+                                                           completionHandler:^(NSArray *shares, NSError *error)
+     {
+         if (error == nil)
+         {
+             [self updateTableWithRequests:[shares mutableCopy]];
+         }
+         else
+         {
+             [self serverConnectionFailure];
+         }
+     }];
     
     
 }
@@ -85,12 +88,6 @@ UITableView* table;
     [alert show];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
     if ([alertView tag] == 0)
@@ -112,25 +109,46 @@ UITableView* table;
                 
                 [alert setTag:3];
                 [alert show];
-            } else if ([textfield.text isEqualToString:child.securityCode])
-            {
-                [self shareSuccess:child];
-                
-            } else {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Incorrect Security Code" message:@"Please enter the code sent to you by the original guardian." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
-                
-                [alert setTag:0];
-                
-                // Add text input
-                alert.alertViewStyle = UIAlertViewStyleSecureTextInput;
-                
-                // add more buttons:
-                [alert addButtonWithTitle:@"Accept Profile"];
-                
-                [alert show];
             }
+            else {
+                [self requestInProcess:YES];
+                // Send request to the server to accept the child
+                NSInteger securityCode = [textfield.text integerValue];
+                [[ServerCommunicationManager sharedInstance] acceptChild:child.childID
+                                                             forGuardian:(GuardianUser*)[[UserDatabaseManager sharedInstance] activeUser]
+                                                        withSecurityCode:securityCode
+                                                       completionHandler:^(BOOL validCode, NSError* err) {
+                                                           [self requestInProcess:NO];
+                                                           if (err == nil)
+                                                           {
+                                                               // If the code wasn't valid, get them to re-enter
+                                                               if (!validCode)
+                                                               {
+                                                                   UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Incorrect Security Code" message:@"Please enter the code sent to you by the original guardian." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
+                                                                   
+                                                                   [alert setTag:0];
+                                                                   
+                                                                   // Add text input
+                                                                   alert.alertViewStyle = UIAlertViewStyleSecureTextInput;
+                                                                   
+                                                                   // add more buttons:
+                                                                   [alert addButtonWithTitle:@"Accept Profile"];
+                                                                   
+                                                                   [alert show];
+                                                               }
+                                                               // Code was valid - share was successful
+                                                               else {
+                                                                   [self shareSuccess:child];
+                                                               }
+                                                           }
+                                                           else {
+                                                               [self displayConnectionErrorMessage];
+                                                           }
+                                                       }];
+                            }
         }
-    } else if (([alertView tag] == 3) && (buttonIndex == 1)) { // if conflicting name
+    }
+    else if (([alertView tag] == 3) && (buttonIndex == 1)) { // if conflicting name
         UITextField *textfield = [alertView textFieldAtIndex:0];
         
         ShareRequest* child = [tableData objectAtIndex:selectedChildIndex];
@@ -153,28 +171,46 @@ UITableView* table;
     }
 }
 
+- (void)requestInProcess:(BOOL)inProcess
+{
+    self.contactingServerIndicator.hidden = !inProcess;
+    self.contactingServerLabel.hidden = !inProcess;
+}
+
+- (void)displayConnectionErrorMessage
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Connection Error" message:@"Unable to connect to server. Please try again later" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+    
+    [alert show];
+}
+
 - (void) shareSuccess:(ShareRequest*)child
 {
-    NSString* firstPart = @"You may now have access to ";
-    NSString* secondPart = @"'s Profile";
-    NSString* message = [firstPart stringByAppendingString:child.childName];
-    message = [message stringByAppendingString:secondPart];
-    
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Share Success" message:message delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
-    
-    [alert setTag:1];
-    [alert show];
-    
-    
-    // Add new child
-    User* user;
-    user = [[UserDatabaseManager sharedInstance] createChildWithName:child.childName password:child.password andProfileImage:nil];
-    
-    [tableData removeObjectAtIndex:selectedChildIndex];
-    
-    [table reloadData];
-    _numberOfShares.text = [NSString stringWithFormat:@"%d", [tableData count]];
-    
+    // Fetch the child's profile from the server
+    [[ServerCommunicationManager sharedInstance] getChildWithID:child.childID completionHandler:^(NSError* err) {
+        if (err == nil)
+        {
+            NSString* firstPart = @"You may now have access to ";
+            NSString* secondPart = @"'s Profile";
+            NSString* message = [firstPart stringByAppendingString:child.childName];
+            message = [message stringByAppendingString:secondPart];
+            
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Share Success" message:message delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+            
+            [alert setTag:1];
+            [alert show];
+            
+            [tableData removeObjectAtIndex:selectedChildIndex];
+            
+            [table reloadData];
+            _numberOfShares.text = [NSString stringWithFormat:@"%d", [tableData count]];
+        }
+        else
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Share Failed" message:@"Unable to connect with server at this time. Please try again later" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+            [alert show];
+        }
+    }];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

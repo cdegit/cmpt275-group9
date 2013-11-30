@@ -34,6 +34,7 @@
 
 // Added in version 3
 - (void)updateCompletedProblems;
+- (bool)hasSessionWithDate:(NSDate*)date;
 
 @end
 

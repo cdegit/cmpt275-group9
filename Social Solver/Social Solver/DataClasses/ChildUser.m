@@ -48,4 +48,15 @@
     self.completedProblems = [solved allObjects];
 }
 
+- (bool)hasSessionWithDate:(NSDate*)date
+{
+    for (Session* session in self.sessions)
+    {
+        if ([session.date isEqualToDate:date]) {
+            return true;
+        }
+    }
+    return false;
+}
+
 @end

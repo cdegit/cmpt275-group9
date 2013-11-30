@@ -12,13 +12,14 @@
 #import "ServerCommunicationManager.h"
 #import "UserDatabaseManager.h"
 #import "Session.h"
+#import "ShareRequest.h"
 
 static const NSString* BASE_URL = @"http://kaijubluesg9.site90.com/";
 static const NSTimeInterval DEFAULT_TIMEOUT = 60;
 
 static NSString* SCRIPT_REG_USER = @"RegisterUser";
 static NSString* SCRIPT_UPDATE_USER_SEND = @"EditUser";
-static NSString* SCRIPT_UPDATE_USER_FETCH = @"dummy";
+static NSString* SCRIPT_UPDATE_USER_FETCH = @"getChild";
 static NSString* SCRIPT_GET_SESSIONS = @"getNewSessions";
 static NSString* SCRIPT_GET_SESSION_DATES = @"getSessionDates";
 static NSString* SCRIPT_SEND_SESSIONS = @"addSession";
@@ -290,9 +291,10 @@ static NSString* SCRIPT_DELETE_ACCOUNT = @"deleteAccount";
         if ([toSend count] > 0) {
             [self sendServerSessionsWithDates:[toSend allObjects] forChild:cUser];
         }
-        if ([toReceive count] > 0) {
-            [self getServerSessionsWithDates:[toReceive allObjects] forChild:cUser];
-        }
+//        if ([toReceive count] > 0) {
+//            [self getServerSessionsWithDates:[toReceive allObjects] forChild:cUser];
+//        }
+        [self getServerSessionsWithDates:[ipadDates allObjects] forChild:cUser];
     }];
 }
 
@@ -331,6 +333,8 @@ static NSString* SCRIPT_DELETE_ACCOUNT = @"deleteAccount";
                            }];
 }
 
+/*{"Sessions":[{"Problems":[{"Id":"1000025","NumberCorrect":"1","TotalResponseTime":"6.08031898737","NumberOfAttempts":"3","ProblemID":"105"}],"Date":407361935.737}]}*/
+
 - (void)getServerSessionsWithDates:(NSArray*)dates forChild:(ChildUser*)user
 {
 #warning UNTESTED
@@ -350,10 +354,32 @@ static NSString* SCRIPT_DELETE_ACCOUNT = @"deleteAccount";
                                        queue:[NSOperationQueue mainQueue]
                            completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
                                if (connectionError == nil) {
-#warning TODO, parse the response
-                                   // Save the new sessions
-                                   [user updateCompletedProblems];
-                                   [[UserDatabaseManager sharedInstance] save];
+                                   NSError* err = nil;
+                                   NSDictionary* results = [self checkErrorInResponse:response withData:data error:&err];
+                                   if (err == nil)
+                                   {
+                                       NSArray* sessions = [results objectForKey:@"Sessions"];
+                                       if (sessions != nil)
+                                       {
+                                           for (NSDictionary* sessionDict in sessions)
+                                           {
+                                               Session* toAdd = [Session sessionFromDictionary:sessionDict withChild:user];
+                                               // Check this isn't a duplicate session... just in case
+                                               if (![user hasSessionWithDate:toAdd.date])
+                                               {
+                                                   [user addSessionsObject:toAdd];
+                                               }
+                                           }
+                                           
+                                           // Save the new sessions
+                                           [user updateCompletedProblems];
+                                           [[UserDatabaseManager sharedInstance] save];
+                                       }
+                                       else {
+                                           NSLog(@"Failed to get sessions from %@ for URL %@", results, [[response URL] absoluteString]);
+                                       }
+                                   }
+
                                }
                                else {
                                    NSLog(@"Error %@ for request %@", connectionError, [[response URL] absoluteString]);
@@ -365,9 +391,15 @@ static NSString* SCRIPT_DELETE_ACCOUNT = @"deleteAccount";
 - (void)sessionDatesOnServerForChild:(ChildUser*)user withCompletion:(void (^)(NSArray*))completionHandler
 {
 #warning UNTESTED
-    NSDictionary* jsonObject = @{ @"ChidID" : [NSNumber numberWithInteger:user.uid] };
+    // This script has a very strange error when handed the URL parsed through the encoder... so hard code this one instead
+    NSString* urlString = @"http://kaijubluesg9.site90.com/getSessionDates.php?json={%22ChildID%22:%22";
+    urlString = [urlString stringByAppendingString:[NSString stringWithFormat:@"%i", user.uid]];
+    urlString = [urlString stringByAppendingString:@"%22}"];
     
-    NSURL* url = [self urlForScript:SCRIPT_GET_SESSION_DATES jsonObject:jsonObject];
+    NSURL* url = [NSURL URLWithString:urlString];
+//    NSDictionary* jsonObject = @{ @"ChidID" : [NSString stringWithFormat:@"%i", user.uid] };
+//    
+//    NSURL* url = [self urlForScript:SCRIPT_GET_SESSION_DATES jsonObject:jsonObject];
     
     NSURLRequest* req = [[NSURLRequest alloc] initWithURL:url
                                               cachePolicy:NSURLCacheStorageNotAllowed
@@ -378,16 +410,23 @@ static NSString* SCRIPT_DELETE_ACCOUNT = @"deleteAccount";
                                        queue:[NSOperationQueue mainQueue]
                            completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
                                NSMutableArray* dates = [[NSMutableArray alloc] init];
-#warning TODO: Parse response
                                if (connectionError == nil) {
                                    NSError* err = nil;
                                    NSDictionary* json = [self checkErrorInResponse:response withData:data error:&err];
                                    if (err == nil) {
-                                       for (NSString* dateString in [json allValues]) {
+                                       NSArray* serverDates = [json objectForKey:@"Children"];
+                                       for (NSDictionary* dict in serverDates) {
                                            // Convert the string into an NSDate
-                                           double seconds = [dateString doubleValue];
-                                           NSDate* date = [NSDate dateWithTimeIntervalSinceReferenceDate:seconds];
-                                           [dates addObject:date];
+                                           NSString* secString = [dict objectForKey:@"Date"];
+                                           if (secString != nil)
+                                           {
+                                               double seconds = [secString doubleValue];
+                                               NSDate* date = [NSDate dateWithTimeIntervalSinceReferenceDate:seconds];
+                                               [dates addObject:date];
+                                           }
+                                           else {
+                                               NSLog(@"Error reading the date objects from %@", dict);
+                                           }
                                        }
                                    }
                                }
@@ -416,35 +455,160 @@ static NSString* SCRIPT_DELETE_ACCOUNT = @"deleteAccount";
 }
 
 #pragma mark Profile Sharing
-- (void)getChildWithID:(NSInteger)ID completionHandler:(void (^)(ChildUser*, NSError*))completionHandler
+- (void)downloadChildWithID:(NSInteger)ID completionHandler:(void (^)(NSError*))completionHandler
 {
     // Send request to server
     // Parse result
     // Call completion handler
 }
 
-- (void)acceptChild:(NSInteger)childID forGuardian:(GuardianUser*)guardian withSecurityCode:(NSInteger)code completionHandler:(void (^)(BOOL success))completionHandler
+- (void)acceptChild:(NSInteger)childID forGuardian:(GuardianUser*)guardian withSecurityCode:(NSInteger)code completionHandler:(void (^)(BOOL validCode, NSError* err))completionHandler
 {
-    // Send request to server
-    // Parse result
-    // Call completion handler
+    /*{
+     “ChildID”: 1001,
+     “GuardianEmail” : “some@email.com”,
+     “SecurityCode” : 9005
+     }*/
+    NSDictionary* jsonObject = @{ @"GuardianEmail" : guardian.email, @"ChildID" : @(childID), @"SecurityCode" : @(code) };
+    
+    NSURL* url = [self urlForScript:SCRIPT_ACCEPT_CHILD jsonObject:jsonObject];
+    NSURLRequest* req = [[NSURLRequest alloc] initWithURL:url
+                                              cachePolicy:NSURLCacheStorageNotAllowed
+                                          timeoutInterval:DEFAULT_TIMEOUT];
+    
+    void (^completionCopy)(BOOL, NSError*) = [completionHandler copy];
+    [NSURLConnection sendAsynchronousRequest:req
+                                       queue:[NSOperationQueue mainQueue]
+                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError)
+     {
+        if (connectionError == nil) {
+            // Parse the response
+            NSString* result = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            bool validCode = false;
+            // If the response is true, the share was a success... otherwise it failed
+            if ([result isEqualToString:@"true"]) {
+                validCode = true;
+            }
+            // Call the completion handler
+            if (completionCopy != nil) {
+                completionCopy(validCode, nil);
+            }
+         }
+         else {
+             NSLog(@"Error %@ for request %@", connectionError, [[response URL] absoluteString]);
+             if (completionCopy != nil) {
+                 completionCopy(NO, connectionError);
+             }
+         }
+     }];
+
 }
 
-- (void)rejectChild:(NSInteger)childID forGuardian:(GuardianUser*)guardian completionHandler:(void (^)(BOOL success))completionHandler
+- (void)rejectChild:(NSInteger)childID forGuardian:(GuardianUser*)guardian completionHandler:(void (^)(NSError* err))completionHandler
 {
-    // Send request to server
-    // Parse result
-    // Call completion handler
+    NSDictionary* jsonObject = @{ @"GuardianEmail" : guardian.email, @"ChildID" : @(childID) };
+    
+    NSURL* url = [self urlForScript:SCRIPT_REJECT_CHILD jsonObject:jsonObject];
+    NSURLRequest* req = [[NSURLRequest alloc] initWithURL:url
+                                              cachePolicy:NSURLCacheStorageNotAllowed
+                                          timeoutInterval:DEFAULT_TIMEOUT];
+    
+    void (^completionCopy)(NSError*) = [completionHandler copy];
+    [NSURLConnection sendAsynchronousRequest:req
+                                       queue:[NSOperationQueue mainQueue]
+                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError)
+     {
+         if (connectionError == nil) {
+             NSError* err = nil;
+             
+             // Parse the response
+             NSString* result = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+             
+             // If the response is true, the share was a success... otherwise it failed
+             if (![result isEqualToString:@"true"]) {
+                 err = [NSError errorWithDomain:@"Transaction unsuccessful" code:1009 userInfo:nil];
+             }
+             
+             // Call the completion handler
+             if (completionCopy != nil) {
+                 completionCopy(err);
+             }
+         }
+         else {
+             NSLog(@"Error %@ for request %@", connectionError, [[response URL] absoluteString]);
+             if (completionCopy != nil) {
+                 completionCopy(connectionError);
+             }
+         }
+     }];
 }
 
 - (void)getPendingSharesForGuardian:(GuardianUser*)guardian completionHandler:(void (^)(NSArray* shares, NSError*))completionHandler
 {
-    // Send request to server
-    // Parse result
-    // Call completion handler
+    NSDictionary* jsonObject = @{ @"GuardianEmail" : guardian.email };
+    
+    NSURL* url = [self urlForScript:SCRIPT_GET_PENDING_SHARES jsonObject:jsonObject];
+    NSURLRequest* req = [[NSURLRequest alloc] initWithURL:url
+                                              cachePolicy:NSURLCacheStorageNotAllowed
+                                          timeoutInterval:DEFAULT_TIMEOUT];
+    
+    /*{"Children":[{"Id":"1000046","UserName":"Child3"},{"Id":"1000048","UserName":"Child4"},{"Id":"1000049","UserName":"Child5"}]}*/
+    void (^completionCopy)(NSArray*, NSError*) = [completionHandler copy];
+    [NSURLConnection sendAsynchronousRequest:req
+                                       queue:[NSOperationQueue mainQueue]
+                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError)
+    {
+                               NSMutableArray* retArr = [[NSMutableArray alloc] init];
+                               
+                               if (connectionError == nil) {
+                                   NSError* err = nil;
+                                   NSDictionary* result = [self checkErrorInResponse:response withData:data error:&err];
+                                   if (err == nil)
+                                   {
+                                       NSArray* children = [result objectForKey:@"Children"];
+                                       for (id childDict in children)
+                                       {
+                                           // Check the response is in valid format
+                                           if ([childDict isKindOfClass:[NSDictionary class]]) {
+                                               // Create a ShareRequest with an ID and username
+                                               ShareRequest* user = [[ShareRequest alloc] init];
+                                               NSString* ID = [childDict objectForKey:@"Id"];
+                                               if (ID != nil) {
+                                                   user.childID = [ID integerValue];
+                                               }
+                                               else {
+                                                   NSLog(@"Error getting ID from %@ for URL %@ in %s", childDict, [[response URL] absoluteString], __PRETTY_FUNCTION__);
+                                               }
+                                               
+                                               NSString* name = [childDict objectForKey:@"UserName"];
+                                               if (name != nil) {
+                                                   user.childName = name;
+                                               }
+                                               else {
+                                                   NSLog(@"Error getting name from %@ for URL %@ in %s", childDict, [[response URL] absoluteString], __PRETTY_FUNCTION__);
+                                               }
+                                               
+                                               // Add the child to the return array
+                                               [retArr addObject:user];
+                                           }
+                                       }
+                                   }
+                                   // Call the completion handler
+                                   if (completionCopy != nil) {
+                                       completionCopy(retArr, err);
+                                   }
+                                }
+                               else {
+                                   NSLog(@"Error %@ for request %@", connectionError, [[response URL] absoluteString]);
+                                   if (completionCopy != nil) {
+                                       completionCopy(retArr, connectionError);
+                                   }
+
+                               }
+                           }];
 }
 
-- (void)shareChildren:(NSArray*)users withGuardianEmail:(NSString*)email code:(int)code completionHandler:(void (^)(NSError*))completionHandler
+- (void)shareChildren:(NSArray*)users withGuardianEmail:(NSString*)email code:(int)code completionHandler:(void (^)(BOOL))completionHandler
 {
     BOOL hadResponse = false;
     
@@ -460,17 +624,26 @@ static NSString* SCRIPT_DELETE_ACCOUNT = @"deleteAccount";
                                                   cachePolicy:NSURLCacheStorageNotAllowed
                                               timeoutInterval:DEFAULT_TIMEOUT];
         
-        void (^completionCopy)(NSArray*) = [completionHandler copy];
+        void (^completionCopy)(BOOL) = [completionHandler copy];
         [NSURLConnection sendAsynchronousRequest:req
                                            queue:[NSOperationQueue mainQueue]
                                completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-
                                    if (connectionError == nil) {
-                                       NSError* err = nil;
-                                       NSDictionary* json = [self checkErrorInResponse:response withData:data error:&err];
-                                       if (err == nil) {
+                                       // If we've already had a response for one of the previous children then we'll assume this
+                                       // request had the same success / failure and therefore ignore this response
+                                       if (!hadResponse)
+                                       {
+                                           // Parse the response
+                                           NSString* result = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                                           bool success = false;
+                                           // If the response is true, the share was a success... otherwise it failed
+                                           if ([result isEqualToString:@"true"]) {
+                                               success = true;
+                                           }
+                                           if (completionCopy != nil) {
+                                                completionCopy(success);
+                                           }
                                        }
-                            #warning TODO: Parse response                                                                                  }
                                    }
                                    else {
                                        NSLog(@"Error %@ for request %@", connectionError, [[response URL] absoluteString]);
@@ -507,12 +680,6 @@ static NSString* SCRIPT_DELETE_ACCOUNT = @"deleteAccount";
                                }
                                
                            }];
-    
-    
-    
-    // Send request to server
-    // Parse result
-    // Call completion handler
 }
 
 @end

@@ -10,6 +10,10 @@
 
 //  Created in version 2
 
+//  This class tracks all information about the Child's game progress during a session
+//  A session begins when the child logs in and ends when they log out
+//  Each session has a date associated with it which is used for analyzing the Child's progress over time in the guardian section
+
 #import <CoreData/CoreData.h>
 #import "ChildUser.h"
 #import "ChildProblemData.h"

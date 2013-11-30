@@ -53,10 +53,10 @@
     
     // Send share request to server
     // Share a request for each share request in shareReqs
-    [[ServerCommunicationManager sharedInstance] shareChildren:shareReqs withGuardianEmail:gEmail code:randomValue completionHandler:^(NSError* err)
+    [[ServerCommunicationManager sharedInstance] shareChildren:shareReqs withGuardianEmail:gEmail code:randomValue completionHandler:^(BOOL success)
      {
          // If there was an error, inform the user
-         if (err != nil) {
+         if (!success) {
              [self displayError];
          }
          // Otherwise display the security code

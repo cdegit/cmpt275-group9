@@ -31,20 +31,37 @@
 }
 
 
-//{"Id":"1000025","NumberCorrect":"1","TotalResponseTime":"6.08031898737","NumberOfAttempts":"3","ProblemID":"105","Date":"407361935.737"}
+/*{"Sessions":[{"Problems":[{"Id":"1000025","NumberCorrect":"1","TotalResponseTime":"6.08031898737","NumberOfAttempts":"3","ProblemID":"105"}],"Date":407361935.737}]}*/
 + (Session*)sessionFromDictionary:(NSDictionary*)dict withChild:(ChildUser*)user
 {
+    // Create the session object in the database
     NSManagedObjectContext *mc = [(AppDelegate*)[[UIApplication sharedApplication] delegate] managedObjectContext];
     NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Session" inManagedObjectContext:mc];
-    
     Session* session = [[Session alloc] initWithEntity:entityDescription
                         insertIntoManagedObjectContext:mc];
+    
+    // Fill in the properties from the dictionary
     session.child = user;
-    session.date = [dict objectForKey:@"Date"];
-#warning TODO parse the rest of the dictionary
+    NSNumber* seconds = [dict objectForKey:@"Date"];
+    if (seconds != nil) {
+        session.date = [NSDate dateWithTimeIntervalSinceReferenceDate:[seconds doubleValue]];
+    }
+    else {
+        NSLog(@"Unable to get date from %@ in %s", dict, __PRETTY_FUNCTION__);
+    }
+    
+    NSArray* problems = [dict objectForKey:@"Problems"];
+    for (id problemDict in problems)
+    {
+        // Check that the problemDict is correctly formatted (since it comes from the server, it could be ill formatted)
+        if ([problemDict isKindOfClass:[NSDictionary class]])
+        {
+            ChildProblemData* cpd = [ChildProblemData problemFromDictionary:problemDict withSession:session];
+            [session addProblemDataObject:cpd];
+        }
+    }
     
     return session;
-
 }
 
 - (ChildProblemData*)problemDataWithID:(NSUInteger)ID
@@ -62,6 +79,7 @@
 
 - (NSDictionary*)dictionaryRepresentation
 {
+    // Convert all the properties into a dictionary form and return the dictionary
     NSMutableDictionary* dict = [[NSMutableDictionary alloc] init];
     [dict setObject:[NSNumber numberWithDouble:[self.date timeIntervalSinceReferenceDate]] forKey:@"Date"];
     NSMutableArray* problems = [[NSMutableArray alloc] init];
