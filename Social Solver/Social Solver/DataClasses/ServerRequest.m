@@ -35,8 +35,6 @@
     
     NSData *requestBody;
     
-#warning - TODO Set up http request body with user data for sync
-    
     
     [req setHTTPBody:requestBody];
     

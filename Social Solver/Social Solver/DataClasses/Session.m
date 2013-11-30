@@ -30,6 +30,23 @@
     return session;
 }
 
+
+//{"Id":"1000025","NumberCorrect":"1","TotalResponseTime":"6.08031898737","NumberOfAttempts":"3","ProblemID":"105","Date":"407361935.737"}
++ (Session*)sessionFromDictionary:(NSDictionary*)dict withChild:(ChildUser*)user
+{
+    NSManagedObjectContext *mc = [(AppDelegate*)[[UIApplication sharedApplication] delegate] managedObjectContext];
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Session" inManagedObjectContext:mc];
+    
+    Session* session = [[Session alloc] initWithEntity:entityDescription
+                        insertIntoManagedObjectContext:mc];
+    session.child = user;
+    session.date = [dict objectForKey:@"Date"];
+#warning TODO parse the rest of the dictionary
+    
+    return session;
+
+}
+
 - (ChildProblemData*)problemDataWithID:(NSUInteger)ID
 {
     NSSet* result = [self.problemData objectsPassingTest:^BOOL(id obj, BOOL *stop) {

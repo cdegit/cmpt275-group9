@@ -27,6 +27,7 @@
 
 // Added in Version 3
 - (NSDictionary*)dictionaryRepresentation;
++ (Session*)sessionFromDictionary:(NSDictionary*)dict withChild:(ChildUser*)user;
 
 @end
 

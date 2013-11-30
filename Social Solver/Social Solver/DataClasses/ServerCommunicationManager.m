@@ -294,8 +294,6 @@ static NSString* SCRIPT_DELETE_ACCOUNT = @"deleteAccount";
             [self getServerSessionsWithDates:[toReceive allObjects] forChild:cUser];
         }
     }];
-//    NSArray* arr = [NSArray arrayWithObjects:[NSDate dateWithTimeIntervalSinceReferenceDate:407361935.737], [NSDate dateWithTimeIntervalSinceReferenceDate:407361999], nil];
-//    [self getServerSessionsWithDates:arr forChild:cUser];
 }
 
 
@@ -369,8 +367,7 @@ static NSString* SCRIPT_DELETE_ACCOUNT = @"deleteAccount";
 #warning UNTESTED
     NSDictionary* jsonObject = @{ @"ChidID" : [NSNumber numberWithInteger:user.uid] };
     
-//    NSURL* url = [self urlForScript:SCRIPT_GET_SESSION_DATES jsonObject:jsonObject];
-    NSURL* url = [NSURL URLWithString:@"http://kaijubluesg9.site90.com/getSessionDates.php?json=%7B%22ChildID%22:1000000%7B"];
+    NSURL* url = [self urlForScript:SCRIPT_GET_SESSION_DATES jsonObject:jsonObject];
     
     NSURLRequest* req = [[NSURLRequest alloc] initWithURL:url
                                               cachePolicy:NSURLCacheStorageNotAllowed
@@ -447,11 +444,39 @@ static NSString* SCRIPT_DELETE_ACCOUNT = @"deleteAccount";
     // Call completion handler
 }
 
-- (void)shareChild:(ChildUser*)cUser withGuardianEmail:(NSString*)email transferPrimary:(BOOL)transfer completionHandler:(void (^)(NSError*, NSInteger securityCode))completionHandler
+- (void)shareChildren:(NSArray*)users withGuardianEmail:(NSString*)email code:(int)code completionHandler:(void (^)(NSError*))completionHandler
 {
-    // Send request to server
-    // Parse result
-    // Call completion handler
+    BOOL hadResponse = false;
+    
+    for (ChildUser* user in users)
+    {
+        NSMutableDictionary* jsonObject = [[NSMutableDictionary alloc] init];
+        [jsonObject setObject:@(user.uid) forKey:@"ChildID"];
+        [jsonObject setObject:email forKey:@"GuardianEmail"];
+        [jsonObject setObject:@(code) forKey:@"SecurityCode"];
+        
+        NSURL* url = [self urlForScript:SCRIPT_ADD_PENDING_SHARE jsonObject:jsonObject];
+        NSURLRequest* req = [[NSURLRequest alloc] initWithURL:url
+                                                  cachePolicy:NSURLCacheStorageNotAllowed
+                                              timeoutInterval:DEFAULT_TIMEOUT];
+        
+        void (^completionCopy)(NSArray*) = [completionHandler copy];
+        [NSURLConnection sendAsynchronousRequest:req
+                                           queue:[NSOperationQueue mainQueue]
+                               completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+
+                                   if (connectionError == nil) {
+                                       NSError* err = nil;
+                                       NSDictionary* json = [self checkErrorInResponse:response withData:data error:&err];
+                                       if (err == nil) {
+                                       }
+                            #warning TODO: Parse response                                                                                  }
+                                   }
+                                   else {
+                                       NSLog(@"Error %@ for request %@", connectionError, [[response URL] absoluteString]);
+                                   }
+                               }];
+    }
 }
 
 - (void)requestAccountDeletion:(NSInteger)uid
