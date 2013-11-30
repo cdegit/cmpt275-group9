@@ -33,6 +33,11 @@
 		2A7DB106181B3A24008EF99F /* LoginPromptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7DB104181B3A24008EF99F /* LoginPromptViewController.m */; };
 		2A7DB107181B3A24008EF99F /* LoginPromptViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A7DB105181B3A24008EF99F /* LoginPromptViewController.xib */; };
 		2AAABD98182D506900FBCD60 /* ServerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AAABD97182D506900FBCD60 /* ServerRequest.m */; };
+		8179BFEE18497E140097F62D /* scene-ice-cream-disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 8179BFED18497E140097F62D /* scene-ice-cream-disabled.png */; };
+		8179BFF018497F080097F62D /* scene-ice cream-disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 8179BFEF18497F080097F62D /* scene-ice cream-disabled.png */; };
+		8179BFF218497F560097F62D /* scene-Billy surprises Suzy-disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 8179BFF118497F560097F62D /* scene-Billy surprises Suzy-disabled.png */; };
+		8179BFF418497FAD0097F62D /* scene-pulling hair-disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 8179BFF318497FAD0097F62D /* scene-pulling hair-disabled.png */; };
+		8179BFF618497FC90097F62D /* scene-spider-disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 8179BFF518497FC90097F62D /* scene-spider-disabled.png */; };
 		817F14B01830463C00D058A8 /* cheering.wav in Resources */ = {isa = PBXBuildFile; fileRef = 817F14AF1830463C00D058A8 /* cheering.wav */; };
 		817F14C218304AE100D058A8 /* launch-768-1004.png in Resources */ = {isa = PBXBuildFile; fileRef = 817F14B118304AE100D058A8 /* launch-768-1004.png */; };
 		817F14C318304AE100D058A8 /* ult.png in Resources */ = {isa = PBXBuildFile; fileRef = 817F14B218304AE100D058A8 /* ult.png */; };
@@ -61,6 +66,14 @@
 		81DFCCB418402C520067E5F3 /* afraid-75x85-disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 81DFCCAD18402C520067E5F3 /* afraid-75x85-disabled.png */; };
 		81DFCCB518402C520067E5F3 /* frame.png in Resources */ = {isa = PBXBuildFile; fileRef = 81DFCCAE18402C520067E5F3 /* frame.png */; };
 		81DFCCB71846E04D0067E5F3 /* edit-account-50x50.png in Resources */ = {isa = PBXBuildFile; fileRef = 81DFCCB61846E04D0067E5F3 /* edit-account-50x50.png */; };
+		81DFCCC018473EA90067E5F3 /* break-toy-disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 81DFCCB918473EA90067E5F3 /* break-toy-disabled.png */; };
+		81DFCCC118473EA90067E5F3 /* billy-suzy-fight-disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 81DFCCBA18473EA90067E5F3 /* billy-suzy-fight-disabled.png */; };
+		81DFCCC218473EA90067E5F3 /* billy-dislike-icecream-disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 81DFCCBB18473EA90067E5F3 /* billy-dislike-icecream-disabled.png */; };
+		81DFCCC318473EA90067E5F3 /* billy-destroying-disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 81DFCCBC18473EA90067E5F3 /* billy-destroying-disabled.png */; };
+		81DFCCC418473EA90067E5F3 /* ask-to-play-disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 81DFCCBD18473EA90067E5F3 /* ask-to-play-disabled.png */; };
+		81DFCCC518473EA90067E5F3 /* angry-suzy-disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 81DFCCBE18473EA90067E5F3 /* angry-suzy-disabled.png */; };
+		81DFCCC718473FB70067E5F3 /* spider-surprise-disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 81DFCCC618473FB70067E5F3 /* spider-surprise-disabled.png */; };
+		81DFCCC91847400F0067E5F3 /* scene-surprised-suzy-disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 81DFCCC81847400F0067E5F3 /* scene-surprised-suzy-disabled.png */; };
 		EA16940C18162A7700C40069 /* Problem.m in Sources */ = {isa = PBXBuildFile; fileRef = EA16940B18162A7700C40069 /* Problem.m */; };
 		EA16940F18162B2B00C40069 /* ProblemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EA16940E18162B2B00C40069 /* ProblemManager.m */; };
 		EA16941B18163C5C00C40069 /* LevelCompleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA16941918163C5C00C40069 /* LevelCompleteViewController.m */; };
@@ -253,6 +266,11 @@
 		2AAABD96182D506900FBCD60 /* ServerRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerRequest.h; sourceTree = "<group>"; };
 		2AAABD97182D506900FBCD60 /* ServerRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerRequest.m; sourceTree = "<group>"; };
 		2AD01A4D18302E11000EEF89 /* LogoutRequestDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LogoutRequestDelegate.h; path = Protocols/LogoutRequestDelegate.h; sourceTree = "<group>"; };
+		8179BFED18497E140097F62D /* scene-ice-cream-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scene-ice-cream-disabled.png"; sourceTree = "<group>"; };
+		8179BFEF18497F080097F62D /* scene-ice cream-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scene-ice cream-disabled.png"; sourceTree = "<group>"; };
+		8179BFF118497F560097F62D /* scene-Billy surprises Suzy-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scene-Billy surprises Suzy-disabled.png"; sourceTree = "<group>"; };
+		8179BFF318497FAD0097F62D /* scene-pulling hair-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scene-pulling hair-disabled.png"; sourceTree = "<group>"; };
+		8179BFF518497FC90097F62D /* scene-spider-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scene-spider-disabled.png"; sourceTree = "<group>"; };
 		817F14AF1830463C00D058A8 /* cheering.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = cheering.wav; sourceTree = "<group>"; };
 		817F14B118304AE100D058A8 /* launch-768-1004.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-768-1004.png"; sourceTree = "<group>"; };
 		817F14B218304AE100D058A8 /* ult.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ult.png; sourceTree = "<group>"; };
@@ -282,6 +300,14 @@
 		81DFCCAD18402C520067E5F3 /* afraid-75x85-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "afraid-75x85-disabled.png"; sourceTree = "<group>"; };
 		81DFCCAE18402C520067E5F3 /* frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = frame.png; sourceTree = "<group>"; };
 		81DFCCB61846E04D0067E5F3 /* edit-account-50x50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "edit-account-50x50.png"; sourceTree = "<group>"; };
+		81DFCCB918473EA90067E5F3 /* break-toy-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "break-toy-disabled.png"; sourceTree = "<group>"; };
+		81DFCCBA18473EA90067E5F3 /* billy-suzy-fight-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "billy-suzy-fight-disabled.png"; sourceTree = "<group>"; };
+		81DFCCBB18473EA90067E5F3 /* billy-dislike-icecream-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "billy-dislike-icecream-disabled.png"; sourceTree = "<group>"; };
+		81DFCCBC18473EA90067E5F3 /* billy-destroying-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "billy-destroying-disabled.png"; sourceTree = "<group>"; };
+		81DFCCBD18473EA90067E5F3 /* ask-to-play-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ask-to-play-disabled.png"; sourceTree = "<group>"; };
+		81DFCCBE18473EA90067E5F3 /* angry-suzy-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "angry-suzy-disabled.png"; sourceTree = "<group>"; };
+		81DFCCC618473FB70067E5F3 /* spider-surprise-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spider-surprise-disabled.png"; sourceTree = "<group>"; };
+		81DFCCC81847400F0067E5F3 /* scene-surprised-suzy-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scene-surprised-suzy-disabled.png"; sourceTree = "<group>"; };
 		EA16940A18162A7700C40069 /* Problem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Problem.h; sourceTree = "<group>"; };
 		EA16940B18162A7700C40069 /* Problem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Problem.m; sourceTree = "<group>"; };
 		EA16940D18162B2B00C40069 /* ProblemManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProblemManager.h; sourceTree = "<group>"; };
@@ -708,6 +734,19 @@
 		EAC698CD181DB7F000342086 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				8179BFF518497FC90097F62D /* scene-spider-disabled.png */,
+				8179BFF118497F560097F62D /* scene-Billy surprises Suzy-disabled.png */,
+				8179BFF318497FAD0097F62D /* scene-pulling hair-disabled.png */,
+				8179BFEF18497F080097F62D /* scene-ice cream-disabled.png */,
+				8179BFED18497E140097F62D /* scene-ice-cream-disabled.png */,
+				81DFCCC81847400F0067E5F3 /* scene-surprised-suzy-disabled.png */,
+				81DFCCC618473FB70067E5F3 /* spider-surprise-disabled.png */,
+				81DFCCB918473EA90067E5F3 /* break-toy-disabled.png */,
+				81DFCCBA18473EA90067E5F3 /* billy-suzy-fight-disabled.png */,
+				81DFCCBB18473EA90067E5F3 /* billy-dislike-icecream-disabled.png */,
+				81DFCCBC18473EA90067E5F3 /* billy-destroying-disabled.png */,
+				81DFCCBD18473EA90067E5F3 /* ask-to-play-disabled.png */,
+				81DFCCBE18473EA90067E5F3 /* angry-suzy-disabled.png */,
 				81DFCCB61846E04D0067E5F3 /* edit-account-50x50.png */,
 				EAF1099C184154FF002A0F61 /* click2.wav */,
 				EAF1099A184151FD002A0F61 /* click.wav */,
@@ -1125,6 +1164,7 @@
 				EACC679A18037CFE00FEAC76 /* InfoPlist.strings in Resources */,
 				04D59251184097A0009764A9 /* SyncingViewController.xib in Resources */,
 				EAE439AD182EE9E50026370C /* scene-ice cream.png in Resources */,
+				8179BFF018497F080097F62D /* scene-ice cream-disabled.png in Resources */,
 				EAE439AE182EE9E50026370C /* scene-pulling hair.png in Resources */,
 				EAC69916181DCE3C00342086 /* vert gradient 2.jpg in Resources */,
 				EAC69904181DC20D00342086 /* Problem Solver Icon brighter.png in Resources */,
@@ -1138,15 +1178,19 @@
 				EACC67CC18037DA300FEAC76 /* MainMenuViewController.xib in Resources */,
 				817F14CB18304AE100D058A8 /* retina.png in Resources */,
 				2A730FA21819A541000356DE /* LoginUserSelectionCell.xib in Resources */,
+				81DFCCC218473EA90067E5F3 /* billy-dislike-icecream-disabled.png in Resources */,
 				EAC6994A1828B3A000342086 /* StatsProblemCell.xib in Resources */,
 				049E1247183BEE2500083303 /* TrackingUserSelectionCell.xib in Resources */,
 				EAE439A9182EE9E50026370C /* problem-asking for bear.png in Resources */,
+				81DFCCC718473FB70067E5F3 /* spider-surprise-disabled.png in Resources */,
 				EAE439A0182EE9D90026370C /* sad-75x85.png in Resources */,
 				817F14D218304AE100D058A8 /* spotlight-100x100.png in Resources */,
 				81DFCCB018402C520067E5F3 /* surprised-75x85-disabled.png in Resources */,
 				817F14C818304AE100D058A8 /* launch-2048x1496.png in Resources */,
 				EAE439E318303B2D0026370C /* ShareProfilesViewController.xib in Resources */,
 				EAC699401828B39100342086 /* PopoverPickerViewController.xib in Resources */,
+				8179BFF418497FAD0097F62D /* scene-pulling hair-disabled.png in Resources */,
+				81DFCCC318473EA90067E5F3 /* billy-destroying-disabled.png in Resources */,
 				EAC698EC181DB81A00342086 /* Scene Solver Icon.png in Resources */,
 				EACC67E9180B4B6600FEAC76 /* LoginViewController.xib in Resources */,
 				EAE439B9182F03880026370C /* open arrow down.png in Resources */,
@@ -1166,9 +1210,11 @@
 				EAE439AB182EE9E50026370C /* scene-bear toy.png in Resources */,
 				817F14C418304AE100D058A8 /* launch-1024x748.png in Resources */,
 				81DFCCB318402C520067E5F3 /* angry-75x85-disabled.png in Resources */,
+				8179BFEE18497E140097F62D /* scene-ice-cream-disabled.png in Resources */,
 				EAE4399D182EE9D90026370C /* angry-75x85.png in Resources */,
 				EAF1099B184151FD002A0F61 /* click.wav in Resources */,
 				EAC698E1181DB81A00342086 /* anger.png in Resources */,
+				81DFCCC91847400F0067E5F3 /* scene-surprised-suzy-disabled.png in Resources */,
 				81D71E80183ED22E00D1E63D /* RewardsGalleryCell.xib in Resources */,
 				2A67ECE21827F245000695CC /* ViewChildrenViewController.xib in Resources */,
 				2A6C6D03183AC5D20018F407 /* ManageChildTileCell.xib in Resources */,
@@ -1187,8 +1233,10 @@
 				EACC67F8180B4C4800FEAC76 /* RewardsGalleryViewController.xib in Resources */,
 				EAE439B7182F03880026370C /* arrow-right.png in Resources */,
 				EAC698ED181DB81A00342086 /* surprised.png in Resources */,
+				81DFCCC518473EA90067E5F3 /* angry-suzy-disabled.png in Resources */,
 				EAE439DF18303B2D0026370C /* PendingSharesViewController.xib in Resources */,
 				817F14D118304AE100D058A8 /* spotlight-80x80.png in Resources */,
+				81DFCCC418473EA90067E5F3 /* ask-to-play-disabled.png in Resources */,
 				EAE439EF18303B890026370C /* ShareUserSelectionCell.xib in Resources */,
 				EACC67FD180B4C7400FEAC76 /* GuardianMainMenuViewController.xib in Resources */,
 				EAE439AF182EE9E50026370C /* scene-spider.png in Resources */,
@@ -1207,18 +1255,22 @@
 				81DFCCB418402C520067E5F3 /* afraid-75x85-disabled.png in Resources */,
 				EAC698F1181DB81A00342086 /* settings-50x50.png in Resources */,
 				EAE439E118303B2D0026370C /* ShareProfileSecurityCodeViewController.xib in Resources */,
+				81DFCCC118473EA90067E5F3 /* billy-suzy-fight-disabled.png in Resources */,
 				EAC6991B181DF56100342086 /* Billy_scared_by_Spider.mp4 in Resources */,
 				EAC698F0181DB81A00342086 /* pending-50x50.png in Resources */,
+				81DFCCC018473EA90067E5F3 /* break-toy-disabled.png in Resources */,
 				817F14C318304AE100D058A8 /* ult.png in Resources */,
 				EAC698E8181DB81A00342086 /* fear.png in Resources */,
 				EAE439AC182EE9E50026370C /* scene-Billy surprises Suzy.png in Resources */,
 				817F14CF18304AE100D058A8 /* spotlight-40x40.png in Resources */,
 				EACC680B180B9CE900FEAC76 /* StatisticsViewController.xib in Resources */,
 				EAC69903181DC20D00342086 /* Face Finder Icon brighter.png in Resources */,
+				8179BFF218497F560097F62D /* scene-Billy surprises Suzy-disabled.png in Resources */,
 				04D59253184097B9009764A9 /* SyncingUserSelectionCell.xib in Resources */,
 				EAE439B6182F03880026370C /* arrow-left.png in Resources */,
 				EAC6990E181DCAC100342086 /* stressed_linen_@2X.png in Resources */,
 				EAE439AA182EE9E50026370C /* problem-broken bear toy.png in Resources */,
+				8179BFF618497FC90097F62D /* scene-spider-disabled.png in Resources */,
 				EAC698E5181DB81A00342086 /* Button 300x50.png in Resources */,
 				EAC69906181DC20D00342086 /* Scene Solver Icon brighter.png in Resources */,
 				EAC698E3181DB81A00342086 /* App Icon 144x144.png in Resources */,
