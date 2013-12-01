@@ -654,6 +654,7 @@ static NSString* SCRIPT_DELETE_ACCOUNT = @"deleteAccount";
         [jsonObject setObject:email forKey:@"GuardianEmail"];
         [jsonObject setObject:@(code) forKey:@"SecurityCode"];
         [jsonObject setObject:activeUser.email forKey:@"EmailFrom"];
+        [jsonObject setObject:user.name forKey:@"UserName"];
         
         NSURL* url = [self urlForScript:SCRIPT_ADD_PENDING_SHARE jsonObject:jsonObject];
         NSURLRequest* req = [[NSURLRequest alloc] initWithURL:url
@@ -684,6 +685,9 @@ static NSString* SCRIPT_DELETE_ACCOUNT = @"deleteAccount";
                                    }
                                    else {
                                        NSLog(@"Error %@ for request %@", connectionError, [[response URL] absoluteString]);
+                                       if (!hadResponse && completionCopy != nil) {
+                                           completionCopy(NO);
+                                       }
                                    }
                                }];
     }
