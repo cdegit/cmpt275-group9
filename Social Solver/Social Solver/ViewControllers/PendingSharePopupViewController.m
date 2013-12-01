@@ -40,6 +40,11 @@
     {
         [self.delegate pendingSharePopupViewController:self didAcceptWithCode:[self.textField.text integerValue]];
     }
+    else
+    {
+        UIAlertView* err = [[UIAlertView alloc] initWithTitle:@"Invalid Code" message:@"Code must be 4 digits" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil];
+        [err show];
+    }
 }
 
 - (IBAction)rejectButtonPressed:(id)sender
