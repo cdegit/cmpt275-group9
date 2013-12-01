@@ -60,7 +60,7 @@
     return false;
 }
 
-+ (ChildUser*)createChildFromDictionary:(NSDictionary *)data
++ (ChildUser*)createChildFromDictionary:(NSDictionary*)data ID:(NSInteger)uid
 {
 /*"UserName":"Tim","PasswordHash":"<9933aa8573d650c56afbc9fe410c247475fc2bec6352eedea","PasswordSeed":"<960658b91d6523f5e062bacc96c60974cba25f005e98f4a4c","Sessions":[{"Id":"1000037","NumberCorrect":"1","TotalResponseTime":"3.18891996145","NumberOfAttempts":"1","ProblemID":"102","Date":"407377280.00000000000"},{"Id":"1000037","NumberCorrect":"1","TotalResponseTime":"4.04836404324","NumberOfAttempts":"1","ProblemID":"203","Date":"407377920.00000000000"}]}*/
     
@@ -91,8 +91,16 @@
                                      insertIntoManagedObjectContext:mc];
     
     child.name = userName;
+    child.uid = uid;
     [child setPasswordHashFromHexEncodedString:passwordHash];
     [child setPasswordSeedFromHexEncodedString:passwordSeed];
+    
+    // Setup the child's settings
+    NSEntityDescription *childSettingsEntityDescription = [NSEntityDescription entityForName:@"ChildSettings" inManagedObjectContext:mc];
+    ChildSettings *cs = [[ChildSettings alloc] initWithEntity:childSettingsEntityDescription insertIntoManagedObjectContext:mc];
+    cs.allowsAutoSync = YES;
+    cs.allowsTracking = YES;
+    child.settings = cs;
     
     // Add the child's sessions
     NSArray* sessions = [data objectForKey:@"Sessions"];

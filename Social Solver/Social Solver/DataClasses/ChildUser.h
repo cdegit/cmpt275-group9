@@ -37,7 +37,7 @@
 - (bool)hasSessionWithDate:(NSDate*)date;
 // A method to create a ChildUser instance in the database from data
 // Returns nil if the data is incorrectly formatted
-+ (ChildUser*)createChildFromDictionary:(NSDictionary*)data;
++ (ChildUser*)createChildFromDictionary:(NSDictionary*)data ID:(NSInteger)uid;
 
 @end
 

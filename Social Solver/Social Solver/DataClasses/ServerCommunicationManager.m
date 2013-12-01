@@ -466,7 +466,7 @@ static NSString* SCRIPT_DELETE_ACCOUNT = @"deleteAccount";
                                    if (err == nil)
                                    {
                                        // Try to make a childUser from the dictionary. If it's unsuccessful, create an error
-                                       ChildUser* child = [ChildUser createChildFromDictionary:result];
+                                       ChildUser* child = [ChildUser createChildFromDictionary:result ID:ID];
                                        if (child == nil) {
                                            err = [NSError errorWithDomain:@"Invalid data" code:1010 userInfo:nil];
                                            NSLog(@"Unable to create a childUser from %@ for request %@", result, [[response URL] absoluteString]);
