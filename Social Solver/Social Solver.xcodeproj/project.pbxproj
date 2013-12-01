@@ -287,7 +287,6 @@
 		2A7DB103181B3A24008EF99F /* LoginPromptViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginPromptViewController.h; sourceTree = "<group>"; };
 		2A7DB104181B3A24008EF99F /* LoginPromptViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginPromptViewController.m; sourceTree = "<group>"; };
 		2A7DB105181B3A24008EF99F /* LoginPromptViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginPromptViewController.xib; path = ViewControllers/LoginPromptViewController.xib; sourceTree = "<group>"; };
-		2A964BE7182D5CDD0016B43F /* ServerRequestDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ServerRequestDelegate.h; path = Protocols/ServerRequestDelegate.h; sourceTree = "<group>"; };
 		2AD01A4D18302E11000EEF89 /* LogoutRequestDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LogoutRequestDelegate.h; path = Protocols/LogoutRequestDelegate.h; sourceTree = "<group>"; };
 		8179BFED18497E140097F62D /* scene-ice-cream-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scene-ice-cream-disabled.png"; sourceTree = "<group>"; };
 		8179BFEF18497F080097F62D /* scene-ice cream-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scene-ice cream-disabled.png"; sourceTree = "<group>"; };
@@ -643,14 +642,13 @@
 			isa = PBXGroup;
 			children = (
 				2A67ECE31827FCC7000695CC /* AccountManagementViewControllerDelegate.h */,
+				2A347C81183FD060008278B6 /* AddExistingChildViewControllerDelegate.h */,
+				2A7AF7491847D7D500D9EA81 /* ChangePasswordFormViewControllerDelegate.h */,
 				EABC93A9182E06AE00E81664 /* GraphViewControllerDataSource.h */,
 				2A3CDB82181EC83900A04D62 /* LoginPromptViewControllerDelegate.h */,
 				2AD01A4D18302E11000EEF89 /* LogoutRequestDelegate.h */,
-				EAC699381828B37C00342086 /* PopoverPickerViewControllerDelegate.h */,
-				2A964BE7182D5CDD0016B43F /* ServerRequestDelegate.h */,
 				2A6C6D07183AD20F0018F407 /* ManageChildTileCellDelegate.h */,
-				2A347C81183FD060008278B6 /* AddExistingChildViewControllerDelegate.h */,
-				2A7AF7491847D7D500D9EA81 /* ChangePasswordFormViewControllerDelegate.h */,
+				EAC699381828B37C00342086 /* PopoverPickerViewControllerDelegate.h */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -1124,10 +1122,14 @@
 			children = (
 				2A730F9E1819A4EA000356DE /* LoginUserSelectionCell.h */,
 				2A730F9F1819A4EA000356DE /* LoginUserSelectionCell.m */,
+				2A6C6D04183AC6270018F407 /* ManageChildTileCell.h */,
+				2A6C6D05183AC6270018F407 /* ManageChildTileCell.m */,
 				EACC6802180B944E00FEAC76 /* NavigationTableCell.h */,
 				EACC6803180B944E00FEAC76 /* NavigationTableCell.m */,
 				EAE439E618303B890026370C /* PendingSharesTableCell.h */,
 				EAE439E718303B890026370C /* PendingSharesTableCell.m */,
+				81D71E81183ED26800D1E63D /* RewardsGalleryCell.h */,
+				81D71E82183ED26800D1E63D /* RewardsGalleryCell.m */,
 				EAE439E918303B890026370C /* ShareUserSelectionCell.h */,
 				EAE439EA18303B890026370C /* ShareUserSelectionCell.m */,
 				EAC699411828B3A000342086 /* StatsChildCell.h */,
@@ -1136,14 +1138,10 @@
 				EAC699451828B3A000342086 /* StatsProblemCell.m */,
 				EAE439BC182F320B0026370C /* StatsTrayCollectionView.h */,
 				EAE439BD182F320B0026370C /* StatsTrayCollectionView.m */,
-				2A6C6D04183AC6270018F407 /* ManageChildTileCell.h */,
-				2A6C6D05183AC6270018F407 /* ManageChildTileCell.m */,
-				049E1243183BEE1200083303 /* TrackingUserSelectionCell.h */,
-				049E1244183BEE1A00083303 /* TrackingUserSelectionCell.m */,
-				81D71E81183ED26800D1E63D /* RewardsGalleryCell.h */,
-				81D71E82183ED26800D1E63D /* RewardsGalleryCell.m */,
 				04D59254184097CF009764A9 /* SyncingUserSelectionCell.h */,
 				04D59255184097E1009764A9 /* SyncingUserSelectionCell.m */,
+				049E1243183BEE1200083303 /* TrackingUserSelectionCell.h */,
+				049E1244183BEE1A00083303 /* TrackingUserSelectionCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";

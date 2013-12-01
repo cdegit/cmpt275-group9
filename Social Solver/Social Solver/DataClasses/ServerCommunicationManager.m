@@ -252,11 +252,14 @@ static NSString* SCRIPT_DELETE_ACCOUNT = @"deleteAccount";
                            completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
                                // Output a connection error if one occured.
                                // Don't care about the response
-                               if (completionCopy != nil) {
+                               if (connectionError != nil) {
                                    NSLog(@"Error %@ for request %@", connectionError, [[response URL] absoluteString]);
                                    if (completionCopy != nil) {
                                        completionCopy(connectionError);
                                    }
+                               }
+                               else {
+                                   NSLog(@"Successfully sent request %@", [[response URL] absoluteString]);
                                }
                            }];
 }
