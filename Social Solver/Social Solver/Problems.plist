@@ -148,8 +148,145 @@ How is Suzy feeling?</string>
 
 How is Suzy feeling?</string>
 		</dict>
+        <dict>
+			<key>iconFileName</key>
+			<string>broken-bear-75x85.png</string>
+			<key>fileName</key>
+			<string>Suzy_findbearbroken</string>
+			<key>ID</key>
+			<integer>204</integer>
+			<key>mediaType</key>
+			<string>MediaTypeVideo</string>
+			<key>answer</key>
+			<string>Sad</string>
+			<key>videoDescription</key>
+			<string>Suzy goes to play with her favourite toy when she sees that it is broken
+                
+                
+What is Suzy feeling? </string>
+		</dict>
+        <dict>
+			<key>iconFileName</key>
+			<string>play-ball-75x85.png</string>
+			<key>fileName</key>
+			<string>Billy_Suzy_playball</string>
+			<key>ID</key>
+			<integer>205</integer>
+			<key>mediaType</key>
+			<string>MediaTypeVideo</string>
+			<key>answer</key>
+			<string>Happy</string>
+			<key>videoDescription</key>
+			<string>Billy and Suzy are playing together, tossing a ball back and forth.
+                
+                
+What is Billy feeling? </string>
+		</dict>
 	</array>
 	<key>Mode3</key>
-	<array/>
+    <array>
+        <dict>
+			<key>iconFileName</key>
+			<string>ice-cream.png</string>
+			<key>fileName</key>
+			<string>Billy_dontlike_Icecreamsuzygave</string>
+			<key>ID</key>
+			<integer>300</integer>
+			<key>mediaType</key>
+			<string>MediaTypeVideo</string>
+			<key>answer</key>
+			<string>Give it back to Suzy and say &quot;No thank you.&quot;</string>
+			<key>videoDescription</key>
+			<string>Suzy gives Billy an ice cream cone, but Billy doesn’t want it.
+                
+                
+What should he do?</string>
+		</dict>
+        <dict>
+			<key>iconFileName</key>
+			<string>billy-destroying.png</string>
+			<key>fileName</key>
+			<string>Billy_Angry_Destorying</string>
+			<key>ID</key>
+			<integer>301</integer>
+			<key>mediaType</key>
+			<string>MediaTypeVideo</string>
+			<key>answer</key>
+			<string>Tell the teacher</string>
+			<key>videoDescription</key>
+			<string>Billy is angry and is breaking people’s toys.
+                
+                
+What should Suzy do?</string>
+		</dict>
+        <dict>
+			<key>iconFileName</key>
+			<string>suzy-cry-bear.png</string>
+			<key>fileName</key>
+			<string>Billy_find_Suzy_Cryforbearbroken</string>
+			<key>ID</key>
+			<integer>302</integer>
+			<key>mediaType</key>
+			<string>MediaTypeVideo</string>
+			<key>answer</key>
+			<string>Comfort Suzy</string>
+			<key>videoDescription</key>
+			<string>Billy sees Suzy crying in a corner. Her toy is broken.
+                
+                
+What should Billy do?</string>
+		</dict>
+        <dict>
+			<key>iconFileName</key>
+			<string>billy-suzy-fight.png</string>
+			<key>fileName</key>
+			<string>Billy_Suzy_Fight_Billywalkaway</string>
+			<key>ID</key>
+			<integer>303</integer>
+			<key>mediaType</key>
+			<string>MediaTypeVideo</string>
+			<key>answer</key>
+			<string>Talk to Billy and apologize</string>
+			<key>videoDescription</key>
+			<string>Billy and Suzy get into a fight, and Billy storms off upset.
+                
+                
+What should Suzy do?</string>
+		</dict>
+        <dict>
+			<key>iconFileName</key>
+			<string>problem-broken bear toy.png</string>
+			<key>fileName</key>
+			<string>billy_broken_beararm</string>
+			<key>ID</key>
+			<integer>304</integer>
+			<key>mediaType</key>
+			<string>MediaTypeVideo</string>
+			<key>answer</key>
+			<string>Talk to Suzy and apologize</string>
+			<key>videoDescription</key>
+			<string>Billy and Suzy are playing together when he accidentally rips an arm off of her teddy bear.
+                
+                
+What should Billy do?</string>
+		</dict>
+        <dict>
+			<key>iconFileName</key>
+			<string>ask-to-play.png</string>
+			<key>fileName</key>
+			<string>billy_askforplay</string>
+			<key>ID</key>
+			<integer>305</integer>
+			<key>mediaType</key>
+			<string>MediaTypeVideo</string>
+			<key>answer</key>
+			<string>Offer to play with Billy</string>
+			<key>videoDescription</key>
+			<string>Suzy is playing with a teddy bear that Billy wants. Billy asks her for it.
+                
+                
+What should Suzy do?</string>
+		</dict>
+	</array>
 </dict>
 </plist>
