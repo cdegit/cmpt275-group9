@@ -60,7 +60,7 @@
     return false;
 }
 
-+ (bool)createChildFromDictionary:(NSDictionary *)data
++ (ChildUser*)createChildFromDictionary:(NSDictionary *)data
 {
 /*"UserName":"Tim","PasswordHash":"<9933aa8573d650c56afbc9fe410c247475fc2bec6352eedea","PasswordSeed":"<960658b91d6523f5e062bacc96c60974cba25f005e98f4a4c","Sessions":[{"Id":"1000037","NumberCorrect":"1","TotalResponseTime":"3.18891996145","NumberOfAttempts":"1","ProblemID":"102","Date":"407377280.00000000000"},{"Id":"1000037","NumberCorrect":"1","TotalResponseTime":"4.04836404324","NumberOfAttempts":"1","ProblemID":"203","Date":"407377920.00000000000"}]}*/
     
@@ -69,19 +69,19 @@
     NSString* userName = [data objectForKey:@"UserName"];
     if (userName == nil) {
         NSLog(@"Unable to get username from %@ in %s", data, __PRETTY_FUNCTION__);
-        return false;
+        return nil;
     }
     
     NSString* passwordHash = [data objectForKey:@"PasswordHash"];
     if (passwordHash == nil) {
         NSLog(@"Unable to get passwordHash from %@ in %s", data, __PRETTY_FUNCTION__);
-        return false;
+        return nil;
     }
     
     NSString* passwordSeed = [data objectForKey:@"PasswordSeed"];
     if (passwordSeed == nil) {
         NSLog(@"Unable to get passwordSeed from %@ in %s", data, __PRETTY_FUNCTION__);
-        return false;
+        return nil;
     }
     
     // All essential attributes are present to create an entity in the database
@@ -107,7 +107,7 @@
         }
     }
 
-    return true;
+    return child;
 }
 
 @end

@@ -446,9 +446,8 @@ static NSString* SCRIPT_DELETE_ACCOUNT = @"deleteAccount";
 }
 
 #pragma mark Profile Sharing
-- (void)downloadChildWithID:(NSInteger)ID completionHandler:(void (^)(NSError*))completionHandler
+- (void)downloadChildWithID:(NSInteger)ID forGuardian:(GuardianUser*)gUser completionHandler:(void (^)(NSError*))completionHandler
 {
-#warning  Untested
     NSDictionary* jsonObject = @{ @"ChildID" : @(ID) };
     NSURL* url = [self urlForScript:SCRIPT_GET_CHILD jsonObject:jsonObject];
     NSURLRequest* req = [[NSURLRequest alloc] initWithURL:url cachePolicy:NSURLCacheStorageNotAllowed timeoutInterval:DEFAULT_TIMEOUT];
@@ -464,9 +463,15 @@ static NSString* SCRIPT_DELETE_ACCOUNT = @"deleteAccount";
                                    if (err == nil)
                                    {
                                        // Try to make a childUser from the dictionary. If it's unsuccessful, create an error
-                                       if (![ChildUser createChildFromDictionary:result]) {
+                                       ChildUser* child = [ChildUser createChildFromDictionary:result];
+                                       if (child == nil) {
                                            err = [NSError errorWithDomain:@"Invalid data" code:1010 userInfo:nil];
                                            NSLog(@"Unable to create a childUser from %@ for request %@", result, [[response URL] absoluteString]);
+                                       }
+                                       else {
+                                           // Add the guardian to the child's list
+                                           [child addGuardiansObject:gUser];
+                                           [[UserDatabaseManager sharedInstance] save];
                                        }
                                    }
                                    // Call the completion handler

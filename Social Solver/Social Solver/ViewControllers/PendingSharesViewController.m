@@ -140,7 +140,9 @@ NSMutableArray* tableData;
     else
     {
         // Fetch the child's profile from the server
-        [[ServerCommunicationManager sharedInstance] downloadChildWithID:child.childID completionHandler:^(NSError* err) {
+        [[ServerCommunicationManager sharedInstance] downloadChildWithID:child.childID
+                                                             forGuardian:(GuardianUser*)[[UserDatabaseManager sharedInstance] activeUser]
+                                                       completionHandler:^(NSError* err) {
             if (err == nil)
             {
                 // Display a message indicating success
