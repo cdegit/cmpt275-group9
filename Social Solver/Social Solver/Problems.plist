@@ -182,6 +182,40 @@ What is Suzy feeling? </string>
                 
 What is Billy feeling? </string>
 		</dict>
+        <dict>
+			<key>iconFileName</key>
+			<string>sound-off.png</string>
+			<key>fileName</key>
+			<string>Suzy_find_Billyplayingherbear</string>
+			<key>ID</key>
+			<integer>206</integer>
+			<key>mediaType</key>
+			<string>MediaTypeVideo</string>
+			<key>answer</key>
+			<string>Angry</string>
+			<key>videoDescription</key>
+			<string>Suzy goes to play with her teddy bear when she sees Billy playing with it.
+                
+                
+What is Suzy feeling?</string>
+		</dict>
+        <dict>
+			<key>iconFileName</key>
+			<string>sound-off.png</string>
+			<key>fileName</key>
+			<string>Suzy_give_Billy_icecream_happy</string>
+			<key>ID</key>
+			<integer>207</integer>
+			<key>mediaType</key>
+			<string>MediaTypeVideo</string>
+			<key>answer</key>
+			<string>Happy</string>
+			<key>videoDescription</key>
+			<string>Suzy gives Billy an ice cream cone.
+                
+        
+What is Billy feeling? </string>
+		</dict>
 	</array>
 	<key>Mode3</key>
     <array>

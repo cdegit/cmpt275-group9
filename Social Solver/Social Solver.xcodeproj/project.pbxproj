@@ -99,7 +99,7 @@
 		EA0D973D184BC3D7005F2EE0 /* surprised-suzy.png in Resources */ = {isa = PBXBuildFile; fileRef = EA0D972D184BC3D7005F2EE0 /* surprised-suzy.png */; };
 		EA0D973E184BC3D7005F2EE0 /* suzy-cry-bear-disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = EA0D972E184BC3D7005F2EE0 /* suzy-cry-bear-disabled.png */; };
 		EA0D973F184BC3D7005F2EE0 /* suzy-cry-bear.png in Resources */ = {isa = PBXBuildFile; fileRef = EA0D972F184BC3D7005F2EE0 /* suzy-cry-bear.png */; };
-		EA0D9742184BFB9F005F2EE0 /* Suzy_find_Billypalyingherbear.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EA0D9740184BFB9F005F2EE0 /* Suzy_find_Billypalyingherbear.mp4 */; };
+		EA0D9742184BFB9F005F2EE0 /* Suzy_find_Billyplayingherbear.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EA0D9740184BFB9F005F2EE0 /* Suzy_find_Billyplayingherbear.mp4 */; };
 		EA0D9743184BFB9F005F2EE0 /* Suzy_give_Billy_icecream_happy.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EA0D9741184BFB9F005F2EE0 /* Suzy_give_Billy_icecream_happy.mp4 */; };
 		EA16940C18162A7700C40069 /* Problem.m in Sources */ = {isa = PBXBuildFile; fileRef = EA16940B18162A7700C40069 /* Problem.m */; };
 		EA16940F18162B2B00C40069 /* ProblemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EA16940E18162B2B00C40069 /* ProblemManager.m */; };
@@ -359,7 +359,7 @@
 		EA0D972D184BC3D7005F2EE0 /* surprised-suzy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "surprised-suzy.png"; sourceTree = "<group>"; };
 		EA0D972E184BC3D7005F2EE0 /* suzy-cry-bear-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "suzy-cry-bear-disabled.png"; sourceTree = "<group>"; };
 		EA0D972F184BC3D7005F2EE0 /* suzy-cry-bear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "suzy-cry-bear.png"; sourceTree = "<group>"; };
-		EA0D9740184BFB9F005F2EE0 /* Suzy_find_Billypalyingherbear.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Suzy_find_Billypalyingherbear.mp4; sourceTree = "<group>"; };
+		EA0D9740184BFB9F005F2EE0 /* Suzy_find_Billyplayingherbear.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Suzy_find_Billyplayingherbear.mp4; sourceTree = "<group>"; };
 		EA0D9741184BFB9F005F2EE0 /* Suzy_give_Billy_icecream_happy.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Suzy_give_Billy_icecream_happy.mp4; sourceTree = "<group>"; };
 		EA16940A18162A7700C40069 /* Problem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Problem.h; sourceTree = "<group>"; };
 		EA16940B18162A7700C40069 /* Problem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Problem.m; sourceTree = "<group>"; };
@@ -895,7 +895,7 @@
 		EAC698F5181DB83400342086 /* StorySolver videos */ = {
 			isa = PBXGroup;
 			children = (
-				EA0D9740184BFB9F005F2EE0 /* Suzy_find_Billypalyingherbear.mp4 */,
+				EA0D9740184BFB9F005F2EE0 /* Suzy_find_Billyplayingherbear.mp4 */,
 				EA0D9741184BFB9F005F2EE0 /* Suzy_give_Billy_icecream_happy.mp4 */,
 				EA0D9711184BBD45005F2EE0 /* Suzy_findbearbroken.mp4 */,
 				EA0D970F184BBD37005F2EE0 /* Billy_Suzy_playball.mp4 */,
@@ -1376,7 +1376,7 @@
 				EACC680B180B9CE900FEAC76 /* StatisticsViewController.xib in Resources */,
 				EAC69903181DC20D00342086 /* Face Finder Icon brighter.png in Resources */,
 				8179BFF218497F560097F62D /* scene-Billy surprises Suzy-disabled.png in Resources */,
-				EA0D9742184BFB9F005F2EE0 /* Suzy_find_Billypalyingherbear.mp4 in Resources */,
+				EA0D9742184BFB9F005F2EE0 /* Suzy_find_Billyplayingherbear.mp4 in Resources */,
 				04D59253184097B9009764A9 /* SyncingUserSelectionCell.xib in Resources */,
 				EAE439B6182F03880026370C /* arrow-left.png in Resources */,
 				EA0D9717184BBE49005F2EE0 /* billy_broken_beararm.mp4 in Resources */,
