@@ -21,8 +21,6 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView* activityIndicator;
 @property (weak, nonatomic) IBOutlet UILabel* contactingServerLabel;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView* contactingServerIndicator;
-
--(BOOL)checkNameUnique:(NSString*)name;
--(void)shareSuccess:(ShareRequest*)child;
+@property (weak, nonatomic) IBOutlet UITableView* table;
 
 @end

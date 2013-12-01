@@ -34,6 +34,12 @@
 /*{"Sessions":[{"Problems":[{"Id":"1000025","NumberCorrect":"1","TotalResponseTime":"6.08031898737","NumberOfAttempts":"3","ProblemID":"105"}],"Date":407361935.737}]}*/
 + (Session*)sessionFromDictionary:(NSDictionary*)dict withChild:(ChildUser*)user
 {
+    NSNumber* seconds = [dict objectForKey:@"Date"];
+    if (seconds == nil) {
+        NSLog(@"Unable to get date from %@ in %s", dict, __PRETTY_FUNCTION__);
+        return nil;
+    }
+    
     // Create the session object in the database
     NSManagedObjectContext *mc = [(AppDelegate*)[[UIApplication sharedApplication] delegate] managedObjectContext];
     NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Session" inManagedObjectContext:mc];
@@ -42,14 +48,7 @@
     
     // Fill in the properties from the dictionary
     session.child = user;
-    NSNumber* seconds = [dict objectForKey:@"Date"];
-    if (seconds != nil) {
-        session.date = [NSDate dateWithTimeIntervalSinceReferenceDate:[seconds doubleValue]];
-    }
-    else {
-        NSLog(@"Unable to get date from %@ in %s", dict, __PRETTY_FUNCTION__);
-        return nil;
-    }
+    session.date = [NSDate dateWithTimeIntervalSinceReferenceDate:[seconds doubleValue]];
     
     NSArray* problems = [dict objectForKey:@"Problems"];
     for (id problemDict in problems)
@@ -82,7 +81,7 @@
 {
     // Convert all the properties into a dictionary form and return the dictionary
     NSMutableDictionary* dict = [[NSMutableDictionary alloc] init];
-    [dict setObject:[NSNumber numberWithDouble:[self.date timeIntervalSinceReferenceDate]] forKey:@"Date"];
+    [dict setObject:[NSNumber numberWithInt:(int)[self.date timeIntervalSinceReferenceDate]] forKey:@"Date"];
     NSMutableArray* problems = [[NSMutableArray alloc] init];
     
     for (ChildProblemData* cpd in self.problemData)
@@ -92,6 +91,26 @@
     [dict setObject:problems forKey:@"Problems"];
 
     return dict;
+}
+
+- (void)setDate:(NSDate *)date
+{
+    // Round the date so that it's timeIntervalSinceReferenceDate is an integer
+    double seconds = [date timeIntervalSinceReferenceDate];
+    long roundedSeconds = seconds;
+    NSDate* roundedDate = [NSDate dateWithTimeIntervalSinceReferenceDate:roundedSeconds];
+
+    [self willChangeValueForKey:@"date"];
+    [self setPrimitiveDate:roundedDate];
+    [self didChangeValueForKey:@"date"];
+}
+
+- (NSDate*)date
+{
+    [self willAccessValueForKey:@"date"];
+    NSDate* d = [self primitiveDate];
+    [self didAccessValueForKey:@"date"];
+    return d;
 }
 
 @end

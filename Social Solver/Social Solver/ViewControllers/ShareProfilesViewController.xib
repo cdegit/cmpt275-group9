@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch.iPad" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch.iPad" variant="6xAndEarlier" propertyAccessControl="none">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="M7h-Pp-pyS">
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="none" id="M7h-Pp-pyS">
                     <rect key="frame" x="0.0" y="0.0" width="768" height="766"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
@@ -32,10 +32,12 @@
                         <outlet property="delegate" destination="-1" id="Dpx-WZ-Nsg"/>
                     </connections>
                 </collectionView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kJj-yI-OhY">
-                    <rect key="frame" x="296" y="861" width="177" height="44"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Share">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="kJj-yI-OhY">
+                    <rect key="frame" x="296" y="846" width="177" height="44"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="19"/>
+                    <state key="normal" title="Share" backgroundImage="Button 300x50 brighter.png">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -44,16 +46,10 @@
                 </button>
             </subviews>
             <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
-            <constraints>
-                <constraint firstAttribute="bottom" secondItem="kJj-yI-OhY" secondAttribute="bottom" constant="100" id="C4y-qI-dFd"/>
-                <constraint firstAttribute="trailing" secondItem="M7h-Pp-pyS" secondAttribute="trailing" id="HBM-SC-9Dx"/>
-                <constraint firstAttribute="trailing" secondItem="kJj-yI-OhY" secondAttribute="trailing" constant="295" id="KBa-E0-NnU"/>
-                <constraint firstItem="kJj-yI-OhY" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="296" id="fu3-Y6-LF3"/>
-                <constraint firstItem="kJj-yI-OhY" firstAttribute="top" secondItem="M7h-Pp-pyS" secondAttribute="bottom" constant="95" id="hiq-6Q-wP1"/>
-                <constraint firstItem="M7h-Pp-pyS" firstAttribute="top" secondItem="2" secondAttribute="top" id="jcF-4O-aQe"/>
-                <constraint firstItem="M7h-Pp-pyS" firstAttribute="leading" secondItem="2" secondAttribute="leading" id="q4n-5s-oRW"/>
-            </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
         </view>
     </objects>
+    <resources>
+        <image name="Button 300x50 brighter.png" width="310" height="56"/>
+    </resources>
 </document>

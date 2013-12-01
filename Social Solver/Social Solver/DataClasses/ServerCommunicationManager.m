@@ -88,13 +88,11 @@ static NSString* SCRIPT_DELETE_ACCOUNT = @"deleteAccount";
     }
 }
 
+
 - (void)registerNewUser:(User*)user withCompletionHandler:(void (^)(NSError*))completionHandler
 {
     NSString* userType = ([user isKindOfClass:[ChildUser class]] ? @"C" : @"G");
-    // Convert the passwordHash into a string to store on the database (note this isn't an unencrypted string, just a string representation of encrypted data)
-    NSString* pwordHash = [[NSString alloc] initWithData:user.passwordHash encoding:NSUTF8StringEncoding];
-    NSString* pwordSeed = [[NSString alloc] initWithData:user.passwordSeed encoding:NSUTF8StringEncoding];
-    NSMutableDictionary* jsonObject = [NSMutableDictionary dictionaryWithObjectsAndKeys: user.name, @"UserName" , userType, @"UserType", pwordHash, @"PasswordHash", pwordSeed, @"PasswordSeed", nil];
+    NSMutableDictionary* jsonObject = [NSMutableDictionary dictionaryWithObjectsAndKeys: user.name, @"UserName" , userType, @"UserType", [user hexEncodedPasswordHash], @"PasswordHash", [user hexEncodedPasswordSeed], @"PasswordSeed", nil];
     
     if ([user isKindOfClass:[GuardianUser class]]) {
         [jsonObject setObject:((GuardianUser*)user).email forKey:@"Email"];
@@ -144,7 +142,6 @@ static NSString* SCRIPT_DELETE_ACCOUNT = @"deleteAccount";
 
 - (void)fetchUpdatedPasswordForUser:(User*)user withCompletionHandler:(void (^)(NSError*))completionHandler
 {
-#warning untested
     // Check if the user is registered. If they aren't return an error
     if (user.uid != 0)
     {
@@ -165,9 +162,9 @@ static NSString* SCRIPT_DELETE_ACCOUNT = @"deleteAccount";
                                        NSDictionary* result = [self checkErrorInResponse:response withData:data error:&err];
                                        if (err == nil)
                                        {
-                                           NSString* passwordHash = [result objectForKey:@"passwordHash"];
-                                           NSString* passwordSeed = [result objectForKey:@"passwordSeed"];
-                                           NSString* userName = [result objectForKey:@"userName"];
+                                           NSString* passwordHash = [result objectForKey:@"PasswordHash"];
+                                           NSString* passwordSeed = [result objectForKey:@"PasswordSeed"];
+                                           NSString* userName = [result objectForKey:@"UserName"];
                                            
                                            if (passwordHash == nil) {
                                                NSLog(@"Failed to retrieve passwordHash for %@ in %s", [response.URL absoluteString], __PRETTY_FUNCTION__);
@@ -176,8 +173,8 @@ static NSString* SCRIPT_DELETE_ACCOUNT = @"deleteAccount";
                                                NSLog(@"Failed to retrieve passwordSeed for %@ in %s", [response.URL absoluteString], __PRETTY_FUNCTION__);
                                            }
                                            else {
-                                               user.passwordHash = [passwordHash dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:NO];
-                                               user.passwordSeed = [passwordSeed dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:NO];
+                                               [user setPasswordHashFromHexEncodedString:passwordHash];
+                                               [user setPasswordSeedFromHexEncodedString:passwordSeed];
                                            }
                                            // If the updated username is unique on the device then update to it. If not, don't
                                            if (userName != nil && ![[UserDatabaseManager sharedInstance] userExistsWithName:userName])
@@ -230,18 +227,13 @@ static NSString* SCRIPT_DELETE_ACCOUNT = @"deleteAccount";
 
 - (void)sendUpdatedUserProfile:(User*)user withCompletionHandler:(void (^)(NSError*))completionHandler
 {
-#warning TODO: UNTESTED
     // If the user hasn't been registered... register them instead
     if (user.uid == 0) {
         [self registerNewUser:user withCompletionHandler:completionHandler];
         return;
     }
     
-    // Convert the passwordHash into a string to store on the database (note this isn't an unencrypted string, just a string representation of encrypted data)
-    NSString* pwordHash = [[NSString alloc] initWithData:user.passwordHash encoding:NSUTF8StringEncoding];
-    NSString* pwordSeed = [[NSString alloc] initWithData:user.passwordSeed encoding:NSUTF8StringEncoding];
-
-    NSMutableDictionary* jsonObject = [NSMutableDictionary dictionaryWithObjectsAndKeys: @(user.uid), @"Id", user.name, @"UserName", pwordHash, @"PasswordHash", pwordSeed, @"PasswordSeed", nil];
+    NSMutableDictionary* jsonObject = [NSMutableDictionary dictionaryWithObjectsAndKeys: @(user.uid), @"Id", user.name, @"UserName", [user hexEncodedPasswordHash], @"PasswordHash", [user hexEncodedPasswordSeed], @"PasswordSeed", nil];
     
     if ([user isKindOfClass:[GuardianUser class]]) {
         [jsonObject setObject:((GuardianUser*)user).email forKey:@"Email"];
@@ -299,11 +291,9 @@ static NSString* SCRIPT_DELETE_ACCOUNT = @"deleteAccount";
         if ([toSend count] > 0) {
             [self sendServerSessionsWithDates:[toSend allObjects] forChild:cUser];
         }
-#warning Uncomment once testing is completed
-//        if ([toReceive count] > 0) {
-//            [self getServerSessionsWithDates:[toReceive allObjects] forChild:cUser];
-//        }
-        [self getServerSessionsWithDates:[ipadDates allObjects] forChild:cUser];
+        if ([toReceive count] > 0) {
+            [self getServerSessionsWithDates:[toReceive allObjects] forChild:cUser];
+        }
     }];
 }
 
@@ -311,7 +301,6 @@ static NSString* SCRIPT_DELETE_ACCOUNT = @"deleteAccount";
 // Sends Session objects with the specified dates to the server
 - (void)sendServerSessionsWithDates:(NSArray*)dates forChild:(ChildUser*)user
 {
-#warning UNTESTED
     NSMutableArray* sessionsToUpload = [[NSMutableArray alloc] init];
     for (Session* s in user.sessions)
     {
@@ -339,18 +328,22 @@ static NSString* SCRIPT_DELETE_ACCOUNT = @"deleteAccount";
                                        queue:[NSOperationQueue mainQueue]
                            completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
                                // Don't need to do anything!
+                               if (connectionError == nil)
+                               {
+                                   NSLog(@"Sent sessions via URL: %@", [[response URL] absoluteString]);
+                               }
+                               else {
+                                   NSLog(@"Connection error %@ for request %@", connectionError, [[response URL] absoluteString]);
+                               }
                            }];
 }
 
-/*{"Sessions":[{"Problems":[{"Id":"1000025","NumberCorrect":"1","TotalResponseTime":"6.08031898737","NumberOfAttempts":"3","ProblemID":"105"}],"Date":407361935.737}]}*/
-
 - (void)getServerSessionsWithDates:(NSArray*)dates forChild:(ChildUser*)user
 {
-#warning UNTESTED
-    // Convert the dates into doubles for storage on the database
+    // Convert the dates into integers for storage on the database
     NSMutableArray* convertedDates = [[NSMutableArray alloc] init];
     for (NSDate* date in dates) {
-        double seconds = [date timeIntervalSinceReferenceDate];
+        int seconds = [date timeIntervalSinceReferenceDate];
         [convertedDates addObject:@(seconds)];
     }
     
@@ -372,16 +365,8 @@ static NSString* SCRIPT_DELETE_ACCOUNT = @"deleteAccount";
                                        {
                                            for (NSDictionary* sessionDict in sessions)
                                            {
-                                               Session* toAdd = [Session sessionFromDictionary:sessionDict withChild:user];
-                                               // Check the session was created successfully
-                                               if (toAdd != nil)
-                                               {
-                                                   // Check this isn't a duplicate session... just in case
-                                                   if (![user hasSessionWithDate:toAdd.date])
-                                                   {
-                                                       [user addSessionsObject:toAdd];
-                                                   }
-                                               }
+                                               // Create the session object for the child
+                                               [Session sessionFromDictionary:sessionDict withChild:user];
                                            }
                                            
                                            // Save the new sessions
@@ -403,14 +388,7 @@ static NSString* SCRIPT_DELETE_ACCOUNT = @"deleteAccount";
 // Get the dates of the sessions which are currently on the server's database
 - (void)sessionDatesOnServerForChild:(ChildUser*)user withCompletion:(void (^)(NSArray*))completionHandler
 {
-#warning UNTESTED
-    // This script has a very strange error when handed the URL parsed through the encoder... so hard code this one instead
-//    NSString* urlString = @"http://kaijubluesg9.site90.com/getSessionDates.php?json={%22ChildID%22:%22";
-//    urlString = [urlString stringByAppendingString:[NSString stringWithFormat:@"%i", user.uid]];
-//    urlString = [urlString stringByAppendingString:@"%22}"];
-//    
-//    NSURL* url = [NSURL URLWithString:urlString];
-    NSDictionary* jsonObject = @{ @"ChidID" : [NSString stringWithFormat:@"%i", user.uid] };
+    NSDictionary* jsonObject = @{ @"ChildID" : [NSString stringWithFormat:@"%i", user.uid] };
     
     NSURL* url = [self urlForScript:SCRIPT_GET_SESSION_DATES jsonObject:jsonObject];
     
@@ -433,7 +411,7 @@ static NSString* SCRIPT_DELETE_ACCOUNT = @"deleteAccount";
                                            NSString* secString = [dict objectForKey:@"Date"];
                                            if (secString != nil)
                                            {
-                                               double seconds = [secString doubleValue];
+                                               int seconds = [secString intValue];
                                                NSDate* date = [NSDate dateWithTimeIntervalSinceReferenceDate:seconds];
                                                [dates addObject:date];
                                            }
@@ -529,6 +507,7 @@ static NSString* SCRIPT_DELETE_ACCOUNT = @"deleteAccount";
         if (connectionError == nil) {
             // Parse the response
             NSString* result = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            result = [result stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
             bool validCode = false;
             // If the response is true, the share was a success... otherwise it failed
             if ([result isEqualToString:@"true"]) {
@@ -569,7 +548,7 @@ static NSString* SCRIPT_DELETE_ACCOUNT = @"deleteAccount";
              
              // Parse the response
              NSString* result = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-             
+             result = [result stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
              // If the response is true, the share was a success... otherwise it failed
              if (![result isEqualToString:@"true"]) {
                  err = [NSError errorWithDomain:@"Transaction unsuccessful" code:1009 userInfo:nil];

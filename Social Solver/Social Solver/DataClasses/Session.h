@@ -44,3 +44,13 @@
 - (void)removeProblemData:(NSSet *)objects;
 
 @end
+
+// Added in version 3
+
+@interface Session (PrimitiveAccessors)
+
+- (void)setPrimitiveDate:(NSDate*)date;
+- (NSDate*)primitiveDate;
+
+@end
+

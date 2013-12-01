@@ -45,7 +45,7 @@
 - (NSArray*)guardianlessUsers;
 - (NSArray*)registeredUsers;
 - (BOOL)userExistsWithName:(NSString*)name;
-
+- (ChildUser*)childUserWithID:(NSUInteger)ID;
 
 
 // From Version 1

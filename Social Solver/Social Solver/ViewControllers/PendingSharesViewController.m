@@ -16,8 +16,9 @@
 #import "User.h"
 #import "UserDatabaseManager.h"
 #import "AppDelegate.h"
+#import "PendingSharePopupViewController.h"
 
-@interface PendingSharesViewController ()
+@interface PendingSharesViewController () <PendingSharePopupViewControllerDelegate>
 
 
 @end
@@ -25,10 +26,7 @@
 @implementation PendingSharesViewController
 
 NSInteger selectedChildIndex = 0;
-
 NSMutableArray* tableData;
-
-UITableView* table;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -42,7 +40,6 @@ UITableView* table;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
     
     // When waiting for the server to respond, display activity indicator
     _activityIndicator.hidden = NO;
@@ -57,26 +54,24 @@ UITableView* table;
      {
          if (error == nil)
          {
-             [self updateTableWithRequests:[shares mutableCopy]];
+             [self updateTableWithRequests:shares];
          }
          else
          {
              [self serverConnectionFailure];
          }
      }];
-    
-    
 }
 
 // Use to update after recieving response from server
-- (void) updateTableWithRequests:(NSMutableArray*)shareRequests
+- (void) updateTableWithRequests:(NSArray*)shareRequests
 {
     _activityIndicator.hidden = YES;
     _numberOfShares.hidden = NO;
-    tableData = shareRequests;
+    tableData = [shareRequests mutableCopy];
     _numberOfShares.text = [NSString stringWithFormat:@"%d", [tableData count]];
     
-    [table reloadData];
+    [self.table reloadData];
 }
 
 // Use if cannot connect to server
@@ -86,89 +81,6 @@ UITableView* table;
     
     [alert setTag:4];
     [alert show];
-}
-
-- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
-{
-    if ([alertView tag] == 0)
-    {
-        if (buttonIndex == 1)
-        { // Accept Profile Button
-            UITextField *textfield = [alertView textFieldAtIndex:0];
-        
-            ShareRequest* child = [tableData objectAtIndex:selectedChildIndex];
-           
-            // Need to check if child's name is unique
-            // if so, add, if not, prompt to change
-            if (![self checkNameUnique:child.childName]) {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Existing Name" message:@"You already have a child with that name. Please enter a new name." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
-                
-                alert.alertViewStyle = UIAlertViewStylePlainTextInput;
-                
-                [alert addButtonWithTitle:@"Continue"];
-                
-                [alert setTag:3];
-                [alert show];
-            }
-            else {
-                [self requestInProcess:YES];
-                // Send request to the server to accept the child
-                NSInteger securityCode = [textfield.text integerValue];
-                [[ServerCommunicationManager sharedInstance] acceptChild:child.childID
-                                                             forGuardian:(GuardianUser*)[[UserDatabaseManager sharedInstance] activeUser]
-                                                        withSecurityCode:securityCode
-                                                       completionHandler:^(BOOL validCode, NSError* err) {
-                                                           [self requestInProcess:NO];
-                                                           if (err == nil)
-                                                           {
-                                                               // If the code wasn't valid, get them to re-enter
-                                                               if (!validCode)
-                                                               {
-                                                                   UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Incorrect Security Code" message:@"Please enter the code sent to you by the original guardian." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
-                                                                   
-                                                                   [alert setTag:0];
-                                                                   
-                                                                   // Add text input
-                                                                   alert.alertViewStyle = UIAlertViewStyleSecureTextInput;
-                                                                   
-                                                                   // add more buttons:
-                                                                   [alert addButtonWithTitle:@"Accept Profile"];
-                                                                   
-                                                                   [alert show];
-                                                               }
-                                                               // Code was valid - share was successful
-                                                               else {
-                                                                   [self shareSuccess:child];
-                                                               }
-                                                           }
-                                                           else {
-                                                               [self displayConnectionErrorMessage];
-                                                           }
-                                                       }];
-                            }
-        }
-    }
-    else if (([alertView tag] == 3) && (buttonIndex == 1)) { // if conflicting name
-        UITextField *textfield = [alertView textFieldAtIndex:0];
-        
-        ShareRequest* child = [tableData objectAtIndex:selectedChildIndex];
-        
-        // Need to check if child's name is unique
-        // if so, add, if not, prompt to change
-        if (![self checkNameUnique:textfield.text]) {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Existing Name" message:@"You already have a child with that name. Please enter a new name." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
-            
-            alert.alertViewStyle = UIAlertViewStylePlainTextInput;
-            
-            [alert addButtonWithTitle:@"Continue"];
-            
-            [alert setTag:3];
-            [alert show];
-        } else {
-            child.childName = textfield.text;
-            [self shareSuccess:child];
-        }
-    }
 }
 
 - (void)requestInProcess:(BOOL)inProcess
@@ -184,44 +96,111 @@ UITableView* table;
     [alert show];
 }
 
+- (void)shareRejected:(ShareRequest*)child
+{
+    // Find the rejected child in the array
+    NSUInteger index = NSNotFound;
+    for (NSInteger i = 0; i < [tableData count]; i++)
+    {
+        if (((ShareRequest*)[tableData objectAtIndex:i]).childID == child.childID) {
+            index = i;
+            break;
+        }
+    }
+    // If found, remove the child from the table
+    if (index != NSNotFound)
+    {
+        [tableData removeObjectAtIndex:index];
+        self.numberOfShares.text = [NSString stringWithFormat:@"%i", [tableData count]];
+        [self.table reloadData];
+    }
+}
+
 - (void) shareSuccess:(ShareRequest*)child
 {
-    // Fetch the child's profile from the server
-    [[ServerCommunicationManager sharedInstance] downloadChildWithID:child.childID completionHandler:^(NSError* err) {
-        if (err == nil)
-        {
-            NSString* firstPart = @"You may now have access to ";
-            NSString* secondPart = @"'s Profile";
-            NSString* message = [firstPart stringByAppendingString:child.childName];
-            message = [message stringByAppendingString:secondPart];
-            
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Share Success" message:message delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
-            
-            [alert setTag:1];
-            [alert show];
-            
-            [tableData removeObjectAtIndex:selectedChildIndex];
-            
-            [table reloadData];
-            _numberOfShares.text = [NSString stringWithFormat:@"%d", [tableData count]];
-        }
-        // Check the error code
-        else if (err.code == 1010)
-        {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Share Failed" message:@"Unable to read the child's profile. It may contain corrupted data" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
-            [alert show];
-        }
-        else
-        {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Share Failed" message:@"Unable to connect with server at this time. Please try again later" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
-            [alert show];
-        }
-    }];
+    // See if the shared child is already on the device. If so add this guardian to the child's list
+    ChildUser* cUser = [[UserDatabaseManager sharedInstance] childUserWithID:child.childID];
+    
+    if (cUser != nil)
+    {
+        // Child is on the local device
+        [cUser addGuardiansObject:(GuardianUser*)[[UserDatabaseManager sharedInstance] activeUser]];
+        [[UserDatabaseManager sharedInstance] save];
+        
+        // Display a message indicating success
+        NSString* message = [NSString stringWithFormat:@"You now have access to %@'s profile", cUser.name];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Share Success" message:message delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+        [alert show];
+        
+        // Update the table
+        [tableData removeObjectAtIndex:selectedChildIndex];
+        [self.table reloadData];
+        _numberOfShares.text = [NSString stringWithFormat:@"%d", [tableData count]];
+    }
+    else
+    {
+        // Fetch the child's profile from the server
+        [[ServerCommunicationManager sharedInstance] downloadChildWithID:child.childID completionHandler:^(NSError* err) {
+            if (err == nil)
+            {
+                // Display a message indicating success
+                NSString* message = [NSString stringWithFormat:@"You now have access to %@'s profile", child.childName];
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Share Success" message:message delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+                [alert show];
+                
+                // Update the table
+                [tableData removeObjectAtIndex:selectedChildIndex];
+                [self.table reloadData];
+                _numberOfShares.text = [NSString stringWithFormat:@"%d", [tableData count]];
+            }
+            // Check the error code
+            else if (err.code == 1010)
+            {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Share Failed" message:@"Unable to read the child's profile. It may contain corrupted data" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+                [alert show];
+            }
+            else
+            {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Share Failed" message:@"Unable to connect with server at this time. Please try again later" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+                [alert show];
+            }
+        }];
+    }
+}
+
+- (void)acceptChild:(ShareRequest*)child withCode:(NSInteger)code
+{
+    [self requestInProcess:YES];
+    // Send request to the server to accept the child
+    [[ServerCommunicationManager sharedInstance] acceptChild:child.childID
+                                                 forGuardian:(GuardianUser*)[[UserDatabaseManager sharedInstance] activeUser]
+                                            withSecurityCode:code
+                                           completionHandler:^(BOOL validCode, NSError* err)
+     {
+         [self requestInProcess:NO];
+         if (err == nil)
+         {
+             // If the code wasn't valid, get them to re-enter
+             if (!validCode)
+             {
+                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Incorrect Security Code" message:@"Please enter the code sent to you by the original guardian." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+                 
+                 [alert show];
+             }
+             // Code was valid - share was successful
+             else {
+                 [self shareSuccess:child];
+             }
+         }
+         else {
+             [self displayConnectionErrorMessage];
+         }
+     }];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    table = tableView;
+    self.table = tableView;
     static NSString *tableIdentifier = @"PendingSharesTableCell";
     
     PendingSharesTableCell *cell = [tableView dequeueReusableCellWithIdentifier:tableIdentifier];
@@ -251,42 +230,61 @@ UITableView* table;
     
     selectedChildIndex = indexPath.row;
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Security Code:" message:@"Please enter the code sent to you by the original guardian." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
+    // Create the pendingShare popup
+    PendingSharePopupViewController* popupVC = [[PendingSharePopupViewController alloc] initWithNibName:@"PendingSharePopupViewController" bundle:[NSBundle mainBundle]];
+    popupVC.delegate = self;
     
-    [alert setTag:0];
+    [popupVC setModalPresentationStyle:UIModalPresentationFormSheet];
+    [popupVC setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
     
-    // Add text input
-    alert.alertViewStyle = UIAlertViewStyleSecureTextInput;
+    [self presentViewController:popupVC animated:YES completion:NULL];
     
-    // add more buttons:
-    [alert addButtonWithTitle:@"Accept Profile"];
-    [alert show];
+    // Adjust the size of the popup
+    CGRect frame = popupVC.view.superview.bounds;
+    frame.size.width = 300;
+    frame.size.height = 300;
+    popupVC.view.superview.bounds = frame;
 }
 
--(BOOL)checkNameUnique:(NSString*)name
+#pragma mark - PendingSharePopupViewControllerDelegate
+
+- (void)pendingSharePopupViewController:(PendingSharePopupViewController*)vc didAcceptWithCode:(NSInteger)code
 {
-    // Make sure that the only user with the given name is that of the current user
+    // Dismiss the popup
+    [self dismissViewControllerAnimated:YES completion:nil];
     
-    NSManagedObjectContext *mc = [(AppDelegate*)[[UIApplication sharedApplication] delegate] managedObjectContext];
-    NSEntityDescription* entityDescription = [NSEntityDescription entityForName:@"User"
-                                                         inManagedObjectContext:mc];
-    NSFetchRequest* req = [[NSFetchRequest alloc] init];
-    [req setEntity:entityDescription];
-    
-    NSPredicate* namePredicate = [NSPredicate predicateWithFormat:@"%K like %@", @"name", name];
-    
-    [req setPredicate:namePredicate];
-    
-    NSArray* users = [mc executeFetchRequest:req error:nil];
-    
-    for (NSManagedObject* us in users) {
-        User* user = (User*)us;
-        if ([name isEqual:user.name]) {
-            return NO;
-        }
-    }
-    
-    return YES;
+    ShareRequest* child = [tableData objectAtIndex:selectedChildIndex];
+    [self acceptChild:child withCode:code];
+}
+
+- (void)rejectChildForPendingSharePopupViewController:(PendingSharePopupViewController*)vc
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+    // Show the loading spinners
+    [self requestInProcess:YES];
+    ShareRequest* child = [tableData objectAtIndex:selectedChildIndex];
+
+    // Send request to the server to reject the child
+    [[ServerCommunicationManager sharedInstance] rejectChild:child.childID
+                                                 forGuardian:(GuardianUser*)[[UserDatabaseManager sharedInstance] activeUser]
+                                           completionHandler:^(NSError* err)
+     {
+         [self requestInProcess:NO];
+         if (err == nil)
+         {
+             [self shareRejected:child];
+         }
+         else
+         {
+             [self displayConnectionErrorMessage];
+         }
+     }];
+
+}
+
+- (void)cancelledForPendingSharePopupViewController:(PendingSharePopupViewController*)vc
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 

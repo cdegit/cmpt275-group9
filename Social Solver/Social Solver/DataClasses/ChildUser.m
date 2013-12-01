@@ -91,8 +91,8 @@
                                      insertIntoManagedObjectContext:mc];
     
     child.name = userName;
-    child.passwordHash = [passwordHash dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:NO];
-    child.passwordSeed = [passwordSeed dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:NO];
+    [child setPasswordHashFromHexEncodedString:passwordHash];
+    [child setPasswordSeedFromHexEncodedString:passwordSeed];
     
     // Add the child's sessions
     NSArray* sessions = [data objectForKey:@"Sessions"];

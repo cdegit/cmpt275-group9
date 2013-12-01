@@ -41,7 +41,7 @@
     [_activityIndicator startAnimating];
     
     // Display email of guardian being transferred to
-    _guardianEmail.text = gEmail;
+    self.textView.text = [NSString stringWithFormat:@"Share this code with %@ to allow them to access the shared profiles.\n\nThis code had also been emailed to you.", gEmail];
     
     // Generate security code
     int lowerBound = 1000;
@@ -93,6 +93,9 @@
 
 - (void)displayError
 {
+    // Stop the spinner
+    _activityIndicator.hidden = YES;
+    // Display an error message
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Share Failed" message:@"Unable to connect to the server. Please try again." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
     
     [alert show];
@@ -100,7 +103,7 @@
 
 -(IBAction) backButtonPressed:(id)sender
 {
-    [self.delegate changeView:SHARE_PROFILES withChildren:(shareReqs) andEmail:_guardianEmail.text];
+    [self.delegate changeView:SHARE_PROFILES withChildren:(shareReqs) andEmail:gEmail];
 }
 
 @end
