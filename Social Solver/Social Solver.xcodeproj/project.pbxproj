@@ -32,7 +32,6 @@
 		2A7AF7481847D07000D9EA81 /* ChangePasswordFormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A7AF7461847D06F00D9EA81 /* ChangePasswordFormViewController.xib */; };
 		2A7DB106181B3A24008EF99F /* LoginPromptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7DB104181B3A24008EF99F /* LoginPromptViewController.m */; };
 		2A7DB107181B3A24008EF99F /* LoginPromptViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A7DB105181B3A24008EF99F /* LoginPromptViewController.xib */; };
-		2AAABD98182D506900FBCD60 /* ServerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AAABD97182D506900FBCD60 /* ServerRequest.m */; };
 		8179BFEE18497E140097F62D /* scene-ice-cream-disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 8179BFED18497E140097F62D /* scene-ice-cream-disabled.png */; };
 		8179BFF018497F080097F62D /* scene-ice cream-disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 8179BFEF18497F080097F62D /* scene-ice cream-disabled.png */; };
 		8179BFF218497F560097F62D /* scene-Billy surprises Suzy-disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 8179BFF118497F560097F62D /* scene-Billy surprises Suzy-disabled.png */; };
@@ -74,6 +73,8 @@
 		81DFCCC518473EA90067E5F3 /* angry-suzy-disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 81DFCCBE18473EA90067E5F3 /* angry-suzy-disabled.png */; };
 		81DFCCC718473FB70067E5F3 /* spider-surprise-disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 81DFCCC618473FB70067E5F3 /* spider-surprise-disabled.png */; };
 		81DFCCC91847400F0067E5F3 /* scene-surprised-suzy-disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 81DFCCC81847400F0067E5F3 /* scene-surprised-suzy-disabled.png */; };
+		EA0D970B184B15A9005F2EE0 /* PendingSharePopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA0D970A184B15A9005F2EE0 /* PendingSharePopupViewController.xib */; };
+		EA0D970E184B15B6005F2EE0 /* PendingSharePopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA0D970D184B15B6005F2EE0 /* PendingSharePopupViewController.m */; };
 		EA16940C18162A7700C40069 /* Problem.m in Sources */ = {isa = PBXBuildFile; fileRef = EA16940B18162A7700C40069 /* Problem.m */; };
 		EA16940F18162B2B00C40069 /* ProblemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EA16940E18162B2B00C40069 /* ProblemManager.m */; };
 		EA16941B18163C5C00C40069 /* LevelCompleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA16941918163C5C00C40069 /* LevelCompleteViewController.m */; };
@@ -263,8 +264,6 @@
 		2A7DB104181B3A24008EF99F /* LoginPromptViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginPromptViewController.m; sourceTree = "<group>"; };
 		2A7DB105181B3A24008EF99F /* LoginPromptViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginPromptViewController.xib; path = ViewControllers/LoginPromptViewController.xib; sourceTree = "<group>"; };
 		2A964BE7182D5CDD0016B43F /* ServerRequestDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ServerRequestDelegate.h; path = Protocols/ServerRequestDelegate.h; sourceTree = "<group>"; };
-		2AAABD96182D506900FBCD60 /* ServerRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerRequest.h; sourceTree = "<group>"; };
-		2AAABD97182D506900FBCD60 /* ServerRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerRequest.m; sourceTree = "<group>"; };
 		2AD01A4D18302E11000EEF89 /* LogoutRequestDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LogoutRequestDelegate.h; path = Protocols/LogoutRequestDelegate.h; sourceTree = "<group>"; };
 		8179BFED18497E140097F62D /* scene-ice-cream-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scene-ice-cream-disabled.png"; sourceTree = "<group>"; };
 		8179BFEF18497F080097F62D /* scene-ice cream-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scene-ice cream-disabled.png"; sourceTree = "<group>"; };
@@ -308,6 +307,9 @@
 		81DFCCBE18473EA90067E5F3 /* angry-suzy-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "angry-suzy-disabled.png"; sourceTree = "<group>"; };
 		81DFCCC618473FB70067E5F3 /* spider-surprise-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spider-surprise-disabled.png"; sourceTree = "<group>"; };
 		81DFCCC81847400F0067E5F3 /* scene-surprised-suzy-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scene-surprised-suzy-disabled.png"; sourceTree = "<group>"; };
+		EA0D970A184B15A9005F2EE0 /* PendingSharePopupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PendingSharePopupViewController.xib; path = ViewControllers/PendingSharePopupViewController.xib; sourceTree = "<group>"; };
+		EA0D970C184B15B6005F2EE0 /* PendingSharePopupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PendingSharePopupViewController.h; sourceTree = "<group>"; };
+		EA0D970D184B15B6005F2EE0 /* PendingSharePopupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PendingSharePopupViewController.m; sourceTree = "<group>"; };
 		EA16940A18162A7700C40069 /* Problem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Problem.h; sourceTree = "<group>"; };
 		EA16940B18162A7700C40069 /* Problem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Problem.m; sourceTree = "<group>"; };
 		EA16940D18162B2B00C40069 /* ProblemManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProblemManager.h; sourceTree = "<group>"; };
@@ -912,9 +914,9 @@
 		EACC67D41807339500FEAC76 /* Xibs */ = {
 			isa = PBXGroup;
 			children = (
-				2A7AF7461847D06F00D9EA81 /* ChangePasswordFormViewController.xib */,
 				EACC67F1180B4BC700FEAC76 /* AccountManagementViewController.xib */,
 				2A4D173D183FB64A00352A42 /* AddExistingChildViewController.xib */,
+				2A7AF7461847D06F00D9EA81 /* ChangePasswordFormViewController.xib */,
 				04950EAF1840B11E00030FB6 /* CreditsViewController.xib */,
 				EACC67EC180B4B8D00FEAC76 /* GameViewController.xib */,
 				EABC93B0182E06CA00E81664 /* GraphViewController.xib */,
@@ -927,6 +929,7 @@
 				EACC67CA18037DA300FEAC76 /* MainMenuViewController.xib */,
 				2A6C6D02183AC5D20018F407 /* ManageChildTileCell.xib */,
 				EACC6805180B954C00FEAC76 /* NavigationTableCell.xib */,
+				EA0D970A184B15A9005F2EE0 /* PendingSharePopupViewController.xib */,
 				EAE439E818303B890026370C /* PendingSharesTableCell.xib */,
 				EAE439D418303B2D0026370C /* PendingSharesViewController.xib */,
 				EAC6993E1828B39100342086 /* PopoverPickerViewController.xib */,
@@ -955,6 +958,8 @@
 				EACC67F0180B4BC700FEAC76 /* AccountManagementViewController.m */,
 				2A4D173B183FB64A00352A42 /* AddExistingChildViewController.h */,
 				2A4D173C183FB64A00352A42 /* AddExistingChildViewController.m */,
+				2A7AF7441847D06F00D9EA81 /* ChangePasswordFormViewController.h */,
+				2A7AF7451847D06F00D9EA81 /* ChangePasswordFormViewController.m */,
 				04950EAD1840B11E00030FB6 /* CreditsViewController.h */,
 				04950EAE1840B11E00030FB6 /* CreditsViewController.m */,
 				EACC67EA180B4B8D00FEAC76 /* GameViewController.h */,
@@ -973,6 +978,8 @@
 				EACC67E6180B4B6600FEAC76 /* LoginViewController.m */,
 				EACC67C818037DA300FEAC76 /* MainMenuViewController.h */,
 				EACC67C918037DA300FEAC76 /* MainMenuViewController.m */,
+				EA0D970C184B15B6005F2EE0 /* PendingSharePopupViewController.h */,
+				EA0D970D184B15B6005F2EE0 /* PendingSharePopupViewController.m */,
 				EAE439D218303B2D0026370C /* PendingSharesViewController.h */,
 				EAE439D318303B2D0026370C /* PendingSharesViewController.m */,
 				EAC6993C1828B39100342086 /* PopoverPickerViewController.h */,
@@ -995,8 +1002,6 @@
 				04D5924E18409797009764A9 /* SyncingViewController.m */,
 				2A67ECDE1827F245000695CC /* ViewChildrenViewController.h */,
 				2A67ECDF1827F245000695CC /* ViewChildrenViewController.m */,
-				2A7AF7441847D06F00D9EA81 /* ChangePasswordFormViewController.h */,
-				2A7AF7451847D06F00D9EA81 /* ChangePasswordFormViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1018,8 +1023,6 @@
 				EA16940B18162A7700C40069 /* Problem.m */,
 				EA16940D18162B2B00C40069 /* ProblemManager.h */,
 				EA16940E18162B2B00C40069 /* ProblemManager.m */,
-				2AAABD96182D506900FBCD60 /* ServerRequest.h */,
-				2AAABD97182D506900FBCD60 /* ServerRequest.m */,
 				EA2097C21835BD7A00D1A214 /* ServerCommunicationManager.h */,
 				EA2097C31835BD7A00D1A214 /* ServerCommunicationManager.m */,
 				EAE43992182EC8510026370C /* Session.h */,
@@ -1219,6 +1222,7 @@
 				2A67ECE21827F245000695CC /* ViewChildrenViewController.xib in Resources */,
 				2A6C6D03183AC5D20018F407 /* ManageChildTileCell.xib in Resources */,
 				EAC69918181DD1E700342086 /* test_image.jpg in Resources */,
+				EA0D970B184B15A9005F2EE0 /* PendingSharePopupViewController.xib in Resources */,
 				EAE4399F182EE9D90026370C /* happy-75x85.png in Resources */,
 				EAC6991E181DF59500342086 /* Billy_make_Suzy_Angry.mp4 in Resources */,
 				EACC67EE180B4B8D00FEAC76 /* GameViewController.xib in Resources */,
@@ -1322,6 +1326,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EAC6993F1828B39100342086 /* PopoverPickerViewController.m in Sources */,
+				EA0D970E184B15B6005F2EE0 /* PendingSharePopupViewController.m in Sources */,
 				EAE439C218302BA80026370C /* GuardianGameMenuViewController.m in Sources */,
 				2A67ECE11827F245000695CC /* ViewChildrenViewController.m in Sources */,
 				2A6C6D06183AC6270018F407 /* ManageChildTileCell.m in Sources */,
@@ -1342,7 +1347,6 @@
 				EACC67DC1807340700FEAC76 /* GuardianUser.m in Sources */,
 				04D5924F18409797009764A9 /* SyncingViewController.m in Sources */,
 				EAE439DE18303B2D0026370C /* PendingSharesViewController.m in Sources */,
-				2AAABD98182D506900FBCD60 /* ServerRequest.m in Sources */,
 				EACC67DF1807343200FEAC76 /* ChildUser.m in Sources */,
 				2A7DB106181B3A24008EF99F /* LoginPromptViewController.m in Sources */,
 				EAC698FA181DB86300342086 /* Social_Solver.xcdatamodeld in Sources */,

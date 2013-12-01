@@ -74,8 +74,8 @@ static UserDatabaseManager* instance = nil;
     ChildUser *c = [[ChildUser alloc] initWithEntity:childEntityDescription insertIntoManagedObjectContext:mc];
     ChildSettings *cs = [[ChildSettings alloc] initWithEntity:childSettingsEntityDescription insertIntoManagedObjectContext:mc];
     
-    [cs setAllowsAutoSync:NO];
-    [cs setAllowsTracking:NO];
+    [cs setAllowsAutoSync:YES];
+    [cs setAllowsTracking:YES];
     
     [c setName:name];
     [c setPassword:pass];
@@ -118,6 +118,23 @@ static UserDatabaseManager* instance = nil;
     
     NSArray* res = [mc executeFetchRequest:request
                              error:nil];
+    return res;
+}
+
+- (NSArray*)registeredUsers
+{
+    NSManagedObjectContext *mc = [(AppDelegate*)[[UIApplication sharedApplication] delegate] managedObjectContext];
+    NSEntityDescription* entityDescription = [NSEntityDescription entityForName:@"User"
+                                                         inManagedObjectContext:mc];
+    
+    NSFetchRequest* request = [[NSFetchRequest alloc] init];
+    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"uid != 0"];
+    
+    request.entity = entityDescription;
+    request.predicate = predicate;
+    
+    NSArray* res = [mc executeFetchRequest:request
+                                     error:nil];
     return res;
 }
 
@@ -184,6 +201,48 @@ static UserDatabaseManager* instance = nil;
     return[[(AppDelegate*)[[UIApplication sharedApplication] delegate] managedObjectContext] save:nil];
 }
 
+-(BOOL)userExistsWithName:(NSString *)name
+{
+    // Make sure that the only user with the given name is that of the current user
+    
+    NSManagedObjectContext *mc = [(AppDelegate*)[[UIApplication sharedApplication] delegate] managedObjectContext];
+    NSEntityDescription* entityDescription = [NSEntityDescription entityForName:@"User"
+                                                         inManagedObjectContext:mc];
+    NSFetchRequest* req = [[NSFetchRequest alloc] init];
+    [req setEntity:entityDescription];
+    
+    NSPredicate* namePredicate = [NSPredicate predicateWithFormat:@"%K matches %@", @"name", name];
+    
+    [req setPredicate:namePredicate];
+    
+    NSArray* users = [mc executeFetchRequest:req error:nil];
+    
+    return ([users count] > 0);
+}
+
+- (ChildUser*)childUserWithID:(NSUInteger)ID
+{
+    NSManagedObjectContext *mc = [(AppDelegate*)[[UIApplication sharedApplication] delegate] managedObjectContext];
+    NSEntityDescription* entityDescription = [NSEntityDescription entityForName:@"User"
+                                                         inManagedObjectContext:mc];
+    
+    NSFetchRequest* request = [[NSFetchRequest alloc] init];
+    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"uid == %i", ID];
+    
+    request.entity = entityDescription;
+    request.predicate = predicate;
+    
+    NSArray* res = [mc executeFetchRequest:request
+                                     error:nil];
+    // Return the childUser if we found one with the desired ID
+    if ([res count] > 0) {
+        return [res lastObject];
+    }
+    else {
+        return nil;
+    }
+}
+
 - (void)loginUser:(User*)user
 {
     if ([user isKindOfClass:[ChildUser class]] && ((ChildUser*)user).settings.allowsAutoSync) {
@@ -193,7 +252,10 @@ static UserDatabaseManager* instance = nil;
         [[ServerCommunicationManager sharedInstance] updateChildrenOfGuardian:(GuardianUser*)user];
     }
     _activeUser = user;
+    // Create the session date and round it to the nearest whole second
     _sessionDate = [NSDate date];
+    int seconds = [_sessionDate timeIntervalSinceReferenceDate];
+    _sessionDate = [NSDate dateWithTimeIntervalSinceReferenceDate:seconds];
 }
 
 - (void)logoutActiveUser

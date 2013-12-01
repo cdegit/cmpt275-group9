@@ -8,6 +8,8 @@
 //  Worked on by: Matthew Glum, David Woods
 //  Created in Version 1
 
+//  This method stores information about a problem that was solved by a certain child in a specific session
+
 #import <CoreData/CoreData.h>
 #import "ChildUser.h"
 
@@ -24,5 +26,6 @@
 
 // Added in version 3
 - (NSDictionary*)dictionaryRepresentation;
++ (ChildProblemData*)problemFromDictionary:(NSDictionary*)data withSession:(Session*)session;
 
 @end

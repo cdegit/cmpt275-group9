@@ -13,23 +13,6 @@
 
 @synthesize childName;
 @synthesize guardianEmail;
-@synthesize securityCode;
-@synthesize password;
-
--(id) initWithChild:(NSString*)name AndGuardianEmail:(NSString*)email AndSecurityCode:(NSString*)code AndPassword:(NSString *)pass
-{
-    if (self = [super init]) {
-        childName = name;
-        guardianEmail = email;
-        securityCode = code;
-        password = pass;
-    }
-    return self;
-}
-
--(id) init
-{
-    return [self initWithChild:@"Name" AndGuardianEmail:@"example@domain.com" AndSecurityCode:@"0000" AndPassword:@"pass"];
-}
+@synthesize childID;
 
 @end

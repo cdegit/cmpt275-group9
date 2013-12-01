@@ -26,12 +26,16 @@
 - (void)setPassword:(NSString*)newPass;
 
 
-
-
 // Added in Version 1
 @property (nonatomic) NSString *name;
 @property (nonatomic) NSData *passwordHash, *passwordSeed;
 @property (nonatomic) NSInteger uid;
+
+// Added in version 3
+- (NSString*)hexEncodedPasswordHash;
+- (NSString*)hexEncodedPasswordSeed;
+- (void)setPasswordHashFromHexEncodedString:(NSString*)string;
+- (void)setPasswordSeedFromHexEncodedString:(NSString*)string;
 
 @end
 

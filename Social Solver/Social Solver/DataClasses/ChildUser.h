@@ -34,6 +34,10 @@
 
 // Added in version 3
 - (void)updateCompletedProblems;
+- (bool)hasSessionWithDate:(NSDate*)date;
+// A method to create a ChildUser instance in the database from data
+// Returns NO if the data was invalid
++ (bool)createChildFromDictionary:(NSDictionary*)data;
 
 @end
 

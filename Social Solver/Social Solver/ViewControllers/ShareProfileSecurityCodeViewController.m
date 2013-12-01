@@ -8,7 +8,7 @@
 // Version 2 
 
 #import "ShareProfileSecurityCodeViewController.h"
-#import "ServerRequest.h"
+#import "ServerCommunicationManager.h"
 
 @interface ShareProfileSecurityCodeViewController ()
 {
@@ -39,6 +39,10 @@
     
     _securityCode.hidden = YES;
     [_activityIndicator startAnimating];
+    
+    // Display email of guardian being transferred to
+    self.textView.text = [NSString stringWithFormat:@"Share this code with %@ to allow them to access the shared profiles.\n\nThis code had also been emailed to you.", gEmail];
+    
     // Generate security code
     int lowerBound = 1000;
     int upperBound = 9999;
@@ -47,21 +51,19 @@
     // Set security code
     _securityCode.text = [NSString stringWithFormat:@"%d", randomValue];
     
-    #warning TODO: Add server request to share profiles (David)
     // Send share request to server
     // Share a request for each share request in shareReqs
-    [ServerRequest test];
-    
-    // until it returns, display the spinner
-    
-    // if fails, display an alert
-    // [this displayError];
-    
-    // if succeeds, replace spinner with code
-    // [this displayCode];
-    
-    // Display email of guardian being transferred to
-    _guardianEmail.text = gEmail;
+    [[ServerCommunicationManager sharedInstance] shareChildren:shareReqs withGuardianEmail:gEmail code:randomValue completionHandler:^(BOOL success)
+     {
+         // If there was an error, inform the user
+         if (!success) {
+             [self displayError];
+         }
+         // Otherwise display the security code
+         else {
+             [self displayCode];
+         }
+    }];
 }
  
 -(void)setShareRequests:(NSMutableArray*)shareRequests
@@ -91,6 +93,9 @@
 
 - (void)displayError
 {
+    // Stop the spinner
+    _activityIndicator.hidden = YES;
+    // Display an error message
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Share Failed" message:@"Unable to connect to the server. Please try again." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
     
     [alert show];
@@ -98,7 +103,7 @@
 
 -(IBAction) backButtonPressed:(id)sender
 {
-    [self.delegate changeView:SHARE_PROFILES withChildren:(shareReqs) andEmail:_guardianEmail.text];
+    [self.delegate changeView:SHARE_PROFILES withChildren:(shareReqs) andEmail:gEmail];
 }
 
 @end

@@ -272,35 +272,38 @@
         if ([_userType isEqualToString:@"Guardian"]) {
             [(GuardianUser*)user setEmail:[_emailField text]];
         }
-        
-        // If the user isn't a child who doesn't allow syncing, then update the profile on the server
-        if (!([user isKindOfClass:[ChildUser class]] && ((ChildUser*)user).settings.allowsAutoSync == NO)) {
-            [[ServerCommunicationManager sharedInstance] updateUserProfile:user withCompletionHandler:nil];
-        }
     }
     else
     {
         if ([_userType isEqualToString:@"Child"]) {
             user = [[UserDatabaseManager sharedInstance] createChildWithName:trimmedName password:[_passwordField text] andProfileImage:[_profileImageView image]];
-            
-            if (((ChildUser*)user).settings.allowsAutoSync) {
-                [[ServerCommunicationManager sharedInstance] registerNewUser:user withCompletionHandler:nil];
-            }
         }
         else
         {
             user = [[UserDatabaseManager sharedInstance] createGuardianWithName:trimmedName password:[_passwordField text] profileImage:[_profileImageView image] andEmail:[_emailField text]];
-            // Register the Guardian profile with the server
-            [[ServerCommunicationManager sharedInstance] registerNewUser:user withCompletionHandler:nil];
         }
-        
     }
     
     NSError* err;
     
     // Save the Managed Object Context
-    
     [mc save:&err];
+    
+    if (creatingUser)
+    {
+        // Unless the user is a child who doesn't allow auto syncing, then register this new user
+        if (!([user isKindOfClass:[ChildUser class]] && ((ChildUser*)user).settings.allowsAutoSync == NO)) {
+            [[ServerCommunicationManager sharedInstance] registerNewUser:user withCompletionHandler:nil]; 
+        }
+    }
+    else
+    {
+        // If the user isn't a child who doesn't allow syncing, then update the profile on the server
+        if (!([user isKindOfClass:[ChildUser class]] && ((ChildUser*)user).settings.allowsAutoSync == NO)) {
+            [[ServerCommunicationManager sharedInstance] sendUpdatedUserProfile:user
+                                                          withCompletionHandler:nil];
+        }
+    }
     
     if (_delegate)
     {

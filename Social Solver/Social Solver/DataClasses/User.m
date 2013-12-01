@@ -163,7 +163,73 @@
     
     [self setPasswordSeed:seed];
     [self setPasswordHash:passhash];
+}
+
+// Added in version 3
+- (NSString*)hexEncodedPasswordHash
+{
+    return [self hexFromData:self.passwordHash];
+}
+
+- (NSString*)hexEncodedPasswordSeed
+{
+    return [self hexFromData:self.passwordSeed];
+}
+
+- (void)setPasswordHashFromHexEncodedString:(NSString*)string
+{
+    self.passwordHash = [self dataFromHex:string];
+}
+
+- (void)setPasswordSeedFromHexEncodedString:(NSString*)string
+{
+    self.passwordSeed = [self dataFromHex:string];
+}
+
+- (NSString*)hexFromData:(NSData*)data
+{
+    NSMutableString *hexString = [NSMutableString stringWithCapacity:([data length] * 2)];
+    const unsigned char *dataBuffer = [data bytes];
     
+    for (int i = 0; i < [data length]; ++i)
+    {
+        [hexString appendFormat:@"%02lx", (unsigned long)dataBuffer[i]];
+    }
+    
+    return hexString;
+}
+
+- (NSData*)dataFromHex:(NSString*)hexString
+{
+    NSMutableData* data = [[NSMutableData alloc] initWithCapacity:[hexString length]/2];
+    
+    for (int i = 0; i < [hexString length]; i += 2)
+    {
+        unichar c1 = [hexString characterAtIndex:i];
+        unichar c2 = [hexString characterAtIndex:(i + 1)];
+        
+        unsigned char b = ([self charToInt:c1] << 4) + [self charToInt:c2];
+        [data appendBytes:&b length:1];
+    }
+    
+    return data;
+}
+
+- (int)charToInt:(unichar)c
+{
+    if (c >= 'a' && c <= 'z') {
+        return c - 'a' + 10;
+    }
+    else if (c >= 'A' && c <= 'Z') {
+        return c - 'A' + 10;
+    }
+    else if (c >= '0' && c <= '9') {
+        return c - '0';
+    }
+    else {
+        NSLog(@"Non hex character %c in %s", c, __PRETTY_FUNCTION__);
+        return 0;
+    }
 }
 
 @end

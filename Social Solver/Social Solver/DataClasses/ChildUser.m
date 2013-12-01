@@ -10,6 +10,7 @@
 
 #import "ChildUser.h"
 #import "Session.h"
+#import "AppDelegate.h"
 
 @implementation ChildUser
 
@@ -46,6 +47,67 @@
     }
     
     self.completedProblems = [solved allObjects];
+}
+
+- (bool)hasSessionWithDate:(NSDate*)date
+{
+    for (Session* session in self.sessions)
+    {
+        if ([session.date isEqualToDate:date]) {
+            return true;
+        }
+    }
+    return false;
+}
+
++ (bool)createChildFromDictionary:(NSDictionary *)data
+{
+/*"UserName":"Tim","PasswordHash":"<9933aa8573d650c56afbc9fe410c247475fc2bec6352eedea","PasswordSeed":"<960658b91d6523f5e062bacc96c60974cba25f005e98f4a4c","Sessions":[{"Id":"1000037","NumberCorrect":"1","TotalResponseTime":"3.18891996145","NumberOfAttempts":"1","ProblemID":"102","Date":"407377280.00000000000"},{"Id":"1000037","NumberCorrect":"1","TotalResponseTime":"4.04836404324","NumberOfAttempts":"1","ProblemID":"203","Date":"407377920.00000000000"}]}*/
+    
+    // Get all the essential attributes from the data
+    // If any of them are missing, return false
+    NSString* userName = [data objectForKey:@"UserName"];
+    if (userName == nil) {
+        NSLog(@"Unable to get username from %@ in %s", data, __PRETTY_FUNCTION__);
+        return false;
+    }
+    
+    NSString* passwordHash = [data objectForKey:@"PasswordHash"];
+    if (passwordHash == nil) {
+        NSLog(@"Unable to get passwordHash from %@ in %s", data, __PRETTY_FUNCTION__);
+        return false;
+    }
+    
+    NSString* passwordSeed = [data objectForKey:@"PasswordSeed"];
+    if (passwordSeed == nil) {
+        NSLog(@"Unable to get passwordSeed from %@ in %s", data, __PRETTY_FUNCTION__);
+        return false;
+    }
+    
+    // All essential attributes are present to create an entity in the database
+    NSManagedObjectContext *mc = [(AppDelegate*)[[UIApplication sharedApplication] delegate] managedObjectContext];
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Child" inManagedObjectContext:mc];
+    ChildUser* child = [[ChildUser alloc] initWithEntity:entityDescription
+                                     insertIntoManagedObjectContext:mc];
+    
+    child.name = userName;
+    [child setPasswordHashFromHexEncodedString:passwordHash];
+    [child setPasswordSeedFromHexEncodedString:passwordSeed];
+    
+    // Add the child's sessions
+    NSArray* sessions = [data objectForKey:@"Sessions"];
+    for (id sessionDict in sessions)
+    {
+        // Check the object is formatted correctly
+        if ([sessionDict isKindOfClass:[NSDictionary class]]) {
+            Session* toAdd = [Session sessionFromDictionary:sessionDict withChild:child];
+            if (toAdd != nil) {
+                [child addSessionsObject:toAdd];
+            }
+        }
+    }
+
+    return true;
 }
 
 @end
