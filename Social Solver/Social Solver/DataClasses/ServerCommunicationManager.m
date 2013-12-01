@@ -568,7 +568,6 @@ static NSString* SCRIPT_DELETE_ACCOUNT = @"deleteAccount";
 
 - (void)getPendingSharesForGuardian:(GuardianUser*)guardian completionHandler:(void (^)(NSArray* shares, NSError*))completionHandler
 {
-#warning Untested
     NSDictionary* jsonObject = @{ @"GuardianEmail" : guardian.email };
     
     NSURL* url = [self urlForScript:SCRIPT_GET_PENDING_SHARES jsonObject:jsonObject];
