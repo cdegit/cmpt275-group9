@@ -32,7 +32,6 @@
 		2A7AF7481847D07000D9EA81 /* ChangePasswordFormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A7AF7461847D06F00D9EA81 /* ChangePasswordFormViewController.xib */; };
 		2A7DB106181B3A24008EF99F /* LoginPromptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7DB104181B3A24008EF99F /* LoginPromptViewController.m */; };
 		2A7DB107181B3A24008EF99F /* LoginPromptViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A7DB105181B3A24008EF99F /* LoginPromptViewController.xib */; };
-		2AAABD98182D506900FBCD60 /* ServerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AAABD97182D506900FBCD60 /* ServerRequest.m */; };
 		817F14B01830463C00D058A8 /* cheering.wav in Resources */ = {isa = PBXBuildFile; fileRef = 817F14AF1830463C00D058A8 /* cheering.wav */; };
 		817F14C218304AE100D058A8 /* launch-768-1004.png in Resources */ = {isa = PBXBuildFile; fileRef = 817F14B118304AE100D058A8 /* launch-768-1004.png */; };
 		817F14C318304AE100D058A8 /* ult.png in Resources */ = {isa = PBXBuildFile; fileRef = 817F14B218304AE100D058A8 /* ult.png */; };
@@ -249,9 +248,6 @@
 		2A7DB103181B3A24008EF99F /* LoginPromptViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginPromptViewController.h; sourceTree = "<group>"; };
 		2A7DB104181B3A24008EF99F /* LoginPromptViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginPromptViewController.m; sourceTree = "<group>"; };
 		2A7DB105181B3A24008EF99F /* LoginPromptViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginPromptViewController.xib; path = ViewControllers/LoginPromptViewController.xib; sourceTree = "<group>"; };
-		2A964BE7182D5CDD0016B43F /* ServerRequestDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ServerRequestDelegate.h; path = Protocols/ServerRequestDelegate.h; sourceTree = "<group>"; };
-		2AAABD96182D506900FBCD60 /* ServerRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerRequest.h; sourceTree = "<group>"; };
-		2AAABD97182D506900FBCD60 /* ServerRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerRequest.m; sourceTree = "<group>"; };
 		2AD01A4D18302E11000EEF89 /* LogoutRequestDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LogoutRequestDelegate.h; path = Protocols/LogoutRequestDelegate.h; sourceTree = "<group>"; };
 		817F14AF1830463C00D058A8 /* cheering.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = cheering.wav; sourceTree = "<group>"; };
 		817F14B118304AE100D058A8 /* launch-768-1004.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-768-1004.png"; sourceTree = "<group>"; };
@@ -571,7 +567,6 @@
 				2A3CDB82181EC83900A04D62 /* LoginPromptViewControllerDelegate.h */,
 				2AD01A4D18302E11000EEF89 /* LogoutRequestDelegate.h */,
 				EAC699381828B37C00342086 /* PopoverPickerViewControllerDelegate.h */,
-				2A964BE7182D5CDD0016B43F /* ServerRequestDelegate.h */,
 				2A6C6D07183AD20F0018F407 /* ManageChildTileCellDelegate.h */,
 				2A347C81183FD060008278B6 /* AddExistingChildViewControllerDelegate.h */,
 				2A7AF7491847D7D500D9EA81 /* ChangePasswordFormViewControllerDelegate.h */,
@@ -979,8 +974,6 @@
 				EA16940B18162A7700C40069 /* Problem.m */,
 				EA16940D18162B2B00C40069 /* ProblemManager.h */,
 				EA16940E18162B2B00C40069 /* ProblemManager.m */,
-				2AAABD96182D506900FBCD60 /* ServerRequest.h */,
-				2AAABD97182D506900FBCD60 /* ServerRequest.m */,
 				EA2097C21835BD7A00D1A214 /* ServerCommunicationManager.h */,
 				EA2097C31835BD7A00D1A214 /* ServerCommunicationManager.m */,
 				EAE43992182EC8510026370C /* Session.h */,
@@ -1290,7 +1283,6 @@
 				EACC67DC1807340700FEAC76 /* GuardianUser.m in Sources */,
 				04D5924F18409797009764A9 /* SyncingViewController.m in Sources */,
 				EAE439DE18303B2D0026370C /* PendingSharesViewController.m in Sources */,
-				2AAABD98182D506900FBCD60 /* ServerRequest.m in Sources */,
 				EACC67DF1807343200FEAC76 /* ChildUser.m in Sources */,
 				2A7DB106181B3A24008EF99F /* LoginPromptViewController.m in Sources */,
 				EAC698FA181DB86300342086 /* Social_Solver.xcdatamodeld in Sources */,

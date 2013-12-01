@@ -19,7 +19,8 @@ static const NSTimeInterval DEFAULT_TIMEOUT = 60;
 
 static NSString* SCRIPT_REG_USER = @"RegisterUser";
 static NSString* SCRIPT_UPDATE_USER_SEND = @"EditUser";
-static NSString* SCRIPT_UPDATE_USER_FETCH = @"getChild";
+static NSString* SCRIPT_UPDATE_USER_FETCH = @"getUsers";
+static NSString* SCRIPT_GET_CHILD = @"getChild";
 static NSString* SCRIPT_GET_SESSIONS = @"getNewSessions";
 static NSString* SCRIPT_GET_SESSION_DATES = @"getSessionDates";
 static NSString* SCRIPT_SEND_SESSIONS = @"addSession";
@@ -58,7 +59,7 @@ static NSString* SCRIPT_DELETE_ACCOUNT = @"deleteAccount";
         }
     }
     else {
-        NSLog(@"Error parsing response for %@ in %s", [response.URL absoluteString],  __PRETTY_FUNCTION__);
+        NSLog(@"Error parsing %@ response for %@ in %s", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding], [response.URL absoluteString], __PRETTY_FUNCTION__);
     }
 
     return result;
@@ -90,7 +91,10 @@ static NSString* SCRIPT_DELETE_ACCOUNT = @"deleteAccount";
 - (void)registerNewUser:(User*)user withCompletionHandler:(void (^)(NSError*))completionHandler
 {
     NSString* userType = ([user isKindOfClass:[ChildUser class]] ? @"C" : @"G");
-    NSMutableDictionary* jsonObject = [NSMutableDictionary dictionaryWithObjectsAndKeys: user.name, @"UserName" , userType, @"UserType", [user.passwordHash description], @"PasswordHash", [user.passwordSeed description], @"PasswordSeed", nil];
+    // Convert the passwordHash into a string to store on the database (note this isn't an unencrypted string, just a string representation of encrypted data)
+    NSString* pwordHash = [[NSString alloc] initWithData:user.passwordHash encoding:NSUTF8StringEncoding];
+    NSString* pwordSeed = [[NSString alloc] initWithData:user.passwordSeed encoding:NSUTF8StringEncoding];
+    NSMutableDictionary* jsonObject = [NSMutableDictionary dictionaryWithObjectsAndKeys: user.name, @"UserName" , userType, @"UserType", pwordHash, @"PasswordHash", pwordSeed, @"PasswordSeed", nil];
     
     if ([user isKindOfClass:[GuardianUser class]]) {
         [jsonObject setObject:((GuardianUser*)user).email forKey:@"Email"];
@@ -144,7 +148,7 @@ static NSString* SCRIPT_DELETE_ACCOUNT = @"deleteAccount";
     // Check if the user is registered. If they aren't return an error
     if (user.uid != 0)
     {
-        NSDictionary* jsonObject = @{ @"Id" : @(user.uid) };
+        NSDictionary* jsonObject = @{ @"ID" : @(user.uid) };
         NSURL* url = [self urlForScript:SCRIPT_UPDATE_USER_FETCH jsonObject:jsonObject];
         NSURLRequest* req = [[NSURLRequest alloc] initWithURL:url
                                                   cachePolicy:NSURLCacheStorageNotAllowed
@@ -233,7 +237,11 @@ static NSString* SCRIPT_DELETE_ACCOUNT = @"deleteAccount";
         return;
     }
     
-    NSMutableDictionary* jsonObject = [NSMutableDictionary dictionaryWithObjectsAndKeys: @(user.uid), @"Id", user.name, @"UserName", [user.passwordHash description], @"PasswordHash", [user.passwordSeed description], @"PasswordSeed", nil];
+    // Convert the passwordHash into a string to store on the database (note this isn't an unencrypted string, just a string representation of encrypted data)
+    NSString* pwordHash = [[NSString alloc] initWithData:user.passwordHash encoding:NSUTF8StringEncoding];
+    NSString* pwordSeed = [[NSString alloc] initWithData:user.passwordSeed encoding:NSUTF8StringEncoding];
+
+    NSMutableDictionary* jsonObject = [NSMutableDictionary dictionaryWithObjectsAndKeys: @(user.uid), @"Id", user.name, @"UserName", pwordHash, @"PasswordHash", pwordSeed, @"PasswordSeed", nil];
     
     if ([user isKindOfClass:[GuardianUser class]]) {
         [jsonObject setObject:((GuardianUser*)user).email forKey:@"Email"];
@@ -291,6 +299,7 @@ static NSString* SCRIPT_DELETE_ACCOUNT = @"deleteAccount";
         if ([toSend count] > 0) {
             [self sendServerSessionsWithDates:[toSend allObjects] forChild:cUser];
         }
+#warning Uncomment once testing is completed
 //        if ([toReceive count] > 0) {
 //            [self getServerSessionsWithDates:[toReceive allObjects] forChild:cUser];
 //        }
@@ -364,10 +373,14 @@ static NSString* SCRIPT_DELETE_ACCOUNT = @"deleteAccount";
                                            for (NSDictionary* sessionDict in sessions)
                                            {
                                                Session* toAdd = [Session sessionFromDictionary:sessionDict withChild:user];
-                                               // Check this isn't a duplicate session... just in case
-                                               if (![user hasSessionWithDate:toAdd.date])
+                                               // Check the session was created successfully
+                                               if (toAdd != nil)
                                                {
-                                                   [user addSessionsObject:toAdd];
+                                                   // Check this isn't a duplicate session... just in case
+                                                   if (![user hasSessionWithDate:toAdd.date])
+                                                   {
+                                                       [user addSessionsObject:toAdd];
+                                                   }
                                                }
                                            }
                                            
@@ -392,14 +405,14 @@ static NSString* SCRIPT_DELETE_ACCOUNT = @"deleteAccount";
 {
 #warning UNTESTED
     // This script has a very strange error when handed the URL parsed through the encoder... so hard code this one instead
-    NSString* urlString = @"http://kaijubluesg9.site90.com/getSessionDates.php?json={%22ChildID%22:%22";
-    urlString = [urlString stringByAppendingString:[NSString stringWithFormat:@"%i", user.uid]];
-    urlString = [urlString stringByAppendingString:@"%22}"];
-    
-    NSURL* url = [NSURL URLWithString:urlString];
-//    NSDictionary* jsonObject = @{ @"ChidID" : [NSString stringWithFormat:@"%i", user.uid] };
+//    NSString* urlString = @"http://kaijubluesg9.site90.com/getSessionDates.php?json={%22ChildID%22:%22";
+//    urlString = [urlString stringByAppendingString:[NSString stringWithFormat:@"%i", user.uid]];
+//    urlString = [urlString stringByAppendingString:@"%22}"];
 //    
-//    NSURL* url = [self urlForScript:SCRIPT_GET_SESSION_DATES jsonObject:jsonObject];
+//    NSURL* url = [NSURL URLWithString:urlString];
+    NSDictionary* jsonObject = @{ @"ChidID" : [NSString stringWithFormat:@"%i", user.uid] };
+    
+    NSURL* url = [self urlForScript:SCRIPT_GET_SESSION_DATES jsonObject:jsonObject];
     
     NSURLRequest* req = [[NSURLRequest alloc] initWithURL:url
                                               cachePolicy:NSURLCacheStorageNotAllowed
@@ -457,13 +470,45 @@ static NSString* SCRIPT_DELETE_ACCOUNT = @"deleteAccount";
 #pragma mark Profile Sharing
 - (void)downloadChildWithID:(NSInteger)ID completionHandler:(void (^)(NSError*))completionHandler
 {
-    // Send request to server
-    // Parse result
-    // Call completion handler
+#warning  Untested
+    NSDictionary* jsonObject = @{ @"ChildID" : @(ID) };
+    NSURL* url = [self urlForScript:SCRIPT_GET_CHILD jsonObject:jsonObject];
+    NSURLRequest* req = [[NSURLRequest alloc] initWithURL:url cachePolicy:NSURLCacheStorageNotAllowed timeoutInterval:DEFAULT_TIMEOUT];
+    
+    void (^completionCopy)(NSError*) = [completionHandler copy];
+    [NSURLConnection sendAsynchronousRequest:req
+                                       queue:[NSOperationQueue mainQueue]
+                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+                               if (connectionError == nil)
+                               {
+                                   NSError* err = nil;
+                                   NSDictionary* result = [self checkErrorInResponse:response withData:data error:&err];
+                                   if (err == nil)
+                                   {
+                                       // Try to make a childUser from the dictionary. If it's unsuccessful, create an error
+                                       if (![ChildUser createChildFromDictionary:result]) {
+                                           err = [NSError errorWithDomain:@"Invalid data" code:1010 userInfo:nil];
+                                           NSLog(@"Unable to create a childUser from %@ for request %@", result, [[response URL] absoluteString]);
+                                       }
+                                       // Call the completion handler
+                                       if (completionCopy != nil) {
+                                           completionCopy(err);
+                                       }
+                                   }
+                               }
+                               else
+                               {
+                                   NSLog(@"Error %@ for request %@", connectionError, [[response URL] absoluteString]);
+                                   if (completionCopy != nil) {
+                                       completionCopy(connectionError);
+                                   }
+                               }
+                           }];
 }
 
 - (void)acceptChild:(NSInteger)childID forGuardian:(GuardianUser*)guardian withSecurityCode:(NSInteger)code completionHandler:(void (^)(BOOL validCode, NSError* err))completionHandler
 {
+#warning untested
     /*{
      “ChildID”: 1001,
      “GuardianEmail” : “some@email.com”,
@@ -506,6 +551,7 @@ static NSString* SCRIPT_DELETE_ACCOUNT = @"deleteAccount";
 
 - (void)rejectChild:(NSInteger)childID forGuardian:(GuardianUser*)guardian completionHandler:(void (^)(NSError* err))completionHandler
 {
+#warning untested
     NSDictionary* jsonObject = @{ @"GuardianEmail" : guardian.email, @"ChildID" : @(childID) };
     
     NSURL* url = [self urlForScript:SCRIPT_REJECT_CHILD jsonObject:jsonObject];
@@ -545,6 +591,7 @@ static NSString* SCRIPT_DELETE_ACCOUNT = @"deleteAccount";
 
 - (void)getPendingSharesForGuardian:(GuardianUser*)guardian completionHandler:(void (^)(NSArray* shares, NSError*))completionHandler
 {
+#warning Untested
     NSDictionary* jsonObject = @{ @"GuardianEmail" : guardian.email };
     
     NSURL* url = [self urlForScript:SCRIPT_GET_PENDING_SHARES jsonObject:jsonObject];
@@ -588,6 +635,14 @@ static NSString* SCRIPT_DELETE_ACCOUNT = @"deleteAccount";
                                                    NSLog(@"Error getting name from %@ for URL %@ in %s", childDict, [[response URL] absoluteString], __PRETTY_FUNCTION__);
                                                }
                                                
+                                               NSString* gEmail = [childDict objectForKey:@"emailFrom"];
+                                               if (gEmail != nil) {
+                                                   user.guardianEmail = gEmail;
+                                               }
+                                               else {
+                                                  NSLog(@"Error getting FromEmail from %@ for URL %@ in %s", childDict, [[response URL] absoluteString], __PRETTY_FUNCTION__);
+                                               }
+                                               
                                                // Add the child to the return array
                                                [retArr addObject:user];
                                            }
@@ -611,6 +666,7 @@ static NSString* SCRIPT_DELETE_ACCOUNT = @"deleteAccount";
 - (void)shareChildren:(NSArray*)users withGuardianEmail:(NSString*)email code:(int)code completionHandler:(void (^)(BOOL))completionHandler
 {
     BOOL hadResponse = false;
+    GuardianUser* activeUser = (GuardianUser*)[[UserDatabaseManager sharedInstance] activeUser];
     
     for (ChildUser* user in users)
     {
@@ -618,6 +674,7 @@ static NSString* SCRIPT_DELETE_ACCOUNT = @"deleteAccount";
         [jsonObject setObject:@(user.uid) forKey:@"ChildID"];
         [jsonObject setObject:email forKey:@"GuardianEmail"];
         [jsonObject setObject:@(code) forKey:@"SecurityCode"];
+        [jsonObject setObject:activeUser.email forKey:@"EmailFrom"];
         
         NSURL* url = [self urlForScript:SCRIPT_ADD_PENDING_SHARE jsonObject:jsonObject];
         NSURLRequest* req = [[NSURLRequest alloc] initWithURL:url
@@ -650,36 +707,6 @@ static NSString* SCRIPT_DELETE_ACCOUNT = @"deleteAccount";
                                    }
                                }];
     }
-}
-
-- (void)requestAccountDeletion:(NSInteger)uid
-{
-    NSURL *reqURL = [self urlForScript:SCRIPT_DELETE_ACCOUNT jsonObject:@{ @"ID" : [NSNumber numberWithInt:uid] }];
-    
-    NSURLRequest *req = [[NSURLRequest alloc] initWithURL:reqURL cachePolicy:NSURLCacheStorageNotAllowed timeoutInterval:DEFAULT_TIMEOUT];
-    
-    [NSURLConnection sendAsynchronousRequest:req
-                                       queue:[NSOperationQueue mainQueue]
-                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-                               
-                               if (connectionError == nil)
-                               {
-                                   
-                                   NSError* err = nil;
-                                   NSDictionary* json = [self checkErrorInResponse:response withData:data error:&err];
-                                   if (err == nil) {
-#warning TODO - Check Success
-                                       NSLog(@"Received reply: %@", json);
-                                   }
-                                   else
-                                   {
-                                       NSLog(@"Error parsing json: %@ for request %@", data, req);
-                                   }
-                                   
-                                   
-                               }
-                               
-                           }];
 }
 
 @end

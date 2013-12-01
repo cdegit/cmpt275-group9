@@ -187,7 +187,7 @@ UITableView* table;
 - (void) shareSuccess:(ShareRequest*)child
 {
     // Fetch the child's profile from the server
-    [[ServerCommunicationManager sharedInstance] getChildWithID:child.childID completionHandler:^(NSError* err) {
+    [[ServerCommunicationManager sharedInstance] downloadChildWithID:child.childID completionHandler:^(NSError* err) {
         if (err == nil)
         {
             NSString* firstPart = @"You may now have access to ";
@@ -204,6 +204,12 @@ UITableView* table;
             
             [table reloadData];
             _numberOfShares.text = [NSString stringWithFormat:@"%d", [tableData count]];
+        }
+        // Check the error code
+        else if (err.code == 1010)
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Share Failed" message:@"Unable to read the child's profile. It may contain corrupted data" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+            [alert show];
         }
         else
         {

@@ -15,7 +15,7 @@
 #import "UserDatabaseManager.h"
 #import "GuardianMainMenuViewController.h"
 #import "User.h"
-#import "ServerRequest.h"
+
 
 @interface LoginViewController ()
 {
@@ -35,7 +35,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        [ServerRequest test];
+
     }
     return self;
 }

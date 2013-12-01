@@ -48,6 +48,7 @@
     }
     else {
         NSLog(@"Unable to get date from %@ in %s", dict, __PRETTY_FUNCTION__);
+        return nil;
     }
     
     NSArray* problems = [dict objectForKey:@"Problems"];

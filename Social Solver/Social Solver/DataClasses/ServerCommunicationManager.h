@@ -37,6 +37,4 @@
 - (void)getPendingSharesForGuardian:(GuardianUser*)guardian completionHandler:(void (^)(NSArray* shares, NSError*))completionHandler;
 - (void)shareChildren:(NSArray*)users withGuardianEmail:(NSString*)email code:(int)code completionHandler:(void (^)(BOOL))completionHandler;
 
-- (void)requestAccountDeletion:(NSInteger)uid;
-
 @end
