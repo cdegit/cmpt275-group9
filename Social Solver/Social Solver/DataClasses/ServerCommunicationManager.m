@@ -468,10 +468,10 @@ static NSString* SCRIPT_DELETE_ACCOUNT = @"deleteAccount";
                                            err = [NSError errorWithDomain:@"Invalid data" code:1010 userInfo:nil];
                                            NSLog(@"Unable to create a childUser from %@ for request %@", result, [[response URL] absoluteString]);
                                        }
-                                       // Call the completion handler
-                                       if (completionCopy != nil) {
-                                           completionCopy(err);
-                                       }
+                                   }
+                                   // Call the completion handler
+                                   if (completionCopy != nil) {
+                                       completionCopy(err);
                                    }
                                }
                                else
@@ -664,6 +664,7 @@ static NSString* SCRIPT_DELETE_ACCOUNT = @"deleteAccount";
                                        {
                                            // Parse the response
                                            NSString* result = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                                           result = [result stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
                                            bool success = false;
                                            // If the response is true, the share was a success... otherwise it failed
                                            if ([result isEqualToString:@"true"]) {
