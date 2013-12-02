@@ -24,6 +24,7 @@
 
 - (Session*)sessionWithDate:(NSDate*)date
 {
+    // Iterate through all sessions and find any with the date desired
     NSSet* result = [self.sessions objectsPassingTest:^BOOL(id obj, BOOL *stop) {
         if ([((Session*)obj).date isEqualToDate:date]) {
             *stop = YES;
@@ -38,6 +39,8 @@
 // Added in version 3
 - (void)updateCompletedProblems
 {
+    // Iterate through the problem data of each session and add the problemID solved
+    // to a set.
     NSMutableSet* solved = [[NSMutableSet alloc] initWithArray:self.completedProblems];
     for (Session* session in self.sessions)
     {
@@ -62,7 +65,6 @@
 
 + (ChildUser*)createChildFromDictionary:(NSDictionary*)data ID:(NSInteger)uid
 {
-/*"UserName":"Tim","PasswordHash":"<9933aa8573d650c56afbc9fe410c247475fc2bec6352eedea","PasswordSeed":"<960658b91d6523f5e062bacc96c60974cba25f005e98f4a4c","Sessions":[{"Id":"1000037","NumberCorrect":"1","TotalResponseTime":"3.18891996145","NumberOfAttempts":"1","ProblemID":"102","Date":"407377280.00000000000"},{"Id":"1000037","NumberCorrect":"1","TotalResponseTime":"4.04836404324","NumberOfAttempts":"1","ProblemID":"203","Date":"407377920.00000000000"}]}*/
     
     // Get all the essential attributes from the data
     // If any of them are missing, return false

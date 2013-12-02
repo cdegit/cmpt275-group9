@@ -9,6 +9,9 @@
 
 //  Created in Version 2
 
+//  This class is used as the tray on the stats screen
+//  It will show arrows on the edge if there is more content than space to display it
+
 #import <UIKit/UIKit.h>
 
 @interface StatsTrayCollectionView : UIView

@@ -8,6 +8,8 @@
 //  Worked on by: David Woods
 //  Created in Version 2
 
+/* This is the tab where the guardian can choose to play the games */
+
 #import <UIKit/UIKit.h>
 
 @interface GuardianGameMenuViewController : UIViewController

@@ -42,6 +42,7 @@
     }
     else
     {
+        // Display an error informing the user of the invalid code
         UIAlertView* err = [[UIAlertView alloc] initWithTitle:@"Invalid Code" message:@"Code must be 4 digits" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil];
         [err show];
     }

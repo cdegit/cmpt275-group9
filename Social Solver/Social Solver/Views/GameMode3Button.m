@@ -41,6 +41,7 @@
     self.longLabel.numberOfLines = 0;
     self.longLabel.textAlignment = NSTextAlignmentCenter;
     
+    // Add the label to the button
     [self addSubview:self.longLabel];
 }
 
@@ -53,6 +54,7 @@
 {
     [super layoutSubviews];
     
+    // Resize the label to that it remains inside the button
     CGRect frame = self.bounds;
     frame.origin.x = DEFAULT_MARGIN_SIDE;
     frame.origin.y = DEFAULT_MARGIN_TOP;

@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 Group 9. All rights reserved.
 //  Created in Version 3
 
+//  This class is the view controller which allows the guardian to adjust various settings
+
 #import <UIKit/UIKit.h>
 #import "GuardianMainMenuViewController.h"
 

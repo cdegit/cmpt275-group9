@@ -414,6 +414,7 @@
 
 - (void)levelCompleteViewController:(LevelCompleteViewController *)vc didFinishWithOption:(enum FinishOption)option
 {
+    // If main menu was selected, animate to the main menu
     if (option == FinishOptionMainMenu) {
         [self dismissViewControllerAnimated:NO completion:^{}];
         [UIView animateWithDuration:0.75

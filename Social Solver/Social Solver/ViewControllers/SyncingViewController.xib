@@ -52,7 +52,7 @@
                         <action selector="switchTrackingSyncingTapped:" destination="-1" eventType="touchUpInside" id="oE7-jy-rbV"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="e6C-cj-ryW" userLabel="Sound Button">
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="e6C-cj-ryW" userLabel="Sound Button">
                     <rect key="frame" x="20" y="10" width="50" height="50"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" image="sound-off.png">

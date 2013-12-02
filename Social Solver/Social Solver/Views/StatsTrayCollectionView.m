@@ -97,6 +97,7 @@ static int KVOContentSizeContext;
 
 - (void)handlePreviousButtonTapped
 {
+    // Figure out where to scroll to to display the page to the left of the current one being viewed
     CGPoint newOffset = self.collectionView.contentOffset;
     if (self.isHorizontal)
     {
@@ -115,6 +116,7 @@ static int KVOContentSizeContext;
 
 - (void)handleNextButtonTapped
 {
+    // Figure out the offset of the next page
     CGPoint newOffset = self.collectionView.contentOffset;
     if (self.isHorizontal)
     {
@@ -129,6 +131,7 @@ static int KVOContentSizeContext;
         newOffset.y = MIN(newOffset.y, maxOffsetY);
     }
     
+    // Scroll to the next page
     [self updateButtonsForContentOffset:newOffset animated:YES];
     [self.collectionView setContentOffset:newOffset animated:YES];
 }
@@ -138,6 +141,7 @@ static int KVOContentSizeContext;
     BOOL showPrevious;
     BOOL showNext;
     
+    // Figure out whether to display the next and previous buttons based on orientation and current offset
     if (self.isHorizontal)
     {
         showPrevious = (contentOffset.x > 0);
@@ -149,6 +153,7 @@ static int KVOContentSizeContext;
         showNext = (contentOffset.y + CGRectGetHeight(self.collectionView.bounds) < self.collectionView.contentSize.height);
     }
     
+    // Hide or show the buttons
     [UIView animateWithDuration:(animated ? 0.3 : 0.0)
                           delay:0
                         options:(UIViewAnimationOptionAllowUserInteraction)

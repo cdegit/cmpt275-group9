@@ -186,6 +186,7 @@
     self.passwordSeed = [self dataFromHex:string];
 }
 
+// Convert from data into a hexidecimal string
 - (NSString*)hexFromData:(NSData*)data
 {
     NSMutableString *hexString = [NSMutableString stringWithCapacity:([data length] * 2)];
@@ -199,6 +200,7 @@
     return hexString;
 }
 
+// Convert a hexidecimal encoded string into data
 - (NSData*)dataFromHex:(NSString*)hexString
 {
     NSMutableData* data = [[NSMutableData alloc] initWithCapacity:[hexString length]/2];

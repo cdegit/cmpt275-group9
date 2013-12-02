@@ -28,6 +28,7 @@
     self = [super init];
     if (self)
     {
+        // Create the sound assets
         NSURL *buttonURL = [[NSBundle mainBundle] URLForResource:@"click2" withExtension:@"wav"];
         AudioServicesCreateSystemSoundID((__bridge CFURLRef)buttonURL, &buttonPress);
         
@@ -68,6 +69,7 @@
 
 - (BOOL)soundEnabled
 {
+    // If we haven't yet created an entry in standardUserDefaults then do that now
 	if (![[[[NSUserDefaults standardUserDefaults] dictionaryRepresentation] allKeys] containsObject:@"soundEnabled"]) {
 		[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"soundEnabled"];
         [[NSUserDefaults standardUserDefaults] synchronize];

@@ -32,6 +32,7 @@
 
 + (ChildProblemData*)problemFromDictionary:(NSDictionary*)data withSession:(Session*)session
 {
+    // Create an entity in the database
     NSManagedObjectContext *mc = [(AppDelegate*)[[UIApplication sharedApplication] delegate] managedObjectContext];
     NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"ProblemData" inManagedObjectContext:mc];
     
@@ -40,6 +41,7 @@
     
     pd.session = session;
     
+    // Get the properties from the dictionary
     NSString* numCorrect = [data objectForKey:@"NumberCorrect"];
     if (numCorrect != nil) {
         pd.numberCorrect = [numCorrect integerValue];

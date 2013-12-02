@@ -17,6 +17,7 @@
 static const NSString* BASE_URL = @"http://kaijubluesg9.site90.com/";
 static const NSTimeInterval DEFAULT_TIMEOUT = 60;
 
+// PHP script names on the server
 static NSString* SCRIPT_REG_USER = @"RegisterUser";
 static NSString* SCRIPT_UPDATE_USER_SEND = @"EditUser";
 static NSString* SCRIPT_UPDATE_USER_FETCH = @"getUsers";
@@ -47,6 +48,8 @@ static NSString* SCRIPT_DELETE_ACCOUNT = @"deleteAccount";
     return scm;
 }
 
+// This method takes the response from the server and parses it
+// If any error occurs, outputs a message and sets the appropriate error
 - (NSDictionary*)checkErrorInResponse:(NSURLResponse*)response withData:(NSData*)data error:(NSError**)err
 {
     NSDictionary* result = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:err];
@@ -91,6 +94,7 @@ static NSString* SCRIPT_DELETE_ACCOUNT = @"deleteAccount";
 
 - (void)registerNewUser:(User*)user withCompletionHandler:(void (^)(NSError*))completionHandler
 {
+    // Put all information into a dictionary
     NSString* userType = ([user isKindOfClass:[ChildUser class]] ? @"C" : @"G");
     NSMutableDictionary* jsonObject = [NSMutableDictionary dictionaryWithObjectsAndKeys: user.name, @"UserName" , userType, @"UserType", [user hexEncodedPasswordHash], @"PasswordHash", [user hexEncodedPasswordSeed], @"PasswordSeed", nil];
     
@@ -99,11 +103,11 @@ static NSString* SCRIPT_DELETE_ACCOUNT = @"deleteAccount";
     }
     
     NSURL* url = [self urlForScript:SCRIPT_REG_USER jsonObject:jsonObject];
-    
     NSURLRequest* req = [[NSURLRequest alloc] initWithURL:url
                                               cachePolicy:NSURLCacheStorageNotAllowed
                                           timeoutInterval:DEFAULT_TIMEOUT];
     
+    // Copy the completion handler so that it's on the heap
     void (^completionCopy)(NSError*) = [completionHandler copy];
     
     [NSURLConnection sendAsynchronousRequest:req
@@ -115,11 +119,13 @@ static NSString* SCRIPT_DELETE_ACCOUNT = @"deleteAccount";
                                    NSDictionary* result = [self checkErrorInResponse:response withData:data error:&err];
                                    if (err == nil)
                                    {
+                                       // Get the user ID from the result
                                        NSString* ID = [result objectForKey:@"Id"];
                                        if (ID == nil) {
                                            NSLog(@"Failed to retrieve userID for %@ in %s", [response.URL absoluteString], __PRETTY_FUNCTION__);
                                        }
                                        else {
+                                           // Assign the user the unique ID and save
                                            user.uid = [ID integerValue];
                                            [[UserDatabaseManager sharedInstance] save];
                                        }
@@ -162,6 +168,7 @@ static NSString* SCRIPT_DELETE_ACCOUNT = @"deleteAccount";
                                        NSDictionary* result = [self checkErrorInResponse:response withData:data error:&err];
                                        if (err == nil)
                                        {
+                                           // Read the attributes from teh JSON response
                                            NSString* passwordHash = [result objectForKey:@"PasswordHash"];
                                            NSString* passwordSeed = [result objectForKey:@"PasswordSeed"];
                                            NSString* userName = [result objectForKey:@"UserName"];
@@ -198,6 +205,7 @@ static NSString* SCRIPT_DELETE_ACCOUNT = @"deleteAccount";
     }
     else
     {
+        // Tried to update an unregistered user - return an error
         NSError* err = [NSError errorWithDomain:@"Can't fetch profile of an unregistered user" code:1001 userInfo:nil];
         if (completionHandler != nil) {
             completionHandler(err);
@@ -233,6 +241,7 @@ static NSString* SCRIPT_DELETE_ACCOUNT = @"deleteAccount";
         return;
     }
     
+    // Create the dictionary to put through the json encoder
     NSMutableDictionary* jsonObject = [NSMutableDictionary dictionaryWithObjectsAndKeys: @(user.uid), @"Id", user.name, @"UserName", [user hexEncodedPasswordHash], @"PasswordHash", [user hexEncodedPasswordSeed], @"PasswordSeed", nil];
     
     if ([user isKindOfClass:[GuardianUser class]]) {
@@ -240,13 +249,11 @@ static NSString* SCRIPT_DELETE_ACCOUNT = @"deleteAccount";
     }
     
     NSURL* url = [self urlForScript:SCRIPT_UPDATE_USER_SEND jsonObject:jsonObject];
-    
     NSURLRequest* req = [[NSURLRequest alloc] initWithURL:url
                                               cachePolicy:NSURLCacheStorageNotAllowed
                                           timeoutInterval:DEFAULT_TIMEOUT];
     
     void (^completionCopy)(NSError*) = [completionHandler copy];
-    
     [NSURLConnection sendAsynchronousRequest:req
                                        queue:[NSOperationQueue mainQueue]
                            completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
@@ -380,7 +387,6 @@ static NSString* SCRIPT_DELETE_ACCOUNT = @"deleteAccount";
                                            NSLog(@"Failed to get sessions from %@ for URL %@", results, [[response URL] absoluteString]);
                                        }
                                    }
-
                                }
                                else {
                                    NSLog(@"Error %@ for request %@", connectionError, [[response URL] absoluteString]);
@@ -404,7 +410,8 @@ static NSString* SCRIPT_DELETE_ACCOUNT = @"deleteAccount";
                                        queue:[NSOperationQueue mainQueue]
                            completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
                                NSMutableArray* dates = [[NSMutableArray alloc] init];
-                               if (connectionError == nil) {
+                               if (connectionError == nil)
+                               {
                                    NSError* err = nil;
                                    NSDictionary* json = [self checkErrorInResponse:response withData:data error:&err];
                                    if (err == nil) {
@@ -433,7 +440,7 @@ static NSString* SCRIPT_DELETE_ACCOUNT = @"deleteAccount";
                            }];
 }
 
-
+// A method to return the URL for the desired script and json input
 - (NSURL*)urlForScript:(NSString*)scriptName jsonObject:(NSDictionary*)dict
 {
     NSData* jsonData = [NSJSONSerialization dataWithJSONObject:dict options:NSJSONWritingPrettyPrinted error:nil];
@@ -449,6 +456,7 @@ static NSString* SCRIPT_DELETE_ACCOUNT = @"deleteAccount";
 }
 
 #pragma mark Profile Sharing
+
 - (void)downloadChildWithID:(NSInteger)ID forGuardian:(GuardianUser*)gUser completionHandler:(void (^)(NSError*))completionHandler
 {
     NSDictionary* jsonObject = @{ @"ChildID" : @(ID) };
@@ -492,8 +500,10 @@ static NSString* SCRIPT_DELETE_ACCOUNT = @"deleteAccount";
                            }];
 }
 
+
 - (void)acceptChild:(NSInteger)childID forGuardian:(GuardianUser*)guardian withSecurityCode:(NSInteger)code completionHandler:(void (^)(BOOL validCode, NSError* err))completionHandler
 {
+    // Create the json dictionary
     NSDictionary* jsonObject = @{ @"GuardianEmail" : guardian.email, @"ChildID" : @(childID), @"SecurityCode" : @(code) };
     
     NSURL* url = [self urlForScript:SCRIPT_ACCEPT_CHILD jsonObject:jsonObject];
@@ -647,8 +657,10 @@ static NSString* SCRIPT_DELETE_ACCOUNT = @"deleteAccount";
     BOOL hadResponse = false;
     GuardianUser* activeUser = (GuardianUser*)[[UserDatabaseManager sharedInstance] activeUser];
     
+    // Iterate through every child in the array and send the server a share request
     for (ChildUser* user in users)
     {
+        // Create the json dictionary
         NSMutableDictionary* jsonObject = [[NSMutableDictionary alloc] init];
         [jsonObject setObject:@(user.uid) forKey:@"ChildID"];
         [jsonObject setObject:email forKey:@"GuardianEmail"];

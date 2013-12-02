@@ -116,10 +116,13 @@
 
 - (Problem*)nextProblemForGameMode:(enum GameMode)mode
 {
+    // If it's a new game mode, then populate the array and update our gameMode
     if (mode != self.previousGameMode) {
         self.previousGameMode = mode;
         [self populateNextProblemsArrayForGameMode:mode];
     }
+    // If we've cycled through all problems for this game mode, then randomize the problems
+    // and iterate through them again
     else if ([self.nextProblemArray count] == 0) {
         [self populateNextProblemsArrayForGameMode:mode];
     }

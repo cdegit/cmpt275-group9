@@ -504,9 +504,11 @@
 
 - (IBAction)gameModePressed:(UIButton *)sender
 {
+    // Remember which game mode we were displaying before the user saw the picker
     self.buttonDisplayingPopover = sender;
     self.prePopoverGameMode = sender.titleLabel.text;
     
+    // Display the picker containing the other options
     PopoverPickerViewController* pickerController = [[PopoverPickerViewController alloc] initWithPickerValues:self.gameModePickerValues currentSelection:self.gameModeButton.titleLabel.text];
     pickerController.delegate = self;
     CGRect rect = pickerController.view.bounds;
@@ -520,9 +522,11 @@
 
 - (IBAction)dataButtonPressed:(UIButton *)sender
 {
+    // Store the current data-type so we don't refresh the graph if the user doesn't change this
     self.buttonDisplayingPopover = sender;
     self.prePopoverDataType = sender.titleLabel.text;
     
+    // Display the picker
     PopoverPickerViewController* pickerController = [[PopoverPickerViewController alloc] initWithPickerValues:self.dataTypePickerValues currentSelection:self.dataButton.titleLabel.text];
     pickerController.delegate = self;
     CGRect rect = pickerController.view.bounds;
@@ -582,6 +586,7 @@
 
 - (NSArray*)dataForChildWithID:(NSString *)ID
 {
+    // Find the correct child from the legend and return their sessions
     for (ChildUser* user in self.legendChildList)
     {
         if ([user.name isEqualToString:ID]) {

@@ -47,16 +47,11 @@
     self.soundButton.selected = [[AudioManager sharedInstance] soundEnabled];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     
+    // If a user is logged in, then adjust the UI accordingly
     if ([[[UserDatabaseManager sharedInstance] activeUser] name] != NULL) {
         _loginButton.hidden = YES;
         _logoutButton.hidden = NO;
@@ -66,6 +61,8 @@
         _trackingText.hidden = YES;
         _trackingSwitch.hidden = YES;
         
+        // If the user is a child then display the tracking switch in the lower right
+        // corner for them to change that setting
         User *user = [[UserDatabaseManager sharedInstance] activeUser];
         if ([[[user entity] name] isEqualToString:@"Child"])
         {
@@ -84,6 +81,7 @@
         
     }
     
+    // If no one is logged in, then adjust the UI
     else if ([[[UserDatabaseManager sharedInstance] activeUser] name] == NULL){
         _logoutButton.hidden = YES;
         _loginButton.hidden = NO;
@@ -99,6 +97,7 @@
 
 - (void)becameBackground:(NSNotification*)notification
 {
+    // When the app goes to background, we log out the user for security reasons
     _logoutButton.hidden = YES;
     _loginButton.hidden = NO;
     _someText.text=[[[UserDatabaseManager sharedInstance] activeUser] name];

@@ -5,6 +5,10 @@
 //  Created by David Woods on 13-10-13.
 //  Copyright (c) 2013 Group 9. All rights reserved.
 //
+//  Created in version 2
+//  Worked on by: David Woods, Matthew Glum, Cassie de Git, Dennis Huang
+
+//  This class is the high level view controller of the guardian main menu 
 
 #import <UIKit/UIKit.h>
 #import "ShareRequest.h"

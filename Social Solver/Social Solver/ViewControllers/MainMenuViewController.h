@@ -6,6 +6,7 @@
 //  Filled in details by Dennis Huang
 //  Copyright (c) 2013 Group 9. All rights reserved.
 //
+//  This is the view controller which controls the main menu (the first screen of the app)
 
 #import <UIKit/UIKit.h>
 #import "LogoutRequestDelegate.h"
