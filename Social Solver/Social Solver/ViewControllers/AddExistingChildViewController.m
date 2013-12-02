@@ -52,7 +52,7 @@
 - (void)loadUsers
 {
     
-    userArray = [[UserDatabaseManager sharedInstance] guardianlessUsers];
+    userArray = [[UserDatabaseManager sharedInstance] getUserListOfType:@"Child"];
 }
 
 #pragma mark - LoginPromptViewControllerDelegate Methods
