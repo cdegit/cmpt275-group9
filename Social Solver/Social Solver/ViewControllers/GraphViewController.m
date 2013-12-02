@@ -185,8 +185,13 @@
     CGFloat location = 0.0f;
     for (int i = 0; location <= 1.0; i++)
     {
-        NSDate* date = [self dateForXCoord:location];
-        NSString* labelText = [dateFormatter stringFromDate:date];
+        NSString* labelText = @"";
+        // Only display text if we have at least one data point
+        // This prevents us from displaying garbage dates on the x-axis
+        if (self.minDate != nil) {
+            NSDate* date = [self dateForXCoord:location];
+            labelText = [dateFormatter stringFromDate:date];
+        }
         
         CPTAxisLabel* l = [[CPTAxisLabel alloc] initWithText:labelText textStyle:xAxis.labelTextStyle];
         l.tickLocation = CPTDecimalFromFloat(location);
@@ -318,9 +323,9 @@
             xPoint = session.date;
             yPoint = [NSNumber numberWithDouble:val];
             
-            // Update our xRange bounds if necessary
-            self.minDate = [xPoint earlierDate:self.minDate];
-            self.maxDate = [xPoint laterDate:self.maxDate];
+//            // Update our xRange bounds if necessary
+//            self.minDate = [xPoint earlierDate:self.minDate];
+//            self.maxDate = [xPoint laterDate:self.maxDate];
             // Update the max Y is our data isn't in %
             if (self.yDataType != GraphYDataTypeCorrectPercent) {
                 self.maxYValue = MAX(self.maxYValue, val);
@@ -333,10 +338,29 @@
     return convertedData;
 }
 
+- (void)calculateMinAndMaxDates
+{
+    self.minDate = [NSDate distantFuture];
+    self.maxDate = [NSDate distantPast];
+    // Iterate through all our data points to find the min and max dates
+    for (CPTPlot* plot in self.graph.allPlots)
+    {
+        NSArray* plotdata = [self.dataSource dataForChildWithID:(NSString*)plot.identifier];
+        for (Session* session in plotdata)
+        {
+            self.minDate = [session.date earlierDate:self.minDate];
+            self.maxDate = [session.date laterDate:self.maxDate];
+        }
+    }
+}
+
 - (NSNumber*)xCoordForDate:(NSDate*)date
 {
     // Our xCoords will be a value between 0.0 and 1.0 depending on where the date ranges
     // between our minDate and maxDate
+    if (minDate == nil || maxDate == nil) {
+        [self calculateMinAndMaxDates];
+    }
     
     double timeElapsed = [date timeIntervalSinceDate:self.minDate];
     double denom = [self.maxDate timeIntervalSinceDate:self.minDate];
@@ -378,19 +402,19 @@
     return graphData;
 }
 
-- (NSDate*)minDate {
-    if (minDate == nil) {
-        minDate = [NSDate distantFuture];
-    }
-    return minDate;
-}
-
-- (NSDate*)maxDate; {
-    if (maxDate == nil) {
-        maxDate = [NSDate distantPast];
-    }
-    return maxDate;
-}
+//- (NSDate*)minDate {
+//    if (minDate == nil) {
+//        minDate = [NSDate distantFuture];
+//    }
+//    return minDate;
+//}
+//
+//- (NSDate*)maxDate; {
+//    if (maxDate == nil) {
+//        maxDate = [NSDate distantPast];
+//    }
+//    return maxDate;
+//}
 
 // --------------------------- CPTPlotDataSource ---------------------------------------
 
