@@ -28,7 +28,7 @@
 @property (nonatomic, readonly) NSArray* navigationCellInfo;
 @property (nonatomic) CGFloat cellHeight;
 @property (nonatomic) UIViewController* detailViewController;
-@property (nonatomic, strong) StatisticsViewController* statsVC;
+@property (nonatomic) NSInteger previouslySelectedRow;
 
 - (void)handleLogoutTapped;
 
@@ -42,7 +42,7 @@ const int SETTING_TRACKING = 2;
 const int SETTING_SYNCING = 3;
 const int SHARE_PROFILES = 4;
 
-@synthesize navigationCellInfo, cellHeight, statsVC;
+@synthesize navigationCellInfo, cellHeight;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -59,6 +59,7 @@ const int SHARE_PROFILES = 4;
 
     // Select the first cell by default
     [self.navigationTable selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionNone];
+    self.previouslySelectedRow = 0;
     
     self.detailViewController = [[ViewChildrenViewController alloc] initWithNibName:@"ViewChildrenViewController" bundle:[NSBundle mainBundle]];;
     self.detailViewController.view.frame = self.detailViewContainer.bounds;
@@ -121,14 +122,6 @@ const int SHARE_PROFILES = 4;
     return cellHeight;
 }
 
-- (StatisticsViewController*)statsVC
-{
-    if (statsVC == nil) {
-        statsVC = [[StatisticsViewController alloc] initWithNibName:@"StatisticsViewController" bundle:[NSBundle mainBundle]];
-    }
-    return statsVC;
-}
-
 // UITableviewDatasource Methods ------------------------------------------------------------
 // ------------------------------------------------------------------------------------------
 
@@ -154,77 +147,82 @@ const int SHARE_PROFILES = 4;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Remove the old detailViewController's view, if there was one
-    [self.detailViewController removeFromParentViewController];
-    [self.detailViewController.view removeFromSuperview];
-    
-    switch (indexPath.row)
+    // Only do something if a new tab is being selected
+    if (self.previouslySelectedRow != indexPath.row)
     {
-        case 0:
+        self.previouslySelectedRow = indexPath.row;
+        // Remove the old detailViewController's view, if there was one
+        [self.detailViewController removeFromParentViewController];
+        [self.detailViewController.view removeFromSuperview];
+        
+        switch (indexPath.row)
         {
-            // Load view children
-            self.detailViewController = [[ViewChildrenViewController alloc] initWithNibName:@"ViewChildrenViewController" bundle:[NSBundle mainBundle]];;
-            break;
+            case 0:
+            {
+                // Load view children
+                self.detailViewController = [[ViewChildrenViewController alloc] initWithNibName:@"ViewChildrenViewController" bundle:[NSBundle mainBundle]];;
+                break;
+            }
+            case 1:
+            {
+                // Load statistics
+                self.detailViewController = [[StatisticsViewController alloc] initWithNibName:@"StatisticsViewController" bundle:[NSBundle mainBundle]];
+                break;
+            }
+            case 2:
+            {
+                // Load share profile
+                ShareProfilesViewController *shareProfiles = [[ShareProfilesViewController alloc]  initWithNibName:@"ShareProfilesViewController" bundle:[NSBundle mainBundle]];
+                shareProfiles.delegate = self;
+                self.detailViewController = shareProfiles;
+                
+                break;
+            }
+            case 3:
+            {
+                // Load pending shares
+                self.detailViewController = [[PendingSharesViewController alloc] initWithNibName:@"PendingSharesViewController" bundle:[NSBundle mainBundle]];
+                break;
+            }
+            case 4:
+            {
+                // Load games
+                self.detailViewController = [[GuardianGameMenuViewController alloc] initWithNibName:@"GuardianGameMenuViewController" bundle:[NSBundle mainBundle]];
+                [self addChildViewController:self.detailViewController];
+                break;
+            }
+            case 5:
+            {
+                // Load settings
+                SettingViewController *trackingProfiles = [[SettingViewController alloc]  initWithNibName:@"SettingViewController" bundle:[NSBundle mainBundle]];
+                trackingProfiles.delegate = self;
+                self.detailViewController = trackingProfiles;
+                
+                break;
+            }
+            case 6:
+            {
+                // Load Edit Account
+                AccountManagementViewController *editAccount = [[AccountManagementViewController alloc] initWithNibName:@"AccountManagementViewController" bundle:[NSBundle mainBundle] withUser:[[UserDatabaseManager sharedInstance] activeUser]];
+                [editAccount setDelegate:self];
+                [self setDetailViewController:editAccount];
+                
+                break;
+            }
+            default:
+                NSAssert(false, @"Unkown cell selected");
+                break;
         }
-        case 1:
-        {
-            // Load statistics
-            self.detailViewController = self.statsVC;
-            break;
-        }
-        case 2:
-        {
-            // Load share profile
-            ShareProfilesViewController *shareProfiles = [[ShareProfilesViewController alloc]  initWithNibName:@"ShareProfilesViewController" bundle:[NSBundle mainBundle]];
-            shareProfiles.delegate = self;
-            self.detailViewController = shareProfiles;
-            
-            break;
-        }
-        case 3:
-        {
-            // Load pending shares
-            self.detailViewController = [[PendingSharesViewController alloc] initWithNibName:@"PendingSharesViewController" bundle:[NSBundle mainBundle]];
-            break;
-        }
-        case 4:
-        {
-            // Load games
-            self.detailViewController = [[GuardianGameMenuViewController alloc] initWithNibName:@"GuardianGameMenuViewController" bundle:[NSBundle mainBundle]];
-            [self addChildViewController:self.detailViewController];
-            break;
-        }
-        case 5:
-        {
-            // Load settings
-            SettingViewController *trackingProfiles = [[SettingViewController alloc]  initWithNibName:@"SettingViewController" bundle:[NSBundle mainBundle]];
-            trackingProfiles.delegate = self;
-            self.detailViewController = trackingProfiles;
-            
-            break;
-        }
-        case 6:
-        {
-            // Load Edit Account
-            AccountManagementViewController *editAccount = [[AccountManagementViewController alloc] initWithNibName:@"AccountManagementViewController" bundle:[NSBundle mainBundle] withUser:[[UserDatabaseManager sharedInstance] activeUser]];
-            [editAccount setDelegate:self];
-            [self setDetailViewController:editAccount];
-            
-            break;
-        }
-        default:
-            NSAssert(false, @"Unkown cell selected");
-            break;
-    }
 
-    if (self.detailViewController != nil)
-    {
-        self.detailViewController.view.frame = self.detailViewContainer.bounds;
-        self.detailViewController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        [self.detailViewContainer addSubview:self.detailViewController.view];
+        if (self.detailViewController != nil)
+        {
+            self.detailViewController.view.frame = self.detailViewContainer.bounds;
+            self.detailViewController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+            [self.detailViewContainer addSubview:self.detailViewController.view];
+        }
     }
 }
- 
+
 // Added Version 2, Updated Version 3
 - (void) changeView:(int) view withChildren:(NSMutableArray*)children andEmail:(NSString*)email {
     switch(view) {
