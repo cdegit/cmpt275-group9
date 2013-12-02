@@ -271,6 +271,7 @@ static UserDatabaseManager* instance = nil;
 
 - (void)requestLogout:(id<LogoutRequestDelegate>)del
 {
+    // Asks if the user wants to logout
     _requestDelegate = del;
     
     UIAlertView *reqview = [[UIAlertView alloc] initWithTitle:@"Logout?" message:@"Do you wish to logout?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
@@ -284,10 +285,12 @@ static UserDatabaseManager* instance = nil;
 {
     switch (buttonIndex) {
         case 0:
+            // If the user does not want to log out, deny the delegate's request
             [_requestDelegate logoutRequestDenied];
             break;
             
         case 1:
+            // If the user wants to logout, logout the user and tell the delegate
             [[UserDatabaseManager sharedInstance] logoutActiveUser];
             [_requestDelegate logoutRequestGranted];
             break;

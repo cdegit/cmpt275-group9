@@ -317,18 +317,23 @@
     }
 }
 
+// cancel the editing or creation
 -(IBAction)cancel:(id)sender
 {
-    [[self navigationController] popViewControllerAnimated:YES];
+    //[[self navigationController] popViewControllerAnimated:YES];
     [_delegate editedUser:nil];
 }
 
+
+// Ask for the user to confirm the deletion
 -(IBAction)deleteAccount:(id)sender
 {
     _deleteConfirm = [[UIAlertView alloc] initWithTitle:@"Delete Account" message:@"Are you sure you want to delete this account? This cannot be undone" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
     [_deleteConfirm show];
 }
 
+
+// Show the Password change form
 - (IBAction)changePassword:(id)sender
 {
     ChangePasswordFormViewController *cpfvc = [[ChangePasswordFormViewController alloc] initWithNibName:@"ChangePasswordFormViewController" bundle:[NSBundle mainBundle] user:_editedUser];
@@ -370,6 +375,7 @@
 
 #pragma mark - ChangePasswordFormViewController methods
 
+// When the user is done changing the password dismiss the modal view
 - (void)passwordChangeFinished
 {
     [self dismissViewControllerAnimated:YES completion:NULL];
@@ -403,6 +409,8 @@
 
 #pragma mark - UITextFieldDelegate methods
 
+
+// This is so that when return is pressed the keyboard is dismissed
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     
@@ -415,13 +423,21 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
+    // If the user has confirmed that they wish to delete the account
+    // Delete the user
     switch (buttonIndex) {
         case 1:
+            // If the user is logged in log them out.
             if ([_editedUser isEqual:[[UserDatabaseManager sharedInstance] activeUser]]) {
                 [[UserDatabaseManager sharedInstance] logoutActiveUser];
             }
+            // Tell the delegate that the given user is about to be deleted
             [_delegate willDeleteUser:_editedUser];
+            
+            // Delete the user
             [[UserDatabaseManager sharedInstance] deleteUser:_editedUser];
+            
+            // Tell the delegate the user has been deleted
             [_delegate didDeleteUser];
             break;
             

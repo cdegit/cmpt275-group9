@@ -298,6 +298,8 @@ const int SHARE_PROFILES = 4;
 - (void)editedUser:(User*)user
 {
     // Do nothing, or maybe confirm that it is saved in someway
+    [[[UIAlertView alloc] initWithTitle:@"Saved changes" message:nil delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil] show];
+    
 }
 
 - (void)willDeleteUser:(User *)user
@@ -308,6 +310,7 @@ const int SHARE_PROFILES = 4;
 
 - (void)didDeleteUser
 {
+    // If the logged in guardian is deleted go to the top view
     [[self navigationController] popToRootViewControllerAnimated:YES];
 }
 

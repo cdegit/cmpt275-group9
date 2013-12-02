@@ -95,6 +95,8 @@ NSComparator caseInsensitiveComparator = ^(NSString *obj1, NSString *obj2)
 
 #pragma mark - ManageChildUserCell methods
 
+// The edit account button of a manage child cell has been pressed
+// Load the edit account view for the given user
 - (void)userTile:(id)cell wantsEditAccount:(User*)user
 {
     NSLog(@"Calling This");
@@ -107,6 +109,9 @@ NSComparator caseInsensitiveComparator = ^(NSString *obj1, NSString *obj2)
 
 }
 
+
+// The unlink account button of a manage child cell has been pressed
+// Ask user to confirm that they want to unlink the account
 - (void)userTile:(id)cell wantsUnlinkAccount:(User*)user
 {
     _confirmUnlinkAlertView = [[UIAlertView alloc] initWithTitle:@"Unlink Child Account" message:[NSString stringWithFormat:@"Are you sure you want to unlink %@'s account?", [[_childArray objectAtIndex:_activeTile] name]] delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
@@ -115,6 +120,9 @@ NSComparator caseInsensitiveComparator = ^(NSString *obj1, NSString *obj2)
     
 }
 
+
+// The delete account button of a manage child cell has been pressed
+// Ask user to confirm that they want to delete the account
 - (void)userTile:(id)cell wantsDeleteAccount:(User *)user
 {
     _confirmDeleteAlertView = [[UIAlertView alloc] initWithTitle:@"Delete Child Account" message:[NSString stringWithFormat:@"Are you sure you want to delete %@'s account? This cannot be undone.", [user name]] delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
@@ -122,6 +130,8 @@ NSComparator caseInsensitiveComparator = ^(NSString *obj1, NSString *obj2)
     [[cell manageView] setHidden:YES];
 }
 
+// The  create user button of the add user cell has been pressed
+// Load a create child view and present it
 - (void)wantsCreateUserByCell:(id)cell
 {
     AccountManagementViewController *amvc = [[AccountManagementViewController alloc] initWithNibName:@"AccountManagementViewController" bundle:[NSBundle mainBundle] forUserType:@"Child"];
@@ -131,6 +141,9 @@ NSComparator caseInsensitiveComparator = ^(NSString *obj1, NSString *obj2)
     [[cell manageView] setHidden:YES];
 }
 
+
+// The add existing button of the add user cell has been pressed
+// Load a view displaying a list of unlinked children to add
 - (void)wantsAddExistingUserByCell:(id)cell
 {
     AddExistingChildViewController *aecvc = [[AddExistingChildViewController alloc] initWithNibName:@"AddExistingChildViewController" bundle:[NSBundle mainBundle]];
@@ -157,7 +170,10 @@ NSComparator caseInsensitiveComparator = ^(NSString *obj1, NSString *obj2)
     // Get Reusable login cell
     ManageChildTileCell* cell = nil;
     
-    if ([indexPath row]==[_childArray count]) {
+    if ([indexPath row]==[_childArray count])
+    {
+        // Take a manage child cell and change the buttons so that it has buttons to create or add
+        // A child.
         
         cell = [_childrenView dequeueReusableCellWithReuseIdentifier:@"AddUserCell"
                                                         forIndexPath:indexPath];
@@ -266,8 +282,11 @@ NSComparator caseInsensitiveComparator = ^(NSString *obj1, NSString *obj2)
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
+// Prepare for a user (here it should only be a child) to be deleted from the edit account view
+// This is done by removing the child from the data array
 - (void)willDeleteUser:(User *)user
 {
+    
     NSLog(@"Deleting User of Guardian Account");
     if ([_childArray containsObject:user]) {
         NSLog(@"In array to be removed");
@@ -279,6 +298,7 @@ NSComparator caseInsensitiveComparator = ^(NSString *obj1, NSString *obj2)
     [_childArray removeObject:user];
 }
 
+// After a child is deleted from the edit account view dismiss the edit account view
 - (void)didDeleteUser
 {
     [self dismissViewControllerAnimated:YES completion:NULL];
@@ -290,24 +310,16 @@ NSComparator caseInsensitiveComparator = ^(NSString *obj1, NSString *obj2)
 // If the user want to remove the child account do so
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if ([alertView isEqual:_confirmUnlinkAlertView] && buttonIndex == 1 && _activeTile>=0) {
+    if ([alertView isEqual:_confirmUnlinkAlertView] && buttonIndex == 1 && _activeTile>=0)
+    {
+        // If the user is responding to confirm an unlink, unlink the selected child account
+        
         GuardianUser *guardian = (GuardianUser*)[[UserDatabaseManager sharedInstance] activeUser];
         ChildUser *child = [_childArray objectAtIndex:_activeTile];
         
-        //if ([[child primaryGuardian] isEqual:guardian]) {
-        //    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Could Not Unlink Child"
-        //                                                    message:@"As you are the primary guardian of this child account, you may not unlink from this child account."
-        //                                                   delegate:nil
-        //                                          cancelButtonTitle:@"Okay"
-        //                                          otherButtonTitles: nil];
-        //    [alert show];
-        //}
-        //else
-        //{
-            [guardian removeChildrenObject:child];
-            [_childArray removeObjectAtIndex:_activeTile];
-            [_childrenView reloadData];
-        //}
+        [guardian removeChildrenObject:child];
+        [_childArray removeObjectAtIndex:_activeTile];
+        [_childrenView reloadData];
         
         _activeTile = -1;
         _confirmUnlinkAlertView = nil;
@@ -315,6 +327,7 @@ NSComparator caseInsensitiveComparator = ^(NSString *obj1, NSString *obj2)
     }
     else if([alertView isEqual:_confirmDeleteAlertView] && buttonIndex==1 && _activeTile>=0)
     {
+        // If the user is responding to confirm a delete, delete the child account
         ChildUser *child = [_childArray objectAtIndex:_activeTile];
         [_childArray removeObjectAtIndex:_activeTile];
         [_childrenView reloadData];
@@ -330,7 +343,10 @@ NSComparator caseInsensitiveComparator = ^(NSString *obj1, NSString *obj2)
 {
     [self dismissViewControllerAnimated:YES completion:NULL];
     
-    if (child) {
+    if (child)
+    {
+        // Add the child to the guardian, and insert the child into the data array and reload data
+        
         GuardianUser *gu = (GuardianUser *)[[UserDatabaseManager sharedInstance] activeUser];
         [child addGuardiansObject:gu];
         [child setPrimaryGuardian:gu];

@@ -96,7 +96,9 @@
         return;
     }
     
+    // Save the new password
     [_editedUser setPassword:[_newpass1 text]];
+    [[UserDatabaseManager sharedInstance] save];
     
     [_delegate passwordChangeFinished];
     

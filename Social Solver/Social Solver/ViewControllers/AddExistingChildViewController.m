@@ -51,6 +51,7 @@
 
 - (void)loadUsers
 {
+    // Load all the children that are not already linked to the guardian account
     NSMutableArray *children = [NSMutableArray arrayWithArray:[[UserDatabaseManager sharedInstance] getUserListOfType:@"Child"]];
     [children removeObjectsInArray:[[(GuardianUser*)[[UserDatabaseManager sharedInstance] activeUser] children] allObjects]];
     userArray = children;
@@ -67,11 +68,8 @@
 
 -(void) authenticatedUser:(User *)user
 {
-    // This method is called with an authenticated user to be set as the activeUser
     
-    // Dismiss the LoginPrompt
-    //[self dismissViewControllerAnimated:YES completion:NULL];
-    
+    // Tell the delegate to add the authenticated child
     [_delegate addExistingChild:(ChildUser *)user];
     
     
