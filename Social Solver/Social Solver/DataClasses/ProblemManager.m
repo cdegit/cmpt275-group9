@@ -81,20 +81,31 @@
     }
     
     Problem* nextProblem = [self nextProblemForGameMode:mode];
-    NSUInteger numAnswers = 3; // Hardcoded ATM but this will be dynamic based on capability of the user
-    NSMutableArray* incorrectAnswers = [self allAnswersFromProblemsArray:problemArray];
     
-    // Remove the correct answer
-    [incorrectAnswers removeObject:nextProblem.answer];
-    
-    [answers removeAllObjects];
-    [answers addObject:nextProblem.answer];
-    
-    // Add incorrect answers
-    for (NSUInteger i = 1; (i <= numAnswers - 1 && [incorrectAnswers count] > 0); i++) {
-        NSUInteger randI = arc4random() % [incorrectAnswers count];
-        [answers addObject:[incorrectAnswers objectAtIndex:randI]];
-        [incorrectAnswers removeObjectAtIndex:randI];
+    // If it's game mode 1 or 2 then setup with 2 incorrect answers and 1 correct answer
+    if (mode != GameModeProblemSolver)
+    {
+        NSUInteger numAnswers = 3; // Hardcoded ATM but this will be dynamic based on capability of the user
+        NSMutableArray* incorrectAnswers = [self allAnswersFromProblemsArray:problemArray];
+        
+        // Remove the correct answer
+        [incorrectAnswers removeObject:[nextProblem.correctAnswers lastObject]];
+        
+        [answers removeAllObjects];
+        [answers addObject:[nextProblem.correctAnswers lastObject]];
+        
+        // Add incorrect answers
+        for (NSUInteger i = 1; (i <= numAnswers - 1 && [incorrectAnswers count] > 0); i++) {
+            NSUInteger randI = arc4random() % [incorrectAnswers count];
+            [answers addObject:[incorrectAnswers objectAtIndex:randI]];
+            [incorrectAnswers removeObjectAtIndex:randI];
+        }
+    }
+    else
+    {
+        [answers removeAllObjects];
+        [answers addObjectsFromArray:nextProblem.correctAnswers];
+        [answers addObjectsFromArray:nextProblem.incorrectAnswers];
     }
     
     [self shuffleArray:answers];
@@ -147,7 +158,7 @@
     
     for (NSUInteger i = 0; i < [problems count]; i++) {
         Problem* p = [problems objectAtIndex:i];
-        [uniqueAnswers addObject:p.answer];
+        [uniqueAnswers addObjectsFromArray:p.correctAnswers];
     }
     
     // Put all the answers from the set into a mutable array

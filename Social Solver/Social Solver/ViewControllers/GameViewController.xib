@@ -1,19 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch.iPad" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch.iPad" variant="6xAndEarlier" propertyAccessControl="none">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GameViewController">
             <connections>
-                <outlet property="answer0button" destination="41" id="187"/>
-                <outlet property="answer1button" destination="49" id="188"/>
-                <outlet property="answer2button" destination="58" id="189"/>
-                <outlet property="answer3button" destination="87" id="190"/>
-                <outlet property="answer4button" destination="76" id="191"/>
-                <outlet property="answer5button" destination="68" id="192"/>
                 <outlet property="imageView" destination="199" id="208"/>
+                <outlet property="m1answer0button" destination="41" id="WY4-YB-Thg"/>
+                <outlet property="m1answer1button" destination="49" id="8zV-CH-gc2"/>
+                <outlet property="m1answer2button" destination="58" id="1tv-tT-Q0u"/>
+                <outlet property="m1answer3button" destination="87" id="KZ6-TK-8XK"/>
+                <outlet property="m1answer4button" destination="76" id="azy-Og-7QA"/>
+                <outlet property="m1answer5button" destination="68" id="c7h-Qx-oMf"/>
+                <outlet property="m3answer0button" destination="Jyg-m3-ucv" id="oUK-if-L0S"/>
+                <outlet property="m3answer1button" destination="A8j-Q2-X76" id="A32-Ph-Vmr"/>
+                <outlet property="m3answer2button" destination="qqi-DJ-1aN" id="ovT-Tp-l8B"/>
+                <outlet property="m3answer3button" destination="Aed-yJ-auM" id="4ke-MI-dpN"/>
+                <outlet property="m3answer4button" destination="quA-5J-UCe" id="psR-i9-QdZ"/>
+                <outlet property="m3answer5button" destination="HD6-98-5TE" id="tqJ-lp-x99"/>
+                <outlet property="mode1AnswerCaseView" destination="ikS-mR-pbK" id="K9K-7N-K2z"/>
+                <outlet property="mode3AnswerCaseView" destination="cKE-xl-tBF" id="74W-Dh-uji"/>
                 <outlet property="skipAnswerButton" destination="99" id="193"/>
                 <outlet property="videoContainer" destination="qGr-ad-QvU" id="VF6-H3-tbO"/>
                 <outlet property="videoDescription" destination="v0S-Wg-skw" id="oC3-d6-ufe"/>
@@ -26,122 +34,17 @@
             <rect key="frame" x="0.0" y="20" width="1024" height="748"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" image="circle_gradient.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="nsd-09-LSO">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" image="circle_gradient.jpg" id="nsd-09-LSO">
                     <rect key="frame" x="0.0" y="0.0" width="1024" height="748"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="382" verticalCompressionResistancePriority="1" translatesAutoresizingMaskIntoConstraints="NO" id="199">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="382" verticalCompressionResistancePriority="1" id="199">
                     <rect key="frame" x="186" y="20" width="653" height="400"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="653" id="1mD-sG-f4P"/>
-                    </constraints>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="41" userLabel="Button 0">
-                    <rect key="frame" x="75" y="463" width="262" height="72"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="262" id="f5y-I8-dIU"/>
-                        <constraint firstAttribute="height" constant="72" id="qPe-gE-25A"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="20"/>
-                    <state key="normal" title="Some long title to test" backgroundImage="Button 300x50 brighter.png">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="answerButtonPressed:" destination="-1" eventType="touchUpInside" id="210"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="49" userLabel="Button 1">
-                    <rect key="frame" x="378" y="463" width="262" height="72"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="72" id="AtV-f8-rA7"/>
-                        <constraint firstAttribute="width" constant="262" id="PhG-Lc-MQf"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="20"/>
-                    <state key="normal" backgroundImage="Button 300x50 brighter.png">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="answerButtonPressed:" destination="-1" eventType="touchUpInside" id="211"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="58" userLabel="Button 2">
-                    <rect key="frame" x="681" y="463" width="262" height="72"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="262" id="9p3-KR-2mV"/>
-                        <constraint firstAttribute="height" constant="72" id="Me6-Lw-fLd"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="20"/>
-                    <state key="normal" backgroundImage="Button 300x50 brighter.png">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="answerButtonPressed:" destination="-1" eventType="touchUpInside" id="212"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="87" userLabel="Button 3">
-                    <rect key="frame" x="75" y="565" width="262" height="72"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="262" id="V23-RZ-weV"/>
-                        <constraint firstAttribute="height" constant="72" id="a7e-4K-8mY"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="20"/>
-                    <state key="normal" backgroundImage="Button 300x50 brighter.png">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="answerButtonPressed:" destination="-1" eventType="touchUpInside" id="213"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="76" userLabel="Button 4">
-                    <rect key="frame" x="378" y="565" width="262" height="72"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="262" id="BKs-4U-JUY"/>
-                        <constraint firstAttribute="height" constant="72" id="FlQ-No-66b"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="20"/>
-                    <state key="normal" backgroundImage="Button 300x50 brighter.png">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="answerButtonPressed:" destination="-1" eventType="touchUpInside" id="214"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="68" userLabel="Button 5">
-                    <rect key="frame" x="681" y="565" width="262" height="72"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="72" id="Tay-ut-LOf"/>
-                        <constraint firstAttribute="width" constant="262" id="gA7-FX-UbY"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="20"/>
-                    <state key="normal" backgroundImage="Button 300x50 brighter.png">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="answerButtonPressed:" destination="-1" eventType="touchUpInside" id="215"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="99" userLabel="Skip">
-                    <rect key="frame" x="782" y="657" width="222" height="72"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="72" id="5mZ-bl-KP0"/>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="71" id="Ubp-sq-vgR"/>
-                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="222" id="bRA-rd-Bow"/>
-                        <constraint firstAttribute="width" constant="222" id="tec-Zx-jmi"/>
-                    </constraints>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="99" userLabel="Skip">
+                    <rect key="frame" x="782" y="666" width="222" height="72"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                     <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="20"/>
                     <state key="normal" title="Skip Question" backgroundImage="Button 300x50 brighter.png">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -151,21 +54,18 @@
                         <action selector="skipButtonPressed:" destination="-1" eventType="touchUpInside" id="194"/>
                     </connections>
                 </button>
-                <view contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="781" verticalCompressionResistancePriority="169" translatesAutoresizingMaskIntoConstraints="NO" id="Qib-4e-Ya8" userLabel="Video superview">
+                <view contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="781" verticalCompressionResistancePriority="169" id="Qib-4e-Ya8" userLabel="Video superview">
                     <rect key="frame" x="100" y="20" width="824" height="400"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <view contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" translatesAutoresizingMaskIntoConstraints="NO" id="qGr-ad-QvU" userLabel="Videoplayer Container">
+                        <view contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" id="qGr-ad-QvU" userLabel="Videoplayer Container">
                             <rect key="frame" x="0.0" y="0.0" width="576" height="400"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="400" id="qQH-Zi-aWv"/>
-                            </constraints>
                         </view>
-                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" showsHorizontalScrollIndicator="NO" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="v0S-Wg-skw">
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" showsHorizontalScrollIndicator="NO" editable="NO" textAlignment="center" id="v0S-Wg-skw">
                             <rect key="frame" x="576" y="0.0" width="248" height="400"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" heightSizable="YES"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="18"/>
@@ -173,56 +73,167 @@
                         </textView>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstItem="v0S-Wg-skw" firstAttribute="leading" secondItem="qGr-ad-QvU" secondAttribute="trailing" id="3eC-ca-Qn1"/>
-                        <constraint firstAttribute="bottom" secondItem="qGr-ad-QvU" secondAttribute="bottom" id="7DX-Nk-erq"/>
-                        <constraint firstItem="qGr-ad-QvU" firstAttribute="leading" secondItem="Qib-4e-Ya8" secondAttribute="leading" id="8Dv-Te-ach"/>
-                        <constraint firstItem="qGr-ad-QvU" firstAttribute="top" secondItem="Qib-4e-Ya8" secondAttribute="top" id="AY8-Qp-F9d"/>
-                        <constraint firstItem="qGr-ad-QvU" firstAttribute="bottom" secondItem="v0S-Wg-skw" secondAttribute="bottom" id="HoE-qL-VrX"/>
-                        <constraint firstAttribute="trailing" secondItem="qGr-ad-QvU" secondAttribute="trailing" constant="248" id="czd-tA-z1g"/>
-                        <constraint firstAttribute="trailing" secondItem="v0S-Wg-skw" secondAttribute="trailing" id="hOo-ZO-R8Z"/>
-                        <constraint firstItem="qGr-ad-QvU" firstAttribute="top" secondItem="v0S-Wg-skw" secondAttribute="top" id="hTE-sW-q3c"/>
-                    </constraints>
+                </view>
+                <view hidden="YES" contentMode="scaleToFill" id="ikS-mR-pbK" userLabel="Mode1 enclosing view">
+                    <rect key="frame" x="75" y="463" width="868" height="179"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="41" userLabel="Button 0">
+                            <rect key="frame" x="0.0" y="0.0" width="262" height="72"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="20"/>
+                            <state key="normal" title="Some long title to test" backgroundImage="Button 300x50 brighter.png">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="answerButtonPressed:" destination="-1" eventType="touchUpInside" id="210"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="49" userLabel="Button 1">
+                            <rect key="frame" x="303" y="0.0" width="262" height="72"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="20"/>
+                            <state key="normal" backgroundImage="Button 300x50 brighter.png">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="answerButtonPressed:" destination="-1" eventType="touchUpInside" id="211"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="58" userLabel="Button 2">
+                            <rect key="frame" x="606" y="0.0" width="262" height="72"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="20"/>
+                            <state key="normal" backgroundImage="Button 300x50 brighter.png">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="answerButtonPressed:" destination="-1" eventType="touchUpInside" id="212"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="87" userLabel="Button 3">
+                            <rect key="frame" x="0.0" y="102" width="262" height="72"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="20"/>
+                            <state key="normal" backgroundImage="Button 300x50 brighter.png">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="answerButtonPressed:" destination="-1" eventType="touchUpInside" id="213"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="76" userLabel="Button 4">
+                            <rect key="frame" x="303" y="102" width="262" height="72"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="20"/>
+                            <state key="normal" backgroundImage="Button 300x50 brighter.png">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="answerButtonPressed:" destination="-1" eventType="touchUpInside" id="214"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="68" userLabel="Button 5">
+                            <rect key="frame" x="606" y="102" width="262" height="72"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="20"/>
+                            <state key="normal" backgroundImage="Button 300x50 brighter.png">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="answerButtonPressed:" destination="-1" eventType="touchUpInside" id="215"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" id="cKE-xl-tBF" userLabel="Mode 3 enclosing view">
+                    <rect key="frame" x="31" y="430" width="973" height="219"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Jyg-m3-ucv" userLabel="Button 0" customClass="GameMode3Button">
+                            <rect key="frame" x="0.0" y="0.0" width="307" height="110"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="20"/>
+                            <state key="normal" backgroundImage="Button 300x50 brighter.png">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="answerButtonPressed:" destination="-1" eventType="touchUpInside" id="7ev-0F-34M"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="A8j-Q2-X76" userLabel="Button 1" customClass="GameMode3Button">
+                            <rect key="frame" x="333" y="0.0" width="307" height="110"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="20"/>
+                            <state key="normal" backgroundImage="Button 300x50 brighter.png">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="answerButtonPressed:" destination="-1" eventType="touchUpInside" id="GuO-4z-mFK"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="qqi-DJ-1aN" userLabel="Button 2" customClass="GameMode3Button">
+                            <rect key="frame" x="666" y="0.0" width="307" height="110"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="20"/>
+                            <state key="normal" backgroundImage="Button 300x50 brighter.png">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="answerButtonPressed:" destination="-1" eventType="touchUpInside" id="Cwz-g0-unT"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Aed-yJ-auM" userLabel="Button 3" customClass="GameMode3Button">
+                            <rect key="frame" x="0.0" y="118" width="307" height="110"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
+                            <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="20"/>
+                            <state key="normal" backgroundImage="Button 300x50 brighter.png">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="answerButtonPressed:" destination="-1" eventType="touchUpInside" id="99T-AN-fvb"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="quA-5J-UCe" userLabel="Button 4" customClass="GameMode3Button">
+                            <rect key="frame" x="333" y="118" width="307" height="110"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
+                            <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="20"/>
+                            <state key="normal" backgroundImage="Button 300x50 brighter.png">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="answerButtonPressed:" destination="-1" eventType="touchUpInside" id="lRF-xW-6lP"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="HD6-98-5TE" userLabel="Button 5" customClass="GameMode3Button">
+                            <rect key="frame" x="666" y="118" width="307" height="110"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" heightSizable="YES"/>
+                            <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="20"/>
+                            <state key="normal" backgroundImage="Button 300x50 brighter.png">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="answerButtonPressed:" destination="-1" eventType="touchUpInside" id="qRL-U8-AHC"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-            <constraints>
-                <constraint firstItem="58" firstAttribute="leading" secondItem="49" secondAttribute="trailing" constant="41" id="5yY-ch-59F"/>
-                <constraint firstItem="76" firstAttribute="leading" secondItem="87" secondAttribute="trailing" constant="41" id="7xW-Sb-GQV"/>
-                <constraint firstItem="nsd-09-LSO" firstAttribute="top" secondItem="2" secondAttribute="top" id="A7b-wO-nBc"/>
-                <constraint firstItem="199" firstAttribute="top" secondItem="2" secondAttribute="top" constant="20" id="DEp-kX-Gqp"/>
-                <constraint firstItem="58" firstAttribute="leading" secondItem="68" secondAttribute="leading" id="DYx-UF-JBL"/>
-                <constraint firstItem="58" firstAttribute="top" secondItem="49" secondAttribute="top" id="FAd-PQ-K80"/>
-                <constraint firstItem="87" firstAttribute="top" secondItem="68" secondAttribute="top" id="HBY-zr-ZbF"/>
-                <constraint firstItem="58" firstAttribute="baseline" secondItem="49" secondAttribute="baseline" id="IBJ-FY-uyu"/>
-                <constraint firstItem="199" firstAttribute="bottom" secondItem="Qib-4e-Ya8" secondAttribute="bottom" id="INh-Rg-SG0"/>
-                <constraint firstItem="Qib-4e-Ya8" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="100" id="KGU-jT-F3J"/>
-                <constraint firstAttribute="trailing" secondItem="nsd-09-LSO" secondAttribute="trailing" id="Kwk-sQ-mhf"/>
-                <constraint firstItem="Qib-4e-Ya8" firstAttribute="top" secondItem="2" secondAttribute="top" constant="20" id="Rcn-kM-RNY"/>
-                <constraint firstAttribute="trailing" secondItem="58" secondAttribute="trailing" constant="81" id="SNC-K8-NVf"/>
-                <constraint firstItem="58" firstAttribute="top" secondItem="199" secondAttribute="bottom" constant="43" id="SNp-z0-bBS"/>
-                <constraint firstItem="Qib-4e-Ya8" firstAttribute="centerX" secondItem="199" secondAttribute="centerX" id="Stp-Zn-gcT"/>
-                <constraint firstItem="49" firstAttribute="leading" secondItem="41" secondAttribute="trailing" constant="41" id="Vm0-qm-uN1"/>
-                <constraint firstItem="49" firstAttribute="top" relation="greaterThanOrEqual" secondItem="199" secondAttribute="bottom" constant="20" id="YML-pJ-si1"/>
-                <constraint firstItem="49" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Qib-4e-Ya8" secondAttribute="bottom" constant="20" id="cWe-9F-lnw"/>
-                <constraint firstAttribute="bottom" secondItem="nsd-09-LSO" secondAttribute="bottom" id="d8J-N7-2pg"/>
-                <constraint firstItem="87" firstAttribute="baseline" secondItem="68" secondAttribute="baseline" id="djD-db-rpz"/>
-                <constraint firstAttribute="trailing" secondItem="Qib-4e-Ya8" secondAttribute="trailing" constant="100" id="gTE-rR-LTi"/>
-                <constraint firstItem="58" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Qib-4e-Ya8" secondAttribute="bottom" constant="20" id="h19-9j-Sam"/>
-                <constraint firstItem="68" firstAttribute="top" relation="greaterThanOrEqual" secondItem="58" secondAttribute="bottom" constant="20" id="l8Q-4w-Ax6" userLabel="Vertical Space - (23) - Button 5 - Button 2"/>
-                <constraint firstItem="68" firstAttribute="leading" secondItem="76" secondAttribute="trailing" constant="41" id="mFS-Ym-kPy"/>
-                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="99" secondAttribute="trailing" constant="20" id="niD-f4-dP7"/>
-                <constraint firstItem="58" firstAttribute="top" secondItem="41" secondAttribute="top" id="ohB-qd-t1e"/>
-                <constraint firstItem="87" firstAttribute="baseline" secondItem="76" secondAttribute="baseline" id="qMT-q1-YWf"/>
-                <constraint firstItem="199" firstAttribute="centerX" secondItem="2" secondAttribute="centerX" id="qWo-Is-98k"/>
-                <constraint firstItem="87" firstAttribute="top" secondItem="76" secondAttribute="top" id="qxt-Vb-Anh"/>
-                <constraint firstAttribute="trailing" secondItem="99" secondAttribute="trailing" constant="20" id="r7a-e5-M4n"/>
-                <constraint firstItem="nsd-09-LSO" firstAttribute="leading" secondItem="2" secondAttribute="leading" id="sHl-Np-HDl"/>
-                <constraint firstItem="199" firstAttribute="top" relation="greaterThanOrEqual" secondItem="2" secondAttribute="top" constant="20" id="uig-tG-nhQ"/>
-                <constraint firstItem="99" firstAttribute="top" secondItem="68" secondAttribute="bottom" constant="20" id="vEg-wv-iDS"/>
-                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="99" secondAttribute="bottom" constant="19" id="vk4-ad-8mA"/>
-                <constraint firstAttribute="bottom" secondItem="99" secondAttribute="bottom" constant="19" id="zeP-v8-zOg"/>
-            </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
         </view>

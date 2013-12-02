@@ -7,6 +7,7 @@
 //
 //  Worked on by: David Woods
 
+//  Edited in version 3
 
 // This is the game engine for all 3 of our game modes
 
@@ -21,17 +22,28 @@ enum GameMode {
 
 @interface GameViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UIButton *answer0button;
-@property (weak, nonatomic) IBOutlet UIButton *answer1button;
-@property (weak, nonatomic) IBOutlet UIButton *answer2button;
-@property (weak, nonatomic) IBOutlet UIButton *answer3button;
-@property (weak, nonatomic) IBOutlet UIButton *answer4button;
-@property (weak, nonatomic) IBOutlet UIButton *answer5button;
+// Mode 1 and 2 answer buttons
+@property (weak, nonatomic) IBOutlet UIButton *m1answer0button;
+@property (weak, nonatomic) IBOutlet UIButton *m1answer1button;
+@property (weak, nonatomic) IBOutlet UIButton *m1answer2button;
+@property (weak, nonatomic) IBOutlet UIButton *m1answer3button;
+@property (weak, nonatomic) IBOutlet UIButton *m1answer4button;
+@property (weak, nonatomic) IBOutlet UIButton *m1answer5button;
+// Mode 3 answer buttons
+@property (weak, nonatomic) IBOutlet UIButton *m3answer0button;
+@property (weak, nonatomic) IBOutlet UIButton *m3answer1button;
+@property (weak, nonatomic) IBOutlet UIButton *m3answer2button;
+@property (weak, nonatomic) IBOutlet UIButton *m3answer3button;
+@property (weak, nonatomic) IBOutlet UIButton *m3answer4button;
+@property (weak, nonatomic) IBOutlet UIButton *m3answer5button;
+
 @property (weak, nonatomic) IBOutlet UIButton *skipAnswerButton;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIView *videoSuperview;
 @property (weak, nonatomic) IBOutlet UIView *videoContainer;
 @property (weak, nonatomic) IBOutlet UITextView *videoDescription;
+@property (weak, nonatomic) IBOutlet UIView* mode1AnswerCaseView;
+@property (weak, nonatomic) IBOutlet UIView* mode3AnswerCaseView;
 
 - (id)initWithGameMode:(enum GameMode)mode;
 

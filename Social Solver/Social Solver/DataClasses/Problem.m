@@ -12,7 +12,7 @@
 
 @implementation Problem
 
-@synthesize ID, mediaFileName, mediaType, answer, videoDescription, iconFileName;
+@synthesize ID, mediaFileName, mediaType, videoDescription, iconFileName;
 
 - (id)initWithAttributes:(NSDictionary*)attrDict
 {
@@ -21,7 +21,20 @@
     self.ID = [num unsignedIntegerValue];
     
     self.mediaFileName = (NSString*)[attrDict objectForKey:@"fileName"];
-    self.answer = (NSString*)[attrDict objectForKey:@"answer"];
+    // For game mode 2 and 3 there is only 1 answer
+    NSString* answer = [attrDict objectForKey:@"answer"];
+    if (answer != nil) {
+        [self.correctAnswers addObject:answer];
+    }
+    // For game mode 3 there are multiple correct answers
+    NSArray* cAnswers = (NSArray*)[attrDict objectForKey:@"correctAnswers"];
+    [self.correctAnswers addObjectsFromArray:cAnswers];
+    // There are also incorrectAnswers for game mode 3.
+    NSArray* incAnswers = (NSArray*)[attrDict objectForKey:@"incorrectAnswers"];
+    if (incAnswers != nil) {
+        [self.incorrectAnswers addObjectsFromArray:incAnswers];
+    }
+    
     self.videoDescription = (NSString*)[attrDict objectForKey:@"videoDescription"];
     self.iconFileName = (NSString*)[attrDict objectForKey:@"iconFileName"];
     
@@ -39,6 +52,22 @@
     }
     
     return self;
+}
+
+- (NSMutableArray*)correctAnswers
+{
+    if (_correctAnswers == nil) {
+        _correctAnswers = [[NSMutableArray alloc] init];
+    }
+    return _correctAnswers;
+}
+
+- (NSMutableArray*)incorrectAnswers
+{
+    if (_incorrectAnswers == nil) {
+        _incorrectAnswers = [[NSMutableArray alloc] init];
+    }
+    return _incorrectAnswers;
 }
 
 @end

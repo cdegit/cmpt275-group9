@@ -101,6 +101,7 @@
 		EA0D973F184BC3D7005F2EE0 /* suzy-cry-bear.png in Resources */ = {isa = PBXBuildFile; fileRef = EA0D972F184BC3D7005F2EE0 /* suzy-cry-bear.png */; };
 		EA0D9742184BFB9F005F2EE0 /* Suzy_find_Billyplayingherbear.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EA0D9740184BFB9F005F2EE0 /* Suzy_find_Billyplayingherbear.mp4 */; };
 		EA0D9743184BFB9F005F2EE0 /* Suzy_give_Billy_icecream_happy.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EA0D9741184BFB9F005F2EE0 /* Suzy_give_Billy_icecream_happy.mp4 */; };
+		EA0D9746184C0B80005F2EE0 /* GameMode3Button.m in Sources */ = {isa = PBXBuildFile; fileRef = EA0D9745184C0B80005F2EE0 /* GameMode3Button.m */; };
 		EA16940C18162A7700C40069 /* Problem.m in Sources */ = {isa = PBXBuildFile; fileRef = EA16940B18162A7700C40069 /* Problem.m */; };
 		EA16940F18162B2B00C40069 /* ProblemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EA16940E18162B2B00C40069 /* ProblemManager.m */; };
 		EA16941B18163C5C00C40069 /* LevelCompleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA16941918163C5C00C40069 /* LevelCompleteViewController.m */; };
@@ -361,6 +362,8 @@
 		EA0D972F184BC3D7005F2EE0 /* suzy-cry-bear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "suzy-cry-bear.png"; sourceTree = "<group>"; };
 		EA0D9740184BFB9F005F2EE0 /* Suzy_find_Billyplayingherbear.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Suzy_find_Billyplayingherbear.mp4; sourceTree = "<group>"; };
 		EA0D9741184BFB9F005F2EE0 /* Suzy_give_Billy_icecream_happy.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Suzy_give_Billy_icecream_happy.mp4; sourceTree = "<group>"; };
+		EA0D9744184C0B80005F2EE0 /* GameMode3Button.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameMode3Button.h; path = Views/GameMode3Button.h; sourceTree = "<group>"; };
+		EA0D9745184C0B80005F2EE0 /* GameMode3Button.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameMode3Button.m; path = Views/GameMode3Button.m; sourceTree = "<group>"; };
 		EA16940A18162A7700C40069 /* Problem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Problem.h; sourceTree = "<group>"; };
 		EA16940B18162A7700C40069 /* Problem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Problem.m; sourceTree = "<group>"; };
 		EA16940D18162B2B00C40069 /* ProblemManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProblemManager.h; sourceTree = "<group>"; };
@@ -1126,6 +1129,8 @@
 		EACC6801180B941C00FEAC76 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EA0D9744184C0B80005F2EE0 /* GameMode3Button.h */,
+				EA0D9745184C0B80005F2EE0 /* GameMode3Button.m */,
 				2A730F9E1819A4EA000356DE /* LoginUserSelectionCell.h */,
 				2A730F9F1819A4EA000356DE /* LoginUserSelectionCell.m */,
 				2A6C6D04183AC6270018F407 /* ManageChildTileCell.h */,
@@ -1471,6 +1476,7 @@
 				81D71E83183ED26800D1E63D /* RewardsGalleryCell.m in Sources */,
 				EACC67FC180B4C7400FEAC76 /* GuardianMainMenuViewController.m in Sources */,
 				EACC6800180B4ECD00FEAC76 /* UserDatabaseManager.m in Sources */,
+				EA0D9746184C0B80005F2EE0 /* GameMode3Button.m in Sources */,
 				EACC6804180B944E00FEAC76 /* NavigationTableCell.m in Sources */,
 				049E1240183BEDE600083303 /* SettingViewController.m in Sources */,
 				2A730FA01819A4EA000356DE /* LoginUserSelectionCell.m in Sources */,

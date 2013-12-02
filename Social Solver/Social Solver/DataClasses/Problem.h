@@ -8,6 +8,10 @@
 //  Worked on by: David Woods
 
 
+//  This class is data class containing information about a problem displayed in the game
+
+//  Modified in version 3
+
 #import <Foundation/Foundation.h>
 
 enum MediaType {
@@ -24,7 +28,8 @@ enum MediaType {
 @property (nonatomic) enum MediaType mediaType;
 @property (nonatomic, strong) NSString* mediaFileName;
 @property (nonatomic, strong) NSString* iconFileName;
-@property (nonatomic, strong) NSString* answer;
+@property (nonatomic, strong) NSMutableArray* correctAnswers;
+@property (nonatomic, strong) NSMutableArray* incorrectAnswers;
 @property (nonatomic, strong) NSString* videoDescription;
 @property (nonatomic) NSUInteger ID;
 

@@ -148,7 +148,7 @@ How is Suzy feeling?</string>
 
 How is Suzy feeling?</string>
 		</dict>
-        <dict>
+		<dict>
 			<key>iconFileName</key>
 			<string>broken-bear-75x85.png</string>
 			<key>fileName</key>
@@ -165,7 +165,7 @@ How is Suzy feeling?</string>
                 
 What is Suzy feeling? </string>
 		</dict>
-        <dict>
+		<dict>
 			<key>iconFileName</key>
 			<string>play-ball-75x85.png</string>
 			<key>fileName</key>
@@ -182,7 +182,7 @@ What is Suzy feeling? </string>
                 
 What is Billy feeling? </string>
 		</dict>
-        <dict>
+		<dict>
 			<key>iconFileName</key>
 			<string>sound-off.png</string>
 			<key>fileName</key>
@@ -199,7 +199,7 @@ What is Billy feeling? </string>
                 
 What is Suzy feeling?</string>
 		</dict>
-        <dict>
+		<dict>
 			<key>iconFileName</key>
 			<string>sound-off.png</string>
 			<key>fileName</key>
@@ -218,8 +218,8 @@ What is Billy feeling? </string>
 		</dict>
 	</array>
 	<key>Mode3</key>
-    <array>
-        <dict>
+	<array>
+		<dict>
 			<key>iconFileName</key>
 			<string>ice-cream.png</string>
 			<key>fileName</key>
@@ -228,15 +228,25 @@ What is Billy feeling? </string>
 			<integer>300</integer>
 			<key>mediaType</key>
 			<string>MediaTypeVideo</string>
-			<key>answer</key>
-			<string>Give it back to Suzy and say &quot;No thank you.&quot;</string>
+			<key>correctAnswers</key>
+			<array>
+				<string>Give it back to Suzy and say “No thank you.”</string>
+				<string>See if someone else wants it</string>
+				<string>Give it to an adult to find someone else who might want it</string>
+			</array>
+			<key>incorrectAnswers</key>
+			<array>
+				<string>Throw the ice cream on the ground</string>
+				<string>Get mad at Suzy</string>
+				<string>Throw the ice cream at Suzy</string>
+			</array>
 			<key>videoDescription</key>
 			<string>Suzy gives Billy an ice cream cone, but Billy doesn’t want it.
                 
                 
 What should he do?</string>
 		</dict>
-        <dict>
+		<dict>
 			<key>iconFileName</key>
 			<string>billy-destroying.png</string>
 			<key>fileName</key>
@@ -245,15 +255,25 @@ What should he do?</string>
 			<integer>301</integer>
 			<key>mediaType</key>
 			<string>MediaTypeVideo</string>
-			<key>answer</key>
-			<string>Tell the teacher</string>
+			<key>correctAnswers</key>
+			<array>
+				<string>Tell an adult</string>
+				<string>Help the other children fix their toys</string>
+				<string>Stay away from Billy</string>
+			</array>
+			<key>incorrectAnswers</key>
+			<array>
+				<string>Cheer for Billy</string>
+				<string>Join Billy and break things</string>
+				<string>Don’t tell an adult</string>
+			</array>
 			<key>videoDescription</key>
 			<string>Billy is angry and is breaking people’s toys.
                 
                 
 What should Suzy do?</string>
 		</dict>
-        <dict>
+		<dict>
 			<key>iconFileName</key>
 			<string>suzy-cry-bear.png</string>
 			<key>fileName</key>
@@ -262,15 +282,25 @@ What should Suzy do?</string>
 			<integer>302</integer>
 			<key>mediaType</key>
 			<string>MediaTypeVideo</string>
-			<key>answer</key>
-			<string>Comfort Suzy</string>
+			<key>correctAnswers</key>
+			<array>
+				<string>Comfort Suzy</string>
+				<string>Get her a new toy</string>
+				<string>Tell an adult</string>
+			</array>
+			<key>incorrectAnswers</key>
+			<array>
+				<string>Ignore Suzy</string>
+				<string>Take the broken toy</string>
+				<string>Don&apos;t tell an adult</string>
+			</array>
 			<key>videoDescription</key>
 			<string>Billy sees Suzy crying in a corner. Her toy is broken.
                 
                 
 What should Billy do?</string>
 		</dict>
-        <dict>
+		<dict>
 			<key>iconFileName</key>
 			<string>billy-suzy-fight.png</string>
 			<key>fileName</key>
@@ -279,15 +309,25 @@ What should Billy do?</string>
 			<integer>303</integer>
 			<key>mediaType</key>
 			<string>MediaTypeVideo</string>
-			<key>answer</key>
-			<string>Talk to Billy and apologize</string>
+			<key>correctAnswers</key>
+			<array>
+				<string>Talk to Billy and apologize</string>
+				<string>Let an adult know that Billy is upset and might need help</string>
+				<string>Let an adult know why you got into a fight</string>
+			</array>
+			<key>incorrectAnswers</key>
+			<array>
+				<string>Ignore Billy and don’t tell an adult</string>
+				<string>Follow Billy and keep fighting</string>
+				<string>Yell at Billy</string>
+			</array>
 			<key>videoDescription</key>
 			<string>Billy and Suzy get into a fight, and Billy storms off upset.
                 
                 
 What should Suzy do?</string>
 		</dict>
-        <dict>
+		<dict>
 			<key>iconFileName</key>
 			<string>problem-broken bear toy.png</string>
 			<key>fileName</key>
@@ -296,15 +336,25 @@ What should Suzy do?</string>
 			<integer>304</integer>
 			<key>mediaType</key>
 			<string>MediaTypeVideo</string>
-			<key>answer</key>
-			<string>Talk to Suzy and apologize</string>
+			<key>correctAnswers</key>
+			<array>
+				<string>Talk to Suzy and apologize</string>
+				<string>Ask a guardian to fix it</string>
+				<string>Help Suzy find another toy</string>
+			</array>
+			<key>incorrectAnswers</key>
+			<array>
+				<string>Leave without apologizing</string>
+				<string>Rip off the other arm</string>
+				<string>Take the broken toy</string>
+			</array>
 			<key>videoDescription</key>
 			<string>Billy and Suzy are playing together when he accidentally rips an arm off of her teddy bear.
                 
                 
 What should Billy do?</string>
 		</dict>
-        <dict>
+		<dict>
 			<key>iconFileName</key>
 			<string>ask-to-play.png</string>
 			<key>fileName</key>
@@ -313,8 +363,18 @@ What should Billy do?</string>
 			<integer>305</integer>
 			<key>mediaType</key>
 			<string>MediaTypeVideo</string>
-			<key>answer</key>
-			<string>Offer to play with Billy</string>
+			<key>correctAnswers</key>
+			<array>
+				<string>Offer to play with Billy</string>
+				<string>Tell Billy he can have it in 5 minutes</string>
+				<string>Suggest Billy play with another toy</string>
+			</array>
+			<key>incorrectAnswers</key>
+			<array>
+				<string>Ignore Billy</string>
+				<string>Yell at Billy</string>
+				<string>Rip the toy in half so they can share</string>
+			</array>
 			<key>videoDescription</key>
 			<string>Suzy is playing with a teddy bear that Billy wants. Billy asks her for it.
                 

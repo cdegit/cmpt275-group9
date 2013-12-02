@@ -15,6 +15,7 @@
 #import "ChildProblemData.h"
 #import "Session.h"
 #import "AudioManager.h"
+#import "GameMode3Button.h"
 #import <MediaPlayer/MediaPlayer.h>
 
 #define MAX_LEVEL_TIME 120
@@ -28,6 +29,13 @@
 @property (nonatomic, strong) NSMutableArray* answers;
 @property (nonatomic, strong) MPMoviePlayerController* videoPlayer;
 @property (nonatomic, strong) NSDate* startTime;
+
+@property (weak, nonatomic) UIButton *answer0button;
+@property (weak, nonatomic) UIButton *answer1button;
+@property (weak, nonatomic) UIButton *answer2button;
+@property (weak, nonatomic) UIButton *answer3button;
+@property (weak, nonatomic) UIButton *answer4button;
+@property (weak, nonatomic) UIButton *answer5button;
 
 - (void)presentLevelCompleteViewShowingCongratsMessage:(bool)show;
 - (void)setupNextProblem;
@@ -129,6 +137,10 @@
 
 - (void)layoutForCurrentProblem
 {
+    // Show the correct layout for the game mode
+    self.mode1AnswerCaseView.hidden = (self.gameMode == GameModeProblemSolver);
+    self.mode3AnswerCaseView.hidden = (self.gameMode != GameModeProblemSolver);
+    
     NSUInteger i = 0;
     
     // Unhide all answer buttons
@@ -310,10 +322,7 @@
 
 - (NSArray*)answerButtons
 {
-    if (answerButtons == nil) {
-        answerButtons = @[self.answer0button, self.answer1button, self.answer2button, self.answer3button, self.answer4button, self.answer5button];
-    }
-    return answerButtons;
+    return @[self.answer0button, self.answer1button, self.answer2button, self.answer3button, self.answer4button, self.answer5button];
 }
 
 - (NSMutableArray*)answers
@@ -324,6 +333,37 @@
     return answers;
 }
 
+- (UIButton*)answer0button
+{
+    return ((self.gameMode == GameModeProblemSolver) ? self.m3answer0button : self.m1answer0button);
+}
+
+- (UIButton*)answer1button
+{
+    return ((self.gameMode == GameModeProblemSolver) ? self.m3answer1button : self.m1answer1button);
+}
+
+- (UIButton*)answer2button
+{
+    return ((self.gameMode == GameModeProblemSolver) ? self.m3answer2button : self.m1answer2button);
+}
+
+- (UIButton*)answer3button
+{
+    return ((self.gameMode == GameModeProblemSolver) ? self.m3answer3button : self.m1answer3button);
+}
+
+- (UIButton*)answer4button
+{
+    return ((self.gameMode == GameModeProblemSolver) ? self.m3answer4button : self.m1answer4button);
+}
+
+- (UIButton*)answer5button
+{
+    return ((self.gameMode == GameModeProblemSolver) ? self.m3answer5button : self.m1answer5button);
+}
+
+
 // Event handlers -------------------------------------------------------------------------------------------
 
 - (IBAction)skipButtonPressed:(UIButton*)sender
@@ -333,9 +373,15 @@
 }
 
 - (IBAction)answerButtonPressed:(UIButton*)sender {
-    NSString* answerChosen = sender.titleLabel.text;
+    NSString* answerChosen = nil;
+    if ([sender isKindOfClass:[GameMode3Button class]]) {
+        answerChosen = ((GameMode3Button*)sender).longLabel.text;
+    }
+    else {
+        answerChosen = sender.titleLabel.text;
+    }
     
-    if ([answerChosen isEqualToString:self.currentProblem.answer])
+    if ([self.currentProblem.correctAnswers containsObject:answerChosen])
     {
         // Play correct sound
         [[AudioManager sharedInstance] playCheering];
