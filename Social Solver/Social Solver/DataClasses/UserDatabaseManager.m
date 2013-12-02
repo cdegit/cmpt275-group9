@@ -173,6 +173,7 @@ static UserDatabaseManager* instance = nil;
 {
     NSManagedObjectContext *mv = [(AppDelegate*)[[UIApplication sharedApplication] delegate] managedObjectContext];
     [mv deleteObject:user];
+    [mv processPendingChanges];
     NSError* err;
     [mv save:&err];
 }
