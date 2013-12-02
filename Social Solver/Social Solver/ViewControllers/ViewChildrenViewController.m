@@ -350,6 +350,7 @@ NSComparator caseInsensitiveComparator = ^(NSString *obj1, NSString *obj2)
         GuardianUser *gu = (GuardianUser *)[[UserDatabaseManager sharedInstance] activeUser];
         [child addGuardiansObject:gu];
         [child setPrimaryGuardian:gu];
+        [[UserDatabaseManager sharedInstance] save];
         
         NSUInteger index = [_childArray indexOfObject:child inSortedRange:(NSRange){0, [_childArray count]} options:NSBinarySearchingInsertionIndex usingComparator:^(ChildUser* c1, ChildUser* c2)
                             {
