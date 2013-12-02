@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 Group 9. All rights reserved.
 //
 // Version 3
+//
+// The cell used by the rewards gallery
 
 #import "RewardsGalleryCell.h"
 

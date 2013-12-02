@@ -5,6 +5,10 @@
 //  Created by David Woods on 13-10-13.
 //  Copyright (c) 2013 Group 9. All rights reserved.
 //
+// Updated by Cassandra de Git, Version 3
+//
+// Displays what the current logged in child user has completed
+// Levels that have not yet been completed are greyed out, while completed levels are in colour
 
 #import "RewardsGalleryViewController.h"
 #import "RewardsGalleryCell.h"
@@ -38,6 +42,7 @@
         
         ProblemManager *pm = [[ProblemManager alloc] init];
         
+        // Initialize problem lists so that the images can be shown
         faceFinderProblems = [pm allProblemsForGameMode:GameModeFaceFinder];
         sceneSolverProblems = [pm allProblemsForGameMode:GameModeStorySolver];
         problemSolverProblems = [pm allProblemsForGameMode:GameModeProblemSolver];

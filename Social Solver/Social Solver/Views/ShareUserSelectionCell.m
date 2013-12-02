@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 Group 9. All rights reserved.
 //
 // Version 2
+//
+// Cell used for sharing users. Has a switch on it that is activated when the tile is pressed.
 
 #import "ShareUserSelectionCell.h"
 

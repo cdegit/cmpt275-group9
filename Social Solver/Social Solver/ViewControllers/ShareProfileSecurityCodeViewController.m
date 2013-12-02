@@ -6,6 +6,11 @@
 //  Copyright (c) 2013 Group 9. All rights reserved.
 //
 // Version 2 
+//
+// Sends the server request to share a user account and displays the result of that action to the user
+// If the share is successful, a code is displayed for the user to send to the guardian they have shared to
+// If the share is unsuccessful, and error is displayed and they are prompted to try again
+
 
 #import "ShareProfileSecurityCodeViewController.h"
 #import "ServerCommunicationManager.h"
