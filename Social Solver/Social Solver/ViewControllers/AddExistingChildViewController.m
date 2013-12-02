@@ -51,8 +51,9 @@
 
 - (void)loadUsers
 {
-    
-    userArray = [[UserDatabaseManager sharedInstance] getUserListOfType:@"Child"];
+    NSMutableArray *children = [NSMutableArray arrayWithArray:[[UserDatabaseManager sharedInstance] getUserListOfType:@"Child"]];
+    [children removeObjectsInArray:[[(GuardianUser*)[[UserDatabaseManager sharedInstance] activeUser] children] allObjects]];
+    userArray = children;
 }
 
 #pragma mark - LoginPromptViewControllerDelegate Methods
