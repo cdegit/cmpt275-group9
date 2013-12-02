@@ -115,16 +115,19 @@
 {
     Problem *problem;
     
+    RewardsGalleryCell* cell;
+    
     // Get Reusable login cell
     if (collectionView == _faceFinderCollectionView) {
         problem = (Problem*)[faceFinderProblems objectAtIndex:[indexPath row]];
+        cell = [_faceFinderCollectionView dequeueReusableCellWithReuseIdentifier:@"RewardCell" forIndexPath:indexPath];
     } else if (collectionView == _sceneSolverCollectionView) { // if it is the collection for game 2
         problem = (Problem*)[sceneSolverProblems objectAtIndex:[indexPath row]];
+        cell = [_sceneSolverCollectionView dequeueReusableCellWithReuseIdentifier:@"RewardCell" forIndexPath:indexPath];
     } else if (collectionView == _problemSolverCollectionView) { // if it is the collection for game 3
         problem = (Problem*)[problemSolverProblems objectAtIndex:[indexPath row]];
+        cell = [_problemSolverCollectionView dequeueReusableCellWithReuseIdentifier:@"RewardCell" forIndexPath:indexPath];
     }
-    
-    RewardsGalleryCell* cell = [_faceFinderCollectionView dequeueReusableCellWithReuseIdentifier:@"RewardCell" forIndexPath:indexPath];
      
     [[cell nameLabel] setText:@""];
     

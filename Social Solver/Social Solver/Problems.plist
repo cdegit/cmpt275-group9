@@ -150,7 +150,7 @@ How is Suzy feeling?</string>
 		</dict>
 		<dict>
 			<key>iconFileName</key>
-			<string>broken-bear-75x85.png</string>
+			<string>broken-bear.png</string>
 			<key>fileName</key>
 			<string>Suzy_findbearbroken</string>
 			<key>ID</key>
@@ -184,7 +184,7 @@ What is Billy feeling? </string>
 		</dict>
 		<dict>
 			<key>iconFileName</key>
-			<string>sound-off.png</string>
+			<string>bill-playing-suzys-bear.png</string>
 			<key>fileName</key>
 			<string>Suzy_find_Billyplayingherbear</string>
 			<key>ID</key>
@@ -201,7 +201,7 @@ What is Suzy feeling?</string>
 		</dict>
 		<dict>
 			<key>iconFileName</key>
-			<string>sound-off.png</string>
+			<string>suzy-gives-billy-ice-cream.png</string>
 			<key>fileName</key>
 			<string>Suzy_give_Billy_icecream_happy</string>
 			<key>ID</key>
@@ -221,7 +221,7 @@ What is Billy feeling? </string>
 	<array>
 		<dict>
 			<key>iconFileName</key>
-			<string>ice-cream.png</string>
+			<string>billy-dislike-icecream.png</string>
 			<key>fileName</key>
 			<string>Billy_dontlike_Icecreamsuzygave</string>
 			<key>ID</key>
@@ -329,7 +329,7 @@ What should Suzy do?</string>
 		</dict>
 		<dict>
 			<key>iconFileName</key>
-			<string>problem-broken bear toy.png</string>
+			<string>break-toy.png</string>
 			<key>fileName</key>
 			<string>billy_broken_beararm</string>
 			<key>ID</key>
