@@ -38,6 +38,7 @@
 
 - (void)loginUser:(User*)user;
 - (void)logoutActiveUser;
+- (void)quickLogout;
 - (void)requestLogout:(id<LogoutRequestDelegate>)del;
 
 

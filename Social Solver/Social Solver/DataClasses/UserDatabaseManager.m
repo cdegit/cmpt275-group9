@@ -269,6 +269,12 @@ static UserDatabaseManager* instance = nil;
     _sessionDate = nil;
 }
 
+- (void)quickLogout
+{
+    _activeUser = nil;
+    _sessionDate = nil;
+}
+
 - (void)requestLogout:(id<LogoutRequestDelegate>)del
 {
     // Asks if the user wants to logout

@@ -429,7 +429,7 @@
         case 1:
             // If the user is logged in log them out.
             if ([_editedUser isEqual:[[UserDatabaseManager sharedInstance] activeUser]]) {
-                [[UserDatabaseManager sharedInstance] logoutActiveUser];
+                [[UserDatabaseManager sharedInstance] quickLogout];
             }
             // Tell the delegate that the given user is about to be deleted
             [_delegate willDeleteUser:_editedUser];
