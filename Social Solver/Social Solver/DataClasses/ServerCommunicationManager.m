@@ -397,7 +397,7 @@ static NSString* SCRIPT_DELETE_ACCOUNT = @"deleteAccount";
 // Get the dates of the sessions which are currently on the server's database
 - (void)sessionDatesOnServerForChild:(ChildUser*)user withCompletion:(void (^)(NSArray*))completionHandler
 {
-    NSDictionary* jsonObject = @{ @"ChildID" : [NSString stringWithFormat:@"%i", user.uid] };
+    NSDictionary* jsonObject = @{ @"ChildID" : [NSString stringWithFormat:@"%li", (long)user.uid] };
     
     NSURL* url = [self urlForScript:SCRIPT_GET_SESSION_DATES jsonObject:jsonObject];
     

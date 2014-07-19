@@ -69,7 +69,7 @@
     }
     
     // Make sure that password reaches the minimum length
-    NSInteger minLength = [_userType isEqualToString:@"Child"] ? 2 : 6;
+    int minLength = [_userType isEqualToString:@"Child"] ? 2 : 6;
     
     if ([[_newpass1 text] length]<minLength) {
         [[[UIAlertView alloc] initWithTitle:@"Invalid New Password"

@@ -271,7 +271,7 @@
         UIImage* image = [UIImage imageNamed:problem.iconFileName];
         
         if (image == nil) {
-            NSAssert(false, @"Failed to find file %@ for problem with ID %i", problem.iconFileName, problem.ID);
+            NSAssert(false, @"Failed to find file %@ for problem with ID %lu", problem.iconFileName, problem.ID);
         }
         
         [cell.imageView setImage:image];
@@ -303,7 +303,7 @@
     NSMutableArray* retVal = [[NSMutableArray alloc] init];
     for (Problem* p in self.legendEmotionList)
     {
-        [retVal addObject:[NSNumber numberWithInt:p.ID]];
+		[retVal addObject:[NSNumber numberWithUnsignedInteger:p.ID]];
     }
     return retVal;
 }
@@ -555,7 +555,7 @@
         
         // Update our gameMode
         NSUInteger gameModeIndex = [self.gameModePickerValues indexOfObject:self.gameModeButton.titleLabel.text];
-        self.gameMode = gameModeIndex;
+        self.gameMode = (enum GameMode)gameModeIndex;
         
         // Update the problem collection
         ProblemManager* pm = [[ProblemManager alloc] initWithUser:nil];
@@ -573,7 +573,7 @@
     else if (self.buttonDisplayingPopover == self.dataButton && ![self.prePopoverDataType isEqualToString:self.dataButton.titleLabel.text])
     {
         NSUInteger yDataType = [self.dataTypePickerValues indexOfObject:self.dataButton.titleLabel.text];
-        self.yDataType = yDataType;
+        self.yDataType = (enum GraphYDataType)yDataType;
         
         self.graphVC.yDataType = self.yDataType;
         [self.graphVC reloadGraph];

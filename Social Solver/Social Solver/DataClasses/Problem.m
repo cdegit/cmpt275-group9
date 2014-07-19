@@ -48,7 +48,7 @@
         self.mediaType = MediaTypeVideo;
     }
     else {
-        NSLog(@"Unrecognized mediaType for problem with ID %d", self.ID);
+        NSLog(@"Unrecognized mediaType for problem with ID %lu", (unsigned long)self.ID);
     }
     
     return self;

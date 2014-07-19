@@ -218,7 +218,7 @@
         }
         
         // Make sure that password reaches the minimum length
-        NSInteger minLength = [_userType isEqualToString:@"Child"] ? 2 : 6;
+        int minLength = [_userType isEqualToString:@"Child"] ? 2 : 6;
         
         if ([[_passwordField text] length]<minLength) {
             [[[UIAlertView alloc] initWithTitle:@"Cannot Save" message:[NSString stringWithFormat:@"The password must be at least %i characters long", minLength] delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil] show];

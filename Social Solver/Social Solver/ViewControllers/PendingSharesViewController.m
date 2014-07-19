@@ -69,7 +69,7 @@ NSMutableArray* tableData;
     _activityIndicator.hidden = YES;
     _numberOfShares.hidden = NO;
     tableData = [shareRequests mutableCopy];
-    _numberOfShares.text = [NSString stringWithFormat:@"%d", [tableData count]];
+    _numberOfShares.text = [NSString stringWithFormat:@"%lu", (unsigned long)[tableData count]];
     
     [self.table reloadData];
 }
@@ -111,7 +111,7 @@ NSMutableArray* tableData;
     if (index != NSNotFound)
     {
         [tableData removeObjectAtIndex:index];
-        self.numberOfShares.text = [NSString stringWithFormat:@"%i", [tableData count]];
+        self.numberOfShares.text = [NSString stringWithFormat:@"%lu", (unsigned long)[tableData count]];
         [self.table reloadData];
     }
 }
@@ -135,7 +135,7 @@ NSMutableArray* tableData;
         // Update the table
         [tableData removeObjectAtIndex:selectedChildIndex];
         [self.table reloadData];
-        _numberOfShares.text = [NSString stringWithFormat:@"%d", [tableData count]];
+        _numberOfShares.text = [NSString stringWithFormat:@"%lu", (unsigned long)[tableData count]];
     }
     else
     {
@@ -153,7 +153,7 @@ NSMutableArray* tableData;
                 // Update the table
                 [tableData removeObjectAtIndex:selectedChildIndex];
                 [self.table reloadData];
-                _numberOfShares.text = [NSString stringWithFormat:@"%d", [tableData count]];
+                _numberOfShares.text = [NSString stringWithFormat:@"%lu", (unsigned long)[tableData count]];
             }
             // Check the error code
             else if (err.code == 1010)
