@@ -80,6 +80,11 @@
     UIBarButtonItem* backButton = [[UIBarButtonItem alloc] initWithTitle:@"Main Menu" style:UIBarButtonItemStyleBordered
                                                                   target:self action:@selector(backButtonPressed:)];
     self.navigationItem.leftBarButtonItem = backButton;
+	
+	// Set this for iOS 7 so that content is not displayed underneath navigation bar
+	if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7) {
+		[self setEdgesForExtendedLayout:UIRectEdgeNone];
+	}
     
     [self setupNextProblem];
 }

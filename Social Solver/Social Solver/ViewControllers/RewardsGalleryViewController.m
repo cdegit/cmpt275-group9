@@ -94,6 +94,11 @@
     [problemSolverCollectionLayout setMinimumInteritemSpacing:35.0];
     [problemSolverCollectionLayout setMinimumLineSpacing:20.0];
     [problemSolverCollectionLayout setSectionInset:UIEdgeInsetsMake(20.0, 20.0, 20.0, 20.0)];
+	
+	// Set this for iOS 7 so that content is not displayed underneath navigation bar
+	if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7) {
+		[self setEdgesForExtendedLayout:UIRectEdgeNone];
+	}
 }
 
 - (void)didReceiveMemoryWarning

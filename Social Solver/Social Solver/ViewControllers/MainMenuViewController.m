@@ -45,6 +45,12 @@
     [self.navigationItem setBackBarButtonItem:back];
     
     self.soundButton.selected = [[AudioManager sharedInstance] soundEnabled];
+	
+	// Set this for iOS 7 so that content is not displayed underneath navigation bar
+	if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7) {
+		[self setEdgesForExtendedLayout:UIRectEdgeNone];
+	}
+	
 }
 
 - (void)viewWillAppear:(BOOL)animated

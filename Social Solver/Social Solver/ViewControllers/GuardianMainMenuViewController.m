@@ -70,6 +70,11 @@ const int SHARE_PROFILES = 4;
     
     UIBarButtonItem* logout = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStyleDone target:self action:@selector(handleLogoutTapped)];
     self.navigationItem.leftBarButtonItem = logout;
+	
+	// Set this for iOS 7 so that content is not displayed underneath navigation bar
+	if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7) {
+		[self setEdgesForExtendedLayout:UIRectEdgeNone];
+	}
 }
 
 - (void)didReceiveMemoryWarning

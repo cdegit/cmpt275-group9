@@ -66,6 +66,11 @@
     //Set initial userType to Child
     userType = @"Child";
     [self loadUsers];
+	
+	// Set this for iOS 7 so that content is not displayed underneath navigation bar
+	if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7) {
+		[self setEdgesForExtendedLayout:UIRectEdgeNone];
+	}
     
 }
 
