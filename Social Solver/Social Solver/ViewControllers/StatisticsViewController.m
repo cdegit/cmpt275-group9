@@ -271,7 +271,7 @@
         UIImage* image = [UIImage imageNamed:problem.iconFileName];
         
         if (image == nil) {
-            NSAssert(false, @"Failed to find file %@ for problem with ID %lu", problem.iconFileName, problem.ID);
+            NSAssert(false, @"Failed to find file %@ for problem with ID %lu", problem.iconFileName, (unsigned long)problem.ID);
         }
         
         [cell.imageView setImage:image];
